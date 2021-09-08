@@ -1,0 +1,2 @@
+# MySchoolProject
+A school project
