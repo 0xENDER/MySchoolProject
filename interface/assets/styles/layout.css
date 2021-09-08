@@ -1,0 +1,64 @@
+body {
+    min-height: 100vh;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --topbar-height: 52px;
+    --sectionsbar-width: 64px;
+    --sectionsbar-height: calc(100% - var(--topbar-height));
+    --sectionsbar-top: var(--topbar-height);
+    --sectionsbar-right: none;
+    --pagecontent-left: var(--sectionsbar-width);
+    --pagecontent-height: calc(100% - var(--topbar-height));
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --topbar-height: 64px;
+        --sectionsbar-width: 100%;
+        --sectionsbar-height: 64px;
+        --sectionsbar-top: none;
+        --sectionsbar-right: 0px;
+        --pagecontent-left: 0px;
+        --pagecontent-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
+    }
+}
+
+.layout--topbar {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    height: var(--topbar-height);
+    background-color: var(--topbar-background);
+}
+
+.layout--sectionsbar {
+    position: fixed;
+    top: var(--sectionsbar-top);
+    bottom: 0px;
+    left: 0px;
+    right: var(--sectionsbar-right);
+    height: var(--sectionsbar-height);
+    width: var(--sectionsbar-width);
+    background-color: var(--sectionsbar-background);
+}
+
+.layout--pagecontent {
+    position: fixed;
+    top: var(--topbar-height);
+    right: 0px;
+    left: var(--pagecontent-left);
+    width: calc(100% - var(--pagecontent-left));
+    height: var(--pagecontent-height);
+    background-color: var(--pagecontent-background);
+    overflow: hidden;
+}

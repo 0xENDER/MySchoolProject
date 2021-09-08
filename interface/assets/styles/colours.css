@@ -1,0 +1,20 @@
+/* Light mode */
+
+:root {
+    color-scheme: light;
+    --topbar-background: #e8e8e8;
+    --sectionsbar-background: #e8e8e8;
+    --pagecontent-background: #fbfbfb;
+}
+
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+     :root {
+        color-scheme: dark;
+        --topbar-background: #212121;
+        --sectionsbar-background: #212121;
+        --pagecontent-background: #2d2d2d;
+    }
+}
