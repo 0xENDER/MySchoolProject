@@ -1,3 +1,39 @@
+:root {
+    --componentsection-marginFactor: 2;
+}
+
 button.component--button {
     background-color: red;
+}
+
+.component--cover {
+    width: 100%;
+    height: 96vh;
+    background-color: blue;
+}
+
+.component--section {
+    width: calc(100% - var(--global-sidesmargin)*2);
+    min-height: 10px;
+    background-color: green;
+    margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
+}
+
+#scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 100%;
+    border-left: 1px solid #3e3e3e;
+    background-color: #eee;
+}
+
+#handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 10px;
+    background-color: #aaa;
 }

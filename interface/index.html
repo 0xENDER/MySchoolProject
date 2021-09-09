@@ -130,12 +130,28 @@
 
     </div>
 
-
     <!-- Content-related styles -->
     <link itemprop="url" rel="stylesheet" href="./assets/styles/components.css">
 
     <!-- The page content -->
-    <div class="layout--pagecontent"></div>
+    <div id="page" class="layout--pagecontent">
+
+        <!-- The scrollbar -->
+        <div id="scrollbar">
+            <span id="handle"></span>
+        </div>
+
+        <!-- [START] The layout of the main page -->
+        <div class="component--cover"></div>
+        <div class="component--section"></div>
+        <div class="component--section"></div>
+        <div class="component--section"></div>
+        <!-- [END] The layout of the main page -->
+
+    </div>
+
+    <!-- Content-related scripts -->
+    <script type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
 
 </body>
 

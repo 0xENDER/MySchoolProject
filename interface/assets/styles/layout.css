@@ -112,7 +112,9 @@ body {
     width: calc(100% - var(--pagecontent-left));
     height: var(--pagecontent-height);
     background-color: var(--pagecontent-background);
-    overflow: hidden;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 [signed-in] {
