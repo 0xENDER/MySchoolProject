@@ -75,7 +75,7 @@
     <script type="text/javascript" src="./assets/scripts/platform.js"></script>
     <script type="text/javascript">
         // Is the user signed in? (PHP required)
-        document.documentElement.dataset.signedin = false;
+        document.documentElement.dataset.signedin = true;
     </script>
 
 </head>
@@ -133,12 +133,19 @@
     <!-- Content-related styles -->
     <link itemprop="url" rel="stylesheet" href="./assets/styles/components.css">
 
+    <!-- Content-related scripts -->
+    <script type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
+
     <!-- The page content -->
     <div id="page" class="layout--pagecontent">
 
         <!-- The scrollbar -->
-        <div id="scrollbar">
-            <span id="handle"></span>
+        <div class="component--scrollbar">
+            <span id="scrollbar--top" class="component--scrollbar-top"></span>
+            <span id="scrollbar" class="component--scrollbar-handlecontainer">
+                <span id="scrollbar--handle" class="component--scrollbar-handle"></span>
+            </span>
+            <span id="scrollbar--bottom" class="component--scrollbar-bottom"></span>
         </div>
 
         <!-- [START] The layout of the main page -->
@@ -148,10 +155,11 @@
         <div class="component--section"></div>
         <!-- [END] The layout of the main page -->
 
-    </div>
+        <script>
+            linkScrollbar(document.getElementById("page"));
+        </script>
 
-    <!-- Content-related scripts -->
-    <script type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
+    </div>
 
 </body>
 

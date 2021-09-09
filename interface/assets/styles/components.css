@@ -1,16 +1,26 @@
 :root {
     --componentsection-marginFactor: 2;
+    --scrollbar-width: 8px;
 }
+
+
+/* Buttons */
 
 button.component--button {
     background-color: red;
 }
+
+
+/* Screen covers */
 
 .component--cover {
     width: 100%;
     height: 96vh;
     background-color: blue;
 }
+
+
+/* Sections */
 
 .component--section {
     width: calc(100% - var(--global-sidesmargin)*2);
@@ -19,21 +29,51 @@ button.component--button {
     margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
 }
 
-#scrollbar {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 17px;
-    height: 100%;
+
+/* The scrollbar */
+
+.component--scrollbar {
+    position: fixed;
+    right: 0px;
+    top: var(--topbar-height);
+    bottom: 0px;
+    width: var(--scrollbar-width);
+    height: calc(100% - var(--topbar-height));
     border-left: 1px solid #3e3e3e;
     background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-#handle {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 17px;
-    height: 10px;
-    background-color: #aaa;
+.component--scrollbar-top,
+.component--scrollbar-bottom {
+    position: relative;
+    width: 100%;
+    height: var(--scrollbar-width);
+    background-color: yellow;
+}
+
+.component--scrollbar-top {
+    padding-top: var(--global-topbottommargin);
+}
+
+.component--scrollbar-bottom {
+    padding-bottom: var(--global-topbottommargin);
+}
+
+.component--scrollbar-handlecontainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: greenyellow;
+}
+
+.component--scrollbar-handle {
+    position: relative;
+    display: block;
+    top: 0px;
+    width: 100%;
+    height: 0px;
+    background-color: indigo;
 }
