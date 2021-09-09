@@ -1,4 +1,31 @@
 <!DOCTYPE html>
+
+<!--
+
+    Project Idea: Online Apps Store
+    Student: Adel Sbeh
+    Start Date: September 8th 2021
+    Finish Date: -
+    Planned Components: - An interface
+                        - An accounts system
+                        - Apps Ownership and downloads History Syncing
+                        - A working apps upload and distribution system
+                        - A working suggestions system
+    Used languages: - JavaScript    
+                    - PHP
+                    - HTML
+                    - CSS
+                    - JSON
+
+    This is an online store for all kinds of programs.
+    The website is gonna mainly offer normal apps and
+    games.
+
+    The user will have the option to sign in to manage
+    the downloads history, requests, and payments.
+
+-->
+
 <html lang="en" data-signedin="false">
 
 <head>
@@ -47,7 +74,8 @@
     <!-- Scripts -->
     <script type="text/javascript" src="./assets/scripts/platform.js"></script>
     <script type="text/javascript">
-        document.documentElement.dataset.signedin = true;
+        // Is the user signed in? (PHP required)
+        document.documentElement.dataset.signedin = false;
     </script>
 
 </head>
@@ -56,31 +84,57 @@
 
     <div class="layout--loadingscreen"></div>
 
+    <!-- The top-bar -->
     <div class="layout--topbar">
+
+        <!-- The branding -->
         <div class="layout--topbar-component layout--topbar-left">
             <img class="layout--topbar-logo" alt="Logo" width="32px" height="32px">
             <text class="layout--topbar-title">MyStore</text>
         </div>
+
+        <!-- The search bar -->
         <div class="layout--topbar-component layout--topbar-center">
             <div class="layout--topbar-search"></div>
         </div>
+
+        <!-- The account info -->
         <div class="layout--topbar-component layout--topbar-right">
+
+            <!-- If the user is signed in, show the user profile with the username. -->
             <text class="layout--topbar-username">[Username]</text>
             <img class="layout--topbar-profile" alt="Profile Picture" width="32px" height="32px">
+
+            <!-- If the user is not signed in, show the sign in button. -->
             <button class="layout--topbar-button component--button">Sign In</button>
+
         </div>
+
     </div>
+
+    <!-- The side-bar/bottom-bar -->
     <div class="layout--sectionsbar">
+
+        <!-- The top/main section of the side-bar -->
         <div class="layout--sectionsbar-component layout--sectionsbar-top">
             <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
             <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
             <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
         </div>
+
+        <!-- The bottom section of the side-bar -->
         <div class="layout--sectionsbar-component layout--sectionsbar-bottom">
             <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
             <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
         </div>
+
     </div>
+
+
+    <!-- Content-related styles -->
+    <link itemprop="url" rel="stylesheet" href="./assets/styles/components.css">
+
+    <!-- The page content -->
     <div class="layout--pagecontent"></div>
 
 </body>
