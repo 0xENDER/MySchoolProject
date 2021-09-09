@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false">
+<html lang="en" data-signedin="false">
 
 <head>
 
@@ -46,6 +46,9 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="./assets/scripts/platform.js"></script>
+    <script type="text/javascript">
+        document.documentElement.dataset.signedin = true;
+    </script>
 
 </head>
 
@@ -55,21 +58,28 @@
 
     <div class="layout--topbar">
         <div class="layout--topbar-component layout--topbar-left">
-            <img class="layout--topbar-logo" width="32px" height="32px">
+            <img class="layout--topbar-logo" alt="Logo" width="32px" height="32px">
             <text class="layout--topbar-title">MyStore</text>
         </div>
         <div class="layout--topbar-component layout--topbar-center">
             <div class="layout--topbar-search"></div>
         </div>
         <div class="layout--topbar-component layout--topbar-right">
+            <text class="layout--topbar-username">[Username]</text>
+            <img class="layout--topbar-profile" alt="Profile Picture" width="32px" height="32px">
+            <button class="layout--topbar-button component--button">Sign In</button>
         </div>
     </div>
-    <div class="layout--topbarsearch">
-        <div class="layout--topbarsearch-box"></div>
-    </div>
     <div class="layout--sectionsbar">
-        <div class="layout--sectionsbar-component layout--sectionsbar-top"></div>
-        <div class="layout--sectionsbar-component layout--sectionsbar-bottom"></div>
+        <div class="layout--sectionsbar-component layout--sectionsbar-top">
+            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+        </div>
+        <div class="layout--sectionsbar-component layout--sectionsbar-bottom">
+            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+        </div>
     </div>
     <div class="layout--pagecontent"></div>
 

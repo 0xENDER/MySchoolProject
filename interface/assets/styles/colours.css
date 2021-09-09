@@ -2,9 +2,9 @@
 
 :root {
     color-scheme: light;
-    --topbar-background: #e8e8e8;
-    --sectionsbar-background: #e8e8e8;
-    --pagecontent-background: #fbfbfb;
+    --topbar-background: #8B8B8B;
+    --sectionsbar-background: #C4C4C4;
+    --pagecontent-background: #FFFFFF;
 }
 
 
@@ -13,8 +13,8 @@
 @media (prefers-color-scheme: dark) {
      :root {
         color-scheme: dark;
-        --topbar-background: #212121;
-        --sectionsbar-background: #212121;
-        --pagecontent-background: #2d2d2d;
+        --topbar-background: #8B8B8B;
+        --sectionsbar-background: #C4C4C4;
+        --pagecontent-background: #FFFFFF;
     }
 }

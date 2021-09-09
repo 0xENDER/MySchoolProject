@@ -16,9 +16,10 @@ body {
 /* Dynamic variables */
 
 :root {
-    --global-sidesmargin: 16px;
+    --global-sidesmargin: 21px;
+    --global-topbottommargin: 8px;
     --topbar-height: 52px;
-    --sectionsbar-width: 64px;
+    --sectionsbar-width: 74px;
     --sectionsbar-height: calc(100% - var(--topbar-height));
     --sectionsbar-top: var(--topbar-height);
     --sectionsbar-right: none;
@@ -27,21 +28,28 @@ body {
     --sectionsbar-flexdirection: column;
     --sectionsbar-bottomdisplay: inline-block;
     --topbarcomponent-grow: 1;
-    --topbarsearch-width: 40%;
-    --topbarsearch-height: calc(var(--topbar-height) - 10px);
+    --topbarsearch-width: 60%;
+    --topbarsearch-height: calc(var(--topbar-height) - 16px);
     --topbarcenter-padding: 0px;
     --topbarright-position: relative;
-    --topbarright-right: none;
+    --topbarright-right: var(--global-sidesmargin);
     --topbarright-width: none;
     --topbarright-height: none;
     --topbarleft-display: flex;
+    --topbarcomponent-width: 20%;
+    --sectionsbarcomponent-justifycontent: normal;
+    --sectionsbaritem-margin: calc((var(--sectionsbar-width) - 48px) / 2);
+    --sectionsbar-padding: 0px;
+    --sectionsbartop-justifycontent: normal;
+    --topbarusername-display: flex;
+    --topbarprofile-marginright: 0px;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --topbar-height: 64px;
         --sectionsbar-width: 100%;
-        --sectionsbar-height: 64px;
+        --sectionsbar-height: 74px;
         --sectionsbar-top: none;
         --sectionsbar-right: 0px;
         --pagecontent-left: 0px;
@@ -57,14 +65,20 @@ body {
         --topbarright-width: var(--topbar-height);
         --topbarright-height: var(--topbar-height);
         --topbarleft-display: none;
+        --topbarcomponent-width: none;
+        --sectionsbarcomponent-justifycontent: center;
+        --sectionsbaritem-margin: calc((var(--sectionsbar-height) - 52px) / 2);
+        --sectionsbar-padding: var(--global-sidesmargin);
+        --sectionsbartop-justifycontent: space-evenly;
+        --topbarusername-display: none;
+        --topbarprofile-marginright: 8px;
     }
 }
 
 
 /* Main layout components */
 
-.layout--topbar,
-.layout--topbarsearch {
+.layout--topbar {
     position: fixed;
     top: 0px;
     right: 0px;
@@ -73,12 +87,7 @@ body {
     height: var(--topbar-height);
     background-color: var(--topbar-background);
     display: flex;
-}
-
-.layout--topbarsearch {
-    background-color: transparent;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .layout--sectionsbar {
@@ -106,17 +115,26 @@ body {
     overflow: hidden;
 }
 
+[signed-in] {
+    display: var(--accountdependent-display);
+}
+
+[signed-out] {
+    display: var(--notaccountdependent-display);
+}
+
 
 /* Main layout sub-components */
 
 .layout--topbar-component {
     flex-grow: var(--topbarcomponent-grow);
     align-items: center;
+    max-width: var(--topbarcomponent-width);
+    min-width: var(--topbarcomponent-width);
 }
 
 .layout--topbar-left {
     display: var(--topbarleft-display);
-    background-color: red;
     justify-content: left;
     padding-left: var(--global-sidesmargin);
 }
@@ -126,11 +144,12 @@ body {
     padding: 0px var(--topbarcenter-padding);
     flex-grow: 4;
     justify-content: center;
-    background-color: blue;
+    max-width: none;
+    min-width: none;
 }
 
 .layout--topbar-right {
-    background-color: green;
+    display: flex;
     position: var(--topbarright-position);
     right: var(--topbarright-right);
     width: var(--topbarright-width);
@@ -139,32 +158,72 @@ body {
 }
 
 .layout--sectionsbar-component {
+    display: flex;
     flex-grow: 1;
+    justify-content: var(--sectionsbarcomponent-justifycontent);
 }
 
 .layout--sectionsbar-top {
     flex-grow: 3;
-    background-color: aqua;
+    flex-direction: var(--sectionsbar-flexdirection);
+    padding: 0px var(--sectionsbar-padding);
+    justify-content: var(--sectionsbartop-justifycontent);
 }
 
 .layout--sectionsbar-bottom {
-    background-color: yellow;
     display: var(--sectionsbar-bottomdisplay);
+    align-items: bottom;
+    flex-grow: 0;
+    padding-bottom: var(--global-topbottommargin);
 }
 
 
 /* Sub-layout components */
 
-.layout--topbarsearch-box {
-    background-color: blueviolet;
+.layout--topbar-search {
+    background-color: #C0C0C0;
     width: var(--topbarsearch-width);
     height: var(--topbarsearch-height);
 }
 
-.layout--topbar-logo {
-    background-color: brown;
+.layout--topbar-logo,
+.layout--topbar-profile {
+    background-color: #545454;
+    width: 32px;
+    width: 32px;
+    overflow: hidden;
 }
 
 .layout--topbar-title {
     margin-left: var(--global-sidesmargin);
+}
+
+.layout--topbar-profile {
+    display: none;
+    border-radius: 1000px;
+    margin-right: var(--topbarprofile-marginright);
+}
+
+.layout--topbar-username {
+    display: none;
+    margin-right: var(--global-sidesmargin);
+}
+
+[data-signedin="true"] .layout--topbar-username {
+    display: var(--topbarusername-display);
+}
+
+[data-signedin="true"] .layout--topbar-profile {
+    display: flex;
+}
+
+[data-signedin="true"] .layout--topbar-button {
+    display: none;
+}
+
+.layout--sectionsbar-item {
+    width: 48px;
+    height: 48px;
+    background-color: #808080;
+    margin: var(--sectionsbaritem-margin);
 }
