@@ -1,3 +1,5 @@
+/* Body and HTML styles */
+
 body {
     min-height: 100vh;
 }
@@ -7,9 +9,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--topbar-background);
 }
 
+
+/* Dynamic variables */
+
 :root {
+    --global-sidesmargin: 16px;
     --topbar-height: 52px;
     --sectionsbar-width: 64px;
     --sectionsbar-height: calc(100% - var(--topbar-height));
@@ -17,6 +24,17 @@ body {
     --sectionsbar-right: none;
     --pagecontent-left: var(--sectionsbar-width);
     --pagecontent-height: calc(100% - var(--topbar-height));
+    --sectionsbar-flexdirection: column;
+    --sectionsbar-bottomdisplay: inline-block;
+    --topbarcomponent-grow: 1;
+    --topbarsearch-width: 40%;
+    --topbarsearch-height: calc(var(--topbar-height) - 10px);
+    --topbarcenter-padding: 0px;
+    --topbarright-position: relative;
+    --topbarright-right: none;
+    --topbarright-width: none;
+    --topbarright-height: none;
+    --topbarleft-display: flex;
 }
 
 @media all and (max-width: 840px) {
@@ -28,10 +46,25 @@ body {
         --sectionsbar-right: 0px;
         --pagecontent-left: 0px;
         --pagecontent-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
+        --sectionsbar-flexdirection: row;
+        --sectionsbar-bottomdisplay: none;
+        --topbarcomponent-grow: 0;
+        --topbarsearch-width: 100%;
+        --topbarsearch-height: calc(var(--topbar-height) - 20px);
+        --topbarcenter-padding: var(--global-sidesmargin);
+        --topbarright-position: absolute;
+        --topbarright-right: var(--topbarcenter-padding);
+        --topbarright-width: var(--topbar-height);
+        --topbarright-height: var(--topbar-height);
+        --topbarleft-display: none;
     }
 }
 
-.layout--topbar {
+
+/* Main layout components */
+
+.layout--topbar,
+.layout--topbarsearch {
     position: fixed;
     top: 0px;
     right: 0px;
@@ -39,6 +72,13 @@ body {
     width: 100%;
     height: var(--topbar-height);
     background-color: var(--topbar-background);
+    display: flex;
+}
+
+.layout--topbarsearch {
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
 }
 
 .layout--sectionsbar {
@@ -50,6 +90,9 @@ body {
     height: var(--sectionsbar-height);
     width: var(--sectionsbar-width);
     background-color: var(--sectionsbar-background);
+    display: flex;
+    flex-direction: var(--sectionsbar-flexdirection);
+    justify-content: space-between;
 }
 
 .layout--pagecontent {
@@ -61,4 +104,67 @@ body {
     height: var(--pagecontent-height);
     background-color: var(--pagecontent-background);
     overflow: hidden;
+}
+
+
+/* Main layout sub-components */
+
+.layout--topbar-component {
+    flex-grow: var(--topbarcomponent-grow);
+    align-items: center;
+}
+
+.layout--topbar-left {
+    display: var(--topbarleft-display);
+    background-color: red;
+    justify-content: left;
+    padding-left: var(--global-sidesmargin);
+}
+
+.layout--topbar-center {
+    display: flex;
+    padding: 0px var(--topbarcenter-padding);
+    flex-grow: 4;
+    justify-content: center;
+    background-color: blue;
+}
+
+.layout--topbar-right {
+    background-color: green;
+    position: var(--topbarright-position);
+    right: var(--topbarright-right);
+    width: var(--topbarright-width);
+    height: var(--topbarright-height);
+    justify-content: right;
+}
+
+.layout--sectionsbar-component {
+    flex-grow: 1;
+}
+
+.layout--sectionsbar-top {
+    flex-grow: 3;
+    background-color: aqua;
+}
+
+.layout--sectionsbar-bottom {
+    background-color: yellow;
+    display: var(--sectionsbar-bottomdisplay);
+}
+
+
+/* Sub-layout components */
+
+.layout--topbarsearch-box {
+    background-color: blueviolet;
+    width: var(--topbarsearch-width);
+    height: var(--topbarsearch-height);
+}
+
+.layout--topbar-logo {
+    background-color: brown;
+}
+
+.layout--topbar-title {
+    margin-left: var(--global-sidesmargin);
 }

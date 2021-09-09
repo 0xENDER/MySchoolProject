@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false">
 
 <head>
 
@@ -9,11 +9,10 @@
     <base href="http://127.0.0.1:5500/interface/">
 
     <!-- Preload important files (First-print styles, data scripts, etc.) -->
-    <link rel="preload" href="assets/styles/layout.css" as="style">
-    <link rel="preload" href="assets/styles/colours.css" as="style">
+    <link rel="preload" href="./assets/styles/layout.css" as="style">
+    <link rel="preload" href="./assets/styles/colours.css" as="style">
 
-
-    <!-- Do some important -->
+    <!-- Do some important stuff -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <meta name="referrer" content="strict-origin">
@@ -35,26 +34,43 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
-
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
-    <meta name="color-scheme" media="(prefers-color-scheme: light)" content="light">
-    <meta name="color-scheme" media="(prefers-color-scheme: dark)" content="dark">
-    <!--<meta name="color-scheme" content="dark">-->
 
     <!-- The page title -->
     <title>Home | MyStore</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/styles/layout.css">
-    <link rel="stylesheet" href="assets/styles/colours.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css">
+    <link rel="stylesheet" href="./assets/styles/colours.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="./assets/scripts/platform.js"></script>
 
 </head>
 
 <body>
 
-    <div class="layout--topbar"></div>
-    <div class="layout--sectionsbar"></div>
+    <div class="layout--loadingscreen"></div>
+
+    <div class="layout--topbar">
+        <div class="layout--topbar-component layout--topbar-left">
+            <img class="layout--topbar-logo" width="32px" height="32px">
+            <text class="layout--topbar-title">MyStore</text>
+        </div>
+        <div class="layout--topbar-component layout--topbar-center">
+            <div class="layout--topbar-search"></div>
+        </div>
+        <div class="layout--topbar-component layout--topbar-right">
+        </div>
+    </div>
+    <div class="layout--topbarsearch">
+        <div class="layout--topbarsearch-box"></div>
+    </div>
+    <div class="layout--sectionsbar">
+        <div class="layout--sectionsbar-component layout--sectionsbar-top"></div>
+        <div class="layout--sectionsbar-component layout--sectionsbar-bottom"></div>
+    </div>
     <div class="layout--pagecontent"></div>
 
 </body>
