@@ -92,19 +92,19 @@ function linkScrollbar() { // Link a scrollbar to the page
     }, window.platform.special.intervalRefreshRate);
 
     // Set up the scrollbar handle events
-    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart); // Detect when the mouse is down
-    scrollbar.handle.addEventListener("touchstart", scrollbar.clickStart); // Detect touch action start
-    window.addEventListener('mousemove', scrollbar.moving); // Detect when the mouse movies
-    window.addEventListener('touchmove', scrollbar.moving); // Detect when the touch position changes
-    window.addEventListener("mouseup", scrollbar.clickEnd); // Detect when the mouse is up (globally)
-    window.addEventListener("touchend", scrollbar.clickEnd); // Detect touch action end (globally)
+    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, { passive: true }); // Detect when the mouse is down
+    scrollbar.handle.addEventListener("touchstart", scrollbar.clickStart, { passive: true }); // Detect touch action start
+    window.addEventListener('mousemove', scrollbar.moving, { passive: true }); // Detect when the mouse movies
+    window.addEventListener('touchmove', scrollbar.moving, { passive: true }); // Detect when the touch position changes
+    window.addEventListener("mouseup", scrollbar.clickEnd, { passive: true }); // Detect when the mouse is up (globally)
+    window.addEventListener("touchend", scrollbar.clickEnd, { passive: true }); // Detect touch action end (globally)
 
     // Set up the scrollbar container events
     scrollbar.container.addEventListener("mousedown", function(e) {
         if (!didClickStart) {
             scrollToOffset(e.offsetY - (scrollbar.handle.clientHeight / 2), true);
         }
-    });
+    }, { passive: true });
 
     // Set up the top & bottom buttons events
     var didClickTop = false,
@@ -124,7 +124,7 @@ function linkScrollbar() { // Link a scrollbar to the page
                 }, window.platform.special.intervalRefreshRate);
             }, window.platform.special.scrollLockPeriod);
         }
-    });
+    }, { passive: true });
     scrollbar.bottomButton.addEventListener("mousedown", function() {
         if (!didClickStart && !didClickBottom) {
             didClickBottom = true;
@@ -136,7 +136,7 @@ function linkScrollbar() { // Link a scrollbar to the page
                 }, window.platform.special.intervalRefreshRate);
             }, window.platform.special.scrollLockPeriod);
         }
-    });
+    }, { passive: true });
     window.addEventListener("mouseup", function() {
         if (didClickTop) {
             didClickTop = false;
@@ -146,7 +146,7 @@ function linkScrollbar() { // Link a scrollbar to the page
             topTimeout = null;
             topInterval = null;
         }
-    });
+    }, { passive: true });
     window.addEventListener("mouseup", function() {
         if (didClickBottom) {
             didClickBottom = false;
@@ -156,7 +156,7 @@ function linkScrollbar() { // Link a scrollbar to the page
             bottomTimeout = null;
             bottomInterval = null;
         }
-    });
+    }, { passive: true });
 
     scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 
