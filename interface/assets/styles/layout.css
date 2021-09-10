@@ -218,6 +218,7 @@ body {
     width: 32px;
     width: 32px;
     overflow: hidden;
+    margin: 0px;
 }
 
 .layout--topbar-title {

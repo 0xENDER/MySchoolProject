@@ -92,11 +92,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     // Set up the scrollbar handle events
     scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, { passive: true }); // Detect when the mouse is down
-    scrollbar.handle.addEventListener("touchstart", scrollbar.clickStart, { passive: true }); // Detect touch action start
+    //scrollbar.handle.addEventListener("touchstart", scrollbar.clickStart, { passive: true }); // Detect touch action start
     window.addEventListener('mousemove', scrollbar.moving, { passive: true }); // Detect when the mouse movies
-    window.addEventListener('touchmove', scrollbar.moving, { passive: true }); // Detect when the touch position changes
+    //window.addEventListener('touchmove', scrollbar.moving, { passive: true }); // Detect when the touch position changes
     window.addEventListener("mouseup", scrollbar.clickEnd, { passive: true }); // Detect when the mouse is up (globally)
-    window.addEventListener("touchend", scrollbar.clickEnd, { passive: true }); // Detect touch action end (globally)
+    //window.addEventListener("touchend", scrollbar.clickEnd, { passive: true }); // Detect touch action end (globally)
 
     // Set up the scrollbar container events
     scrollbar.container.addEventListener("mousedown", function(e) {
