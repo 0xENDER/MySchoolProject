@@ -1,5 +1,7 @@
 /*
-    Credit: https://jsfiddle.net/uq2pLufn/3/
+
+    This files manages the `pagecontent` layout scrollbar
+
 */
 
 function linkScrollbar() { // Link a scrollbar to the page
@@ -25,6 +27,13 @@ function linkScrollbar() { // Link a scrollbar to the page
     };
 
     scrollbar.handle.refreshHeight();
+
+    function updateScrollbar() {
+        linkedElementHeight = scrollbar.linkedElement.clientHeight;
+        scrollbar.handle.refreshHeight();
+        scrollbar.linkedElement.onscroll();
+        clickStartHandleYPosition = scrollbar.handle.offsetTop;
+    }
 
     // Keep track of the top-position of the scrollbar handle
     scrollbar.linkedElement.onscroll = function() {
@@ -68,15 +77,12 @@ function linkScrollbar() { // Link a scrollbar to the page
         }
     };
 
-    // Watch out for any scroll-height changes
-    var lastScrollHeight = scrollbar.linkedElement.scrollHeight;
+    // Watch out for any container resize events and scroll-height changes
+    var linkedElementHeight = scrollbar.linkedElement.clientHeight,
+        lastScrollHeight = scrollbar.linkedElement.scrollHeight;
     scrollbar.interval = setInterval(function() {
-        if (scrollbar.linkedElement.scrollHeight != lastScrollHeight) {
-            lastScrollHeight = scrollbar.linkedElement.scrollHeight;
-            scrollbar.handle.refreshHeight();
-            scrollbar.linkedElement.onscroll();
-            clickStartHandleYPosition = scrollbar.handle.offsetTop;
-        }
+        if (scrollbar.linkedElement.clientHeight != linkedElementHeight || scrollbar.linkedElement.scrollHeight != lastScrollHeight)
+            updateScrollbar();
     }, window.platform.special.intervalRefreshRate);
 
     // Set up the scrollbar handle events

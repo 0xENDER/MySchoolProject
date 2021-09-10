@@ -2,11 +2,15 @@
     --componentsection-marginFactor: 2;
     --scrollbar-width: 8px;
     --scrollbar-height: calc(100% - var(--topbar-height));
+    --scrollbarbuttons-opacity: 1;
+    --scrollbarbuttons-pointerevents: auto;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --scrollbar-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
+        --scrollbarbuttons-opacity: 0;
+        --scrollbarbuttons-pointerevents: none;
     }
 }
 
@@ -59,6 +63,8 @@ button.component--button {
     width: 100%;
     height: var(--scrollbar-width);
     background-color: yellow;
+    opacity: var(--scrollbarbuttons-opacity);
+    pointer-events: var(--scrollbarbuttons-pointerevents);
 }
 
 .component--scrollbar-top {
