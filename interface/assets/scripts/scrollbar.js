@@ -33,6 +33,40 @@ function linkScrollbar() { // Link a scrollbar to the page
         //      ^ The offset top value of the content element
     };
 
+    var didClickStart = false, // Did the user click the handle?
+        clickStartYPosition = 0, // The Y position of the mouse click
+        clickStartHandleYPosition = scrollbar.handle.offsetTop; // The Y position of the scrollbar handle
+
+    scrollbar.clickStart = function(e) {
+        didClickStart = true; // The user did click the handle
+        clickStartYPosition = e.pageY; // Save this Y position to get the offset of the mouse after moving
+        clickStartHandleYPosition = scrollbar.handle.offsetTop;
+    };
+
+    scrollbar.clickEnd = function() {
+        if (didClickStart) { // If the mouse was down, and it's not now, then do this:
+            didClickStart = false; // Set the click status to false
+            clickStartYPosition = 0; // Reset the start Y position
+            clickStartHandleYPosition = scrollbar.handle.offsetTop;
+        }
+    };
+
+    function scrollToOffset(offset, isSmooth) { // Scroll in the page content
+        var mouseOffset = clickStartYPosition - offset, // Get the clicking Y axis offset of the mouse
+            mouseOffsetPercentage = ((clickStartHandleYPosition - mouseOffset) / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
+        //scrollbar.linkedElement.scrollTo(0, mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight); // Scroll through the page
+        scrollbar.linkedElement.scrollTo({
+            top: mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight,
+            left: 0,
+            behavior: isSmooth ? 'smooth' : 'auto'
+        });
+    }
+
+    scrollbar.moving = function(e) {
+        if (didClickStart) { // If the mouse is down
+            scrollToOffset(e.pageY);
+        }
+    };
 
     // Watch out for any scroll-height changes
     var lastScrollHeight = scrollbar.linkedElement.scrollHeight;
@@ -41,48 +75,28 @@ function linkScrollbar() { // Link a scrollbar to the page
             lastScrollHeight = scrollbar.linkedElement.scrollHeight;
             scrollbar.handle.refreshHeight();
             scrollbar.linkedElement.onscroll();
+            clickStartHandleYPosition = scrollbar.handle.offsetTop;
         }
-    }, window.platform.intervalRefreshRate);
+    }, window.platform.special.intervalRefreshRate);
 
-    var didClickStart = false, // Did the user click the handle?
-        clickStartYPosition = 0, // The Y position of the mouse click
-        clickStartHandleYPosition = 0; // The Y position of the scrollbar handle
-    scrollbar.clickStart = function(e) {
-        didClickStart = true; // The user did click the handle
-        clickStartYPosition = e.pageY; // Save this Y position to get the offset of the mouse after moving
-        clickStartHandleYPosition = scrollbar.handle.offsetTop;
-        console.log("Start");
-    };
-    scrollbar.clickEnd = function() {
-        if (didClickStart) { // If the mouse was down, and it's not now, then do this:
-            didClickStart = false; // Set the click status to false
-            clickStartYPosition = 0; // Reset the start Y position
-            clickStartHandleYPosition = 0;
-            console.log("End");
-        }
-    };
-    scrollbar.moving = function(e) {
-        if (didClickStart) { // If the mouse is down
-            console.log(`${scrollbar.handle.offsetTop} ${clickStartYPosition - e.pageY} ${scrollbar.container.clientHeight}`);
-            var mouseOffset = clickStartYPosition - e.pageY, // Get the clicking Y axis offset of the mouse
-                mouseOffsetPercentage = ((clickStartHandleYPosition - mouseOffset) / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
-            console.log(`Move offset: ${mouseOffset} ${mouseOffsetPercentage * 100}`);
-            scrollbar.linkedElement.scrollTo(0, mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight);
-            //scrollbar.handle.style.top = `${mouseOffsetPercentage}%`;
-            // HandleTop = (topPosition/scrollHeight)*100
-            // HandleTop = (topPosition/scrollHeight)*100
-        }
-    };
-
+    // Set up the scrollbar handle events
     scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart); // Detect when the mouse is down
     scrollbar.handle.addEventListener("touchstart", scrollbar.clickStart); // Detect touch action start
-
-    window.addEventListener('mousemove', scrollbar.moving);
-
+    window.addEventListener('mousemove', scrollbar.moving); // Detect when the mouse movies
+    window.addEventListener('touchmove', scrollbar.moving); // Detect when the touch position changes
     window.addEventListener("mouseup", scrollbar.clickEnd); // Detect when the mouse is up (globally)
     window.addEventListener("touchend", scrollbar.clickEnd); // Detect touch action end (globally)
 
-    // scrollbar.linkedElement.scrollTo(0, yPosition);
+    // Set up the scrollbar container events
+    scrollbar.container.addEventListener("mousedown", function(e) {
+        if (!didClickStart) {
+            scrollToOffset(e.offsetY - (scrollbar.handle.clientHeight / 2), true);
+        }
+    });
+
+    // Set up the top & bottom buttons events
+    scrollbar.topButton;
+    scrollbar.bottomButton;
 
     scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 

@@ -1,6 +1,13 @@
 :root {
     --componentsection-marginFactor: 2;
     --scrollbar-width: 8px;
+    --scrollbar-height: calc(100% - var(--topbar-height));
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --scrollbar-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
+    }
 }
 
 
@@ -38,7 +45,7 @@ button.component--button {
     top: var(--topbar-height);
     bottom: 0px;
     width: var(--scrollbar-width);
-    height: calc(100% - var(--topbar-height));
+    height: var(--scrollbar-height);
     border-left: 1px solid #3e3e3e;
     background-color: #eee;
     display: flex;
