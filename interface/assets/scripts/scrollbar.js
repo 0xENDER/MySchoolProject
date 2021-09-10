@@ -14,10 +14,10 @@ function linkScrollbar() { // Link a scrollbar to the page
         topButton: document.getElementById('scrollbar--top'), // The "scroll top" button
         bottomButton: document.getElementById('scrollbar--bottom'), // The "scroll bottom" button
         linkedElement: document.getElementById('page'), // The page content element
-        interval: null,
-        clickStart: null,
-        clickEnd: null,
-        moving: null
+        interval: null, // The interval id
+        clickStart: null, // The "clickStart" function
+        clickEnd: null, // The "clickEnd" function
+        moving: null // The "moving" function
     };
 
     scrollbar.handle.refreshHeight = function() {
@@ -61,9 +61,8 @@ function linkScrollbar() { // Link a scrollbar to the page
     };
 
     function scrollToOffset(offset, isSmooth) { // Scroll in the page content
-        var mouseOffset = clickStartYPosition - offset, // Get the clicking Y axis offset of the mouse
-            mouseOffsetPercentage = ((clickStartHandleYPosition - mouseOffset) / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
-        //scrollbar.linkedElement.scrollTo(0, mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight); // Scroll through the page
+        var mouseOffsetPercentage = (offset / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
+        console.log(offset, (clickStartHandleYPosition - offset), mouseOffsetPercentage);
         scrollbar.linkedElement.scrollTo({
             top: mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight,
             left: 0,
@@ -73,7 +72,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     scrollbar.moving = function(e) {
         if (didClickStart) { // If the mouse is down
-            scrollToOffset(e.pageY);
+            scrollToOffset(clickStartHandleYPosition - clickStartYPosition + e.pageY);
         }
     };
 
@@ -113,42 +112,47 @@ function linkScrollbar() { // Link a scrollbar to the page
         bottomTimeout = null,
         topInterval = null,
         bottomInterval = null;
+
+    // The top button (click-start)
     scrollbar.topButton.addEventListener("mousedown", function() {
-        if (!didClickStart && !didClickTop) {
+        if (!didClickTop && !didClickBottom) {
             didClickTop = true;
+            didClickBottom = false;
             scrollToOffset(scrollbar.handle.offsetTop - window.platform.special.scrollSpace, true);
             topTimeout = setTimeout(function() {
-                scrollToOffset(scrollbar.handle.offsetTop - 2, false);
+                scrollToOffset(scrollbar.handle.offsetTop - 4, false);
                 topInterval = setInterval(function() {
-                    scrollToOffset(scrollbar.handle.offsetTop - 2, false);
+                    scrollToOffset(scrollbar.handle.offsetTop - 4, false);
                 }, window.platform.special.intervalRefreshRate);
             }, window.platform.special.scrollLockPeriod);
         }
     }, { passive: true });
+
+    // The bottom button (click-start)
     scrollbar.bottomButton.addEventListener("mousedown", function() {
-        if (!didClickStart && !didClickBottom) {
+        if (!didClickBottom && !didClickTop) {
             didClickBottom = true;
+            didClickTop = false;
             scrollToOffset(scrollbar.handle.offsetTop + window.platform.special.scrollSpace, true);
             bottomTimeout = setTimeout(function() {
-                scrollToOffset(scrollbar.handle.offsetTop + 2, false);
+                scrollToOffset(scrollbar.handle.offsetTop + 4, false);
                 bottomInterval = setInterval(function() {
-                    scrollToOffset(scrollbar.handle.offsetTop + 2, false);
+                    scrollToOffset(scrollbar.handle.offsetTop + 4, false);
                 }, window.platform.special.intervalRefreshRate);
             }, window.platform.special.scrollLockPeriod);
         }
     }, { passive: true });
+
+    // The top and bottom buttons (click-end)
     window.addEventListener("mouseup", function() {
-        if (didClickTop) {
+        if (didClickTop) { // Check if this is the scrollbar "top button"
             didClickTop = false;
             clearTimeout(topTimeout);
             if (topInterval != null)
                 clearInterval(topInterval);
             topTimeout = null;
             topInterval = null;
-        }
-    }, { passive: true });
-    window.addEventListener("mouseup", function() {
-        if (didClickBottom) {
+        } else if (didClickBottom) { // Check if this is the scrollbar "bottom button"
             didClickBottom = false;
             clearTimeout(bottomTimeout);
             if (bottomInterval != null)

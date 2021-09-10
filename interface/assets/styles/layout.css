@@ -142,14 +142,6 @@ body {
     overscroll-behavior: contain;
 }
 
-[signed-in] {
-    display: var(--accountdependent-display);
-}
-
-[signed-out] {
-    display: var(--notaccountdependent-display);
-}
-
 
 /* Main layout sub-components */
 
@@ -206,6 +198,13 @@ body {
 
 
 /* Sub-layout components */
+
+[data-signedin="wait"] .layout--topbar-username,
+[data-signedin="wait"] .layout--topbar-profile,
+[data-signedin="wait"] .layout--topbar-button {
+    display: none !important;
+    opacity: 0;
+}
 
 .layout--topbar-search {
     background-color: #C0C0C0;
