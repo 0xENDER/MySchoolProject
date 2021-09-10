@@ -1,6 +1,6 @@
 :root {
     --componentsection-marginFactor: 2;
-    --scrollbar-width: 8px;
+    --scrollbar-width: calc(var(--global-sidesmargin) / 2);
     --scrollbar-height: calc(100% - var(--topbar-height));
     --scrollbarbuttons-opacity: 1;
     --scrollbarbuttons-pointerevents: auto;
@@ -62,7 +62,7 @@ button.component--button {
     position: relative;
     width: 100%;
     height: var(--scrollbar-width);
-    background-color: yellow;
+    background-color: maroon;
     opacity: var(--scrollbarbuttons-opacity);
     pointer-events: var(--scrollbarbuttons-pointerevents);
 }

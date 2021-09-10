@@ -23,7 +23,9 @@ window.platform = { // An object to keep track and organise the platform data
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
     special: {
-        intervalRefreshRate: 25 // The minimal interval refresh rate allowed on this device (ms)
+        intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
+        scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (scrollbar pixels)
+        scrollLockPeriod: 400 // The time need to lock a scrollbar button
     },
     more: { // If this is an app, that means you can get more info about the platform!
         //

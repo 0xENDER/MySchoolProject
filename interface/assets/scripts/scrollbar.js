@@ -81,8 +81,14 @@ function linkScrollbar() { // Link a scrollbar to the page
     var linkedElementHeight = scrollbar.linkedElement.clientHeight,
         lastScrollHeight = scrollbar.linkedElement.scrollHeight;
     scrollbar.interval = setInterval(function() {
-        if (scrollbar.linkedElement.clientHeight != linkedElementHeight || scrollbar.linkedElement.scrollHeight != lastScrollHeight)
+        if (scrollbar.linkedElement.scrollHeight != lastScrollHeight) {
+            lastScrollHeight = scrollbar.linkedElement.scrollHeight;
             updateScrollbar();
+        }
+        if (scrollbar.linkedElement.clientHeight != linkedElementHeight) {
+            linkedElementHeight = scrollbar.linkedElement.clientHeight;
+            updateScrollbar();
+        }
     }, window.platform.special.intervalRefreshRate);
 
     // Set up the scrollbar handle events
@@ -101,14 +107,63 @@ function linkScrollbar() { // Link a scrollbar to the page
     });
 
     // Set up the top & bottom buttons events
-    scrollbar.topButton;
-    scrollbar.bottomButton;
+    var didClickTop = false,
+        didClickBottom = false,
+        topTimeout = null,
+        bottomTimeout = null,
+        topInterval = null,
+        bottomInterval = null;
+    scrollbar.topButton.addEventListener("mousedown", function() {
+        if (!didClickStart && !didClickTop) {
+            didClickTop = true;
+            scrollToOffset(scrollbar.handle.offsetTop - window.platform.special.scrollSpace, true);
+            topTimeout = setTimeout(function() {
+                scrollToOffset(scrollbar.handle.offsetTop - 2, false);
+                topInterval = setInterval(function() {
+                    scrollToOffset(scrollbar.handle.offsetTop - 2, false);
+                }, window.platform.special.intervalRefreshRate);
+            }, window.platform.special.scrollLockPeriod);
+        }
+    });
+    scrollbar.bottomButton.addEventListener("mousedown", function() {
+        if (!didClickStart && !didClickBottom) {
+            didClickBottom = true;
+            scrollToOffset(scrollbar.handle.offsetTop + window.platform.special.scrollSpace, true);
+            bottomTimeout = setTimeout(function() {
+                scrollToOffset(scrollbar.handle.offsetTop + 2, false);
+                bottomInterval = setInterval(function() {
+                    scrollToOffset(scrollbar.handle.offsetTop + 2, false);
+                }, window.platform.special.intervalRefreshRate);
+            }, window.platform.special.scrollLockPeriod);
+        }
+    });
+    window.addEventListener("mouseup", function() {
+        if (didClickTop) {
+            didClickTop = false;
+            clearTimeout(topTimeout);
+            if (topInterval != null)
+                clearInterval(topInterval);
+            topTimeout = null;
+            topInterval = null;
+        }
+    });
+    window.addEventListener("mouseup", function() {
+        if (didClickBottom) {
+            didClickBottom = false;
+            clearTimeout(bottomTimeout);
+            if (bottomInterval != null)
+                clearInterval(bottomInterval);
+            bottomTimeout = null;
+            bottomInterval = null;
+        }
+    });
 
     scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 
 }
 
-function unlinkScrollbar(element) { // Unlink a scrollbar from the page
+// There's no need for this function now
+/*function unlinkScrollbar(element) { // Unlink a scrollbar from the page
 
     // Clear all interval loops
     clearInterval(element.scrollbar.interval);
@@ -125,4 +180,4 @@ function unlinkScrollbar(element) { // Unlink a scrollbar from the page
         element.scrollbar.handle.refreshHeight, // Delete the handle `refreshHeight` function
         element.scrollbar; // Delete the `scrollbar` object
 
-}
+}*/
