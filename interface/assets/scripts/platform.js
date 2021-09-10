@@ -22,6 +22,7 @@ window.platform = { // An object to keep track and organise the platform data
     isApp: (window.location.protocol.indexOf("http") == -1), // Is this website open as an app?
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
+    intervalRefreshRate: 25, // The minimal interval refresh rate allowed on this device
     more: { // If this is an app, that means you can get more info about the platform!
         //
     }
