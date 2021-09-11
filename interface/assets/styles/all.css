@@ -23,12 +23,14 @@
 
 /* Change the tab-focus outline */
 
-*:focus-visible {
+*:focus-visible,
+*:focus {
     /* remove default focus style */
     outline: none;
 }
 
-[data-tab="true"] *:focus-visible {
+[data-tab="true"] *:focus-visible,
+[data-tab="true"] *:focus {
     /* custom focus styles */
     box-shadow: 0 0 0px 4px red;
 }

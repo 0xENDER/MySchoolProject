@@ -4,6 +4,7 @@
     --scrollbar-height: calc(100% - var(--topbar-height));
     --scrollbarbuttons-opacity: 1;
     --scrollbarbuttons-pointerevents: auto;
+    --componentcover-height: calc(96vh - var(--topbar-height));
 }
 
 @media all and (max-width: 840px) {
@@ -11,6 +12,7 @@
         --scrollbar-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
         --scrollbarbuttons-opacity: 0;
         --scrollbarbuttons-pointerevents: none;
+        --componentcover-height: calc(96vh - var(--topbar-height) - var(--sectionsbar-height));
     }
 }
 
@@ -26,7 +28,7 @@ button.component--button {
 
 .component--cover {
     width: 100%;
-    height: 96vh;
+    height: var(--componentcover-height);
     background-color: blue;
 }
 
