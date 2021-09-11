@@ -168,7 +168,7 @@ body {
     height: var(--pagecontent-height);
     background-color: var(--pagecontent-background);
     display: block;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     overflow-y: scroll;
     overscroll-behavior: contain;
 }

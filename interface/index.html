@@ -155,30 +155,15 @@
     <script itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
 
     <!-- The page content -->
-    <div id="page" class="layout--pagecontent" layer="page-content-top">
+    <div id="page" class="layout--pagecontent" layer="page-content-top"></div>
 
-        <!--
-            Important note:
-                Always use a tab-index of the value "1" for the page content
-                (tabindex="1")
-        -->
-
-        <!-- The scrollbar -->
-        <div class="component--scrollbar">
-            <span id="scrollbar--top" class="component--scrollbar-top"></span>
-            <span id="scrollbar" class="component--scrollbar-handlecontainer">
-                <span id="scrollbar--handle" class="component--scrollbar-handle"></span>
-            </span>
-            <span id="scrollbar--bottom" class="component--scrollbar-bottom"></span>
-        </div>
-
-        <!-- [START] The layout of the main page -->
-        <div class="component--cover"></div>
-        <div class="component--section"></div>
-        <div class="component--section"></div>
-        <div class="component--section"></div>
-        <!-- [END] The layout of the main page -->
-
+    <!-- The scrollbar -->
+    <div class="component--scrollbar" layer="main-layout">
+        <span id="scrollbar--top" class="component--scrollbar-top"></span>
+        <span id="scrollbar" class="component--scrollbar-handlecontainer">
+                    <span id="scrollbar--handle" class="component--scrollbar-handle"></span>
+        </span>
+        <span id="scrollbar--bottom" class="component--scrollbar-bottom"></span>
     </div>
 
     <script>
