@@ -9,6 +9,7 @@ function linkScrollbar() { // Link a scrollbar to the page
     // Get all the elements to start setting up the scrollbar
 
     var scrollbar = {
+        mainContainer: document.getElementById('component--scrollbar'), // The whole scrollbar container
         container: document.getElementById('scrollbar'), // The handle container
         handle: document.getElementById('scrollbar--handle'), // The handle
         topButton: document.getElementById('scrollbar--top'), // The "scroll top" button
@@ -24,6 +25,11 @@ function linkScrollbar() { // Link a scrollbar to the page
         scrollbar.handle.style.height = // Change the height of the scrollbar handle
             `${(scrollbar.linkedElement.clientHeight/scrollbar.linkedElement.scrollHeight)*100}%`;
         //      ^ The height of the content element  ^ The scroll-height of the content element
+        if (Math.abs(scrollbar.handle.clientHeight - scrollbar.container.clientHeight) < 2) {
+            scrollbar.mainContainer.style.opacity = 0;
+        } else {
+            scrollbar.mainContainer.style.opacity = null;
+        }
     };
 
     scrollbar.handle.refreshHeight();

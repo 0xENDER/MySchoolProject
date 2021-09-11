@@ -6,7 +6,11 @@
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    color: white;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    color: var(--text-colour);
 }
 
 text,
@@ -43,6 +47,5 @@ input {
 
 [data-tab="true"] *:focus-visible,
 [data-tab="true"] *:focus {
-    /* custom focus styles */
-    box-shadow: 0 0 0px 4px red;
+    outline: 4px dashed var(--text-colour);
 }

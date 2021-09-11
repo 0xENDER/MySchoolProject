@@ -2,9 +2,18 @@
 
 :root {
     color-scheme: light;
-    --topbar-background: #8B8B8B;
-    --sectionsbar-background: #C4C4C4;
-    --pagecontent-background: #FFFFFF;
+    --colours-primary1: blue;
+    --text-colour: #000000;
+    --topbar-background: #e8e8e8;
+    --sectionsbar-background: #e8e8e8;
+    --topbar-backgroundhover: #d4d4d4;
+    --pagecontent-background: #cccccc;
+    --pagecontent-border: #c1c1c1;
+    --icons-colour: #000000;
+    --skeleton-colour1: #cccccc;
+    --skeleton-colour2: #afafaf;
+    --topbarsearch-backgroundcolour: #ffffff;
+    --topbarsearch-border: #d0d0d0;
 }
 
 
@@ -13,8 +22,17 @@
 @media (prefers-color-scheme: dark) {
      :root {
         color-scheme: dark;
-        --topbar-background: #8B8B8B;
-        --sectionsbar-background: #C4C4C4;
-        --pagecontent-background: #FFFFFF;
+        --colours-primary1: blue;
+        --text-colour: #ffffff;
+        --topbar-background: #252525;
+        --sectionsbar-background: #252525;
+        --topbar-backgroundhover: #2f2f2f;
+        --pagecontent-background: #2f2f2f;
+        --pagecontent-border: #404040;
+        --icons-colour: #ffffff;
+        --skeleton-colour1: #2f2f2f;
+        --skeleton-colour2: #404040;
+        --topbarsearch-backgroundcolour: #2d2d2d;
+        --topbarsearch-border: #3c3c3c;
     }
 }
