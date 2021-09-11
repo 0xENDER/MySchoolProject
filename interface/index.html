@@ -73,20 +73,20 @@
     <link rel="stylesheet" href="./assets/styles/colours.css">
 
     <!-- Scripts -->
-    <script type="text/javascript" src="./assets/scripts/platform.js"></script>
     <script type="text/javascript">
         // Is the user signed in? (PHP required)
         document.documentElement.dataset.signedin = true;
     </script>
+    <script type="text/javascript" src="./assets/scripts/platform.js"></script>
 
 </head>
 
 <body>
 
-    <div class="layout--loadingscreen"></div>
+    <div class="layout--loadingscreen" layer="dialog"></div>
 
     <!-- The top-bar -->
-    <div class="layout--topbar">
+    <div class="layout--topbar" layer="main-layout">
 
         <!-- The branding -->
         <div class="layout--topbar-component layout--topbar-left">
@@ -96,7 +96,7 @@
 
         <!-- The search bar -->
         <div class="layout--topbar-component layout--topbar-center">
-            <div class="layout--topbar-search"></div>
+            <input class="layout--topbar-search" tabindex="0">
         </div>
 
         <!-- The account info -->
@@ -104,41 +104,47 @@
 
             <!-- If the user is signed in, show the user profile with the username. -->
             <text class="layout--topbar-username">[Username]</text>
-            <img class="layout--topbar-profile" alt="Profile Picture" width="32px" height="32px">
+            <img class="layout--topbar-profile" alt="Profile Picture" width="32px" height="32px" tabindex="0">
 
             <!-- If the user is not signed in, show the sign in button. -->
-            <button class="layout--topbar-button component--button">Sign In</button>
+            <button class="layout--topbar-button component--button" tabindex="0">Sign In</button>
 
         </div>
 
     </div>
 
     <!-- The side-bar/bottom-bar -->
-    <div class="layout--sectionsbar">
+    <div class="layout--sectionsbar" layer="main-layout">
 
         <!-- The top/main section of the side-bar -->
         <div class="layout--sectionsbar-component layout--sectionsbar-top">
-            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
-            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
-            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px" tabindex="0"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px" tabindex="0"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px" tabindex="0"></svg>
         </div>
 
         <!-- The bottom section of the side-bar -->
         <div class="layout--sectionsbar-component layout--sectionsbar-bottom">
-            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
-            <svg class="layout--sectionsbar-item" width="48px" height="48px"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px" tabindex="0"></svg>
+            <svg class="layout--sectionsbar-item" width="48px" height="48px" tabindex="0"></svg>
         </div>
 
     </div>
 
     <!-- Content-related styles -->
-    <link itemprop="url" rel="stylesheet" href="./assets/styles/components.css">
+    <link itemprop="components--style" rel="stylesheet" href="./assets/styles/components.css">
 
     <!-- Content-related scripts -->
-    <script itemprop="url" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
+    <script itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
 
     <!-- The page content -->
-    <div id="page" class="layout--pagecontent">
+    <div id="page" class="layout--pagecontent" layer="page-content-top">
+
+        <!--
+            Important note:
+                Always use a tab-index of the value "1" for the page content
+                (tabindex="1")
+        -->
 
         <!-- The scrollbar -->
         <div class="component--scrollbar">
@@ -161,6 +167,12 @@
     <script>
         linkScrollbar(document.getElementById("page"));
     </script>
+
+    <!-- Styles that are the least important -->
+    <link itemprop="all--style" rel="stylesheet" href="./assets/styles/all.css">
+
+    <!-- Scripts that are the least important -->
+    <script itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js"></script>
 
 </body>
 

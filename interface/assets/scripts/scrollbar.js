@@ -62,7 +62,6 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     function scrollToOffset(offset, isSmooth) { // Scroll in the page content
         var mouseOffsetPercentage = (offset / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
-        console.log(offset, (clickStartHandleYPosition - offset), mouseOffsetPercentage);
         scrollbar.linkedElement.scrollTo({
             top: mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight,
             left: 0,
