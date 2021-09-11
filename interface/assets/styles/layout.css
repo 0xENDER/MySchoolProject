@@ -17,6 +17,32 @@ body {
 }
 
 
+/* Hide unloaded stuff */
+
+[data-loaded="false"] .effect--skeleton {
+    color: transparent;
+    position: relative;
+}
+
+[data-loaded="false"] .effect--skeleton:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: rgb(241, 241, 241);
+}
+
+[data-loaded="false"] .effect--skeleton * {
+    display: none !important;
+}
+
+[data-loaded="false"] input::placeholder {
+    color: transparent;
+}
+
+
 /* Dynamic variables */
 
 :root {
@@ -30,7 +56,7 @@ body {
     --pagecontent-left: var(--sectionsbar-width);
     --pagecontent-height: calc(100% - var(--topbar-height));
     --sectionsbar-flexdirection: column;
-    --sectionsbar-bottomdisplay: inline-block;
+    --sectionsbar-bottomdisplay: flex;
     --topbarcomponent-grow: 1;
     --topbarsearch-width: 60%;
     --topbarsearch-height: calc(var(--topbar-height) - 16px);
@@ -42,18 +68,24 @@ body {
     --topbarleft-display: flex;
     --topbarcomponent-width: 20%;
     --sectionsbarcomponent-justifycontent: normal;
-    --sectionsbaritem-margin: calc((var(--sectionsbar-width) - 48px) / 2);
+    --sectionsbaritem-size: 60px;
+    --sectionsbaritem-margin: calc((var(--sectionsbar-width) - var(--sectionsbaritem-size)) / 2);
     --sectionsbar-padding: 0px;
     --sectionsbartop-justifycontent: normal;
     --topbarusername-display: flex;
     --topbarprofile-marginright: 0px;
+    --icons-size: 32px;
+    --icons-margintop: 6px;
+    --icons-marginbottom: 2px;
+    --icons-marginleftright: calc((var(--sectionsbaritem-size) - var(--icons-size)) / 2);
+    --sectionsbaritme-display: block;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --topbar-height: 64px;
         --sectionsbar-width: 100%;
-        --sectionsbar-height: 74px;
+        --sectionsbar-height: 60px;
         --sectionsbar-top: none;
         --sectionsbar-right: 0px;
         --pagecontent-left: 0px;
@@ -71,11 +103,15 @@ body {
         --topbarleft-display: none;
         --topbarcomponent-width: none;
         --sectionsbarcomponent-justifycontent: center;
-        --sectionsbaritem-margin: calc((var(--sectionsbar-height) - 52px) / 2);
+        --sectionsbaritem-size: 48px;
+        --sectionsbaritem-margin: calc((var(--sectionsbar-height) - var(--sectionsbaritem-size)) / 2);
         --sectionsbar-padding: var(--global-sidesmargin);
         --sectionsbartop-justifycontent: space-evenly;
         --topbarusername-display: none;
         --topbarprofile-marginright: 8px;
+        --icons-margintop: var(--icons-marginleftright);
+        --icons-marginbottom: 0px;
+        --sectionsbaritme-display: none;
     }
 }
 
@@ -187,6 +223,7 @@ body {
 .layout--sectionsbar-bottom {
     display: var(--sectionsbar-bottomdisplay);
     align-items: bottom;
+    flex-direction: column;
     flex-grow: 0;
     padding-bottom: var(--global-topbottommargin);
 }
@@ -244,8 +281,25 @@ body {
 }
 
 .layout--sectionsbar-item {
-    width: 48px;
-    height: 48px;
-    background-color: #808080;
+    width: var(--sectionsbaritem-size);
+    height: var(--sectionsbaritem-size);
+    background-color: #adadad;
     margin: var(--sectionsbaritem-margin);
+    text-align: center;
+}
+
+.layout--sectionsbar-item .sectionsbar--item-icon {
+    display: block;
+    width: var(--icons-size);
+    height: var(--icons-size);
+    font-size: var(--icons-size);
+    margin: 0px var(--icons-marginleftright);
+    margin-top: var(--icons-margintop);
+    margin-bottom: var(--icons-marginbottom);
+    fill: white;
+}
+
+.layout--sectionsbar-item .sectionsbar--item-title {
+    font-size: 12px;
+    display: var(--sectionsbaritme-display);
 }
