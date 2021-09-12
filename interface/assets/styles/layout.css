@@ -288,9 +288,9 @@ body {
 .layout--topbar-search {
     background-color: var(--topbarsearch-backgroundcolour);
     width: var(--topbarsearch-width);
-    height: var(--topbarsearch-height);
+    height: 0px;
     border-radius: 6px;
-    padding: 0px 10px;
+    padding: calc(var(--topbarsearch-height) / 2) 10px;
     border: 1px solid var(--topbarsearch-border);
 }
 

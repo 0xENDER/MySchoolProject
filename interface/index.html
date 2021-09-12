@@ -64,10 +64,9 @@
     <meta name="apple-mobile-web-app-title" content="MyStore">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="msapplication-TileColor" content="#8B8B8B">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#8B8B8B">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#8B8B8B">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#8B8B8B">
+    <meta name="msapplication-TileColor" content="#5d42ef">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e8e8e8">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525">
 
     <!-- The page title -->
     <title>Home | MyStore</title>
@@ -120,7 +119,7 @@
 
         <!-- The top/main section of the side-bar -->
         <div class="layout--sectionsbar-component layout--sectionsbar-top">
-            <div class="layout--sectionsbar-item effect--skeleton" tabindex="0">
+            <div class="layout--sectionsbar-item effect--skeleton state--selected" tabindex="0">
                 <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.88867 10L11.89 3.99867L17.8913 10H17.89V20H5.89001V10H5.88867ZM3.89001 11.9987L2.4132 13.4755L1 12.0623L10.477 2.58529C11.2574 1.8049 12.5226 1.8049 13.303 2.58529L22.78 12.0623L21.3668 13.4755L19.89 11.9987V20C19.89 21.1046 18.9946 22 17.89 22H5.89001C4.78545 22 3.89001 21.1046 3.89001 20V11.9987Z"/></svg>
                 <text class="sectionsbar--item-title">Home</text>
             </div>
@@ -171,13 +170,18 @@
         linkScrollbar(document.getElementById("page"));
     </script>
 
+    <!-- Scripts for the user account -->
+    <script itemprop="account--script" type="text/javascript" src="./assets/scripts/account.js"></script>
+
     <!-- Styles that are the least important -->
     <link itemprop="all--style" rel="stylesheet" href="./assets/styles/all.css">
+    <link itemprop="layout--style" rel="stylesheet" href="./assets/styles/complex/layout.css">
     <link itemprop="font--style" href="https://fonts.googleapis.com/css2?family=Istok+Web:ital@0;1&display=swap" rel="stylesheet">
 
     <!-- Scripts that are the least important -->
     <script itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js"></script>
     <script itemprop="all--load" type="text/javascript" src="./assets/scripts/load.js"></script>
+    <script itemprop="sections--items" type="text/javascript" src="./assets/scripts/sectionsbar.js"></script>
 
 </body>
 

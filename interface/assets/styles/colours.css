@@ -2,7 +2,7 @@
 
 :root {
     color-scheme: light;
-    --colours-primary1: blue;
+    --colours-primary1: #5d42ef;
     --text-colour: #000000;
     --topbar-background: #e8e8e8;
     --sectionsbar-background: #e8e8e8;
@@ -22,7 +22,7 @@
 @media (prefers-color-scheme: dark) {
      :root {
         color-scheme: dark;
-        --colours-primary1: blue;
+        --colours-primary1: #452dc5;
         --text-colour: #ffffff;
         --topbar-background: #252525;
         --sectionsbar-background: #252525;

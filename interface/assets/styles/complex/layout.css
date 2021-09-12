@@ -1,0 +1,66 @@
+/*
+
+    This file includes more complex layout CSS that isn't necessary for the first print
+
+*/
+
+:root {
+    --sectionsbarafter-top: calc(var(--sectionsbaritem-size) / 4);
+    --sectionsbarafter-left: -2px;
+    --sectionsbarafter-width: 6px;
+    --sectionsbarafter-height: calc(var(--sectionsbaritem-size) / 2);
+    --sectionsbarafter-bottom: none;
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --sectionsbarafter-top: none;
+        --sectionsbarafter-left: 30%;
+        --sectionsbarafter-width: 40%;
+        --sectionsbarafter-height: 6px;
+        --sectionsbarafter-bottom: -2px;
+    }
+}
+
+.layout--sectionsbar-item.state--selected,
+.layout--sectionsbar-item:hover,
+.layout--sectionsbar-item:active {
+    opacity: 1;
+    position: relative;
+}
+
+.layout--sectionsbar-item .sectionsbar--item-icon {
+    transition: margin 0.2s;
+}
+
+.layout--sectionsbar-item .sectionsbar--item-title {
+    transition: opacity 0.1s;
+}
+
+[data-loaded="true"] .layout--sectionsbar-item.state--selected:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: var(--sectionsbarafter-top);
+    left: var(--sectionsbarafter-left);
+    width: var(--sectionsbarafter-width);
+    height: var(--sectionsbarafter-height);
+    bottom: var(--sectionsbarafter-bottom);
+    background-color: var(--colours-primary1);
+    border-radius: 100px;
+}
+
+.layout--sectionsbar-item.state--selected .sectionsbar--item-icon {
+    fill: var(--colours-primary1);
+    margin: calc((var(--sectionsbaritem-size) - var(--icons-size)) / 2) auto;
+    margin-bottom: var(--icons-marginbottom);
+    filter: drop-shadow(0px -1px 0px var(--colours-primary1)) drop-shadow(0px -1px 0px var(--colours-primary1));
+}
+
+.layout--sectionsbar-item.state--selected .sectionsbar--item-title {
+    opacity: 0;
+}
+
+.layout--sectionsbar-item.state--selected {
+    background-color: var(--topbar-backgroundhover);
+}

@@ -3,7 +3,6 @@
 * {
     -moz-user-select: none;
     -khtml-user-select: none;
-    -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
@@ -11,6 +10,12 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     color: var(--text-colour);
+}
+
+@media (prefers-reduced-motion) {
+    * {
+        transition-duration: 0s !important;
+    }
 }
 
 text,
@@ -32,7 +37,6 @@ input {
 }
 
 * {
-    -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
@@ -43,6 +47,9 @@ input {
 *:focus {
     /* remove default focus style */
     outline: none;
+    outline-color: transparent;
+    outline-style: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 [data-tab="true"] *:focus-visible,
