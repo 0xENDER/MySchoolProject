@@ -1,0 +1,39 @@
+.component--scrollbar:hover .component--scrollbar-handle,
+.component--scrollbar:active .component--scrollbar-handle {
+    width: calc(100% - 5px);
+    margin: 0px 2px;
+}
+
+.component--scrollbar-top,
+.component--scrollbar-bottom,
+.component--scrollbar-handlecontainer,
+.component--scrollbar-handle {
+    transition: opacity 0.2s;
+}
+
+.component--scrollbar-top,
+.component--scrollbar-bottom {
+    opacity: 0;
+}
+
+.component--scrollbar:hover .component--scrollbar-top,
+.component--scrollbar:hover .component--scrollbar-bottom,
+.component--scrollbar:active .component--scrollbar-top,
+.component--scrollbar:active .component--scrollbar-bottom {
+    opacity: 1;
+}
+
+.component--scrollbar-top svg,
+.component--scrollbar-bottom svg {
+    fill: var(--scrollbar-colour);
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+.component--scrollbar-top svg {
+    margin-bottom: 3px;
+}
+
+.component--scrollbar-bottom svg {
+    margin-top: 3px;
+}

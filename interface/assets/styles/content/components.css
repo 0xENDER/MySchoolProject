@@ -1,0 +1,17 @@
+/* Screen covers */
+
+.component--cover {
+    width: 100%;
+    height: var(--componentcover-height);
+    background-color: var(--colours-primary1);
+}
+
+
+/* Sections */
+
+.component--section {
+    width: calc(100% - var(--global-sidesmargin)*2);
+    min-height: 10px;
+    background-color: var(--pagecontent-border);
+    margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
+}

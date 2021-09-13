@@ -24,6 +24,7 @@ window.platform = { // An object to keep track and organise the platform data
     // ^^^ of the page would not be set to "http(s)"! ^^^
     special: {
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
+        maxOptionalTimeoutDely: 100, // The maximum timeout period for optional delays
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (scrollbar pixels)
         scrollLockPeriod: 400 // The time need to lock a scrollbar button
     },
