@@ -15,6 +15,9 @@
     --topbarsearch-backgroundcolour: #ffffff;
     --topbarsearch-border: #d0d0d0;
     --scrollbar-colour: #505050;
+    --alerts-background: #bdbdbd94;
+    --alertscard-background: var(--topbar-background);
+    --alertscard-border: var(--pagecontent-border);
 }
 
 
@@ -36,5 +39,8 @@
         --topbarsearch-backgroundcolour: #2d2d2d;
         --topbarsearch-border: #3c3c3c;
         --scrollbar-colour: #a0a0a0;
+        --alerts-background: #08080894;
+        --alertscard-background: var(--topbar-background);
+        --alertscard-border: var(--pagecontent-border);
     }
 }

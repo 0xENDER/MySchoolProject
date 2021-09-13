@@ -23,6 +23,10 @@ button.component--button {
     background-color: red;
 }
 
+button.component--button.component--button-primary {
+    background-color: green;
+}
+
 
 /* The scrollbar */
 

@@ -151,6 +151,10 @@ body {
 
 /* Layout order-related attributes */
 
+[layer="UI"] {
+    z-index: 1500;
+}
+
 [layer="dialog"] {
     z-index: 1000;
 }
@@ -205,7 +209,6 @@ body {
     display: block;
     overflow-x: hidden;
     overflow-y: scroll;
-    overscroll-behavior: contain;
     border-radius: var(--pagecontent-corner) 0px 0px 0px;
     border-top: var(--pagecover-topleftborder) solid var(--pagecontent-border);
     border-left: var(--pagecover-topleftborder) solid var(--pagecontent-border);

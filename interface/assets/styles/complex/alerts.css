@@ -1,0 +1,48 @@
+:root {
+    --alertscard-width: calc(60vw - var(--alertscard-paddingleftright) * 2);
+    --alertscard-maxheight: calc(40vh - var(--alertscard-paddingtopbottom) * 2);
+    --alertscard-paddingleftright: 40px;
+    --alertscard-paddingtopbottom: 20px;
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --alertscard-width: calc(90vw - var(--alertscard-paddingleftright) * 2);
+        --alertscard-maxheight: calc(40vh - var(--alertscard-paddingtopbottom) * 2);
+        --alertscard-paddingleftright: 28px;
+        --alertscard-paddingtopbottom: 20px;
+    }
+}
+
+.alerts--container {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: var(--alerts-background);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+.alerts--container .alerts--card {
+    width: var(--alertscard-width);
+    height: fit-content;
+    max-height: var(--alertscard-maxheight);
+    background-color: var(--alertscard-background);
+    border: 1px solid var(--alertscard-border);
+    margin: calc((100vh - var(--alertscard-maxheight) - var(--alertscard-paddingtopbottom)) / 2.5) auto;
+    border-radius: 12px;
+    padding: var(--alertscard-paddingtopbottom) var(--alertscard-paddingleftright);
+    text-align: center;
+}
+
+.alerts--container .alerts--card .alerts--title {
+    font-size: 28px;
+    display: block;
+}
+
+.alerts--container .alerts--card .alerts--description {
+    font-size: 20px;
+    display: block;
+}
