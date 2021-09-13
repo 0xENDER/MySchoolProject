@@ -1,7 +1,7 @@
 .component--scrollbar:hover .component--scrollbar-handle,
 .component--scrollbar:active .component--scrollbar-handle {
-    width: calc(100% - 5px);
-    margin: 0px 2px;
+    width: calc(100% - 6px);
+    margin: 0px 3px;
 }
 
 .component--scrollbar-top,
