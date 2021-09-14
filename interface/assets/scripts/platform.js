@@ -2,7 +2,9 @@
 // related to the platform this website is running on!
 
 window.platform = { // An object to keep track and organise the platform data
+
     type: { // The type
+
         isMac: false, // Is this a mac?
         isWindows: false, // Is this a Windows?
         isLinux: false, // Is this a Linux?
@@ -11,25 +13,36 @@ window.platform = { // An object to keep track and organise the platform data
         isAndroid: false, // Is this an Android?
         isIOS: false, // Is this an iPhone/iPad?
         isOther: false
+
     },
+
     architecture: { // The architecture of the CPU
+
         is64: false, // Is this a 64-bit processor?
         is32: false, // Is this a 32-bit processor?
         isARM: false, // Is this an ARM processor?
         isOther: false // This usually means that the user agent string does
             // not include a sufficient amount of data!
+
     },
+
     isApp: (window.location.protocol.indexOf("http") == -1), // Is this website open as an app?
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
+
     special: {
+
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
         maxOptionalTimeoutDely: 0, // The maximum timeout period for optional delays
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (scrollbar pixels)
         scrollLockPeriod: 400 // The time need to lock a scrollbar button
+
     },
+
     more: { // If this is an app, that means you can get more info about the platform!
+
         //
+
     }
 };
 
