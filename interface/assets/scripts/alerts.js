@@ -13,18 +13,23 @@ var alertScreen = document.getElementById("alerts--container"),
 // Create a function to show alerts
 function showAlert(title, message, primaryButtonName, primaryButtonCallback, buttonName, buttonCallback) {
 
+    alertScreen.style.display = null;
+    alertScreen.style.opacity = null;
+
     // Change the content of the alert screen
     alertTitle.textContent = title;
-    alertMessage.textContent = message;
-    alertMessage.textContent = message;
+    alertMessage.innerHTML = message;
 
     // Check if this alert requires a primary button
     if (primaryButtonName != null) {
 
+        alertButtonPrimary.textContent = primaryButtonName;
+        alertButtonPrimary.onclick = primaryButtonCallback;
         alertButtonPrimary.style.display = null;
 
     } else {
 
+        alertButtonPrimary.onclick = null;
         alertButtonPrimary.style.display = "none";
 
     }
@@ -32,10 +37,13 @@ function showAlert(title, message, primaryButtonName, primaryButtonCallback, but
     // Check if this alert requires a normal button
     if (buttonName != null) {
 
+        alertButton.textContent = buttonName;
+        alertButton.onclick = buttonCallback;
         alertButton.style.display = null;
 
     } else {
 
+        alertButton.onclick = null;
         alertButton.style.display = "none";
 
     }
@@ -44,6 +52,7 @@ function showAlert(title, message, primaryButtonName, primaryButtonCallback, but
 // Create a function to hide alerts
 function hideAlert() {
 
-    //
+    alertScreen.style.display = "none";
+    alertScreen.style.opacity = 0;
 
 }

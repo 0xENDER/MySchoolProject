@@ -5,6 +5,7 @@
     --scrollbarbuttons-opacity: 1;
     --scrollbarbuttons-pointerevents: auto;
     --componentcover-height: calc(96vh - var(--topbar-height));
+    --componentbutton-padding: 10px 24px;
 }
 
 @media all and (max-width: 840px) {
@@ -13,6 +14,7 @@
         --scrollbarbuttons-opacity: 0;
         --scrollbarbuttons-pointerevents: none;
         --componentcover-height: calc(96vh - var(--topbar-height) - var(--sectionsbar-height));
+        --componentbutton-padding: 14px 32px;
     }
 }
 
@@ -20,11 +22,26 @@
 /* Buttons */
 
 button.component--button {
-    background-color: red;
+    background-color: var(--button-background);
+    padding: var(--componentbutton-padding);
+    font-size: 16px;
+    border: 1px solid var(--button-border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.component--button:hover {
+    opacity: 0.9;
+}
+
+button.component--button:active {
+    opacity: 0.7;
 }
 
 button.component--button.component--button-primary {
-    background-color: green;
+    background-color: var(--primarybutton-background);
+    border: 1px solid var(--primarybutton-border);
+    color: white;
 }
 
 

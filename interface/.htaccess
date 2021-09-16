@@ -1,0 +1,19 @@
+# Configure the error pages
+ErrorDocument 402 /page/error/
+ErrorDocument 403 /page/error/
+ErrorDocument 404 /page/error/
+ErrorDocument 500 "The server has crashed, you'll need to come back later!"
+
+# Manage URL changes
+RewriteEngine On
+RewriteBase /
+RewriteRule ^page(/.*|)$ /index.html?url=$1 [L,NC]
+
+# Set the maximum upload size
+#php_value upload_max_filesize 0M
+
+# Block access to this file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>

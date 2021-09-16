@@ -1,3 +1,4 @@
+/*
 // Get the required elements in the side/bottom bar
 var sectionsitems = document.getElementsByClassName("layout--sectionsbar-item");
 
@@ -28,3 +29,4 @@ function linkItemsFunctions() {
     }
 
 }
+*/

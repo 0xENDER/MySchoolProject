@@ -3,6 +3,7 @@
 :root {
     color-scheme: light;
     --colours-primary1: #5d42ef;
+    --colours-primary2: #5336ec;
     --text-colour: #000000;
     --topbar-background: #e8e8e8;
     --sectionsbar-background: #e8e8e8;
@@ -17,7 +18,12 @@
     --scrollbar-colour: #505050;
     --alerts-background: #bdbdbd94;
     --alertscard-background: var(--topbar-background);
-    --alertscard-border: var(--pagecontent-border);
+    --alertscard-border: #ababab;
+    --alertscard-shadow: #8a8a8a4f;
+    --button-background: #ffffff;
+    --button-border: #c1c1c1;
+    --primarybutton-background: var(--colours-primary1);
+    --primarybutton-border: var(--colours-primary2);
 }
 
 
@@ -27,6 +33,7 @@
      :root {
         color-scheme: dark;
         --colours-primary1: #452dc5;
+        --colours-primary2: #6552ce;
         --text-colour: #ffffff;
         --topbar-background: #252525;
         --sectionsbar-background: #252525;
@@ -42,5 +49,8 @@
         --alerts-background: #08080894;
         --alertscard-background: var(--topbar-background);
         --alertscard-border: var(--pagecontent-border);
+        --alertscard-shadow: #0000004f;
+        --button-background: #3c3c3c;
+        --button-border: #6b6b6b;
     }
 }
