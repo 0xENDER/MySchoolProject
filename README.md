@@ -23,12 +23,12 @@
   - [ ] Windows (Electron)
   - [ ] Linux (Electron)
   - [ ] MacOS (Electron)
-  - [ ] *Android (React)* **(!)**
-  - [ ] *iOS (React)* **(!)**
+  - [ ] _Android (React) **(!)**_
+  - [ ] _iOS (React) **(!)**_
 - [ ] A fully secure and fledged accounts system
   - [ ] Email verification system
   - [ ] 2FA (Two factor authentication)
-  - [ ] *OAuth2 Support* **(!)**
+  - [ ] _OAuth2 Support **(!)**_
 - [ ] Apps Ownership and downloads History Syncing
   - [ ] Ownership syncing for free and paid apps
   - [ ] Downloads history syncing
@@ -43,13 +43,13 @@
 - [ ] A feedback system
   - [ ] Comments
   - [ ] Ratings
-- [ ] *A working developer console* **(!)**
+- [ ] _A working developer console **(!)**_
   - [ ] App analytics (app page visits, ownerships, downloads, earnings, used OS, etc.)
   - [ ] Comments and ratings mangement
-  - [ ] *App page and info management* **(!)**
-  - [ ] *Policy Alerts* **(!)**
-  - [ ] *Teams (Invites, user permissions, and activity logs)* **(!)**
-  - [ ] *Payments Managment (Manage your earnings)* **(!)**
+  - [ ] _App page and info management **(!)**_
+  - [ ] _Policy Alerts **(!)**_
+  - [ ] _Teams (Invites, user permissions, and activity logs) **(!)**_
+  - [ ] _Payments Managment (Manage your earnings) **(!)**_
 
 **(!):** _This feature may not be achievable within the given period of time to work on this project._
 
