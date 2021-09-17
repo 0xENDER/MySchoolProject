@@ -7,11 +7,13 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Change the document dataset values
-    setTimeout(function() {
-        //document.documentElement.dataset.loaded = true;
-        document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="setTimeout(function(){ document.documentElement.dataset.loaded = true; }, 0)">`));
-    }, 0);
+    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; setTimeout(function(){ checkAgreement(); }, 0);">`));
     document.documentElement.dataset.contentloaded = false;
+
+});
+
+// Check the user agreement
+function checkAgreement() {
 
     if (localStorage.getItem("DidAcceptPopup") !== "true") { // Check if the user saw the terms and policies pop-up
 
@@ -39,7 +41,7 @@ window.addEventListener('load', function() {
 
     }
 
-});
+}
 
 function loadContent() {
 
