@@ -3,7 +3,7 @@
     "name": "MyStore",
     "short_name": "MyStore",
     "description": "Get apps from MyStore!",
-    "start_url": "./page/home/",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#6552ce",
