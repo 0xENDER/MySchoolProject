@@ -55,6 +55,10 @@ function checkAgreement() {
 
 function loadContent() {
 
+    // Add internet status checker
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
     // Prepare the page content container
     pageContentElement.style.display = null;
     linkScrollbar(pageContentElement);
@@ -162,5 +166,28 @@ function contentSourceLoaded() {
 
     if (++loadedContentResourcesNumber == contentResourcesNumber)
         contentLoaded();
+
+}
+
+// Update the user connection status
+function updateOnlineStatus() {
+
+    if (navigator.onLine) {
+
+        hideAlert();
+
+    } else {
+
+        showAlert("Can't connect to the server!", " We're unable to connect to the server, please check your internet connection or try coming back later.", "Reload page", function() {
+
+            window.location.pathname = window.location.pathname;
+
+        }, "Ok", function() {
+
+            hideAlert();
+
+        });
+
+    }
 
 }
