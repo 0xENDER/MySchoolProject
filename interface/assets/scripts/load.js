@@ -56,6 +56,7 @@ function checkAgreement() {
 function loadContent() {
 
     // Add internet status checker
+    updateOnlineStatus();
     navigator.connection.onchange = function() {
 
         updateOnlineStatus();
