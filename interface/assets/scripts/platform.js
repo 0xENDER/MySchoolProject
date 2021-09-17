@@ -50,7 +50,7 @@ window.platform = { // An object to keep track and organise the platform data
 
     codebase: { // Info about this current codebase of the website/app
 
-        version: "0.0.1-alpha"
+        version: "0.0.1-alpha.001"
 
     }
 
