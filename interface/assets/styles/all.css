@@ -1,6 +1,6 @@
 /* Prevent text selection, and apply the font. */
 
-* {
+[no-select] {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -32,11 +32,11 @@ input {
 
 /* Hide the scrollbar */
 
-*::-webkit-scrollbar {
+[no-scrollbar]::-webkit-scrollbar {
     display: none;
 }
 
-* {
+[no-scrollbar] {
     scrollbar-width: none;
 }
 
@@ -55,4 +55,11 @@ input {
 [data-tab="true"] *:focus-visible,
 [data-tab="true"] *:focus {
     outline: 4px dashed var(--text-colour);
+}
+
+
+/* Links */
+
+a {
+    color: var(--text-colour);
 }

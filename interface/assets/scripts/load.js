@@ -46,16 +46,8 @@ function loadContent() {
         pageContentElement.style.display = null;
         linkScrollbar(pageContentElement);
 
-        // Redirect the main directory
-        if (window.location.pathname == "/" || window.location.pathname.indexOf("/?") == 0 || window.location.pathname.indexOf("/#") == 0 || window.location.pathname.indexOf("/page?") == 0 || window.location.pathname.indexOf("/page#") == 0) {
-
-            // Redirect to the home page
-            window.location.pathname = "/page/home/" + (window.location.pathname.indexOf("/?") == 0 || (window.location.pathname.indexOf("/#") == 0) ? window.location.pathname.substring(1) : "");
-
-        } else
-
         // Fetch the content
-            fetch("pages" + window.location.pathname.substring(5))
+        fetch("pages" + window.location.pathname.substring(5))
             .then(response => {
 
                 if (response.ok) { // If the request was successful, inject the content to the page.

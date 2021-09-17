@@ -1,230 +1,35 @@
 <!DOCTYPE html>
-
-<!--
-
-    Project Idea: Online Apps Store
-    Student: Adel Sbeh
-    Start Date: September 8th 2021
-    Finish Date: -
-    Planned Components: - An interface
-                        - An accounts system
-                        - Apps Ownership and downloads History Syncing
-                        - A working apps upload and distribution system
-                        - A working system-dependent and user-preferences-wary suggestions system
-    Used languages: - JavaScript
-                    - PHP
-                    - HTML
-                    - CSS
-                    - JSON
-    Credits: - The icons: Evericons (https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)
-             - The font: Google Fonts (https://fonts.google.com)
-
-    This is an online store for all kinds of programs.
-    The website is gonna mainly offer normal apps and
-    games.
-
-    The user will have the option to sign in to manage
-    the downloads history, requests, and payments.
-
-    To host this locally, use apache2:
-    - sudo apachectl start
-
--->
-
-<html lang="en" data-signedin="wait" data-loaded="false">
+<html lang="en">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <!-- Specify the root directory of the website! -->
-    <base href="/">
+    <!-- Use the refresh meta tag to redirect the page when JavaScript is disabled -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://store.mur-lang.org/page/home/"/>
+    </noscript>
 
-    <!-- Preload important files (First-print styles, data scripts, etc.) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="./assets/styles/layout.css" as="style">
-    <link rel="preload" href="./assets/styles/colours.css" as="style">
-    <link rel="preload" href="./assets/styles/components.css" as="style">
 
-    <!-- Do some important stuff -->
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-    <meta name="referrer" content="strict-origin">
-    <meta name="robots" content="index, follow">
-
-    <!-- Important search-friendly meta tags -->
-    <meta name="title" content="MyStore">
-    <meta name="description" content="Get apps from MyStore!">
-    <meta name="keywords" content="MyStore">
-    <meta name="language" content="English">
-    <meta name="lang" content="en">
-    <meta name="creationdate" content="September 8 2021">
-    <!--<meta name="image" content="https://endercomm.net/assets/image/meta/cover.png">-->
-
-    <!-- Website theming -->
-    <meta name="application-name" content="MyStore">
-    <meta name="apple-mobile-web-app-title" content="MyStore">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="msapplication-TileColor" content="#5d42ef">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e8e8e8">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525">
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- The page title -->
     <title>MyStore</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles/layout.css">
-    <link rel="stylesheet" href="./assets/styles/colours.css">
-
-    <!-- Debug -->
-    <script type="text/javascript">
-        // Define a debug function
-        function debug() {
-
-            // Reset the local storage
-            localStorage.clear();
-
-            // Reset cookies
-            const cookies = document.cookie.split(";");
-            for (const cookie of cookies) {
-                const eqPos = cookie.indexOf("=");
-                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-
-        }
-    </script>
-
-    <!-- Scripts -->
-    <script type="text/javascript">
-        // Is the user signed in? (PHP required)
-        document.documentElement.dataset.signedin = true;
-    </script>
-    <script type="text/javascript" src="./assets/scripts/platform.js"></script>
 
 </head>
 
 <body>
 
-    <!-- The top-bar -->
-    <div class="layout--topbar" layer="main-layout">
+    <!-- Redirect the page using JavaScript -->
+    <script type="text/javascript">
+        window.location.pathname = "/page/home/";
+    </script>
 
-        <!-- The branding -->
-        <div class="layout--topbar-component layout--topbar-left">
-            <svg class="layout--topbar-logo effect--skeleton" width="24" height="24" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M11.4549 23.3444C12.325 10.7622 22.7854 1 35.3977 1H156.483C169.144 1 179.628 10.8356 180.434 23.4712L189.371 163.471C190.253 177.299 179.276 189 165.419 189H25.7169C11.8103 189 0.814721 177.218 1.77406 163.344L11.4549 23.3444Z" fill="url(#paint0_linear)"/><path d="M133.548 47.5C139.321 47.5 144.09 52.2108 143.14 57.9044C142.522 61.608 141.575 65.2388 140.308 68.7389C137.871 75.4725 134.298 81.5908 129.795 86.7444C125.291 91.8981 119.944 95.9862 114.06 98.7753C108.176 101.564 101.869 103 95.5 103C89.1309 103 82.8241 101.564 76.9399 98.7753C71.0556 95.9862 65.709 91.8981 61.2053 86.7444C56.7017 81.5908 53.1292 75.4725 50.6918 68.7389C49.4249 65.2388 48.4775 61.608 47.8599 57.9044C46.9103 52.2108 51.6794 47.5 57.4517 47.5V47.5C63.224 47.5 67.7468 52.278 69.4138 57.8044C69.5947 58.4038 69.7914 58.9976 70.004 59.585C71.3909 63.4164 73.4237 66.8977 75.9862 69.8302C78.5488 72.7626 81.5911 75.0887 84.9392 76.6758C88.2874 78.2628 91.876 79.0796 95.5 79.0796C99.124 79.0796 102.713 78.2628 106.061 76.6758C109.409 75.0888 112.451 72.7626 115.014 69.8302C117.576 66.8977 119.609 63.4164 120.996 59.585C121.209 58.9976 121.405 58.4038 121.586 57.8044C123.253 52.278 127.776 47.5 133.548 47.5V47.5Z" fill="url(#paint1_linear)"/></g><defs><linearGradient id="paint0_linear" x1="51" y1="-35.5" x2="121.5" y2="177.5" gradientUnits="userSpaceOnUse"><stop stop-color="#280098"/><stop offset="1" stop-color="#550098"/></linearGradient><linearGradient id="paint1_linear" x1="95.5" y1="-8" x2="95.5" y2="103" gradientUnits="userSpaceOnUse"><stop stop-color="#6F6CFF"/><stop offset="1" stop-color="#9B6CFF"/></linearGradient><clipPath id="clip0"><rect width="190" height="190" fill="white"/></clipPath></defs></svg>
-            <text class="layout--topbar-title effect--skeleton">MyStore</text>
-        </div>
-
-        <!-- The search bar -->
-        <div class="layout--topbar-component layout--topbar-center">
-            <input id="component--search" class="layout--topbar-search" type="search" placeholder="Search apps, games, and more!" tabindex="0">
-        </div>
-
-        <!-- The account info -->
-        <div class="layout--topbar-component layout--topbar-right">
-
-            <!-- If the user is signed in, show the user profile with the username. -->
-            <text id="user--username" class="layout--topbar-username effect--skeleton">[Username]</text>
-            <img id="user--profilepicture" class="layout--topbar-profile effect--skeleton" alt="Profile Picture" width="32px" height="32px" tabindex="0">
-
-            <!-- If the user is not signed in, show the sign in button. -->
-            <button class="layout--topbar-button component--button effect--skeleton" tabindex="0">Sign In</button>
-
-        </div>
-
-    </div>
-
-    <!-- The side-bar/bottom-bar -->
-    <div class="layout--sectionsbar" layer="main-layout">
-
-        <!-- The top/main section of the side-bar -->
-        <div class="layout--sectionsbar-component layout--sectionsbar-top">
-            <a href="./page/home/" id="sections--home" class="layout--sectionsbar-item effect--skeleton" tabindex="0">
-                <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.88867 10L11.89 3.99867L17.8913 10H17.89V20H5.89001V10H5.88867ZM3.89001 11.9987L2.4132 13.4755L1 12.0623L10.477 2.58529C11.2574 1.8049 12.5226 1.8049 13.303 2.58529L22.78 12.0623L21.3668 13.4755L19.89 11.9987V20C19.89 21.1046 18.9946 22 17.89 22H5.89001C4.78545 22 3.89001 21.1046 3.89001 20V11.9987Z"/></svg>
-                <text class="sectionsbar--item-title">Home</text>
-            </a>
-            <a href="./page/apps/" id="sections--apps" class="layout--sectionsbar-item effect--skeleton" tabindex="0">
-                <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 8.98528 8.98528 11 6.5 11ZM2 17.5C2 19.9853 4.01472 22 6.5 22C8.98528 22 11 19.9853 11 17.5C11 15.0147 8.98528 13 6.5 13C4.01472 13 2 15.0147 2 17.5ZM13 17.5C13 19.9853 15.0147 22 17.5 22C19.9853 22 22 19.9853 22 17.5C22 15.0147 19.9853 13 17.5 13C15.0147 13 13 15.0147 13 17.5ZM13 6.5C13 8.98528 15.0147 11 17.5 11C19.9853 11 22 8.98528 22 6.5C22 4.01472 19.9853 2 17.5 2C15.0147 2 13 4.01472 13 6.5ZM17.5 9C18.8807 9 20 7.88071 20 6.5C20 5.11929 18.8807 4 17.5 4C16.1193 4 15 5.11929 15 6.5C15 7.88071 16.1193 9 17.5 9ZM9 6.5C9 7.88071 7.88071 9 6.5 9C5.11929 9 4 7.88071 4 6.5C4 5.11929 5.11929 4 6.5 4C7.88071 4 9 5.11929 9 6.5ZM17.5 20C18.8807 20 20 18.8807 20 17.5C20 16.1193 18.8807 15 17.5 15C16.1193 15 15 16.1193 15 17.5C15 18.8807 16.1193 20 17.5 20ZM9 17.5C9 18.8807 7.88071 20 6.5 20C5.11929 20 4 18.8807 4 17.5C4 16.1193 5.11929 15 6.5 15C7.88071 15 9 16.1193 9 17.5Z" /></svg>
-                <text class="sectionsbar--item-title">Apps</text>
-            </a>
-            <a href="./page/games/" id="sections--games" class="layout--sectionsbar-item effect--skeleton" tabindex="0">
-                <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 8V11.5L3 14.5V20H7C7 21.1046 7.89543 22 9 22H11V23H13V22H15C16.1046 22 17 21.1046 17 20H21V14.5L17 11.5V8C17 4.84392 15.0864 1 12 1C8.91356 1 7 4.84392 7 8ZM13 20H15V10V8C15 5.80724 13.6025 3 12 3C10.3975 3 9 5.80724 9 8V10V20H11V14H13V20ZM5 15.5L7 14V18H5V15.5ZM17 18V14L19 15.5V18H17ZM12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9C14 10.1046 13.1046 11 12 11Z"/></svg>
-                <text class="sectionsbar--item-title">Games</text>
-            </a>
-        </div>
-
-        <!-- The bottom section of the side-bar -->
-        <div class="layout--sectionsbar-component layout--sectionsbar-bottom">
-            <a href="./page/library/" id="sections--library" class="layout--sectionsbar-item effect--skeleton" tabindex="0">
-                <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.03367 6C7.32766 3.81519 9.51103 2 12.0001 2C14.4891 2 16.6725 3.81519 16.9665 6H19.8471C20.9516 6 21.8471 6.89543 21.8471 8C21.8471 8.09464 21.8404 8.18916 21.827 8.28284L20.1127 20.2828C19.9719 21.2681 19.1281 22 18.1328 22H5.86737C4.87207 22 4.02823 21.2681 3.88747 20.2828L2.17319 8.28284C2.01698 7.18937 2.77678 6.17631 3.87024 6.0201C3.96393 6.00672 4.05845 6 4.15309 6H7.03367ZM14.928 6C14.624 4.93808 13.3981 4 12.0001 4C10.602 4 9.37619 4.93808 9.0722 6H14.928ZM4.15309 8H7.00008V10H9.00008V8H15.0001V10H17.0001V8H19.8471L18.1328 20H5.86737L4.15309 8Z" /></svg>
-                <text class="sectionsbar--item-title">Library</text>
-            </a>
-            <a href="./page/help/" id="sections--help" class="layout--sectionsbar-item effect--skeleton" tabindex="0">
-                <svg class="sectionsbar--item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12.0003 16.9983C12.5528 16.9983 13.0007 16.5506 13.0007 15.9983C13.0007 15.4461 12.5528 14.9983 12.0003 14.9983C11.4479 14.9983 11 15.4461 11 15.9983C11 16.5506 11.4479 16.9983 12.0003 16.9983ZM11 14H13C13 13.2016 13.1254 13.0553 13.9472 12.6444C15.3754 11.9303 16 11.2016 16 9.5C16 7.32063 14.2843 6 12 6C9.79086 6 8 7.79086 8 10H10C10 8.89543 10.8954 8 12 8C13.2772 8 14 8.55641 14 9.5C14 10.2984 13.8746 10.4447 13.0528 10.8556C11.6246 11.5697 11 12.2984 11 14Z" /></svg>
-                <text class="sectionsbar--item-title">Help</text>
-            </a>
-        </div>
-
-    </div>
-
-    <!-- Content-related styles -->
-    <link itemprop="components--style" rel="stylesheet" href="./assets/styles/components.css">
-
-    <!-- Content-related scripts -->
-    <script itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
-
-    <!-- The page content -->
-    <div id="page" class="layout--pagecontent" layer="page-content-top" style="display: none;"></div>
-    <div id="cover" class="layout--pagecover" layer="main-layout">
-        <div id="cover--loadingicon" class="component--loadingicon">
-            <div class="circle circle-1">
-                <div class="circle-inner"></div>
-            </div>
-            <div class="circle circle-2">
-                <div class="circle-inner"></div>
-            </div>
-        </div>
-        <div class="component--loadingbar"></div>
-    </div>
-
-    <!-- The scrollbar -->
-    <div id="component--scrollbar" class="component--scrollbar" layer="main-layout">
-        <span id="scrollbar--top" class="component--scrollbar-top">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0001 9.41421L4.70718 16.7071L3.29297 15.2929L12.0001 6.58578L20.7072 15.2929L19.293 16.7071L12.0001 9.41421Z"/></svg>
-        </span>
-        <span id="scrollbar" class="component--scrollbar-handlecontainer">
-                    <span id="scrollbar--handle" class="component--scrollbar-handle"></span>
-        </span>
-        <span id="scrollbar--bottom" class="component--scrollbar-bottom">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.293 7.29291L20.7072 8.70712L12.0001 17.4142L3.29297 8.70712L4.70718 7.29291L12.0001 14.5858L19.293 7.29291Z"/></svg>
-        </span>
-    </div>
-
-    <div id="alerts--container" class="alerts--container" layer="dialog" style="display: none; opacity: 0;">
-        <div id="alerts--card" class="alerts--card">
-            <text id="alerts--title" class="alerts--title">[Title]</text>
-            <text id="alerts--message" class="alerts--description">[Description]</text>
-            <button id="alerts--button-primary" class="component--button component--button-primary">Option 1</button>
-            <button id="alerts--button" class="component--button">Option 2</button>
-        </div>
-    </div>
-
-    <!-- Scripts for the user account -->
-    <script itemprop="account--script" type="text/javascript" src="./assets/scripts/account.js"></script>
-
-    <!-- Styles that are the least important -->
-    <link itemprop="all--style" rel="stylesheet" href="./assets/styles/all.css">
-    <link itemprop="layout--style" rel="stylesheet" href="./assets/styles/complex/layout.css">
-    <link itemprop="components--style" rel="stylesheet" href="./assets/styles/complex/components.css">
-    <link itemprop="alerts--style" rel="stylesheet" href="./assets/styles/complex/alerts.css">
-    <link defer itemprop="font--style" href="./assets/styles/font.css" rel="stylesheet">
-
-    <!-- Scripts that are the least important -->
-    <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js"></script>
-    <script defer itemprop="alerts--script" type="text/javascript" src="./assets/scripts/alerts.js"></script>
-    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/load.js"></script>
+    <a href="/page/home/">Redirecting the page...</a>
 
 </body>
 
