@@ -35,7 +35,7 @@ Project Description: *This is an online store for all kinds of programs. The web
 - _**At least** 5GB of storage (without acounting for the apps database)_
 - *Mailing support*
 
-## Hosting
+## Hosting Locally
 
 To host this locally, use an apache2 server:
 
