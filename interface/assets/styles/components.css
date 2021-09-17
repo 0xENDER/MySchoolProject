@@ -1,3 +1,9 @@
+/*
+
+    First-print components
+
+*/
+
 :root {
     --componentsection-marginFactor: 2;
     --scrollbar-width: calc(var(--global-sidesmargin) / 1.5);

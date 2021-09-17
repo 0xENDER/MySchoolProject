@@ -1,6 +1,6 @@
 /*
 
-    This files manages the `pagecontent` layout scrollbar
+    Manage the `pagecontent` layout scrollbar
 
 */
 
@@ -244,23 +244,3 @@ function linkScrollbar() { // Link a scrollbar to the page
     scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 
 }
-
-// There's no need for this function now
-/*function unlinkScrollbar(element) { // Unlink a scrollbar from the page
-
-    // Clear all interval loops
-    clearInterval(element.scrollbar.interval);
-
-    // Delete all the event listeners
-    scrollbar.handle.removeEventListener("mousedown", element.scrollbar.clickStart);
-    scrollbar.handle.removeEventListener("touchstart", element.scrollbar.clickStart);
-    window.removeEventListener('mousemove', element.scrollbar.moving);
-    window.removeEventListener("mouseup", element.scrollbar.clickEnd);
-    window.removeEventListener("touchend", element.scrollbar.clickEnd);
-
-    // Delete attached variables
-    delete element.scrollbar.linkedElement.onscroll, // Delete the `onscroll` event function
-        element.scrollbar.handle.refreshHeight, // Delete the handle `refreshHeight` function
-        element.scrollbar; // Delete the `scrollbar` object
-
-}*/

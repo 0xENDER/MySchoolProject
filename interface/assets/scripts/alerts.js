@@ -1,5 +1,5 @@
 /*
-    This file is used to manage pop-up alerts and similar stuff!
+    Manage pop-up alerts and similar stuff!
 */
 
 // Get the required elements for the alert screen

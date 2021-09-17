@@ -1,5 +1,8 @@
-"user--username";
-"user--profilepicture";
+/*
+
+    Manage the user account info
+
+*/
 
 var userSettings = { // The user settings
 

@@ -1,3 +1,9 @@
+/*
+
+    The styles of the alert screen and pop-up box
+
+*/
+
 :root {
     --alertscard-width: calc(60vw - var(--alertscard-paddingleftright) * 2);
     --alertscard-maxheight: calc(60vh - var(--alertscard-paddingtopbottom) * 2);

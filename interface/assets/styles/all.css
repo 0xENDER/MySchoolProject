@@ -1,3 +1,10 @@
+/*
+
+    A general-use CSS file with `all` (*) selectors or additional attributes
+
+*/
+
+
 /* Prevent text selection, and apply the font. */
 
 [no-select] {

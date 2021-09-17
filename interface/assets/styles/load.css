@@ -1,8 +1,8 @@
-/*@media (data-loaded: "true") {
-    * {
-        background-color: red !important;
-    }
-}*/
+/*
+
+    Load CSS files that are not necessary for the first print of the page
+
+*/
 
 @import url(all.css);
 @import url(complex/layout.css);

@@ -1,3 +1,9 @@
+/*
+
+    Manage the page's workload
+
+*/
+
 // Define the required variables for the loading system to work
 var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,

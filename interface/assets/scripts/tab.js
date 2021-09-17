@@ -1,3 +1,9 @@
+/*
+
+    Manage the "tab" button
+
+*/
+
 // If this device has a touch screen, you should always enable the outline!
 if (userSettings.alwaysShowFocusBorderOnTouch && (('ontouchstart' in window) ||
         (navigator.maxTouchPoints > 0) ||

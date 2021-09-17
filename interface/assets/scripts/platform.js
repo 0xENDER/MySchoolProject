@@ -1,5 +1,9 @@
-// This file is used to keep track of all the data that is
-// related to the platform this website is running on!
+/*
+
+    Keep track of all the data that is related to the
+    platform this website is running on!
+
+*/
 
 window.platform = { // An object to keep track and organise the platform data
 
