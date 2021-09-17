@@ -74,16 +74,6 @@ self.addEventListener('install', e => {
     // Activate worker immediately
     e.waitUntil(self.skipWaiting());
 
-    // Perform install steps
-    /*e.waitUntil((async() => {
-
-        const cache = await caches.open(cacheName);
-        console.log('[Service Worker] Caching all: app shell and content');
-
-        await cache.addAll(contentToCache);
-
-    })());*/
-
 });
 
 // Process file requests
@@ -140,21 +130,5 @@ self.addEventListener('activate', (e) => {
 
         })
     ));
-
-    //e.waitUntil(self.clients.claim()); // Become available to all pages
-
-    /*e.waitUntil(caches.keys().then((keyList) => {
-
-        return Promise.all(keyList.map((key) => {
-
-            if (key === cacheName) {
-                return undefined;
-            }
-
-            return caches.delete(key);
-
-        }));
-
-    }));*/
 
 });
