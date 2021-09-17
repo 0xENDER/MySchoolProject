@@ -13,7 +13,7 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Change the document dataset values
-    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; setTimeout(function(){ checkAgreement(); }, 0);">`));
+    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; checkAgreement();">`));
     document.documentElement.dataset.contentloaded = false;
 
 });
@@ -23,22 +23,26 @@ function checkAgreement() {
 
     if (localStorage.getItem("DidAcceptPopup") !== "true") { // Check if the user saw the terms and policies pop-up
 
-        // Make sure you have the user's agreement before loading the content of the page!
-        showAlert("User Agreement",
-            `By using this website, or any offered services on it, you automatically agree on and oblige to follow our <a href="./">Terms and Conditions</a>, <a href="./">Privacy Policy</a>, and <a href="./">Cookie Policy</a>.`,
-            "Ok",
-            function() {
+        setTimeout(function() {
 
-                // Save the data that the user did see the pop-up
-                localStorage.setItem("DidAcceptPopup", true);
+            // Make sure you have the user's agreement before loading the content of the page!
+            showAlert("User Agreement",
+                `By using this website, or any offered services on it, you automatically agree on and oblige to follow our <a href="./">Terms and Conditions</a>, <a href="./">Privacy Policy</a>, and <a href="./">Cookie Policy</a>.`,
+                "Ok",
+                function() {
 
-                // Hide the alert screen
-                hideAlert();
+                    // Save the data that the user did see the pop-up
+                    localStorage.setItem("DidAcceptPopup", true);
 
-                // Load the page content
-                loadContent();
+                    // Hide the alert screen
+                    hideAlert();
 
-            });
+                    // Load the page content
+                    loadContent();
+
+                });
+
+        }, 250);
 
     } else {
 
