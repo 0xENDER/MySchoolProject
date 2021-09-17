@@ -8,7 +8,8 @@
 var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,
     didAlertAboutConnection = false,
-    pageContentElement = document.getElementById("page");
+    pageContentElement = document.getElementById("page"),
+    connectionAPI = null;
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -56,12 +57,15 @@ function checkAgreement() {
 
 function loadContent() {
 
+    // Update the connection API 
+    connectionAPI = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
     // Add internet status checker
     updateOnlineStatus(); // Check the page once it's loaded (for local apps)
-    if ('connection' in navigator && String(navigator.connection.onchange) !== "undefined") { // Check if the connection API is available
+    if ('connection' in navigator && String(connectionAPI.onchange) !== "undefined") { // Check if the connection API is available
 
         // Change the `onchange` function of the connection API
-        navigator.connection.onchange = function() {
+        connectionAPI.onchange = function() {
 
             // Check and update the API
             updateOnlineStatus();
@@ -191,7 +195,7 @@ function isOnline() {
     // Return a promise
     return new Promise((resolve, reject) => {
 
-        if ('connection' in navigator && String(navigator.connection.onchange) !== "undefined") { // Check if the connection API is available
+        if ('connection' in navigator && String(connectionAPI.onchange) !== "undefined") { // Check if the connection API is available
 
             if (!window.navigator.onLine) { // If it is avaliable, check if the user is even connected to a network
 
