@@ -74,6 +74,14 @@
             // Reset the local storage
             localStorage.clear();
 
+            // Clear the cache
+            caches.keys().then((keys) => {
+
+                for (var i = 0; i < keys.length; i++)
+                    caches.delete(keys[i]);
+
+            });
+
             // Reset cookies
             const cookies = document.cookie.split(";");
             for (const cookie of cookies) {

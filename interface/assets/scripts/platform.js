@@ -53,11 +53,34 @@ window.platform = { // An object to keep track and organise the platform data
 
     codebase: { // Info about this current codebase of the website/app
 
-        version: "0.0.1-alpha.002"
+        version: "0.0.1-alpha.003"
 
     }
 
 };
+
+// Check if the "LastVisitVersion" value is set
+if (localStorage.getItem("LastVisitVersion") == null) {
+
+    localStorage.setItem("LastVisitVersion", window.platform.codebase.version);
+
+}
+
+// Check the last version of this website the user used
+if (localStorage.getItem("LastVisitVersion") != window.platform.codebase.version) {
+
+    // Delete the old cache
+    caches.keys().then((keys) => {
+
+        for (var i = 0; i < keys.length; i++)
+            caches.delete(keys[i]);
+
+    });
+
+    // Set the new "LastVisitVersion" value
+    localStorage.setItem("LastVisitVersion", window.platform.codebase.version);
+
+}
 
 
 // Start analysing the user agent string
