@@ -32,18 +32,33 @@
 
 -->
 
-<html lang="en" data-signedin="wait" data-loaded="false">
+<html lang="en" data-signedin="wait" data-loaded="false" style="background-color: var(--page-background);">
 
 <head>
 
     <meta charset="UTF-8">
 
+    <style>
+        /* Light mode */
+        
+         :root {
+            color-scheme: light;
+            --page-background: #e8e8e8;
+        }
+        /* Dark mode */
+        
+        @media (prefers-color-scheme: dark) {
+             :root {
+                color-scheme: dark;
+                --page-background: #252525;
+            }
+        }
+    </style>
+
     <!-- Specify the root directory of the website! -->
     <base href="/">
 
     <!-- Preload important files (First-print styles, data scripts, etc.) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="./assets/styles/layout.css" as="style">
     <link rel="preload" href="./assets/styles/colours.css" as="style">
     <link rel="preload" href="./assets/styles/components.css" as="style">
@@ -53,7 +68,7 @@
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <meta name="referrer" content="strict-origin">
     <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' ajax.cloudflare.com static.cloudflareinsights.com; connect-src 'self' cloudflareinsights.com; object-src 'none';">
 
     <!-- Important search-friendly meta tags -->
     <meta name="title" content="MyStore">
@@ -73,12 +88,15 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#e8e8e8">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525">
 
-    <!-- The page title -->
+    <!-- The page title and icon -->
     <title>MyStore</title>
+    <link rel="icon" href="./assets/media/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon.png">
 
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/styles/layout.css">
     <link rel="stylesheet" href="./assets/styles/colours.css">
+    <link rel="stylesheet" href="./assets/styles/components.css">
 
     <!-- Debug -->
     <script type="text/javascript">
@@ -105,6 +123,9 @@
         document.documentElement.dataset.signedin = true;
     </script>
     <script type="text/javascript" src="./assets/scripts/platform.js"></script>
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.webmanifest.json" />
 
 </head>
 
@@ -171,12 +192,6 @@
 
     </div>
 
-    <!-- Content-related styles -->
-    <link itemprop="components--style" rel="stylesheet" href="./assets/styles/components.css">
-
-    <!-- Content-related scripts -->
-    <script itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
-
     <!-- The page content -->
     <div id="page" class="layout--pagecontent" layer="page-content-top" style="display: none;" no-scrollbar></div>
     <div id="cover" class="layout--pagecover" layer="main-layout" no-select>
@@ -216,17 +231,12 @@
     <!-- Scripts for the user account -->
     <script itemprop="account--script" type="text/javascript" src="./assets/scripts/account.js"></script>
 
-    <!-- Styles that are the least important -->
-    <link itemprop="all--style" rel="stylesheet" href="./assets/styles/all.css">
-    <link itemprop="layout--style" rel="stylesheet" href="./assets/styles/complex/layout.css">
-    <link itemprop="components--style" rel="stylesheet" href="./assets/styles/complex/components.css">
-    <link itemprop="alerts--style" rel="stylesheet" href="./assets/styles/complex/alerts.css">
-    <link defer itemprop="font--style" href="./assets/styles/font.css" rel="stylesheet">
-
     <!-- Scripts that are the least important -->
     <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js"></script>
     <script defer itemprop="alerts--script" type="text/javascript" src="./assets/scripts/alerts.js"></script>
+    <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
     <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/load.js"></script>
+    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/worker.js"></script>
 
 </body>
 

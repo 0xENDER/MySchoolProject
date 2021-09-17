@@ -7,7 +7,10 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Change the document dataset values
-    document.documentElement.dataset.loaded = true;
+    setTimeout(function() {
+        //document.documentElement.dataset.loaded = true;
+        document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="setTimeout(function(){ document.documentElement.dataset.loaded = true; }, 0)">`));
+    }, 0);
     document.documentElement.dataset.contentloaded = false;
 
     if (localStorage.getItem("DidAcceptPopup") !== "true") { // Check if the user saw the terms and policies pop-up
@@ -40,84 +43,80 @@ window.addEventListener('load', function() {
 
 function loadContent() {
 
-    setTimeout(function() {
+    // Prepare the page content container
+    pageContentElement.style.display = null;
+    linkScrollbar(pageContentElement);
 
-        // Prepare the page content container
-        pageContentElement.style.display = null;
-        linkScrollbar(pageContentElement);
+    // Fetch the content
+    fetch("pages" + window.location.pathname.substring(5))
+        .then(response => {
 
-        // Fetch the content
-        fetch("pages" + window.location.pathname.substring(5))
-            .then(response => {
+            if (response.ok) { // If the request was successful, inject the content to the page.
 
-                if (response.ok) { // If the request was successful, inject the content to the page.
+                response.text().then(data => {
 
-                    response.text().then(data => {
+                    // Check the "PAGE" element!
+                    //<!PAGE ...>
+                    var pageElement = data.substring(0, data.indexOf("\n"));
+                    if (pageElement.indexOf("<PAGE") == 0 && pageElement.indexOf(">") != -1) {
 
-                        // Check the "PAGE" element!
-                        //<!PAGE ...>
-                        var pageElement = data.substring(0, data.indexOf("\n"));
-                        if (pageElement.indexOf("<PAGE") == 0 && pageElement.indexOf(">") != -1) {
+                        // Prepare the "PAGE" element for processing
+                        pageElement = "<div id=\"pageElement\"" + pageElement.substring(5, pageElement.indexOf("/>")) + "></div>";
 
-                            // Prepare the "PAGE" element for processing
-                            pageElement = "<div id=\"pageElement\"" + pageElement.substring(5, pageElement.indexOf("/>")) + "></div>";
+                        try {
 
-                            try {
+                            // Convert the "PAGE" element into a HTML element
+                            pageElement = (new DOMParser()).parseFromString(pageElement, 'text/html');
+                            pageElement = pageElement.getElementById("pageElement");
 
-                                // Convert the "PAGE" element into a HTML element
-                                pageElement = (new DOMParser()).parseFromString(pageElement, 'text/html');
-                                pageElement = pageElement.getElementById("pageElement");
-
-                            } catch {
-
-                                loadingFailed();
-
-                            } finally {
-
-                                // Get the number of required resources in this page (first line)
-                                contentResourcesNumber = Number(pageElement.getAttribute("resources"));
-
-                                // Reset the `loadedContentResourcesNumber` variable
-                                loadedContentResourcesNumber = 0;
-
-                                // Update the page title
-                                var pageTitle = pageElement.getAttribute("title");
-                                if (pageTitle != null)
-                                    document.title = pageTitle + " | MyStore";
-
-                                // Update the selected item in the "sections bar"
-                                var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
-                                if (selectedSectionsItem != null)
-                                    selectedSectionsItem.classList.add("state--selected");
-
-                                // Inject the content into the page (without the first line)
-                                pageContentElement.append(document.createRange().createContextualFragment(data.substring(data.indexOf("\n"))));
-
-                                // If the number of required resources is 0, show the page content instantly!
-                                if (contentResourcesNumber == 0)
-                                    contentLoaded();
-
-                            };
-
-
-                        } else { // This is an invalid file!
+                        } catch {
 
                             loadingFailed();
 
-                        }
+                        } finally {
 
-                    });
+                            // Get the number of required resources in this page (first line)
+                            contentResourcesNumber = Number(pageElement.getAttribute("resources"));
 
-                } else
-                    loadingFailed();
+                            // Reset the `loadedContentResourcesNumber` variable
+                            loadedContentResourcesNumber = 0;
 
-            }).catch(function(error) {
+                            // Update the page title
+                            var pageTitle = pageElement.getAttribute("title");
+                            if (pageTitle != null)
+                                document.title = pageTitle + " | MyStore";
 
+                            // Update the selected item in the "sections bar"
+                            var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
+                            if (selectedSectionsItem != null)
+                                selectedSectionsItem.classList.add("state--selected");
+
+                            // Inject the content into the page (without the first line)
+                            pageContentElement.append(document.createRange().createContextualFragment(data.substring(data.indexOf("\n"))));
+
+                            // If the number of required resources is 0, show the page content instantly!
+                            if (contentResourcesNumber == 0)
+                                contentLoaded();
+
+                        };
+
+
+                    } else { // This is an invalid file!
+
+                        loadingFailed();
+
+                    }
+
+                });
+
+            } else
                 loadingFailed();
 
-            });
+        }).catch(function(error) {
 
-    }, window.platform.special.maxOptionalTimeoutDely); // Wait before loading the content
+            loadingFailed();
+
+        });
 
 }
 

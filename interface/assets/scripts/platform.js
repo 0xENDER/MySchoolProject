@@ -33,7 +33,6 @@ window.platform = { // An object to keep track and organise the platform data
     special: {
 
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
-        maxOptionalTimeoutDely: 0, // The maximum timeout period for optional delays
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (scrollbar pixels)
         scrollLockPeriod: 400 // The time need to lock a scrollbar button
 
@@ -43,7 +42,14 @@ window.platform = { // An object to keep track and organise the platform data
 
         //
 
+    },
+
+    codebase: { // Info about this current codebase of the website/app
+
+        version: "0.0.1-alpha"
+
     }
+
 };
 
 

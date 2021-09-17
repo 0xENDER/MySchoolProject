@@ -9,7 +9,6 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    color: var(--text-colour);
 }
 
 @media (prefers-reduced-motion) {
@@ -27,6 +26,7 @@ h5,
 h6,
 input {
     font-family: 'Istok Web', sans-serif;
+    color: var(--text-colour);
 }
 
 

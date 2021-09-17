@@ -1,0 +1,59 @@
+Hi there,
+
+Thank you for ordering I am pleased to confirm your activation and your free hosting account data has been migrated,
+
+Please can you change the Name Servers on all your domain name(s) to those below in the welcome email, then allow for DNS propagation to see your sites resolving to your awesome Premium Server ip address!
+
+IFastnet
+
+Please do not reply directly to this email, to contact us please click here * or visit http://support.ifastnet.com
+PLEASE PRINT THIS MESSAGE FOR YOUR RECORDS - PLEASE READ THIS EMAIL IN FULL.
+
+Dear Adel Sbeh (EnderCommunity), Thank you for purchasing one of our premium hosting paid plans.
+
+Below are your account details, you will need your username and password to access ftp and your control panel.
+
+New Account Info
+
+Domain: mur-lang.org Username: murlango Password: Q51-cBbuI3:3Mz Hosting Package: Starter Premium Hosting Server IP: 185.27.133.14 Nameserver 1: ns1081.ifastnet.com Nameserver 2: ns2081.ifastnet.com FTP Hostname: sv81.ifastnet.com Webpage URL: http://www.mur-lang.org
+
+Control Panel: https://sv81.ifastnet.com:2083
+
+You may use the below temporary information to access your website if your domain is not currently resolving / propagating.
+
+Temporary FTP Hostname: 185.27.133.14
+
+The Control panel requires the TCP ports 2083 and 2082 to be open on your local firewall / router, if you are trying to access the control panel from a location that does NOT allow these ports you can use the installed cPanel Proxy at http://cpanel.sv81.ifastnet.com however some cpanel services will not work correctly via the proxy, we therefore recommend you get these ports opened as soon as possible. Please keep in mind that your domain name will not be visible on the internet for between 24 and 72 hours. This process is called Propagation. Until your domain has Propagated your website and email will not function.
+
+IMPORTANT: Make sure you upload your files to the PUBLIC_HTML or www directory on the server otherwise they will not be visible on the internet. Also, please be sure that your homepage is saved as an index file e.g., index.htm, index.html, index.php etc. We suggest you download filezilla from http://filezilla-project.org/ if you do not already have an ftp client.
+
+CLOUDFLARE!
+
+We would recommend using the 'CloudFlare' option in your control panel to make your website much faster and more secure from web application attacks, setup takes a few clicks and offers excellent protection / speed and functionality. For more information on setting up CloudFlare please see :KnowledgeBase
+
+Mail settings
+
+POP3 Host Address : sv81.ifastnet.com SMTP Host Address: sv81.ifastnet.com Username: murlango Password: Q51-cBbuI3:3Mz non SSL: 345 TLS/SSL:290
+
+Username : The FULL email address that you are picking up from (e.g. info@yourdomain.com). If your email client cannot accept a @ symbol, then you may replace this with a backslash . Password : As specified in your control panel
+
+For webmail access, please use the following URL
+
+https://sv81.ifastnet.com:2096
+
+Knowledge Base:
+
+Our knowledgebase is located at http://kb.ifastnet.com we would recommend checking here for any advice regarding the hosting account, we have answers to most the common questions there ! For technical support please register at the following URL:
+
+https://support.ifastnet.com
+
+Thank you for choosing us, and we look forward to hosting your sites.
+
+visit our website | log in to your account | get support Copyright © IFastnet, All rights reserved.
+
+Please let us know if there is anything further we can do for you.
+
+Best Regards
+iFastNet - Proud winners of the TMT Telecom 2017 "Best Premium Hosting" award.
+As a CloudFlare optimized partner, you can now in a single click enable CloudFlare with FREE Railgun. This free option is available to all of our premium hosting clients! Read more here: http://blog.ifastnet.com Railgun usually costs $200.00 per month however it is completely free forever with our premium hosting!
+You received this message in response to review request #772878. You can view it and add your reply through the client area.

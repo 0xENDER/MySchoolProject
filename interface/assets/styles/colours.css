@@ -1,12 +1,11 @@
 /* Light mode */
 
 :root {
-    color-scheme: light;
     --colours-primary1: #5d42ef;
     --colours-primary2: #5336ec;
     --text-colour: #000000;
-    --topbar-background: #e8e8e8;
-    --sectionsbar-background: #e8e8e8;
+    --topbar-background: var(--page-background);
+    --sectionsbar-background: var(--page-background);
     --topbar-backgroundhover: #d4d4d4;
     --pagecontent-background: #cccccc;
     --pagecontent-border: #c1c1c1;
@@ -35,8 +34,8 @@
         --colours-primary1: #452dc5;
         --colours-primary2: #6552ce;
         --text-colour: #ffffff;
-        --topbar-background: #252525;
-        --sectionsbar-background: #252525;
+        --topbar-background: var(--page-background);
+        --sectionsbar-background: var(--page-background);
         --topbar-backgroundhover: #2f2f2f;
         --pagecontent-background: #2f2f2f;
         --pagecontent-border: #404040;
