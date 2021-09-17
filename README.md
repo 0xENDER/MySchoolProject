@@ -43,6 +43,8 @@ To host this locally, use an apache2 server:
 sudo apachectl start
 ```
 
+You also need to enable the use of `.htaccess` files.
+
 ## Credits
 
 - *The icons: [Evericons](https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)*
