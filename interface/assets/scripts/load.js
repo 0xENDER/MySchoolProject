@@ -7,6 +7,7 @@
 // Define the required variables for the loading system to work
 var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,
+    didAlertAboutConnection = false,
     pageContentElement = document.getElementById("page");
 
 // Wait for the main layout to finish loading
@@ -56,12 +57,23 @@ function checkAgreement() {
 function loadContent() {
 
     // Add internet status checker
-    updateOnlineStatus();
-    navigator.connection.onchange = function() {
+    updateOnlineStatus(); // Check the page once it's loaded (for local apps)
+    if ('connection' in navigator && String(navigator.connection.onchange) !== "undefined") { // Check if the connection API is available
 
-        updateOnlineStatus();
+        // Change the `onchange` function of the connection API
+        navigator.connection.onchange = function() {
 
-    };
+            // Check and update the API
+            updateOnlineStatus();
+
+        };
+
+    } else { // If the connection API is not supported, use the old way of checking the user status.
+
+        window.addEventListener("online", updateOnlineStatus);
+        window.addEventListener("offline", updateOnlineStatus);
+
+    }
 
     // Prepare the page content container
     pageContentElement.style.display = null;
@@ -176,20 +188,39 @@ function contentSourceLoaded() {
 // Check if you can connect to the server
 function isOnline() {
 
+    // Return a promise
     return new Promise((resolve, reject) => {
 
-        if (!window.navigator.onLine)
-            resolve(false);
+        if ('connection' in navigator && String(navigator.connection.onchange) !== "undefined") { // Check if the connection API is available
 
-        fetch(window.platform.server + "/.server.test.connection", { method: 'HEAD' }, ).then(function(response) {
+            if (!window.navigator.onLine) { // If it is avaliable, check if the user is even connected to a network
 
-            resolve(response.ok);
+                resolve(false);
 
-        }).catch(function() {
+            } else {
 
-            resolve(false);
+                // If the user is connected to a network, try to connect to the server of the store
+                fetch(window.platform.server + "/.server.test.connection", { method: 'HEAD' }, ).then(function(response) {
 
-        });
+                    resolve(response.ok);
+
+                }).catch(function() {
+
+                    resolve(false);
+
+                });
+
+            }
+
+        } else if ('onLine' in navigator) { // If the connection API is not available, just check if the user is connected to a network or not.
+
+            resolve(window.navigator.onLine);
+
+        } else { // If you can't use the onLine API, then asume that the user is online.
+
+            resolve(true);
+
+        }
 
     });
 
@@ -198,21 +229,32 @@ function isOnline() {
 // Update the user connection status
 function updateOnlineStatus() {
 
+    // Check if the user is online
     isOnline().then(function(v) {
 
         if (v) {
 
-            hideAlert();
+            // If the user is online, hide any possible alerts caused by the connection checking process!
+            if (didAlertAboutConnection)
+                hideAlert();
 
         } else {
 
+            // Use this variable to tell the next check that an alter was already shown
+            didAlertAboutConnection = true;
+
+            // Show an alert
             showAlert("Can't connect to the server!", " We're unable to connect to the server, please check your internet connection or try coming back later.", "Reload page", function() {
 
+                // Reload the page
                 window.location.pathname = window.location.pathname;
 
             }, "Ok", function() {
 
+                // Hide the alert
                 hideAlert();
+
+                didAlertAboutConnection = false;
 
             });
 
