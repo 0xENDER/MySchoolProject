@@ -34,6 +34,9 @@ window.platform = { // An object to keep track and organise the platform data
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
 
+    // The server address
+    server: (this.isApp) ? "https://store.mur-lang.org" : window.location.origin,
+
     special: {
 
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
@@ -50,7 +53,7 @@ window.platform = { // An object to keep track and organise the platform data
 
     codebase: { // Info about this current codebase of the website/app
 
-        version: "0.0.1-alpha.001"
+        version: "0.0.1-alpha.002"
 
     }
 

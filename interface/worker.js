@@ -99,7 +99,8 @@ self.addEventListener('fetch', (e) => {
         if (cacheName != null) {
 
             const cache = await caches.open(cacheName);
-            if (e.request.method !== "POST")
+
+            if (e.request.method !== "POST" && e.request.method !== "HEAD" && e.request.url.indexOf(".server.test.connection") == -1)
                 cache.put(e.request, response.clone());
 
         }

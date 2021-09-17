@@ -56,8 +56,11 @@ function checkAgreement() {
 function loadContent() {
 
     // Add internet status checker
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+    navigator.connection.onchange = function() {
+
+        updateOnlineStatus();
+
+    };
 
     // Prepare the page content container
     pageContentElement.style.display = null;
@@ -169,25 +172,51 @@ function contentSourceLoaded() {
 
 }
 
-// Update the user connection status
-function updateOnlineStatus() {
+// Check if you can connect to the server
+function isOnline() {
 
-    if (navigator.onLine) {
+    return new Promise((resolve, reject) => {
 
-        hideAlert();
+        if (!window.navigator.onLine)
+            resolve(false);
 
-    } else {
+        fetch(window.platform.server + "/.server.test.connection", { method: 'HEAD' }, ).then(function(response) {
 
-        showAlert("Can't connect to the server!", " We're unable to connect to the server, please check your internet connection or try coming back later.", "Reload page", function() {
+            resolve(response.ok);
 
-            window.location.pathname = window.location.pathname;
+        }).catch(function() {
 
-        }, "Ok", function() {
-
-            hideAlert();
+            resolve(false);
 
         });
 
-    }
+    });
+
+}
+
+// Update the user connection status
+function updateOnlineStatus() {
+
+    isOnline().then(function(v) {
+
+        if (v) {
+
+            hideAlert();
+
+        } else {
+
+            showAlert("Can't connect to the server!", " We're unable to connect to the server, please check your internet connection or try coming back later.", "Reload page", function() {
+
+                window.location.pathname = window.location.pathname;
+
+            }, "Ok", function() {
+
+                hideAlert();
+
+            });
+
+        }
+
+    });
 
 }
