@@ -187,6 +187,7 @@ body {
     background-color: var(--topbar-background);
     display: flex;
     justify-content: space-between;
+    -webkit-app-region: drag;
 }
 
 .layout--sectionsbar {
@@ -301,6 +302,25 @@ body {
 
 /* Sub-layout components */
 
+.layout--topbar-controls {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    width: 132px;
+    min-width: 132px;
+    height: 100%;
+    margin-right: calc(-1 * var(--global-sidesmargin));
+    margin-left: var(--global-sidesmargin);
+    background-color: red;
+    -webkit-app-region: no-drag;
+}
+
+[data-electron="true"] .layout--topbar-controls {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .layout--topbar-profile,
 .layout--topbar-username,
 .layout--topbar-button,
@@ -309,6 +329,7 @@ body {
 [data-signedin="wait"] .layout--topbar-button {
     opacity: 0;
     position: fixed;
+    -webkit-app-region: no-drag;
 }
 
 .layout--topbar-search {
@@ -318,12 +339,15 @@ body {
     border-radius: 6px;
     padding: calc(var(--topbarsearch-height) / 2) 10px;
     border: 1px solid var(--topbarsearch-border);
+    -webkit-app-region: no-drag;
 }
 
 .layout--topbar-logo,
 .layout--topbar-profile {
     width: 32px;
-    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     overflow: hidden;
     margin: 0px;
 }
@@ -346,6 +370,10 @@ body {
     display: var(--topbarusername-display);
     opacity: 1;
     position: relative;
+}
+
+[data-electron="true"] .layout--topbar-username {
+    display: none !important;
 }
 
 [data-signedin="true"] .layout--topbar-profile {

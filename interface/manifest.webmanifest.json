@@ -48,14 +48,14 @@
 
         "src": "./assets/media/logo/logo.svg",
         "sizes": "512x512",
-        "type": "image/svg"
+        "type": "image/svg",
+        "purpose": "any maskable"
 
     }, {
 
         "src": "./assets/media/logo/logo.png",
         "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "any maskable"
+        "type": "image/png"
 
     }],
 

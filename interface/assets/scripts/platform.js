@@ -5,6 +5,9 @@
 
 */
 
+// Helping variables
+var isApp = window.location.protocol.indexOf("http") == -1;
+
 window.platform = { // An object to keep track and organise the platform data
 
     type: { // The type
@@ -30,12 +33,12 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
-    isApp: (window.location.protocol.indexOf("http") == -1), // Is this website open as an app?
+    isApp: isApp, // Is this website open as an app?
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
 
     // The server address
-    server: (this.isApp) ? "https://store.mur-lang.org" : window.location.origin,
+    server: (isApp) ? "https://store.mur-lang.org" : window.location.origin,
 
     special: {
 
@@ -47,17 +50,21 @@ window.platform = { // An object to keep track and organise the platform data
 
     more: { // If this is an app, that means you can get more info about the platform!
 
-        //
+        isElectron: (isApp && window.api != null) // Is this version of the codebase running on Rlectron?
 
     },
 
     codebase: { // Info about this current codebase of the website/app
 
-        version: "0.0.1-alpha.003"
+        root: (isApp) ? "" : "/", // The root of this version of the codebase
+        index: "/index.html", // The index file of directories
+        version: "0.0.1-alpha.003" // The current version of the codebase
 
     }
 
 };
+
+delete isApp;
 
 // Check if the "LastVisitVersion" value is set
 if (localStorage.getItem("LastVisitVersion") == null) {
@@ -143,6 +150,10 @@ if (navigator.appVersion.indexOf("armv") != -1)
 
 if (window.platform.isApp) { // If this is an app, do some checks that are related to the `more` sub-object
 
-    //
+    if (window.platform.more.isElectron) {
+
+        document.documentElement.dataset.electron = true;
+
+    }
 
 }

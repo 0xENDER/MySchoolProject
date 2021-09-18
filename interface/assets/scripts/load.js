@@ -83,8 +83,33 @@ function loadContent() {
     pageContentElement.style.display = null;
     linkScrollbar(pageContentElement);
 
-    // Fetch the content
-    fetch("pages" + window.location.pathname.substring(5))
+    // Check the request source URL
+    if (window.platform.isApp && window.platform.more.isElectron) {
+
+        // Send a request for the variable with the name of it
+        window.api.send('variable-request', "lastRedirectURL");
+
+        // Wait for the main process to send back the value of this variable
+        window.api.receive('variable-reply', function(data) {
+
+            fetchContent(data.substring(data.indexOf("/page/")));
+
+        });
+
+    } else {
+
+        // Use the current page URL as the source URL (Apache works fine on the server)
+        fetchContent(window.location.pathname);
+
+    }
+
+
+}
+
+// Fetch the content
+function fetchContent(sourceURLPathname) {
+
+    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(5) + window.platform.codebase.index) //TMP
         .then(response => {
 
             if (response.ok) { // If the request was successful, inject the content to the page.
@@ -92,7 +117,6 @@ function loadContent() {
                 response.text().then(data => {
 
                     // Check the "PAGE" element!
-                    //<!PAGE ...>
                     var pageElement = data.substring(0, data.indexOf("\n"));
                     if (pageElement.indexOf("<PAGE") == 0 && pageElement.indexOf(">") != -1) {
 

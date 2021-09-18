@@ -4,8 +4,8 @@
 
 */
 
-// Check if the browser supports service workers
-if ('serviceWorker' in navigator) {
+// Check if the browser supports service workers, and if this is not an app.
+if ('serviceWorker' in navigator && !window.platform.isApp) {
 
     // Wait for the page to finish loading
     window.addEventListener('load', function() {
