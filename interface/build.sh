@@ -19,3 +19,17 @@ mkdir "builds/ios/"
 
 ## Update NPM packages
 npm install
+
+## Manage "/builds/web/"
+mkdir "builds/web/assets/"
+mkdir "builds/web/pages/"
+cp -R "assets" "builds/web/assets"
+cp -R "pages" "builds/web/pages"
+cp ".htaccess" "builds/web"
+cp ".server.test.connection" "builds/web"
+cp "index.html" "builds/web"
+cp "layout.html" "builds/web"
+cp "manifest.webmanifest.json" "builds/web"
+cp "robots.txt" "builds/web"
+cp "sitemap.xml" "builds/web"
+cp "worker.js" "builds/web"
