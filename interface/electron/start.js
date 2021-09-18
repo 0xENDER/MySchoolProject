@@ -98,7 +98,7 @@ function createWindow() {
         width: 900,
         height: 600,
         backgroundColor: (nativeTheme.shouldUseDarkColors) ? '#252525' : '#e8e8e8',
-        titleBarStyle: 'hidden',
+        //titleBarStyle: 'hidden',
         center: true,
         fullscreenable: false,
         title: "MyStore",
@@ -111,11 +111,11 @@ function createWindow() {
 
     currentWindow.webContents.on('did-finish-load', function() {
 
-        // Maximise the window
-        currentWindow.maximize();
-
         // Show the window
         currentWindow.show();
+
+        // Maximise the window
+        currentWindow.maximize();
 
     });
 
