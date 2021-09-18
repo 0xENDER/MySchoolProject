@@ -55,13 +55,13 @@
 
 ## Used Languages
 
-- *JavaScript*
-- *PHP*
-- *HTML*
-- *CSS*
-- *JSON*
-- *Batch*
-- *Shell Script*
+- *PHP* (Server-side scripting)
+- *JavaScript* (Resource management, and server communication)
+- *HTML* (Interface)
+- *CSS* (Interface - styling)
+- *JSON* (API/Server outputs)
+- *Batch* (Build commands - On Windows)
+- *Shell Script* (Build commands - On Linux-based/Unix-based systems)
 
 ## Server Requirements
 
