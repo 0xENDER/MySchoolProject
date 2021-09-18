@@ -16,3 +16,6 @@ mkdir "builds/linux/"
 mkdir "builds/mac/"
 mkdir "builds/android/"
 mkdir "builds/ios/"
+
+## Update NPM packages
+npm install
