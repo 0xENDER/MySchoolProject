@@ -62,6 +62,7 @@
 
 - *PHP* (Server-side scripting)
 - *JavaScript* (Resource management, and server communication)
+- *NodeJS* (Native apps management)
 - *HTML* (Interface)
 - *CSS* (Interface - styling)
 - *JSON* (API/Server outputs)
