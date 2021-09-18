@@ -62,12 +62,18 @@
 
 - *PHP* (Server-side scripting)
 - *JavaScript* (Resource management, and server communication)
-- *NodeJS* (Native apps management)
 - *HTML* (Interface)
 - *CSS* (Interface - styling)
 - *JSON* (API/Server outputs)
 - *Batch* (Build commands - On Windows)
 - *Shell Script* (Build commands - On Linux-based/Unix-based systems)
+
+## Used Technologies
+
+- *Apache2* (Website directories management)
+- *NodeJS* (Native apps management)
+- *Electron* (Windows, Linux, and macOS native apps)
+- *React* (Android, and iOS native apps)
 
 ## Server Requirements
 
