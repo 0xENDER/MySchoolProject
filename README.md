@@ -60,6 +60,8 @@
 - *HTML*
 - *CSS*
 - *JSON*
+- *Batch*
+- *Shell Script*
 
 ## Server Requirements
 
