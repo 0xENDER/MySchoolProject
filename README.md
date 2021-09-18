@@ -17,7 +17,7 @@
   - [ ] A caching system (with service workers)
   - [ ] Desktop layout
   - [ ] Mobile devices layout
-- [ ] Support the store on mutiple platforms
+- [ ] Support the store on mutiple platforms:
   - [ ] The web
   - [ ] PWA (Progressive Web Application)
   - [ ] Windows (Electron)
@@ -25,31 +25,36 @@
   - [ ] MacOS (Electron)
   - [ ] _Android (React) **(!)**_
   - [ ] _iOS (React) **(!)**_
-- [ ] A fully secure and fledged accounts system
+- [ ] A fully secure and fledged accounts system:
   - [ ] Email verification system
   - [ ] 2FA (Two factor authentication)
   - [ ] _OAuth2 Support **(!)**_
-- [ ] Apps Ownership and downloads History Syncing
+- [ ] Apps Ownership and downloads History Syncing:
   - [ ] Ownership syncing for free and paid apps
   - [ ] Downloads history syncing
-- [ ] A working system-dependent and user-preferences-wary suggestions system
+- [ ] A working system-dependent and user-preferences-wary suggestions system:
   - [ ] A suggestions algorithm
   - [ ] Categorises blocking
   - [ ] Categorises preferences
-- [ ] An abuse report system
-  - [ ] Report abuse for apps
-  - [ ] Report abuse for comments
-  - [ ] Report abuse for ratings
-- [ ] A feedback system
+- [ ] An abuse report system:
+  - [ ] Abuse reporting for apps
+  - [ ] Abuse reporting for comments
+  - [ ] Abuse reporting for ratings
+- [ ] A feedback system:
   - [ ] Comments
   - [ ] Ratings
-- [ ] _A working developer console **(!)**_
+- [ ] _A working developer console: **(!)**_
   - [ ] App analytics (app page visits, ownerships, downloads, earnings, used OS, etc.)
   - [ ] Comments and ratings mangement
-  - [ ] _App page and info management **(!)**_
+  - [ ] App page and info management
   - [ ] _Policy Alerts **(!)**_
   - [ ] _Teams (Invites, user permissions, and activity logs) **(!)**_
   - [ ] _Payments Managment (Manage your earnings) **(!)**_
+  - [ ] _API access settings **(!)**_
+- [ ] _Store API & OAuth2 System: **(!)**_
+  - [ ] Enable access to the store updates API
+  - [ ] _Enable access to the user apps ownership info through the OAuth2 system **(!)**_
+  - [ ] _Enable access to the user devices info through the OAuth2 system **(!)**_
 
 **(!):** _This feature may not be achievable within the given period of time to work on this project._
 
