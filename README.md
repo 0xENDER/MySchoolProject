@@ -86,6 +86,11 @@ sudo apachectl start
 
 You also need to enable the use of `.htaccess` files. And, if you're on Windows, use the *Windows Linux Subsystem*.
 
+
+## Apps Distribution
+
+You can use the `build.bat`/`build.sh` files to build all the versions of this codebase.
+
 ## Credits
 
 - *The icons: [Evericons](https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)*
