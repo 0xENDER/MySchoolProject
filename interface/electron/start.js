@@ -79,10 +79,13 @@ function createWindow() {
 
     // Create a `BrowserWindow` object
     const window = new BrowserWindow({
+
         webPreferences: {
+
             preload: path.join(__dirname, 'preload.js')
+
         },
-        //titleBarStyle: 'customButtonsOnHover',
+
         frame: false,
         show: false,
         minWidth: 860,
@@ -90,7 +93,12 @@ function createWindow() {
         width: 900,
         height: 600,
         backgroundColor: (nativeTheme.shouldUseDarkColors) ? '#252525' : '#e8e8e8',
-        titleBarStyle: 'hidden'
+        titleBarStyle: 'hidden',
+        center: true,
+        fullscreenable: false,
+        title: "MyStore",
+        icon: path.join(__dirname, '..', 'assets', 'media', 'logo', 'apple-touch-icon.png')
+
     });
 
     // Load the home page
