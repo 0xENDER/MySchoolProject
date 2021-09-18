@@ -8,7 +8,7 @@
     },
     "devDependencies": {},
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "electron ."
     },
     "repository": {
         "type": "git",
@@ -18,7 +18,7 @@
         "MyStore"
     ],
     "author": "Adel Sbeh (EnderAdel)",
-    "license": "ISC",
+    "license": "Attribution-NonCommercial-ShareAlike 4.0 International",
     "bugs": {
         "url": "https://github.com/adel-sbeh/MySchoolProject/issues"
     },
