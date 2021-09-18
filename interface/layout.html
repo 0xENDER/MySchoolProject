@@ -25,10 +25,13 @@
 
     <!-- Specify the root directory of the website! -->
     <base href="/" id="global--base">
-    <script type="text/javascript">
-        // If this isn't a website, change the root directory!
-        if (window.location.protocol.indexOf("http") == -1)
+    <script>
+        if (window.api != undefined) {
+
             document.getElementById("global--base").setAttribute("href", "./");
+            document.documentElement.dataset.electron = true;
+
+        }
     </script>
 
     <!-- Preload important files (First-print styles, data scripts, etc.) -->
@@ -50,7 +53,7 @@
     <meta name="language" content="English">
     <meta name="lang" content="en">
     <meta name="creationdate" content="September 8 2021">
-    <!--<meta name="image" content="https://endercomm.net/assets/image/meta/cover.png">-->
+    <meta name="image" content="./assets/media/logo/logo.png">
 
     <!-- Website theming -->
     <meta name="application-name" content="MyStore">
@@ -137,7 +140,11 @@
             <button class="layout--topbar-button component--button effect--skeleton" tabindex="0">Sign In</button>
 
             <!-- The title bar controls for Electron -->
-            <div class="layout--topbar-controls"></div>
+            <div class="layout--topbar-controls">
+                <div id="windowcontrols--hide" class="layout--topbar-windowbutton" style="background-color: yellow;"></div>
+                <div id="windowcontrols--max" class="layout--topbar-windowbutton" style="background-color: green;"></div>
+                <div id="windowcontrols--close" class="layout--topbar-windowbutton" style="background-color: red;"></div>
+            </div>
 
         </div>
 

@@ -4,7 +4,9 @@
     "description": "Get apps from MyStore!",
     "main": "electron/start.js",
     "dependencies": {
-        "electron": "^14.0.1"
+        "electron": "^14.0.1",
+        "fs": "0.0.1-security",
+        "v8-compile-cache": "^2.3.0"
     },
     "devDependencies": {},
     "scripts": {

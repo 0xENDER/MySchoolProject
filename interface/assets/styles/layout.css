@@ -313,6 +313,14 @@ body {
     margin-left: var(--global-sidesmargin);
     background-color: red;
     -webkit-app-region: no-drag;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.layout--topbar-windowbutton {
+    height: 100%;
+    width: 100%;
 }
 
 [data-electron="true"] .layout--topbar-controls {

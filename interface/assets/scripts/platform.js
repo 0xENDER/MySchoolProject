@@ -150,10 +150,6 @@ if (navigator.appVersion.indexOf("armv") != -1)
 
 if (window.platform.isApp) { // If this is an app, do some checks that are related to the `more` sub-object
 
-    if (window.platform.more.isElectron) {
-
-        document.documentElement.dataset.electron = true;
-
-    }
+    //
 
 }

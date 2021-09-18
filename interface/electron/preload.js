@@ -12,6 +12,37 @@ const {
 
 } = require("electron");
 
+// Set the window controls events
+window.addEventListener('load', function() {
+
+    // Get all the title bar buttons
+    var hideButton = document.getElementById("windowcontrols--hide"),
+        maxButton = document.getElementById("windowcontrols--max"),
+        closeButton = document.getElementById("windowcontrols--close");
+
+    // Set the `onclick` event of the minimise button
+    hideButton.onclick = function() {
+
+        ipcRenderer.send("window-hide");
+
+    };
+
+    // Set the `onclick` event of the maximise button
+    maxButton.onclick = function() {
+
+        ipcRenderer.send("window-max");
+
+    };
+
+    // Set the `onclick` event of the close button
+    closeButton.onclick = function() {
+
+        ipcRenderer.send("window-close");
+
+    };
+
+});
+
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld(
@@ -45,6 +76,9 @@ contextBridge.exposeInMainWorld(
 
                     // Return all the arguments except for the `event` argument
                     callback(...args);
+
+                    // Remove this listener
+                    ipcRenderer.removeAllListeners();
 
                 });
 

@@ -4,6 +4,9 @@
 
 */
 
+// Cache the code
+require('v8-compile-cache');
+
 // Get all the required modules
 const {
 
@@ -16,16 +19,16 @@ const {
 } = require('electron'),
     path = require('path'),
     sharedVariables = {
+
         lastRedirectURL: path.join(__dirname, "..", "page", "home/").replace(/\\/g, "/")
+
     };
 
+// Define the window variable
+var currentWindow;
 
 // Do all the things Apache does
-function imitateApache(window) {
-
-    // Get the required modules
-    const fs = require("fs");
-
+function imitateApache() {
 
     // Define the page root paths
     const pageRootPath = path.join(__dirname, "..", "page/").replace(/\\/g, "/"),
@@ -78,11 +81,13 @@ function imitateApache(window) {
 function createWindow() {
 
     // Create a `BrowserWindow` object
-    const window = new BrowserWindow({
+    currentWindow = new BrowserWindow({
 
         webPreferences: {
 
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            defaultFontFamily: "Istok Web",
+            defaultFontSize: "12px"
 
         },
 
@@ -102,15 +107,15 @@ function createWindow() {
     });
 
     // Load the home page
-    window.loadFile(path.join(__dirname, '..', 'layout.html'));
+    currentWindow.loadFile(path.join(__dirname, '..', 'layout.html'));
 
-    window.webContents.on('did-finish-load', function() {
+    currentWindow.webContents.on('did-finish-load', function() {
 
         // Maximise the window
-        window.maximize();
+        currentWindow.maximize();
 
         // Show the window
-        window.show();
+        currentWindow.show();
 
     });
 
@@ -148,5 +153,31 @@ ipcMain.on('variable-request', function(event, arg) {
 
     // Send the shared variable value
     event.sender.send('variable-reply', sharedVariables[arg]);
+
+});
+
+// Manage the window controls events
+ipcMain.on('window-close', function(event) {
+
+    currentWindow.close();
+
+});
+ipcMain.on('window-max', function(event) {
+
+    // Check if the window is maximised or not
+    if (currentWindow.isMaximized()) {
+
+        currentWindow.restore();
+
+    } else {
+
+        currentWindow.maximize();
+
+    }
+
+});
+ipcMain.on('window-hide', function(event) {
+
+    currentWindow.minimize();
 
 });
