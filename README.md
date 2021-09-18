@@ -71,9 +71,11 @@
 ## Used Technologies
 
 - *Apache2* (Website directories management)
-- *NodeJS* (Native apps management)
+- *NodeJS* (Native apps management - [LTS version](https://nodejs.org/en/))
 - *Electron* (Windows, Linux, and macOS native apps)
+  You need this to make native apps for desktop devices.
 - *React* (Android, and iOS native apps)
+  You need this to make native apps for mobile devices.
 
 ## Server Requirements
 
