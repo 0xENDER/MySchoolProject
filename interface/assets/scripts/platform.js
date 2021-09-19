@@ -43,7 +43,7 @@ window.platform = { // An object to keep track and organise the platform data
     special: {
 
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
-        scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (scrollbar pixels)
+        scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (content pixels)
         scrollLockPeriod: 400 // The time need to lock a scrollbar button
 
     },
@@ -58,7 +58,7 @@ window.platform = { // An object to keep track and organise the platform data
 
         root: (isApp) ? "" : "/", // The root of this version of the codebase
         index: "/index.html", // The index file of directories
-        version: "0.0.1-alpha.003" // The current version of the codebase
+        version: "0.0.1-alpha.004" // The current version of the codebase
 
     }
 

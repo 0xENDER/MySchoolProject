@@ -119,3 +119,8 @@
 .component--scrollbar-bottom svg {
     margin-top: 3px;
 }
+
+.component--scrollbar-top svg,
+.component--scrollbar-bottom svg {
+    filter: drop-shadow(0px 1px 0px var(--scrollbar-colour)) drop-shadow(0px -1px 0px var(--scrollbar-colour));
+}

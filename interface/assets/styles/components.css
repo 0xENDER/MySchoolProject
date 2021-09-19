@@ -75,11 +75,13 @@ button.component--button.component--button-primary {
 }
 
 .component--scrollbar-top {
-    padding-top: var(--global-topbottommargin);
+    padding-top: calc(var(--global-topbottommargin) - 5px);
+    padding-bottom: 5px;
 }
 
 .component--scrollbar-bottom {
-    padding-bottom: var(--global-topbottommargin);
+    padding-bottom: calc(var(--global-topbottommargin) - 4px);
+    padding-top: 4px;
 }
 
 .component--scrollbar-handlecontainer {
@@ -97,4 +99,14 @@ button.component--button.component--button-primary {
     background-color: var(--scrollbar-colour);
     margin: 0px 5px;
     border-radius: 100px;
+}
+
+.component--scrollbar-handle:before {
+    content: "";
+    display: block;
+    position: relative;
+    width: calc(100% + 10px);
+    height: calc(100% + 16px);
+    top: -8px;
+    right: 5px;
 }

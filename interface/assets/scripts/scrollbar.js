@@ -90,7 +90,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     };
 
-    // Scroll through the page content usign an offset in the scrollbar
+    // Scroll through the page content using an offset in the scrollbar
     function scrollToOffset(offset, isSmooth) { // Scroll in the page content
 
         var mouseOffsetPercentage = (offset / scrollbar.container.clientHeight); // Get the scrollbar scroll offset as a percentage ("top-offset"/"scrollbar container height")
@@ -98,6 +98,20 @@ function linkScrollbar() { // Link a scrollbar to the page
         scrollbar.linkedElement.scrollTo({
 
             top: mouseOffsetPercentage * scrollbar.linkedElement.scrollHeight,
+            left: 0,
+            behavior: isSmooth ? 'smooth' : 'auto'
+
+        });
+
+    }
+
+
+    // Scroll through the pahe content using an offset in the page scroll hight
+    function scrollToOffsetPx(offset, isSmooth) {
+
+        scrollbar.linkedElement.scrollTo({
+
+            top: scrollbar.linkedElement.scrollTop + offset,
             left: 0,
             behavior: isSmooth ? 'smooth' : 'auto'
 
@@ -169,15 +183,15 @@ function linkScrollbar() { // Link a scrollbar to the page
 
             didClickTop = true;
             didClickBottom = false;
-            scrollToOffset(scrollbar.handle.offsetTop - window.platform.special.scrollSpace, true);
+            scrollToOffsetPx(-window.platform.special.scrollSpace, true);
 
             topTimeout = setTimeout(function() {
 
-                scrollToOffset(scrollbar.handle.offsetTop - 4, false);
+                scrollToOffsetPx(-window.platform.special.scrollSpace, false);
 
                 topInterval = setInterval(function() {
 
-                    scrollToOffset(scrollbar.handle.offsetTop - 4, false);
+                    scrollToOffsetPx(-window.platform.special.scrollSpace, false);
 
                 }, window.platform.special.intervalRefreshRate);
 
@@ -194,15 +208,15 @@ function linkScrollbar() { // Link a scrollbar to the page
 
             didClickBottom = true;
             didClickTop = false;
-            scrollToOffset(scrollbar.handle.offsetTop + window.platform.special.scrollSpace, true);
+            scrollToOffsetPx(window.platform.special.scrollSpace, true);
 
             bottomTimeout = setTimeout(function() {
 
-                scrollToOffset(scrollbar.handle.offsetTop + 4, false);
+                scrollToOffsetPx(window.platform.special.scrollSpace, false);
 
                 bottomInterval = setInterval(function() {
 
-                    scrollToOffset(scrollbar.handle.offsetTop + 4, false);
+                    scrollToOffsetPx(window.platform.special.scrollSpace, false);
 
                 }, window.platform.special.intervalRefreshRate);
 
