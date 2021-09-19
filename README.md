@@ -1,5 +1,7 @@
 # My School Project
 
+> **Note:** all the crossed-out text/information is still not in use or necessary at the current development stage!
+
 **Student:** Adel Sbeh
 
 **Start Date:** September 8th 2021
@@ -12,6 +14,8 @@
 
 ## Planned Features
 
+> **(!):** _This feature may not be achievable within the given period of time to work on this project._
+
 - [ ] A fully optimised workload for desktops and mobile devices:
   - [ ] Cross-platfrom support for all modern browsers
   - [ ] A caching system (with service workers)
@@ -23,12 +27,12 @@
   - [ ] Windows (Electron)
   - [ ] Linux (Electron)
   - [ ] MacOS (Electron)
-  - [ ] _Android (React) **(!)**_
-  - [ ] _iOS (React) **(!)**_
+  - [ ] _~~Android (React)~~ **(!)**_
+  - [ ] _~~iOS (React)~~ **(!)**_
 - [ ] A fully secure and fledged accounts system:
   - [ ] Email verification system
   - [ ] 2FA (Two factor authentication)
-  - [ ] _OAuth2 Support **(!)**_
+  - [ ] _~~OAuth2 Support~~ **(!)**_
 - [ ] Apps Ownership and downloads History Syncing:
   - [ ] Ownership syncing for free and paid apps
   - [ ] Downloads history syncing
@@ -44,60 +48,93 @@
   - [ ] Comments
   - [ ] Ratings
 - [ ] _A working developer console: **(!)**_
-  - [ ] App analytics (app page visits, ownerships, downloads, earnings, used OS, etc.)
+  - [ ] App analytics (app page visits, ownerships, downloads, _~~earnings~~ **(!)**_, used OS, etc.)
   - [ ] Comments and ratings mangement
   - [ ] App page and info management
-  - [ ] _Policy Alerts **(!)**_
-  - [ ] _Teams (Invites, user permissions, and activity logs) **(!)**_
-  - [ ] _Payments Managment (Manage your earnings) **(!)**_
-  - [ ] _API access settings **(!)**_
-- [ ] _Store API & OAuth2 System: **(!)**_
+  - [ ] _~~Policy Alerts~~ **(!)**_
+  - [ ] _~~Teams (Invites, user permissions, and activity logs)~~ **(!)**_
+  - [ ] _~~Payments Managment (Manage your earnings)~~ **(!)**_
+  - [ ] _~~API access settings~~ **(!)**_
+- [ ] _~~Store API & OAuth2 System:~~ **(!)**_
   - [ ] Enable access to the store updates API
-  - [ ] _Enable access to the user apps ownership info through the OAuth2 system **(!)**_
-  - [ ] _Enable access to the user devices info through the OAuth2 system **(!)**_
-
-**(!):** _This feature may not be achievable within the given period of time to work on this project._
+  - [ ] _~~Enable access to the user apps ownership info through the OAuth2 system~~ **(!)**_
+  - [ ] _~~Enable access to the user devices info through the OAuth2 system~~ **(!)**_
 
 ## Used Languages
 
-- *PHP* (Server-side scripting)
+- ~~*PHP* (Server-side scripting)~~
 - *JavaScript* (Resource management, and server communication)
 - *HTML* (Interface)
 - *CSS* (Interface - styling)
-- *JSON* (API/Server outputs)
-- *Batch* (Build commands - On Windows)
-- *Shell Script* (Build commands - On Linux-based/Unix-based systems)
+- ~~*JSON* (API/Server outputs)~~
+- ~~*MySQL script* (Database management)~~
+- *Shell Script* (Build commands)
 
 ## Used Technologies
 
 - *Apache2* (Website directories management)
-- *NodeJS* (Native apps management - [LTS version](https://nodejs.org/en/))
+- *NodeJS* (Native apps management, and bundling)
 - *Electron* (Windows, Linux, and macOS native apps)
-  You need this to make native apps for desktop devices.
-- *React* (Android, and iOS native apps)
-  You need this to make native apps for mobile devices.
+- ~~*React* (Android, and iOS native apps)~~
 
 ## Server Requirements
 
 - *Apache2 support*
-- *PHP 7+ support*
-- *MySQL support*
+- ~~*PHP 7+ support*~~
+- ~~*MySQL support*~~
 - _**At least** 5GB of storage (without acounting for the apps database)_
 - *Mailing support*
 
-## Hosting Locally
+## The Development Environment
 
-To host this locally, use an apache2 server:
+> **Note:** these instructions are written for Linux users. If you face any problem setting up the Development environment on Windows, you can always use the *Windows Linux Subsystem*!
 
-```bat
+### Localhost
+
+If you wish to host the website locally, you need to make sure that you have apache2 enabled on your local server:
+
+```sh
+sudo apt-get install apache2
+```
+
+Also, make sure that all the directories that you're gonna work with have these permissions in the `/etc/apache2/apache2.conf` file:
+
+```config
+<Directory /MY_DIRECTORY>
+  Options FollowSymLinks
+  AllowOverride All
+  Require all granted
+</Directory>
+```
+
+Once you have everything set up properly, you can use this command to run the server:
+
+```sh
 sudo apachectl start
 ```
 
-You also need to enable the use of `.htaccess` files. And, if you're on Windows, use the *Windows Linux Subsystem*.
+Note that you need to move the website code (inside `/interface/`) to your `/var/www/html/` directory.
+
+### Native apps (Windows, Linux, and macOS apps)
+
+If you wish to build the native apps of this codebase for Windows, Linux, or macOS, you need to install NodeJS and NPM:
+
+```sh
+sudo apt-get install nodejs
+sudo apt-get install npm
+```
+
+Once you have everything set up properly, you can navigate to the `/interface/` directory and run this command:
+
+```sh
+npm start
+```
 
 ## Apps Distribution
 
-You can use the `build.bat`/`build.sh` files to build all the versions of this codebase.
+> **Note:** make sure that you've set up the development environment properly! Otherwise, the bundler will fail!
+
+To make all the production-ready versions of the codebase, use the `build.sh` file. And, if you're on windows, use the *Windows Linux Subsystem* to execute this file.
 
 ## Credits
 

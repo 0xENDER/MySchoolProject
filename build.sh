@@ -2,34 +2,23 @@
 
 
 ## Clear the "/builds/" directory
-if [ -d "builds/" ]; then
+if [ -d "bundler/builds/" ]; then
 
-    rm -rf "builds/"
+    rm -rf "bundler/builds/"
 
 fi
 
 ## Recreate the "/builds/" directory
-mkdir "builds/"
-mkdir "builds/web/"
-mkdir "builds/windows/"
-mkdir "builds/linux/"
-mkdir "builds/mac/"
-mkdir "builds/android/"
-mkdir "builds/ios/"
+mkdir "bundler/builds/"
+mkdir "bundler/builds/web/"
+mkdir "bundler/builds/windows/"
+mkdir "bundler/builds/linux/"
+mkdir "bundler/builds/mac/"
+mkdir "bundler/builds/android/"
+mkdir "bundler/builds/ios/"
 
-## Update NPM packages
-npm install
+## Go to the "bundler" folder
+cd "bundler/"
 
 ## Manage "/builds/web/"
-mkdir "builds/web/assets/"
-mkdir "builds/web/pages/"
-cp -R "assets" "builds/web/assets"
-cp -R "pages" "builds/web/pages"
-cp ".htaccess" "builds/web"
-cp ".server.test.connection" "builds/web"
-cp "index.html" "builds/web"
-cp "layout.html" "builds/web"
-cp "manifest.webmanifest.json" "builds/web"
-cp "robots.txt" "builds/web"
-cp "sitemap.xml" "builds/web"
-cp "worker.js" "builds/web"
+"./web.sh"

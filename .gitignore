@@ -1,9 +1,9 @@
 # Manage the files that should not be uploaded to the repository
 
 
-# Ignore the "/builds/" directory
-/builds
-/builds/*
+# Ignore the "/builds/" directory in the "bundler" folder
+/bundler/builds
+/bundler/builds/*
 
 # Ignore the "/node_modules/" directory
 /node_modules
