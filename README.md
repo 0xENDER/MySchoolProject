@@ -66,7 +66,7 @@
 - *JavaScript* (Resource management, and server communication)
 - *HTML* (Interface)
 - *CSS* (Interface - styling)
-- ~~*JSON* (API/Server outputs)~~
+- *JSON* (API/Server outputs, and manifests)
 - ~~*MySQL script* (Database management)~~
 - *Shell Script* (Build commands)
 
