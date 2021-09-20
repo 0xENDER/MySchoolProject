@@ -127,6 +127,7 @@ sudo apt-get install npm
 Once you have everything set up properly, you can navigate to the `/interface/` directory and run this command:
 
 ```sh
+npm install ## Used to install the NodeJS modules
 npm start
 ```
 
