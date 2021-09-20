@@ -87,7 +87,7 @@
 
 ## The Development Environment
 
-> **Note:** these instructions are written for Linux users. If you face any problem setting up the Development environment on Windows, you can always use the *Windows Linux Subsystem*!
+> **Note:** these instructions are written for Linux users. If you face any problem setting up the Development environment on Windows, you can always use the *Windows Subsystem for Linux*!
 
 ### Localhost
 
@@ -135,7 +135,7 @@ npm start
 
 > **Note:** make sure that you've set up the development environment properly! Otherwise, the bundler will fail!
 
-To make all the production-ready versions of the codebase, use the `build.sh` file. And, if you're on windows, use the *Windows Linux Subsystem* to execute this file.
+To make all the production-ready versions of the codebase, use the `build.sh` file. And, if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
 
 ## Credits
 
