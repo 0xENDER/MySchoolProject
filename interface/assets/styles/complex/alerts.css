@@ -39,6 +39,7 @@
 
 .alerts--container .alerts--card {
     width: var(--alertscard-width);
+    height: -moz-fit-content;
     height: fit-content;
     max-height: var(--alertscard-maxheight);
     background-color: var(--alertscard-background);

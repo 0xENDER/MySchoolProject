@@ -17,7 +17,11 @@ scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".css", function
     var textContent = fs.readFileSync(fileDirectory, "utf8");
 
     // Minify the content of this file
-    var minifiedContent = minify(textContent).css;
+    var minifiedContent = minify(textContent, {
+
+        restructure: false
+
+    }).css;
 
     // Check if the output is valid for insertion
     if (typeof minifiedContent !== 'string') {
