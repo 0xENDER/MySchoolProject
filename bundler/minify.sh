@@ -24,3 +24,7 @@ cp "../interface/worker.js" "apps_codebase"
 echo "[Bundler] [Minify] Minifying HTML files..."
 node "minifier/minifyHTML.js"
 #
+## Minify JavaScript code
+echo "[Bundler] [Minify] Minifying JavaScript files..."
+node "minifier/minifyJS.js"
+#

@@ -8,9 +8,17 @@
 const path = require('path'),
     fs = require('fs'),
     blacklists = {
+
+        // (blacklists directories)
         html: [ // A blacklist for HTML files
-            path.join(__dirname, "..", "codebase", "pages")
+
+            path.join(__dirname, "..", "apps_codebase", "pages")
+
+        ],
+        js: [ // A blacklist for JavaScript files
+
         ]
+
     };
 
 // Define the module object
@@ -46,7 +54,11 @@ module.exports = {
                 // Check the blacklists
                 if (filterExtension === ".html") {
 
-                    shouldBlock = blacklists.html.indexOf(filename);
+                    shouldBlock = (blacklists.html.indexOf(filename) != -1);
+
+                } else if (filterExtension === ".js") {
+
+                    shouldBlock = (blacklists.js.indexOf(filename) != -1);
 
                 }
 
@@ -57,7 +69,7 @@ module.exports = {
 
                 }
 
-            } else if (filename.indexOf(filterExtension) != -1) {
+            } else if (filename.indexOf(filterExtension) == filename.length - filterExtension.length) {
 
                 // Run the callback function
                 callback(filename);

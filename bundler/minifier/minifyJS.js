@@ -1,17 +1,17 @@
 /*
 
-    Minify all HTML files in the 'apps_codebase/' directory
+    Minify all JavaScript files in the 'apps_codebase/' directory
 
 */
 
 // Get all the required modules for this process
-const minify = require('html-minifier').minify,
+const minify = require('uglify-js').minify,
     path = require("path"),
     fs = require("fs"),
     scan = require("./scan");
 
 // Scan the 'apps_codebase/' directory
-scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".html", function(fileDirectory) {
+scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".js", function(fileDirectory) {
 
     // Get the content of this file
     var textContent = fs.readFileSync(fileDirectory, "utf8");
@@ -19,14 +19,9 @@ scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".html", functio
     // Minify the content of this file
     var minifiedContent = minify(textContent, {
 
-        caseSensitive: true,
-        collapseWhitespace: true,
-        conservativeCollapse: true,
-        minifyCSS: true,
-        minifyJS: true,
-        removeComments: true
+        keep_fnames: true
 
-    });
+    }).code;
 
     // Check if the output is valid for insertion
     if (typeof minifiedContent !== 'string') {
