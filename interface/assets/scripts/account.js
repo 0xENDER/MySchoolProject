@@ -27,6 +27,9 @@ function updateUserInfo() {
     usernameElement.textContent = userSettings.info.username;
     profilePictureElement.src = userSettings.info.profilePicture;
 
+    // Delete the used variables
+    delete usernameElement, profilePictureElement;
+
 }
 
 // Update the info on the screen if the user is signed in

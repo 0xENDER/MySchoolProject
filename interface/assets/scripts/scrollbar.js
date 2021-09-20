@@ -46,9 +46,16 @@ function linkScrollbar() { // Link a scrollbar to the page
     // Add a function that will update the scrollbar in case of any changes in the page size
     function updateScrollbar() {
 
+        // Update the height of the linked element
         linkedElementHeight = scrollbar.linkedElement.clientHeight;
+
+        // Update the height of the scrollbar handle
         scrollbar.handle.refreshHeight();
+
+        // Update the scrollbar handle's position
         scrollbar.linkedElement.onscroll();
+
+        // Update the saved position of the handle position
         clickStartHandleYPosition = scrollbar.handle.offsetTop;
 
     }
@@ -56,12 +63,12 @@ function linkScrollbar() { // Link a scrollbar to the page
     // Keep track of the top-position of the scrollbar handle
     scrollbar.linkedElement.onscroll = function() {
 
+        // Update the position of the scrollbar handle
         scrollbar.handle.style.top =
             `${(scrollbar.linkedElement.scrollTop/scrollbar.linkedElement.scrollHeight)*100}%`;
         //      ^ The offset top value of the content element
 
     };
-
 
     // Define check variables
     var didClickStart = false, // Did the user click the handle?
@@ -105,14 +112,14 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     }
 
-
     // Scroll through the pahe content using an offset in the page scroll hight
     function scrollToOffsetPx(offset, isSmooth) {
 
+        // Use the `scrollTo` function to scroll through the linked element
         scrollbar.linkedElement.scrollTo({
 
             top: scrollbar.linkedElement.scrollTop + offset,
-            left: 0,
+            left: 0, // Never scroll on the X axis
             behavior: isSmooth ? 'smooth' : 'auto'
 
         });
@@ -124,6 +131,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         if (didClickStart) { // If the mouse is down
 
+            // Scroll to the current offset
             scrollToOffset(clickStartHandleYPosition - clickStartYPosition + e.pageY);
 
         }
@@ -134,16 +142,16 @@ function linkScrollbar() { // Link a scrollbar to the page
     var linkedElementHeight = scrollbar.linkedElement.clientHeight,
         lastScrollHeight = scrollbar.linkedElement.scrollHeight;
 
+    // Start an interval loop to keep track of the scrollbar
     scrollbar.interval = setInterval(function() {
 
+        // If the linked element's scroll-height has changed, update the scrollbar!
         if (scrollbar.linkedElement.scrollHeight != lastScrollHeight) {
 
             lastScrollHeight = scrollbar.linkedElement.scrollHeight;
             updateScrollbar();
 
-        }
-
-        if (scrollbar.linkedElement.clientHeight != linkedElementHeight) {
+        } else if (scrollbar.linkedElement.clientHeight != linkedElementHeight) { // If the linked element's height has changed, update the scrollbar!
 
             linkedElementHeight = scrollbar.linkedElement.clientHeight;
             updateScrollbar();
@@ -166,7 +174,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, { passive: true });
+    }, {
+
+        passive: true
+
+    });
 
     // Set up the top & bottom buttons events
     var didClickTop = false,
@@ -199,7 +211,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, { passive: true });
+    }, {
+
+        passive: true
+
+    });
 
     // The bottom button (click-start)
     scrollbar.bottomButton.addEventListener("mousedown", function() {
@@ -224,7 +240,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, { passive: true });
+    }, {
+
+        passive: true
+
+    });
 
     // The top and bottom buttons (click-end)
     window.addEventListener("mouseup", function() {
@@ -253,7 +273,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, { passive: true });
+    }, {
+
+        passive: true
+
+    });
 
     scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 

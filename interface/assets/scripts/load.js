@@ -14,8 +14,10 @@ var contentResourcesNumber = 0,
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
 
-    // Change the document dataset values
+    // Load the rest of the CSS resources
     document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; checkAgreement();">`));
+
+    // Change the document dataset values
     document.documentElement.dataset.contentloaded = false;
 
 });
@@ -103,17 +105,17 @@ function loadContent() {
 
     }
 
-
 }
 
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
-    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(5) + window.platform.codebase.index) //TMP
+    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(5) + window.platform.codebase.index)
         .then(response => {
 
             if (response.ok) { // If the request was successful, inject the content to the page.
 
+                // Read the response text
                 response.text().then(data => {
 
                     // Check the "PAGE" element!
@@ -158,6 +160,9 @@ function fetchContent(sourceURLPathname) {
                             if (contentResourcesNumber == 0)
                                 contentLoaded();
 
+                            // Delete the used variables
+                            delete pageElement, pageTitle, selectedSectionsItem;
+
                         };
 
 
@@ -172,7 +177,7 @@ function fetchContent(sourceURLPathname) {
             } else
                 loadingFailed();
 
-        }).catch(function(error) {
+        }).catch(function() {
 
             loadingFailed();
 
@@ -208,8 +213,9 @@ function contentLoaded() {
 // Tell the content loader that one of the resources finished loading
 function contentSourceLoaded() {
 
+    // Check if all the resources were loaded successfully
     if (++loadedContentResourcesNumber == contentResourcesNumber)
-        contentLoaded();
+        contentLoaded(); // If yes, then show the page content.
 
 }
 
@@ -223,6 +229,7 @@ function isOnline() {
 
             if (!window.navigator.onLine) { // If it is avaliable, check if the user is even connected to a network
 
+                // The user if offline!
                 resolve(false);
 
             } else {
@@ -230,10 +237,12 @@ function isOnline() {
                 // If the user is connected to a network, try to connect to the server of the store
                 fetch(window.platform.server + "/.server.test.connection", { method: 'HEAD' }, ).then(function(response) {
 
+                    // If the response was successful, then the user must be online. If not, then the user is offline.
                     resolve(response.ok);
 
                 }).catch(function() {
 
+                    // The user if offline!
                     resolve(false);
 
                 });
@@ -242,10 +251,12 @@ function isOnline() {
 
         } else if ('onLine' in navigator) { // If the connection API is not available, just check if the user is connected to a network or not.
 
+            // If the user is connected to a network, then he could be online. If not, then he's offline.
             resolve(window.navigator.onLine);
 
         } else { // If you can't use the onLine API, then asume that the user is online.
 
+            // The user *could* be online!
             resolve(true);
 
         }
@@ -258,9 +269,9 @@ function isOnline() {
 function updateOnlineStatus() {
 
     // Check if the user is online
-    isOnline().then(function(v) {
+    isOnline().then(function(isOnline) {
 
-        if (v) {
+        if (isOnline) {
 
             // If the user is online, hide any possible alerts caused by the connection checking process!
             if (didAlertAboutConnection)
@@ -282,6 +293,7 @@ function updateOnlineStatus() {
                 // Hide the alert
                 hideAlert();
 
+                // Use this variable to tell the next check that the connection check does not have any active alerts
                 didAlertAboutConnection = false;
 
             });

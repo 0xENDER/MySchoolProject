@@ -148,7 +148,8 @@ if (navigator.appVersion.indexOf("armv") != -1)
 // Note: `navigator.appVersion` is gonna get replaced by `navigator.userAgentData` soon
 // Migrate to `navigator.userAgentData` once it's supported by all modern browsers!
 
-if (window.platform.isApp) { // If this is an app, do some checks that are related to the `more` sub-object
+// If this is an app, do some checks that are related to the `more` sub-object
+if (window.platform.isApp) {
 
     //
 

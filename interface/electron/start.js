@@ -32,8 +32,7 @@ function imitateApache() {
 
     // Define the page root paths
     const pageRootPath = path.join(__dirname, "..", "page/").replace(/\\/g, "/"),
-        layoutPath = path.join(__dirname, "..", "layout.html").replace(/\\/g, "/"),
-        pagesRootPath = path.join(__dirname, "..", "pages/").replace(/\\/g, "/");
+        layoutPath = path.join(__dirname, "..", "layout.html").replace(/\\/g, "/");
 
     // Keep watching the files handler
     session.defaultSession.webRequest.onBeforeRequest({ urls: [] }, (details, callback) => {
