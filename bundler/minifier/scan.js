@@ -10,12 +10,18 @@ const path = require('path'),
     blacklists = {
 
         // (blacklists directories)
+        default: [ // A blacklist for default files
+
+        ],
         html: [ // A blacklist for HTML files
 
             path.join(__dirname, "..", "apps_codebase", "pages")
 
         ],
         js: [ // A blacklist for JavaScript files
+
+        ],
+        css: [ // A blacklist for CSS files
 
         ]
 
@@ -52,15 +58,26 @@ module.exports = {
                 var shouldBlock = false;
 
                 // Check the blacklists
-                if (filterExtension === ".html") {
+                blacklists[(function() {
 
-                    shouldBlock = (blacklists.html.indexOf(filename) != -1);
+                    if (filterExtension === ".html") {
 
-                } else if (filterExtension === ".js") {
+                        return 'html';
 
-                    shouldBlock = (blacklists.js.indexOf(filename) != -1);
+                    } else if (filterExtension === ".js") {
 
-                }
+                        return 'js';
+
+                    } else if (filterExtension === ".css") {
+
+                        return 'css';
+
+                    } else {
+
+                        return 'default';
+                    }
+
+                })()].indexOf(filename) != -1;
 
                 // Start a new path in this recursive loop
                 if (!shouldBlock) {

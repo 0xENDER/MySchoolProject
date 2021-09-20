@@ -13,7 +13,7 @@ cp "../interface/.htaccess" "apps_codebase"
 cp "../interface/.server.test.connection" "apps_codebase"
 cp "../interface/index.html" "apps_codebase"
 cp "../interface/layout.html" "apps_codebase"
-cp "../interface/manifest.webmanifest.json" "apps_codebase"
+cp "../interface/manifest.webmanifest" "apps_codebase"
 cp "../interface/package.json" "apps_codebase"
 cp "../interface/package-lock.json" "apps_codebase"
 cp "../interface/robots.txt" "apps_codebase"
@@ -27,4 +27,8 @@ node "minifier/minifyHTML.js"
 ## Minify JavaScript code
 echo "[Bundler] [Minify] Minifying JavaScript files..."
 node "minifier/minifyJS.js"
+#
+## Minify CSS code
+echo "[Bundler] [Minify] Minifying CSS files..."
+node "minifier/minifyCSS.js"
 #
