@@ -2,10 +2,12 @@
 #
 #
 ## Copy the required folders from the codebase for the "web version"
+echo "[Bundler] [Web] Copying some folders from the codebase..."
 cp -R "apps_codebase/assets/" "builds/web/"
 cp -R "apps_codebase/pages/" "builds/web/"
 #
 ## Copy the required files from the codebase for the "web version"
+echo "[Bundler] [Web] Copying some files from the codebase..."
 cp "apps_codebase/.htaccess" "builds/web/"
 cp "apps_codebase/.server.test.connection" "builds/web/"
 cp "apps_codebase/index.html" "builds/web/"
