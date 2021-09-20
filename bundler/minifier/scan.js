@@ -58,26 +58,23 @@ module.exports = {
                 var shouldBlock = false;
 
                 // Check the blacklists
-                blacklists[(function() {
+                if (filterExtension === ".html") {
 
-                    if (filterExtension === ".html") {
+                    shouldBlock = (blacklists.html.indexOf(filename) != -1);
 
-                        return 'html';
+                } else if (filterExtension === ".js") {
 
-                    } else if (filterExtension === ".js") {
+                    shouldBlock = (blacklists.js.indexOf(filename) != -1);
 
-                        return 'js';
+                } else if (filterExtension === ".css") {
 
-                    } else if (filterExtension === ".css") {
+                    shouldBlock = (blacklists.css.indexOf(filename) != -1);
 
-                        return 'css';
+                } else {
 
-                    } else {
+                    shouldBlock = (blacklists.default.indexOf(filename) != -1);
 
-                        return 'default';
-                    }
-
-                })()].indexOf(filename) != -1;
+                }
 
                 // Start a new path in this recursive loop
                 if (!shouldBlock) {
