@@ -126,6 +126,7 @@ self.addEventListener('activate', (e) => {
             }));
 
         })
+
     ));
 
 });
