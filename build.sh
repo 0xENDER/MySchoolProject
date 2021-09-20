@@ -1,12 +1,7 @@
 ## Build the website for the web, Windows, Linux, MacOS, Android, and iOS
 
-
-## Clear the "/builds/" directory
-if [ -d "bundler/builds/" ]; then
-
-    rm -rf "bundler/builds/"
-
-fi
+## Clear the generated files in the "/bundler/" directory
+"./bundler/clean.sh"
 
 ## Recreate the "/builds/" directory
 mkdir "bundler/builds/"
@@ -19,6 +14,9 @@ mkdir "bundler/builds/ios/"
 
 ## Go to the "bundler" folder
 cd "bundler/"
+
+## Minify all the code in the "/interface/" directory
+"./minify.sh"
 
 ## Manage "/builds/web/"
 "./web.sh"

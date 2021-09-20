@@ -5,6 +5,10 @@
 /bundler/builds
 /bundler/builds/*
 
+# Ignore the "/apps_codebase/" directory in the "bundler" folder
+/bundler/apps_codebase
+/bundler/apps_codebase/*
+
 # Ignore the "/node_modules/" directory
 /node_modules
 /node_modules/*
