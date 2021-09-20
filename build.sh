@@ -3,15 +3,6 @@
 ## Clear the generated files in the "/bundler/" directory
 "./bundler/clean.sh"
 
-## Recreate the "/builds/" directory
-mkdir "bundler/builds/"
-mkdir "bundler/builds/web/"
-mkdir "bundler/builds/windows/"
-mkdir "bundler/builds/linux/"
-mkdir "bundler/builds/mac/"
-mkdir "bundler/builds/android/"
-mkdir "bundler/builds/ios/"
-
 ## Go to the "bundler" folder
 cd "bundler/"
 
