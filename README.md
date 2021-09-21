@@ -8,9 +8,9 @@
 
 **Finish Date:** -
 
-**Project Idea:** A cross-platform apps store
-
 **Project Name:** MyStore
+
+**Project Idea:** A cross-platform apps store
 
 **Project Description:** This is an online store for all kinds of programs. The website is gonna mainly offer normal apps and games. The user will have the option to sign in to manage the downloads history, requests, and payments.
 
