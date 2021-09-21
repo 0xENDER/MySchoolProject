@@ -7,9 +7,6 @@
         "fs": "0.0.1-security",
         "v8-compile-cache": "^2.3.0"
     },
-    "devDependencies": {
-        "electron": "^14.0.1"
-    },
     "scripts": {
         "start": "electron ."
     },
@@ -25,5 +22,8 @@
     "bugs": {
         "url": "https://github.com/adel-sbeh/MySchoolProject/issues"
     },
-    "homepage": "https://github.com/adel-sbeh/MySchoolProject#readme"
+    "homepage": "https://github.com/adel-sbeh/MySchoolProject#readme",
+    "devDependencies": {
+        "electron": "^14.0.1"
+    }
 }
