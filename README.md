@@ -8,7 +8,9 @@
 
 **Finish Date:** -
 
-**Project Idea:** Online Apps Store
+**Project Idea:** A cross-platform apps store
+
+**Project Name:** MyStore
 
 **Project Description:** This is an online store for all kinds of programs. The website is gonna mainly offer normal apps and games. The user will have the option to sign in to manage the downloads history, requests, and payments.
 
@@ -17,7 +19,7 @@
 > **(!):** _This feature may not be achievable within the given period of time to work on this project._
 
 - [ ] A fully optimised workload for desktops and mobile devices:
-  - [ ] Cross-platfrom support for all modern browsers
+  - [ ] Cross-platform support for all modern browsers
   - [ ] A caching system (with service workers)
   - [ ] Desktop layout
   - [ ] Mobile devices layout
