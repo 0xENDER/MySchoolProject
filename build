@@ -20,3 +20,7 @@ echo "[Bundler] Minifying the codebase..."
 echo "[Bundler] Building the web codebase version..."
 "./web.sh"
 #
+## Prepare the codebase for the native builds
+echo "[Bundler] Preparing the codebase for the native builds..."
+"./prepare_codebase.sh"
+#
