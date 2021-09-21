@@ -11,7 +11,7 @@ const minify = require('csso').minify,
     scan = require("./scan");
 
 // Scan the 'apps_codebase/' directory
-scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".css", function(fileDirectory) {
+scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".css"], function(fileDirectory) {
 
     // Get the content of this file
     var textContent = fs.readFileSync(fileDirectory, "utf8");

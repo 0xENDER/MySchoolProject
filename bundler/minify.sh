@@ -32,3 +32,7 @@ node "minifier/minifyJS.js"
 echo "[Bundler] [Minify] Minifying CSS files..."
 node "minifier/minifyCSS.js"
 #
+## Minify JSON code
+echo "[Bundler] [Minify] Minifying JSON files..."
+node "minifier/minifyJSON.js"
+#

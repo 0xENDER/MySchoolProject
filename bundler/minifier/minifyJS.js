@@ -11,7 +11,7 @@ const minify = require('uglify-js').minify,
     scan = require("./scan");
 
 // Scan the 'apps_codebase/' directory
-scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), ".js", function(fileDirectory) {
+scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".js"], function(fileDirectory) {
 
     // Get the content of this file
     var textContent = fs.readFileSync(fileDirectory, "utf8");

@@ -31,7 +31,7 @@ const path = require('path'),
 module.exports = {
 
     // A recursive function to scan a directory for a certain type of files
-    scanDirectory: function(startPath, filterExtension, callback) {
+    scanDirectory: function(startPath, filterExtensions, callback) {
 
         // Check if the current path exists
         if (!fs.existsSync(startPath)) {
@@ -58,35 +58,66 @@ module.exports = {
                 var shouldBlock = false;
 
                 // Check the blacklists
-                if (filterExtension === ".html") {
+                // Start a loop to look through all the filter extensions
+                for (var i = 0; i < filterExtensions.length; i++) {
 
-                    shouldBlock = (blacklists.html.indexOf(filename) != -1);
+                    if (filterExtensions[i] === ".html") {
 
-                } else if (filterExtension === ".js") {
+                        // Save the condition
+                        shouldBlock = (blacklists.html.indexOf(filename) != -1);
 
-                    shouldBlock = (blacklists.js.indexOf(filename) != -1);
+                        // Break the loop
+                        i = filterExtensions.length;
 
-                } else if (filterExtension === ".css") {
+                    } else if (filterExtensions[i] === ".js") {
 
-                    shouldBlock = (blacklists.css.indexOf(filename) != -1);
+                        // Save the condition
+                        shouldBlock = (blacklists.js.indexOf(filename) != -1);
 
-                } else {
+                        // Break the loop
+                        i = filterExtensions.length;
 
-                    shouldBlock = (blacklists.default.indexOf(filename) != -1);
+                    } else if (filterExtensions[i] === ".css") {
+
+                        // Save the condition
+                        shouldBlock = (blacklists.css.indexOf(filename) != -1);
+
+                        // Break the loop
+                        i = filterExtensions.length;
+
+                    } else if (i == filterExtensions.length - 1) {
+
+                        // Save the condition
+                        shouldBlock = (blacklists.default.indexOf(filename) != -1);
+
+                    }
 
                 }
 
                 // Start a new path in this recursive loop
                 if (!shouldBlock) {
 
-                    this.scanDirectory(filename, filterExtension, callback);
+                    this.scanDirectory(filename, filterExtensions, callback);
 
                 }
 
-            } else if (filename.indexOf(filterExtension) == filename.length - filterExtension.length) {
+            } else {
 
-                // Run the callback function
-                callback(filename);
+                // Start a loop to look through all the filter extensions
+                for (var i = 0; i < filterExtensions.length; i++) {
+
+                    // Check if the current filter extension matches the current file's extension
+                    if (filename.indexOf(filterExtensions[i]) == filename.length - filterExtensions[i].length) {
+
+                        // Run the callback function
+                        callback(filename);
+
+                        // End this check loop
+                        i = filterExtensions.length;
+
+                    }
+
+                }
 
             };
 

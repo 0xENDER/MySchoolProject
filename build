@@ -24,3 +24,7 @@ echo "[Bundler] Building the web codebase version..."
 echo "[Bundler] Preparing the codebase for the native builds..."
 "./prepare_codebase.sh"
 #
+## Build the codebae on Electron
+echo "[Bundler] Building the codebase using Electron..."
+"./electron.sh"
+#
