@@ -47,7 +47,7 @@
 - [ ] A feedback system:
   - [ ] Comments
   - [ ] Ratings
-- [ ] _A working developer console: **(!)**_
+- [ ] _~~A working developer console~~: **(!)**_
   - [ ] App analytics (app page visits, ownerships, downloads, _~~earnings~~ **(!)**_, used OS, etc.)
   - [ ] Comments and ratings mangement
   - [ ] App page and info management
@@ -55,7 +55,7 @@
   - [ ] _~~Teams (Invites, user permissions, and activity logs)~~ **(!)**_
   - [ ] _~~Payments Managment (Manage your earnings)~~ **(!)**_
   - [ ] _~~API access settings~~ **(!)**_
-- [ ] _~~Store API & OAuth2 System:~~ **(!)**_
+- [ ] _~~Store API & OAuth2 System~~: **(!)**_
   - [ ] Enable access to the store updates API
   - [ ] _~~Enable access to the user apps ownership info through the OAuth2 system~~ **(!)**_
   - [ ] _~~Enable access to the user devices info through the OAuth2 system~~ **(!)**_
