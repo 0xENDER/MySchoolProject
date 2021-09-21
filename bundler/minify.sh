@@ -36,3 +36,7 @@ node "minifier/minifyCSS.js"
 echo "[Bundler] [Minify] Minifying JSON files..."
 node "minifier/minifyJSON.js"
 #
+## Minify images
+echo "[Bundler] [Minify] Minifying images..."
+################ Use: https://www.npmjs.com/package/compress-images ################
+#
