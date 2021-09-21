@@ -5,6 +5,7 @@
 cd "apps_codebase/"
 #
 ## Install the required NodeJS modules for the codebase
+echo "[Bundler] [Prepare Codebase ~ Native Builds] Installing the required modules..."
 npm install
 #
 ## Navigate back to the "bundler/" directory
