@@ -55,40 +55,35 @@ module.exports = {
             if (stat.isDirectory()) {
 
                 // Should this directory be blocked?
-                var shouldBlock = false;
+                var shouldBlock = (blacklists.default.indexOf(filename) != -1);
 
                 // Check the blacklists
                 // Start a loop to look through all the filter extensions
-                for (var i = 0; i < filterExtensions.length; i++) {
+                for (var i2 = 0; i2 < filterExtensions.length; i2++) {
 
-                    if (filterExtensions[i] === ".html") {
+                    if (filterExtensions[i2] === ".html") {
 
                         // Save the condition
                         shouldBlock = (blacklists.html.indexOf(filename) != -1);
 
-                        // Break the loop
-                        i = filterExtensions.length;
+                        // End this check loop
+                        i2 = filterExtensions.length;
 
-                    } else if (filterExtensions[i] === ".js") {
+                    } else if (filterExtensions[i2] === ".js") {
 
                         // Save the condition
                         shouldBlock = (blacklists.js.indexOf(filename) != -1);
 
-                        // Break the loop
-                        i = filterExtensions.length;
+                        // End this check loop
+                        i2 = filterExtensions.length;
 
-                    } else if (filterExtensions[i] === ".css") {
+                    } else if (filterExtensions[i2] === ".css") {
 
                         // Save the condition
                         shouldBlock = (blacklists.css.indexOf(filename) != -1);
 
-                        // Break the loop
-                        i = filterExtensions.length;
-
-                    } else if (i == filterExtensions.length - 1) {
-
-                        // Save the condition
-                        shouldBlock = (blacklists.default.indexOf(filename) != -1);
+                        // End this check loop
+                        i2 = filterExtensions.length;
 
                     }
 
@@ -104,16 +99,16 @@ module.exports = {
             } else {
 
                 // Start a loop to look through all the filter extensions
-                for (var i = 0; i < filterExtensions.length; i++) {
+                for (var i2 = 0; i2 < filterExtensions.length; i2++) {
 
                     // Check if the current filter extension matches the current file's extension
-                    if (filename.indexOf(filterExtensions[i]) == filename.length - filterExtensions[i].length) {
+                    if (filename.indexOf(filterExtensions[i2]) == filename.length - filterExtensions[i2].length) {
 
                         // Run the callback function
                         callback(filename);
 
                         // End this check loop
-                        i = filterExtensions.length;
+                        i2 = filterExtensions.length;
 
                     }
 
