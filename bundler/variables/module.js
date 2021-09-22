@@ -45,14 +45,10 @@ module.exports = function(directory, filterExtensions, variableType) {
                         var splitValue = variable[1].split("."),
                             variableValue = data.interface;
 
-                        console.log(splitValue);
-
                         // Get through the path of the variable
                         for (var i2 = 0; i2 < splitValue.length; i2++) {
 
                             variableValue = variableValue[splitValue[i2]];
-
-                            console.log(variableValue);
 
                         }
 

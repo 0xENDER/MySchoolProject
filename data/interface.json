@@ -4,14 +4,16 @@
 
         "loaded": {
 
-            "default": "true",
+            "electron": "true",
+            "react": "true",
             "web": "false"
 
         },
 
         "electron": {
 
-            "default": "false",
+            "web": "false",
+            "react": "false",
             "electron": "true"
 
         }
