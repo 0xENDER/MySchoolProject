@@ -37,6 +37,6 @@ echo "[Bundler] [Minify] Minifying JSON files..."
 node "minifier/minifyJSON.js"
 #
 ## Minify images
-echo "[Bundler] [Minify] Minifying images..."
-node "minifier/minifyImages.js"
+#echo "[Bundler] [Minify] Minifying images..."
+#node "minifier/minifyImages.js"
 #
