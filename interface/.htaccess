@@ -55,6 +55,13 @@ AddDefaultCharset UTF-8
 # Cache files
 <IfModule mod_headers.c>
 
+    # Cache fonts for 30 days
+    <FilesMatch ".(woff2|woff)$">
+
+        Header set Cache-Control "max-age=2592000, public"
+
+    </FilesMatch>
+
     # Cache images for 24 days
     <FilesMatch ".(ico|jpg|jpeg|png|gif|svg)$">
 
