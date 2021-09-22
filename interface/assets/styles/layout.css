@@ -306,12 +306,11 @@ body {
     position: fixed;
     opacity: 0;
     pointer-events: none;
-    width: 132px;
-    min-width: 132px;
+    width: 114px;
+    min-width: 114px;
     height: 100%;
     margin-right: calc(-1 * var(--global-sidesmargin));
     margin-left: var(--global-sidesmargin);
-    background-color: red;
     -webkit-app-region: no-drag;
     display: flex;
     flex-direction: row;
@@ -321,11 +320,29 @@ body {
 .layout--topbar-windowbutton {
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout--topbar-windowbutton svg {
+    width: 12px;
+    height: 12px;
+    fill: var(--text-colour);
+}
+
+.layout--topbar-windowbutton.layout--topbar-hideButton:hover,
+.layout--topbar-windowbutton.layout--topbar-maxButton:hover {
+    background-color: #b4b4b466;
+}
+
+.layout--topbar-windowbutton.layout--topbar-closeButton:hover {
+    background-color: #e81123;
 }
 
 [data-electron="true"] .layout--topbar-controls {
     position: relative;
-    opacity: 1;
+    opacity: 0.8;
     pointer-events: auto;
 }
 
