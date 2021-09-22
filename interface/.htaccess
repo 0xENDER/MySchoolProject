@@ -1,8 +1,21 @@
 # Configure the error pages
+ErrorDocument 400 /page/error/
+ErrorDocument 401 /page/error/
 ErrorDocument 402 /page/error/
 ErrorDocument 403 /page/error/
 ErrorDocument 404 /page/error/
-ErrorDocument 500 "The server has crashed, you'll need to come back later!"
+ErrorDocument 405 /page/error/
+ErrorDocument 406 /page/error/
+ErrorDocument 407 /page/error/
+ErrorDocument 408 /page/error/
+ErrorDocument 409 /page/error/
+ErrorDocument 410 /page/error/
+ErrorDocument 411 /page/error/
+ErrorDocument 412 /page/error/
+ErrorDocument 412 /page/error/
+ErrorDocument 413 /page/error/
+ErrorDocument 414 /page/error/
+ErrorDocument 415 /page/error/
 
 # Manage URL changes
 RewriteEngine On
@@ -42,19 +55,24 @@ AddDefaultCharset UTF-8
 # Cache files
 <IfModule mod_headers.c>
 
+    # Cache images for 24 days
     <FilesMatch ".(ico|jpg|jpeg|png|gif|svg)$">
 
         Header set Cache-Control "max-age=2073600, public"
 
     </FilesMatch>
+
+    # Cache CSS code, JavaScript code, and text files for 3 days
     <FilesMatch ".(js|css|txt)$">
 
         Header set Cache-Control "max-age=259200, public, must-revalidate"
 
     </FilesMatch>
+
+    # Cache HTML files for 1 day
     <FilesMatch ".(html)$">
 
-        Header set Cache-Control "max-age=14400, must-revalidate"
+        Header set Cache-Control "max-age=86400, must-revalidate"
 
     </FilesMatch>
 
@@ -63,7 +81,7 @@ AddDefaultCharset UTF-8
 # Set the maximum upload size
 <IfModule mod_php5.c>
 
-    php_value upload_max_filesize 50M
+    php_value upload_max_filesize 24M
 
 </IfModule>
 
