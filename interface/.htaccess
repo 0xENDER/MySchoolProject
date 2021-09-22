@@ -36,22 +36,29 @@ RewriteRule ^page(/.*|)$ /layout.html?url=$1 [L,NC]
 
 </IfModule>
 
+# Default encoding
+AddDefaultCharset UTF-8
+
 # Cache files
-#<FilesMatch ".(ico|jpg|jpeg|png|gif)$">
-#
-#    Header set Cache-Control "max-age=2073600, public"
-#
-#</FilesMatch>
-#<FilesMatch ".(xml|js|css|txt)$">
-#
-#    Header set Cache-Control "max-age=259200, public, must-revalidate"
-#
-#</FilesMatch>
-#<FilesMatch ".(html|htm)$">
-#
-#    Header set Cache-Control "max-age=14400, must-revalidate"
-#
-#</FilesMatch>
+<IfModule mod_headers.c>
+
+    <FilesMatch ".(ico|jpg|jpeg|png|gif|svg)$">
+
+        Header set Cache-Control "max-age=2073600, public"
+
+    </FilesMatch>
+    <FilesMatch ".(js|css|txt)$">
+
+        Header set Cache-Control "max-age=259200, public, must-revalidate"
+
+    </FilesMatch>
+    <FilesMatch ".(html)$">
+
+        Header set Cache-Control "max-age=14400, must-revalidate"
+
+    </FilesMatch>
+
+</IfModule>
 
 # Set the maximum upload size
 <IfModule mod_php5.c>
