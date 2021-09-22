@@ -124,7 +124,7 @@ sudo nano 000-default.conf
 
 And change the `DocumentRoot` value!
 
-Note that you need to move the website code (inside `/interface/`) to your `/var/www/html/` directory.
+Note that you need to move the website code (inside `/bundler/builds/web/`) to your `/var/www/html/` directory or your `DocumentRoot` directory.
 
 ### Native apps (Windows, Linux, and macOS apps)
 
