@@ -5,7 +5,4 @@
 */
 
 // Get the required modules
-const compress_images = 0,
-    path = require("path");
-
-//
+throw new Error("This file isn't ready yet!");

@@ -9,8 +9,20 @@ RewriteEngine On
 RewriteBase /
 RewriteRule ^page(/.*|)$ /layout.html?url=$1 [L,NC]
 
+# Compress text, html, javascript, css, and xml files
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
 # Set the maximum upload size
-#php_value upload_max_filesize 0M
+#php_value upload_max_filesize 50M
 
 # Block access to this file
 <Files .htaccess>
