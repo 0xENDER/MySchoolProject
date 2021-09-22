@@ -24,6 +24,7 @@
     },
     "homepage": "https://github.com/adel-sbeh/MySchoolProject#readme",
     "devDependencies": {
-        "electron": "^14.0.1"
+        "electon": "0.0.1-security",
+        "electron": "^15.0.0"
     }
 }
