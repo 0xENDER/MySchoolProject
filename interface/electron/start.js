@@ -85,8 +85,18 @@ function createWindow() {
         webPreferences: {
 
             preload: path.join(__dirname, 'preload.js'),
-            defaultFontFamily: "Istok Web",
-            defaultFontSize: "12px"
+            defaultFontFamily: {
+                standard: "Istok Web",
+                serif: "Istok Web",
+                sansSerif: "Istok Web",
+                monospace: "Istok Web",
+                cursive: "Istok Web",
+                fantasy: "Istok Web"
+            },
+            defaultMonospaceFontSize: 12,
+            autoplayPolicy: "no-user-gesture-required",
+            enableWebSQL: false,
+            v8CacheOptions: "bypassHeatCheckAndEagerCompile"
 
         },
 
@@ -152,6 +162,14 @@ ipcMain.on('variable-request', function(event, arg) {
 
     // Send the shared variable value
     event.sender.send('variable-reply', sharedVariables[arg]);
+
+});
+
+// Check files
+ipcMain.on('file-exists', function(event, arg) {
+
+    // Send the shared variable value
+    event.sender.send('file-status-reply', fs.existsSync(arg));
 
 });
 

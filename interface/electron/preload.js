@@ -54,7 +54,7 @@ contextBridge.exposeInMainWorld(
         send: (channel, data) => {
 
             // Whitelist send channels
-            let validChannels = ["variable-request"];
+            let validChannels = ["variable-request", "file-exists"];
             if (validChannels.includes(channel)) {
 
                 // Send the data to the main process
@@ -68,7 +68,7 @@ contextBridge.exposeInMainWorld(
         receive: (channel, callback) => {
 
             // Whitelist receive channels
-            let validChannels = ["variable-reply"];
+            let validChannels = ["variable-reply", "file-status-reply"];
             if (validChannels.includes(channel)) {
 
                 // Wait for the data from the main process
