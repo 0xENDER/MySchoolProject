@@ -12,5 +12,5 @@ npm install
 #sudo apt-get install build-essential
 #
 ## Navigate back to the "bundler/" directory
-cd "apps_codebase/"
+cd "../"
 #

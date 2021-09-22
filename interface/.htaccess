@@ -37,26 +37,21 @@ RewriteRule ^page(/.*|)$ /layout.html?url=$1 [L,NC]
 </IfModule>
 
 # Cache files
-<IfModule mod_expires.c>
-
-  # Turn on the module
-  ExpiresActive on
-
-  # Set the default expiry times
-  ExpiresDefault "access plus 2 days"
-  ExpiresByType image/jpg "access plus 7 days"
-  ExpiresByType image/svg+xml "access 7 days"
-  ExpiresByType image/gif "access plus 7 days"
-  ExpiresByType image/jpeg "access plus 7 days"
-  ExpiresByType image/png "access plus 7 days"
-  ExpiresByType text/css "access plus 7 days"
-  ExpiresByType text/javascript "access plus 2 days"
-  ExpiresByType application/javascript "access plus 2 days"
-  ExpiresByType image/ico "access plus 18 days"
-  ExpiresByType image/x-icon "access plus 18 days"
-  ExpiresByType text/html "access plus 600 seconds"
-
-</IfModule>
+#<FilesMatch ".(ico|jpg|jpeg|png|gif)$">
+#
+#    Header set Cache-Control "max-age=2073600, public"
+#
+#</FilesMatch>
+#<FilesMatch ".(xml|js|css|txt)$">
+#
+#    Header set Cache-Control "max-age=259200, public, must-revalidate"
+#
+#</FilesMatch>
+#<FilesMatch ".(html|htm)$">
+#
+#    Header set Cache-Control "max-age=14400, must-revalidate"
+#
+#</FilesMatch>
 
 # Set the maximum upload size
 <IfModule mod_php5.c>

@@ -5,26 +5,34 @@
 cd "bundler/"
 #
 ## Clear the generated files in the "/bundler/" directory
-echo "[Bundler] Cleaning up the 'bundler/' directory..."
+echo -e "\n[Bundler] Cleaning up the 'bundler/' directory..."
 "./clean.sh"
 #
 ## Prepare the bundler
-echo "[Bundler] Preparing the bundler..."
+echo -e "\n[Bundler] Preparing the bundler..."
 "./install_node_modules.sh"
 #
 ## Minify all the code in the "/interface/" directory
-echo "[Bundler] Minifying the codebase..."
+echo -e "\n[Bundler] Minifying the codebase..."
 "./minify.sh"
 #
 ## Manage "/builds/web/"
-echo "[Bundler] Building the web codebase version..."
+echo -e "\n[Bundler] Building the web codebase version..."
 "./web.sh"
 #
+## Prepare the codebase for React and Electron
+echo -e "\n[Bundler] Preparing the codebase for Electron and React..."
+"./prepare_frameworks_codebase.sh"
+#
 ## Prepare the codebase for the native builds
-echo "[Bundler] Preparing the codebase for the native builds..."
+echo -e "\n[Bundler] Preparing the codebase for the native builds..."
 "./prepare_codebase.sh"
 #
-## Build the codebae on Electron
-echo "[Bundler] Building the codebase using Electron..."
+## Build the codebase using Electron
+echo -e "\n[Bundler] Building the codebase using Electron..."
 "./electron.sh"
+#
+## Build the codebase using React
+echo -e "\n[Bundler] Building the codebase using React..."
+"./react.sh"
 #

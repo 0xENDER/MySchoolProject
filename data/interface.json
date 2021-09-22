@@ -1,0 +1,29 @@
+{
+
+    "dataset": {
+
+        "loaded": {
+
+            "default": "true",
+            "web": "false"
+
+        },
+
+        "electron": {
+
+            "default": "false",
+            "electron": "true"
+
+        }
+
+    },
+
+    "base": {
+
+        "web": "/",
+        "electron": "./",
+        "react": "./"
+
+    }
+
+}

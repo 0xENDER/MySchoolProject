@@ -6,6 +6,7 @@ echo "[Bundler] [Minify] Copying directories from the 'interface/' directory..."
 cp -R "../interface/assets/" "apps_codebase"
 cp -R "../interface/pages/" "apps_codebase"
 cp -R "../interface/electron/" "apps_codebase"
+cp -R "../interface/react/" "apps_codebase"
 #
 ## Copy the files inside the "interface/" directory
 echo "[Bundler] [Minify] Copying files from the 'interface/' directory.."

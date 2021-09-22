@@ -17,3 +17,7 @@ cp "apps_codebase/robots.txt" "builds/web/"
 cp "apps_codebase/sitemap.xml" "builds/web/"
 cp "apps_codebase/worker.js" "builds/web/"
 #
+## Replace all the custom variables
+echo "[Bundler] [Web] Processing all the custom variables..."
+node "variables/web.js"
+#

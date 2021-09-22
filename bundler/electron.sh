@@ -1,4 +1,4 @@
-## Build the Electron native apps
+## Build the native Electron apps
 #
 #
 ## <string>

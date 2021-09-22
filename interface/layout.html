@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-signedin="wait" data-loaded="false" style="background-color: var(--page-background);">
+<html lang="en" data-signedin="wait" data-loaded="%{{interface:dataset.loaded}}%" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
 
 <head>
 
@@ -24,22 +24,7 @@
     </style>
 
     <!-- Specify the root directory of the website! -->
-    <base href="./" id="global--base">
-    <script>
-        // Check if this is an electron app!
-        if (window.api != undefined) {
-
-            // Change the document's data set
-            document.documentElement.dataset.electron = true;
-            document.documentElement.dataset.loaded = true;
-
-        } else {
-
-            // This is a website, you need to reset the base value!
-            document.getElementById("global--base").setAttribute("href", "/");
-
-        }
-    </script>
+    <base href="%{{interface:base}}%" id="global--base">
 
     <!-- Preload important files (First-print styles, data scripts, etc.) -->
     <link rel="preload" href="./assets/styles/layout.css" as="style">

@@ -8,7 +8,7 @@
 const minify = require('csso').minify,
     path = require("path"),
     fs = require("fs"),
-    scan = require("./scan");
+    scan = require("./../scan");
 
 // Scan the 'apps_codebase/' directory
 scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".css"], function(fileDirectory) {

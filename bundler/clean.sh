@@ -11,13 +11,16 @@ fi
 #
 ## Recreate the "/builds/" directory
 echo "[Bundler] [Clean] Preparing the 'builds/' directory..."
-mkdir "builds/" 
-mkdir "builds/web/" 
-mkdir "builds/windows/" 
-mkdir "builds/linux/" 
-mkdir "builds/mac/" 
-mkdir "builds/android/" 
-mkdir "builds/ios/" 
+mkdir "builds/"
+mkdir "builds/web/"
+mkdir "builds/windows/"
+mkdir "builds/linux/"
+mkdir "builds/mac/"
+mkdir "builds/android/"
+mkdir "builds/ios/"
+mkdir "builds/frameworks/"
+mkdir "builds/frameworks/electron"
+mkdir "builds/frameworks/react"
 #
 ## Clear the "/apps_codebase/" directory
 if [ -d "apps_codebase/" ]; then

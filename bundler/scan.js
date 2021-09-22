@@ -15,7 +15,7 @@ const path = require('path'),
         ],
         html: [ // A blacklist for HTML files
 
-            path.join(__dirname, "..", "apps_codebase", "pages")
+            path.join(__dirname, "apps_codebase", "pages")
 
         ],
         js: [ // A blacklist for JavaScript files
