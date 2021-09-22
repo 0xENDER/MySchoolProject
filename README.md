@@ -115,6 +115,15 @@ Once you have everything set up properly, you can use this command to run the se
 sudo apachectl start
 ```
 
+If you wish to change the default directory of the server, do this:
+
+```sh
+cd /etc/apache2/sites-available
+sudo nano 000-default.conf
+```
+
+And change the `DocumentRoot` value!
+
 Note that you need to move the website code (inside `/interface/`) to your `/var/www/html/` directory.
 
 ### Native apps (Windows, Linux, and macOS apps)
