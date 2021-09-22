@@ -151,6 +151,12 @@ if (navigator.appVersion.indexOf("armv") != -1)
 // If this is an app, do some checks that are related to the `more` sub-object
 if (window.platform.isApp) {
 
-    //
+    // Check if this is a mac
+    if (window.platform.type.isMac) {
+
+        // Change the document data set to apply the appropriate style for the title bar controls
+        document.documentElement.dataset.mac = true;
+
+    }
 
 }

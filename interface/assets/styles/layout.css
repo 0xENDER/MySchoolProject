@@ -306,8 +306,8 @@ body {
     position: fixed;
     opacity: 0;
     pointer-events: none;
-    width: 114px;
-    min-width: 114px;
+    width: 136px;
+    min-width: 136px;
     height: 100%;
     margin-right: calc(-1 * var(--global-sidesmargin));
     margin-left: var(--global-sidesmargin);
@@ -329,6 +329,7 @@ body {
     width: 12px;
     height: 12px;
     fill: var(--text-colour);
+    opacity: 0.7;
 }
 
 .layout--topbar-windowbutton.layout--topbar-hideButton:hover,
@@ -338,6 +339,25 @@ body {
 
 .layout--topbar-windowbutton.layout--topbar-closeButton:hover {
     background-color: #e81123;
+}
+
+[data-mac="true"] .layout--topbar-windowbutton svg {
+    border-radius: 100%;
+    background-color: var(--text-colour);
+}
+
+[data-mac="true"] .layout--topbar-windowbutton:hover {
+    background-color: transparent !important;
+}
+
+[data-mac="true"] .layout--topbar-windowbutton:hover svg {
+    opacity: 1;
+}
+
+[data-mac="true"] .layout--topbar-controls {
+    width: 84px;
+    min-width: 84px;
+    margin-right: calc(-0.5 * var(--global-sidesmargin));
 }
 
 [data-electron="true"] .layout--topbar-controls {

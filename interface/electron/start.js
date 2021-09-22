@@ -84,6 +84,7 @@ function createWindow() {
 
         webPreferences: {
 
+            devTools: true, // Debug: "true", production: "false"
             preload: path.join(__dirname, 'preload.js'),
             defaultFontFamily: {
                 standard: "Istok Web",
@@ -144,6 +145,18 @@ app.whenReady().then(() => {
 
         if (BrowserWindow.getAllWindows().length === 0)
             createWindow();
+
+    });
+
+    // Keep track of the window's state
+    currentWindow.on('maximize', (e) => {
+
+        currentWindow.webContents.send('window-change', true);
+
+    });
+    currentWindow.on('unmaximize', (e) => {
+
+        currentWindow.webContents.send('window-change', false);
 
     });
 

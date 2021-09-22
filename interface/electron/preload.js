@@ -15,6 +15,26 @@ const {
 // Set the window controls events
 window.addEventListener('load', function() {
 
+    // Define needed variables
+    var iconOne = document.getElementById("windowcontrols--max-iconOne"),
+        iconTwo = document.getElementById("windowcontrols--max-iconTwo");
+
+    ipcRenderer.on("window-change", (event, isMax) => {
+
+        if (isMax) {
+
+            iconOne.style.display = "none";
+            iconTwo.style.display = null;
+
+        } else {
+
+            iconOne.style.display = null;
+            iconTwo.style.display = "none";
+
+        }
+
+    });
+
     // Get all the title bar buttons
     var hideButton = document.getElementById("windowcontrols--hide"),
         maxButton = document.getElementById("windowcontrols--max"),
@@ -71,16 +91,19 @@ contextBridge.exposeInMainWorld(
             let validChannels = ["variable-reply", "file-status-reply"];
             if (validChannels.includes(channel)) {
 
-                // Wait for the data from the main process
-                ipcRenderer.on(channel, (event, ...args) => {
+                // Define a request callback function
+                var receiveCallback = (event, ...args) => {
 
                     // Return all the arguments except for the `event` argument
                     callback(...args);
 
                     // Remove this listener
-                    ipcRenderer.removeAllListeners();
+                    ipcRenderer.removeListener(channel, callback);
 
-                });
+                };
+
+                // Wait for the data from the main process
+                ipcRenderer.on(channel, receiveCallback);
 
             }
 
