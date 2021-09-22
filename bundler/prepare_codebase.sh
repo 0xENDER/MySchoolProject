@@ -8,6 +8,9 @@ cd "apps_codebase/"
 echo "[Bundler] [Prepare Codebase ~ Native Builds] Installing the required modules..."
 npm install
 #
+##
+#sudo apt-get install build-essential
+#
 ## Navigate back to the "bundler/" directory
 cd "apps_codebase/"
 #
