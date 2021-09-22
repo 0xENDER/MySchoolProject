@@ -42,18 +42,34 @@ function checkAgreement() {
                     hideAlert();
 
                     // Load the page content
-                    loadContent();
+                    loadingReady();
 
                 });
 
-        }, 250);
+        }, window.platform.special.startAgreementDelay);
 
     } else {
 
         // Load the page content
-        loadContent();
+        loadingReady();
 
     }
+
+}
+
+// Do all the necessary things to fully load the page
+function loadingReady() {
+
+    // Initialise the service worker
+    if (!window.platform.isApp) {
+
+        // Setup the service worker
+        setupServiceWorker();
+
+    }
+
+    // Load the page content
+    loadContent();
 
 }
 
