@@ -1,0 +1,53 @@
+{
+
+    "codebase": {
+
+        "version": {
+
+            "default": "0.0.1-alpha.005"
+
+        }
+
+    },
+
+    "appInfo": {
+
+        "name": {
+
+            "default": "MyStore"
+
+        },
+
+        "nameSmall": {
+
+            "default": "mystore"
+
+        },
+
+        "shortName": {
+
+            "default": "MyStore"
+
+        },
+
+        "description": {
+
+            "default": "Get apps from MyStore!"
+
+        },
+
+        "webKeywords": {
+
+            "default": "MyStore"
+
+        },
+
+        "appKeyword1": {
+
+            "default": "MyStore"
+
+        }
+
+    }
+
+}

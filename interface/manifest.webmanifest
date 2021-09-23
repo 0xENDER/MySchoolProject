@@ -1,8 +1,8 @@
 {
 
-    "name": "MyStore",
-    "short_name": "MyStore",
-    "description": "Get apps from MyStore!",
+    "name": "%{{global:appInfo.name}}%",
+    "short_name": "%{{global:appInfo.shortName}}%",
+    "description": "%{{global:appInfo.description}}%",
     "start_url": "./",
     "display": "standalone",
     "background_color": "#ffffff",

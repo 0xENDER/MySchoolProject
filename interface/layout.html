@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-signedin="wait" data-loaded="%{{interface:dataset.loaded}}%" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
+<html lang="en" data-version="%{{global:codebase.version}}%" data-signedin="wait" data-loaded="%{{interface:dataset.loaded}}%" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
 
 <head>
 
@@ -44,9 +44,9 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://store.mur-lang.org/ ajax.cloudflare.com static.cloudflareinsights.com; connect-src 'self' https://store.mur-lang.org/ cloudflareinsights.com; object-src 'none';">
 
     <!-- Important search-friendly meta tags -->
-    <meta name="title" content="MyStore">
-    <meta name="description" content="Get apps from MyStore!">
-    <meta name="keywords" content="MyStore">
+    <meta name="title" content="%{{global:appInfo.name}}%">
+    <meta name="description" content="%{{global:appInfo.description}}%">
+    <meta name="keywords" content="%{{global:appInfo.webKeywords}}%">
     <meta name="language" content="English">
     <meta name="lang" content="en">
     <meta name="creationdate" content="September 8 2021">

@@ -9,14 +9,15 @@ const path = require("path"),
     scan = require("./../scan"),
     fs = require("fs"),
     dataPath = path.join(__dirname, "..", "..", "data"),
-    dataRegex = /%{{(.*)}}%/g,
+    dataRegex = /%{{(.*?)}}%/g,
     dataSplitRegex = /(%{{.*?}}%)/, // /(?<=%{{)(.*?)(?=}}%)/
     data = {
-        interface: JSON.parse(fs.readFileSync(path.join(dataPath, "interface.json"), "utf8"))
+        interface: JSON.parse(fs.readFileSync(path.join(dataPath, "interface.json"), "utf8")),
+        global: JSON.parse(fs.readFileSync(path.join(dataPath, "global.json"), "utf8"))
     };
 
 // Define the module object
-module.exports = function(directory, filterExtensions, variableType) {
+module.exports = function(directory, filterExtensions, variableType = "default") {
 
     scan.scanDirectory(directory, filterExtensions, function(fileDirectory) {
 
@@ -43,7 +44,7 @@ module.exports = function(directory, filterExtensions, variableType) {
 
                         // Define the needed variables for this process
                         var splitValue = variable[1].split("."),
-                            variableValue = data.interface;
+                            variableValue = data[variable[0]];
 
                         // Get through the path of the variable
                         for (var i2 = 0; i2 < splitValue.length; i2++) {
@@ -53,7 +54,15 @@ module.exports = function(directory, filterExtensions, variableType) {
                         }
 
                         // Get the variable value (according to the passed variable "type")
-                        variableValue = variableValue[(variableType != null && variableType != undefined) ? variableType : "default"];
+                        if (variableValue[variableType] == undefined) {
+
+                            variableValue = variableValue["default"];
+
+                        } else {
+
+                            variableValue = variableValue[variableType];
+
+                        }
 
                         // Check if this variable is defined
                         if (variableValue != undefined && variableValue != null) {

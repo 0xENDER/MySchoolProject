@@ -1,8 +1,8 @@
 {
 
-    "name": "mystore",
-    "version": "0.0.1",
-    "description": "Get apps from MyStore!",
+    "name": "%{{global:appInfo.nameSmall}}%",
+    "version": "%{{global:codebase.version}}%",
+    "description": "%{{global:appInfo.description}}%",
     "main": "electron/start.js",
     "dependencies": {
 
@@ -23,7 +23,7 @@
     },
     "keywords": [
 
-        "MyStore"
+        "%{{global:appInfo.appKeyword1}}%"
 
     ],
     "author": "Adel Sbeh (EnderAdel)",

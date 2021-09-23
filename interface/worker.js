@@ -32,9 +32,9 @@ var cacheName = null,
         '/assets/scripts/load.js',
         '/assets/scripts/scrollbar.js',
         '/assets/scripts/tab.js',
+        '/assets/scripts/platform.js',
+        '/assets/scripts/account.js',
         '/assets/scripts/worker.js',
-        //Note for scripts:
-        //  Don't cache the `platform.js` file, or the `account.js` file.
 
         // Cache Styles
         '/assets/styles/all.css',
@@ -100,7 +100,7 @@ self.addEventListener('fetch', (e) => {
 
             const cache = await caches.open(cacheName);
 
-            if (e.request.method !== "POST" && e.request.method !== "HEAD" && e.request.url.indexOf(".server.test.connection") == -1 && e.request.url.indexOf("platform.js") == -1)
+            if (e.request.method !== "POST" && e.request.method !== "HEAD")
                 cache.put(e.request, response.clone());
 
         }

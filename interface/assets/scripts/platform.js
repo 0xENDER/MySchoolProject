@@ -59,7 +59,7 @@ window.platform = { // An object to keep track and organise the platform data
 
         root: (isApp) ? "" : "/", // The root of this version of the codebase
         index: "/index.html", // The index file of directories
-        version: "0.0.1-alpha.004" // The current version of the codebase
+        version: document.documentElement.dataset.version // The current version of the codebase
 
     }
 
