@@ -152,7 +152,7 @@ To make all the production-ready versions of the codebase, use the `build.sh` fi
 
 This project is licensed under an [Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/)!
 
-There is a restriction that applies to this repository. You are **not allowed** to use this project, or *any* parts of this codebase, **as your school assignment**. And you're **not allowed** to **identify this project as your own**. That is a temporary restriction that ends **October 1st, 2022**.
+There is a restriction that applies to this repository. You are **not allowed** to use this project, or *any* parts of this codebase, **as your school assignment**. And you're **not allowed** to **identify this project as your own**. That is a temporary restriction that ends on **October 1st, 2022**.
 
 ## Credits
 
