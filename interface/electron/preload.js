@@ -13,7 +13,7 @@ const {
 } = require("electron");
 
 // Set the window controls events
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
 
     // Define needed variables
     var iconOne = document.getElementById("windowcontrols--max-iconOne"),
@@ -94,11 +94,11 @@ contextBridge.exposeInMainWorld(
                 // Define a request callback function
                 var receiveCallback = (event, ...args) => {
 
+                    // Remove this listener
+                    ipcRenderer.removeListener(channel, receiveCallback);
+
                     // Return all the arguments except for the `event` argument
                     callback(...args);
-
-                    // Remove this listener
-                    ipcRenderer.removeListener(channel, callback);
 
                 };
 

@@ -148,6 +148,10 @@ npm start
 
 To make all the production-ready versions of the codebase, use the `build.sh` file. And, if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
 
+## Licensing
+
+This project is licensed under an [Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/)!
+
 ## Credits
 
 - *The icons: [Evericons](https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)*

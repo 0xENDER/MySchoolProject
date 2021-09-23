@@ -9,6 +9,10 @@
 /bundler/apps_codebase
 /bundler/apps_codebase/*
 
+# Ignore the "/tests/" directory
+/tests
+/tests/*
+
 # Ignore the "/node_modules/" directory
 /node_modules
 /node_modules/*
