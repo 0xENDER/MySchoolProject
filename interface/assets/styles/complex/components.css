@@ -102,7 +102,7 @@
 .component--scrollbar:hover .component--scrollbar-bottom,
 .component--scrollbar:active .component--scrollbar-top,
 .component--scrollbar:active .component--scrollbar-bottom {
-    opacity: 1;
+    opacity: var(--scrollbarbuttons-opacity);
 }
 
 .component--scrollbar-top svg,

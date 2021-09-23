@@ -70,7 +70,6 @@ button.component--button.component--button-primary {
     position: relative;
     width: 100%;
     height: var(--scrollbar-width);
-    opacity: var(--scrollbarbuttons-opacity) !important;
     pointer-events: var(--scrollbarbuttons-pointerevents);
 }
 
