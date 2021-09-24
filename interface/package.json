@@ -3,22 +3,13 @@
     "name": "%{{global:appInfo.nameSmall}}%",
     "version": "%{{global:codebase.version}}%",
     "description": "%{{global:appInfo.description}}%",
-    "main": "electron/start.js",
-    "dependencies": {
-
-        "fs": "0.0.1-security",
-        "v8-compile-cache": "^2.3.0"
-
-    },
-    "scripts": {
-
-        "start": "electron ."
-
-    },
+    "main": "%{{frameworks:startPath}}%",
+    "dependencies": {},
+    "scripts": {},
     "repository": {
 
         "type": "git",
-        "url": "git+https://github.com/adel-sbeh/MySchoolProject.git"
+        "url": "git+%{{global:appInfo.url.github}}%.git"
 
     },
     "keywords": [
@@ -26,19 +17,14 @@
         "%{{global:appInfo.appKeyword1}}%"
 
     ],
-    "author": "Adel Sbeh (EnderAdel)",
-    "license": "Attribution-NonCommercial-ShareAlike 4.0 International",
+    "author": "%{{global:appInfo.author}}%",
+    "license": "%{{global:appInfo.license}}%",
     "bugs": {
 
-        "url": "https://github.com/adel-sbeh/MySchoolProject/issues"
+        "url": "%{{global:appInfo.url.github}}%/issues"
 
     },
-    "homepage": "https://github.com/adel-sbeh/MySchoolProject#readme",
-    "devDependencies": {
-
-        "electon": "0.0.1-security",
-        "electron": "^15.0.0"
-
-    }
+    "homepage": "%{{global:appInfo.url.website}}%/page/home/",
+    "devDependencies": {}
 
 }

@@ -1,0 +1,11 @@
+{
+
+    "startPath": {
+
+        "electron": "electron/start.js",
+        "react": "react/start.js",
+        "web": "index.html"
+
+    }
+
+}

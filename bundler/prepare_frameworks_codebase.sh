@@ -14,8 +14,10 @@ cp -R "apps_codebase/react/" "builds/frameworks/react/"
 ## Copy the files inside the "interface/" directory for Electron and React
 echo "[Bundler] [Frameworks ~ Prepare Electron] Copying some files from the codebase..."
 cp "apps_codebase/layout.html" "builds/frameworks/electron/"
+cp "apps_codebase/package.json" "builds/frameworks/electron/"
 echo "[Bundler] [Frameworks ~ Prepare React] Copying some files from the codebase..."
 cp "apps_codebase/layout.html" "builds/frameworks/react/"
+cp "apps_codebase/package.json" "builds/frameworks/react/"
 #
 ## Replace all the custom variables
 echo "[Bundler] [Frameworks ~ Prepare Electron] Processing all the custom variables..."

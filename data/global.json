@@ -46,6 +46,34 @@
 
             "default": "MyStore"
 
+        },
+
+        "url": {
+
+            "github": {
+
+                "default": "https://github.com/adel-sbeh/MySchoolProject"
+
+            },
+
+            "website": {
+
+                "default": "https://store.mur-lang.org"
+
+            }
+
+        },
+
+        "license": {
+
+            "default": "Attribution-NonCommercial-ShareAlike 4.0 International"
+
+        },
+
+        "author": {
+
+            "default": "Adel Sbeh (EnderAdel)"
+
         }
 
     }

@@ -11,10 +11,19 @@ const path = require("path"),
     dataPath = path.join(__dirname, "..", "..", "data"),
     dataRegex = /%{{(.*?)}}%/g,
     dataSplitRegex = /(%{{.*?}}%)/, // /(?<=%{{)(.*?)(?=}}%)/
-    data = {
-        interface: JSON.parse(fs.readFileSync(path.join(dataPath, "interface.json"), "utf8")),
-        global: JSON.parse(fs.readFileSync(path.join(dataPath, "global.json"), "utf8"))
-    };
+    data = {};
+
+// Check for the JSON files in the `data/` directory
+scan.scanDirectory(dataPath, [".json"], function(fileDirectory) {
+
+    // Get the file name
+    var fileName = path.basename(fileDirectory);
+    fileName = fileName.substring(0, fileName.length - ".json".length);
+
+    // Get the data inside this file
+    data[fileName] = JSON.parse(fs.readFileSync(fileDirectory, "utf8"));
+
+});
 
 // Define the module object
 module.exports = function(directory, filterExtensions, variableType = "default") {
