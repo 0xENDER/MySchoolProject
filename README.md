@@ -146,7 +146,22 @@ npm start
 
 > **Note:** make sure that you've set up the development environment properly! Otherwise, the bundler will fail!
 
-To make all the production-ready versions of the codebase, use the `build.sh` file. And, if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
+To make all the production-ready versions of the codebase, use the `./build` file.
+
+> if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
+
+The available build flags are:
+
+- `-debug`: Show debug messages
+- `-all`: Create all the builds for all platform (Web, Windows, Linux, macOS, Android, iOS)
+- `-desktop`: Create all the builds for desktop decides (Windows, Linux, macOS)
+- `-mobile`: Create all the builds for mobile decides (Android, iOS)
+- `-web`: Create a web build
+- `-windows`: Create a Windows build
+- `-linux`: Create a Linux build
+- `-mac`: Create a macOS build
+- `-android`: Create an Android build
+- `-ios`: Create an iOS build
 
 ## Licensing
 

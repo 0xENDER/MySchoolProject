@@ -5,7 +5,12 @@
     "description": "%{{global:appInfo.description}}%",
     "main": "%{{frameworks:startPath}}%",
     "dependencies": {},
-    "scripts": {},
+    "devDependencies": {},
+    "scripts": {
+
+        "start": "%{{frameworks:startScript}}%"
+
+    },
     "repository": {
 
         "type": "git",
@@ -24,7 +29,6 @@
         "url": "%{{global:appInfo.url.github}}%/issues"
 
     },
-    "homepage": "%{{global:appInfo.url.website}}%/page/home/",
-    "devDependencies": {}
+    "homepage": "%{{global:appInfo.url.website}}%/page/home/"
 
 }

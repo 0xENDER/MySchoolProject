@@ -6,6 +6,14 @@
         "react": "react/start.js",
         "web": "index.html"
 
+    },
+
+    "startScript": {
+
+        "electron": "electron .",
+        "react": "",
+        "web": ""
+
     }
 
 }
