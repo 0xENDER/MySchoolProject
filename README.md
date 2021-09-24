@@ -144,11 +144,9 @@ npm start
 
 ## Apps Distribution
 
-> **Note:** make sure that you've set up the development environment properly! Otherwise, the bundler will fail!
+> if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
 
 To make all the production-ready versions of the codebase, use the `./build` file.
-
-> if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
 
 The available build flags are:
 
