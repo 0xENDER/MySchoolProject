@@ -1,6 +1,9 @@
 ## Manage the "bundler/builds/web/" directory
 #
 #
+## Organise the environment variables
+DEBUG_MODE=$1
+#
 ## Copy the required folders from the codebase for the "web version"
 echo "[Bundler] [Web] Copying some folders from the codebase..."
 cp -R "apps_codebase/assets/" "builds/web/"

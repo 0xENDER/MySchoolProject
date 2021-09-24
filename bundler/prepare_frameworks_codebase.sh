@@ -1,6 +1,11 @@
 ## Manage the "bundler/builds/frameworks/" directory
 #
 #
+## Organise the environment variables
+DEBUG_MODE=$1
+FRAMEWORK_ELECTRON=$2
+FRAMEWORK_REACT=$3
+#
 ## Copy the folders inside the "interface/" directory for Electron and React
 echo "[Bundler] [Frameworks ~ Prepare Electron] Copying some folders from the codebase..."
 cp -R "apps_codebase/assets/" "builds/frameworks/electron/"

@@ -3,6 +3,7 @@
 #
 ## Define the environment variables
 DEBUG_MODE=0
+BUILD=0
 BUILD_WEB=0
 BUILD_WINDOWS=0
 BUILD_MAC=0
@@ -18,37 +19,45 @@ if [ $# -ne 0 ]; then
         if [ "$argument" = "-web" ]; then
 
             BUILD_WEB=1
+            BUILD=1
 
         elif [ "$argument" = "-windows" ]; then
 
             BUILD_WINDOWS=1
+            BUILD=1
 
         elif [ "$argument" = "-linux" ]; then
 
             BUILD_LINUX=1
+            BUILD=1
 
         elif [ "$argument" = "-mac" ]; then
 
             BUILD_MAC=1
+            BUILD=1
 
         elif [ "$argument" = "-android" ]; then
 
             BUILD_ANDROID=1
+            BUILD=1
 
         elif [ "$argument" = "-ios" ]; then
 
             BUILD_IOS=1
+            BUILD=1
 
         elif [ "$argument" = "-desktop" ]; then
 
             BUILD_WINDOWS=1
             BUILD_MAC=1
             BUILD_LINUX=1
+            BUILD=1
 
         elif [ "$argument" = "-mobile" ]; then
 
             BUILD_ANDROID=1
             BUILD_IOS=1
+            BUILD=1
 
         elif [ "$argument" = "-all" ]; then
 
@@ -58,6 +67,7 @@ if [ $# -ne 0 ]; then
             BUILD_LINUX=1
             BUILD_ANDROID=1
             BUILD_IOS=1
+            BUILD=1
 
         elif [ "$argument" = "-debug" ]; then
 
@@ -72,16 +82,20 @@ fi
 ## Print the build settings
 if [ $DEBUG_MODE -eq 1 ]; then
 
-    echo "[DEBUG] Web:$BUILD_WEB"
-    echo "[DEBUG] Windows:$BUILD_WINDOWS"
-    echo "[DEBUG] macOS:$BUILD_MAC"
-    echo "[DEBUG] Linux:$BUILD_LINUX"
-    echo "[DEBUG] Android:$BUILD_ANDROID"
-    echo "[DEBUG] iOS:$BUILD_IOS"
+    echo "[DEBUG] Web: $BUILD_WEB"
+    echo "[DEBUG] Windows: $BUILD_WINDOWS"
+    echo "[DEBUG] Linux: $BUILD_LINUX"
+    echo "[DEBUG] macOS: $BUILD_MAC"
+    echo "[DEBUG] Android: $BUILD_ANDROID"
+    echo "[DEBUG] iOS: $BUILD_IOS"
 
 fi
 #
 ## Run the `start.sh` file
-cd "bundler/"
-#"./start.sh"
+if [ $BUILD -eq 1 ]; then
+
+    cd "bundler/"
+    "./start.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $BUILD_IOS
+
+fi
 #
