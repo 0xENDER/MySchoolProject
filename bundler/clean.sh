@@ -13,14 +13,14 @@ FRAMEWORK_ELECTRON=$8
 FRAMEWORK_REACT=$9
 USE_FRAMEWORKS=0
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
-
+#
     USE_FRAMEWORKS=1
-
+#
 fi
 if [ $FRAMEWORK_REACT -eq 1 ]; then
-
+#
     USE_FRAMEWORKS=1
-
+#
 fi
 #
 ## Clear the "/builds/" directory
@@ -35,49 +35,49 @@ fi
 echo "[Bundler] [Clean] Preparing the 'builds/' directory..."
 mkdir "builds/"
 if [ $BUILD_WEB -eq 1 ]; then
-
+#
     mkdir "builds/web/"
-
+#
 fi
 if [ $BUILD_WINDOWS -eq 1 ]; then
-
+#
     mkdir "builds/windows/"
-
+#
 fi
 if [ $BUILD_LINUX -eq 1 ]; then
-
+#
     mkdir "builds/linux/"
-
+#
 fi
 if [ $BUILD_MAC -eq 1 ]; then
-
+#
     mkdir "builds/mac/"
-
+#
 fi
 if [ $BUILD_ANDROID -eq 1 ]; then
-
+#
     mkdir "builds/android/"
-
+#
 fi
 if [ $BUILD_IOS -eq 1 ]; then
-
+#
     mkdir "builds/ios/"
-
+#
 fi
 if [ $USE_FRAMEWORKS -eq 1 ]; then
-
+#
     mkdir "builds/frameworks/"
-
+#
 fi
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
-
+#
     mkdir "builds/frameworks/electron"
-
+#
 fi
 if [ $FRAMEWORK_REACT -eq 1 ]; then
-
+#
     mkdir "builds/frameworks/react"
-
+#
 fi
 #
 ## Clear the "/apps_codebase/" directory
