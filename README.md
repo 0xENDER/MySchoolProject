@@ -144,7 +144,7 @@ npm start
 
 ## Apps Distribution
 
-> if you're on windows, use the *Windows Subsystem for Linux* to execute this file.
+> if you're on Windows, use the *Windows Subsystem for Linux* to execute this file.
 
 To make all the production-ready versions of the codebase, use the `./build` file.
 
