@@ -1,6 +1,9 @@
 ## Minify the code in the "interface/" directory
 #
 #
+## Organise the environment variables
+DEBUG_MODE=$1
+#
 ## Copy the `interface` directory
 echo "[Bundler] [Minify] Copying the 'interface/' directory..."
 cp -a "../interface/." "apps_codebase/"
