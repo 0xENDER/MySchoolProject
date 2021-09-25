@@ -4,7 +4,7 @@
 
         "version": {
 
-            "default": "0.0.1-alpha.005"
+            "default": "0.0.1-alpha.5"
 
         }
 
@@ -12,15 +12,21 @@
 
     "appInfo": {
 
-        "name": {
+        "id": {
 
-            "default": "MyStore"
+            "default": "com.adelsbeh.store"
 
         },
 
-        "nameSmall": {
+        "category": {
 
-            "default": "mystore"
+            "default": "Utility"
+
+        },
+
+        "name": {
+
+            "default": "MyStore"
 
         },
 
@@ -73,6 +79,12 @@
         "author": {
 
             "default": "Adel Sbeh (EnderAdel)"
+
+        },
+
+        "email": {
+
+            "default": "myemail@example.net"
 
         }
 

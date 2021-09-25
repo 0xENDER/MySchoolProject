@@ -126,21 +126,33 @@ And change the `DocumentRoot` value!
 
 Note that you need to move the website code (inside `/bundler/builds/web/`) to your `/var/www/html/` directory or your `DocumentRoot` directory.
 
-### Native apps (Windows, Linux, and macOS apps)
+### Building
 
-If you wish to build the native apps of this codebase for Windows, Linux, or macOS, you need to install NodeJS and NPM:
+If you wish to build any version of this codebase, you need to install NodeJS (latest) and NPM:
 
 ```sh
 sudo apt-get install nodejs
 sudo apt-get install npm
 ```
 
-Once you have everything set up properly, you can navigate to the `/interface/` directory and run this command:
+If you already have nodejs installed, but it's not the latest version, use these commands:
 
 ```sh
-npm install ## Used to install the NodeJS modules
-npm start
+sudo npm install -g n
+sudo n latest
 ```
+
+### Native apps (Windows, Linux, and macOS apps)
+
+You will need to install `electron-builder` if you wish to build any of the native apps for Windows, Linux, or macOS:
+
+```sh
+sudo npm install -g electron-builder
+```
+
+#### Build the Windows app on Linux
+
+You need to install *Wine* on your system so you can build windows apps. You can follow [these instructions](https://computingforgeeks.com/how-to-install-wine-on-kali-linux-and-debian-64-bit/) to get it to work.
 
 ## Apps Distribution
 

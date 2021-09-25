@@ -9,7 +9,7 @@ const path = require("path"),
     scan = require("./../scan"),
     fs = require("fs"),
     dataPath = path.join(__dirname, "..", "..", "data"),
-    dataRegex = /%{{(.*?)}}%/g,
+    dataRegex = /%{{.*}}%/,
     dataSplitRegex = /(%{{.*?}}%)/, // /(?<=%{{)(.*?)(?=}}%)/
     data = {};
 

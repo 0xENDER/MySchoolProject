@@ -1,6 +1,6 @@
 {
 
-    "name": "%{{global:appInfo.nameSmall}}%",
+    "name": "%{{global:appInfo.name}}%",
     "version": "%{{global:codebase.version}}%",
     "description": "%{{global:appInfo.description}}%",
     "main": "%{{frameworks:startPath}}%",
@@ -9,6 +9,73 @@
     "scripts": {
 
         "start": "%{{frameworks:startScript}}%"
+
+    },
+    "build": {
+
+        "appId": "%{{global:appInfo.id}}%",
+        "dmg": {
+
+            "contents": [
+
+                {
+
+                    "x": 110,
+                    "y": 150
+
+                },
+                {
+
+                    "x": 240,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+
+                }
+
+            ]
+
+        },
+        "mac": {
+
+            "icon": "electron/mac-icon.png",
+            "target": [
+
+                "7z",
+                "zip",
+                "tar.xz"
+
+            ]
+
+        },
+        "linux": {
+
+            "target": [
+
+                "AppImage",
+                "deb",
+                "7z",
+                "zip",
+                "tar.xz"
+
+            ],
+            "category": "%{{global:appInfo.category}}%"
+
+        },
+        "win": {
+
+            "target": [
+
+                "nsis",
+                "portable",
+                "7z",
+                "zip",
+                "tar.xz"
+
+            ],
+            "icon": "electron/windows-icon.ico"
+
+        }
 
     },
     "repository": {
@@ -22,7 +89,7 @@
         "%{{global:appInfo.appKeyword1}}%"
 
     ],
-    "author": "%{{global:appInfo.author}}%",
+    "author": "%{{global:appInfo.author}}% <%{{global:appInfo.email}}%>",
     "license": "%{{global:appInfo.license}}%",
     "bugs": {
 

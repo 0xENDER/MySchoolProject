@@ -10,7 +10,7 @@ BUILD_IOS=$3
 cd "builds/frameworks/react/"
 #
 ## Install all the NodeJS modules
-"./react/install_modules.sh"
+"./react/build.sh" $DEBUG_MODE $BUILD_ANDROID $BUILD_IOS
 #
 ## Navigate back to the bundler's main directory
 cd "../../../"

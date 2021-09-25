@@ -50,8 +50,16 @@ echo -e "\n[Bundler] Cleaning up the 'bundler/' directory..."
 "./clean.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $BUILD_IOS $FRAMEWORK_ELECTRON $FRAMEWORK_REACT
 #
 ## Prepare the bundler
-echo -e "\n[Bundler] Preparing the bundler..."
-"./install_node_modules.sh" $DEBUG_MODE
+if [ -d "node_modules/" ]; then
+#
+    echo -e "\n[Bundler] The bundler is ready..."
+#
+else
+#
+    echo -e "\n[Bundler] Preparing the bundler..."
+    "./install_node_modules.sh" $DEBUG_MODE
+#
+fi
 #
 ## Minify all the code in the "/interface/" directory
 echo -e "\n[Bundler] Minifying the codebase..."
