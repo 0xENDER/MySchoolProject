@@ -160,6 +160,8 @@ You need to install *Wine* on your system so you can build windows apps. You can
 
 To make all the production-ready versions of the codebase, use the `./build` file.
 
+> The estimated build time of the current version of the bundler is 9 minutes!
+
 The available build flags are:
 
 - `-debug`: Show debug messages
