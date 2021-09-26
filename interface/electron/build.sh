@@ -77,7 +77,7 @@ if [ $DEBUG_MODE -eq 0 ]; then
     fi
     if [ $BUILD_MAC -eq 1 ]; then
     #
-        mv "%{{global:appInfo.name}}%-%{{global:codebase.version}}%-mac.7z" "../../mac/"
+        mv "dist/%{{global:appInfo.name}}%-%{{global:codebase.version}}%-mac.7z" "../../mac/"
         mv "dist/%{{global:appInfo.name}}%-%{{global:codebase.version}}%-mac.tar.xz" "../../mac/"
         mv "dist/%{{global:appInfo.name}}%-%{{global:codebase.version}}%-mac.zip" "../../mac/"
     #

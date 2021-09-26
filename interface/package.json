@@ -30,12 +30,14 @@
 
             {
 
-                "ext": ["%{{global:packages.extension}}%"],
+                "ext": "%{{global:packages.extension}}%",
                 "name": "%{{global:appInfo.name}}% Installation Package",
                 "description": "%{{global:appInfo.name}}% Installation Package",
-                "role": "Viewer"
+                "role": "Viewer",
+                "icon": "electron/package-icon.png"
 
             }
+
         ],
 
         // Mac build configurations
