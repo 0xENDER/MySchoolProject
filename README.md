@@ -4,9 +4,9 @@
 
 **Student:** Adel Sbeh
 
-**Start Date:** September 8th 2021
+**Starting Date:** September 8th 2021
 
-**Finish Date:** -
+**Finishing Date:** -
 
 **Project Name:** MyStore
 
