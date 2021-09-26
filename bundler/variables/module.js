@@ -14,11 +14,11 @@ const path = require("path"),
     data = {};
 
 // Check for the JSON files in the `data/` directory
-scan.scanDirectory(dataPath, [".json"], function(fileDirectory) {
+scan.scanDirectory(dataPath, [".data.json"], function(fileDirectory) {
 
     // Get the file name
     var fileName = path.basename(fileDirectory);
-    fileName = fileName.substring(0, fileName.length - ".json".length);
+    fileName = fileName.substring(0, fileName.length - ".data.json".length);
 
     // Get the data inside this file
     data[fileName] = JSON.parse(fs.readFileSync(fileDirectory, "utf8"));

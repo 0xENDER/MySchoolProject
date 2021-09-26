@@ -16,6 +16,10 @@ scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".json", ".webm
     // Get the content of this file
     var textContent = fs.readFileSync(fileDirectory, "utf8");
 
+    // Filter out comments
+    textContent = textContent.replace(/\/\*.*?\*\//g, "");
+    textContent = textContent.replace(/\/\/.*?\n/g, "");
+
     // Minify the content of this file
     var minifiedContent = minify(textContent);
 

@@ -1,19 +1,44 @@
 {
 
+    // The app's basic info
     "name": "%{{global:appInfo.name}}%",
     "version": "%{{global:codebase.version}}%",
     "description": "%{{global:appInfo.description}}%",
+
+    // The start file
     "main": "%{{frameworks:startPath}}%",
+
+    // The app's NodeJS dependencies
     "dependencies": {},
     "devDependencies": {},
+
+    // NPM scripts
     "scripts": {
 
         "start": "%{{frameworks:startScript}}%"
 
     },
+
+    // The build info (for electron-builder)
     "build": {
 
+        // The app ID
         "appId": "%{{global:appInfo.id}}%",
+
+        // Configure the app's associated files
+        "fileAssociations": [
+
+            {
+
+                "ext": ["%{{global:packages.extension}}%"],
+                "name": "%{{global:appInfo.name}}% Installation Package",
+                "description": "%{{global:appInfo.name}}% Installation Package",
+                "role": "Viewer"
+
+            }
+        ],
+
+        // Mac build configurations
         "dmg": {
 
             "contents": [
@@ -48,6 +73,8 @@
             ]
 
         },
+
+        // Linux build configurations
         "linux": {
 
             "target": [
@@ -62,6 +89,8 @@
             "category": "%{{global:appInfo.category}}%"
 
         },
+
+        // Windows build configurations
         "win": {
 
             "target": [
@@ -75,32 +104,26 @@
             ],
             "icon": "electron/windows-icon.ico"
 
-        },
-
-        "fileAssociations": [
-
-            {
-
-                "ext": ["%{{global:packages.extension}}%"],
-                "name": "%{{global:appInfo.name}}% Installation Package",
-                "description": "%{{global:appInfo.name}}% Installation Package",
-                "role": "Viewer"
-
-            }
-        ]
+        }
 
     },
+
+    // Info about the app's repository
     "repository": {
 
         "type": "git",
         "url": "git+%{{global:appInfo.url.github}}%.git"
 
     },
+
+    // Keywords for the app (For NPM)
     "keywords": [
 
         "%{{global:appInfo.appKeyword1}}%"
 
     ],
+
+    // More info about the app (for the system/advanced usage)
     "author": "%{{global:appInfo.author}}% <%{{global:appInfo.email}}%>",
     "license": "%{{global:appInfo.license}}%",
     "bugs": {

@@ -1,13 +1,19 @@
 {
 
+    // Basic info about the app
     "name": "%{{global:appInfo.name}}%",
     "short_name": "%{{global:appInfo.shortName}}%",
     "description": "%{{global:appInfo.description}}%",
+
+    // The start path
     "start_url": "./",
+
+    // Display and theme configuration
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#6552ce",
 
+    // The app's icons
     "icons": [{
 
         "src": "./assets/media/logo/logo-48.svg",
@@ -59,6 +65,7 @@
 
     }],
 
+    // Advanced links
     "related_applications": [{
 
         "platform": "play",

@@ -3,7 +3,9 @@
     "files.associations": {
 
         "*.json": "jsonc",
-        "*.webmanifest": "jsonc"
+        "*.webmanifest": "jsonc",
+        "*.data.json": "json"
+
 
     }
 
