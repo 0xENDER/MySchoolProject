@@ -52,8 +52,14 @@ RewriteRule ^page(/.*|)$ /layout.html?url=$1 [L,NC]
 # Default encoding
 AddDefaultCharset UTF-8
 
+# Prevent users from accessing folders
+Options -Indexes
+
 # Cache files
 <IfModule mod_headers.c>
+
+    # Add the CSP header
+    Header add Content-Security-Policy "%{{server:CSP}}%"
 
     # Cache fonts for 30 days
     <FilesMatch ".(woff2|woff)$">

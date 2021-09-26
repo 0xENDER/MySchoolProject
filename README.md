@@ -112,6 +112,15 @@ Also, make sure that all the directories that you're gonna work with have these 
   AllowOverride All
   Require all granted
 </Directory>
+<Location /MY_DIRECTORY>
+  CacheEnable disk
+  CacheHeader on
+  CacheDefaultExpire 800
+  CacheMaxExpire 6400000
+  CacheIgnoreNoLastMod On
+  ExpiresActive on
+  ExpiresDefault A300
+</Location>
 ```
 
 Once you have everything set up properly, you can use this command to run the server:
