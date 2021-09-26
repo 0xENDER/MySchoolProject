@@ -178,8 +178,8 @@ The available build flags are:
 
 - `-debug`: Show debug messages
 - `-all`: Create all the builds for all platform (Web, Windows, Linux, macOS, Android, iOS)
-- `-desktop`: Create all the builds for desktop decides (Windows, Linux, macOS)
-- `-mobile`: Create all the builds for mobile decides (Android, iOS)
+- `-desktop`: Create all the builds for desktop devices (Windows, Linux, macOS)
+- `-mobile`: Create all the builds for mobile devices (Android, iOS)
 - `-web`: Create a web build
 - `-windows`: Create a Windows build
 - `-linux`: Create a Linux build
