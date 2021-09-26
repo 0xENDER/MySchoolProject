@@ -1,6 +1,6 @@
 # My School Project
 
-> **Note:** all the crossed-out text/information is still not in use or necessary at the current development stage!
+> **Note:** All the crossed-out text/information is not in use/necessary at the current development stage!
 
 **Student:** Adel Sbeh
 
