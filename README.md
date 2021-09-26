@@ -31,6 +31,9 @@
   - [ ] MacOS (Electron)
   - [ ] _~~Android (React)~~ **(!)**_
   - [ ] _~~iOS (React)~~ **(!)**_
+- [ ] A built-in package management and installation system
+  - [ ] Create an installation package for apps (`.mypack` or something like that)
+  - [ ] _~~Verify the app developer~~ **(!)**_
 - [ ] A fully secure and fledged accounts system:
   - [ ] Email verification system
   - [ ] 2FA (Two factor authentication)

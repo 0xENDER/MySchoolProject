@@ -88,6 +88,16 @@
 
         }
 
+    },
+
+    "packages": {
+
+        "extension": {
+
+            "default": "mypack"
+
+        }
+
     }
 
 }

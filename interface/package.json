@@ -75,7 +75,19 @@
             ],
             "icon": "electron/windows-icon.ico"
 
-        }
+        },
+
+        "fileAssociations": [
+
+            {
+
+                "ext": ["%{{global:packages.extension}}%"],
+                "name": "%{{global:appInfo.name}}% Installation Package",
+                "description": "%{{global:appInfo.name}}% Installation Package",
+                "role": "Viewer"
+
+            }
+        ]
 
     },
     "repository": {
