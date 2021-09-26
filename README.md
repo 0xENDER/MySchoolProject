@@ -193,7 +193,7 @@ If you face any problem whist building a native app for Windows, macOS, or Linux
 
 This project is licensed under an [Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/)!
 
-There is a restriction that applies to this repository. You are **not allowed** to use this project, or *any* parts of this codebase, **as your school assignment**. And you're **not allowed** to **identify this project as your own**. That is a temporary restriction that ends on **October 1st, 2022**.
+However, there is a restriction that applies to this repository. If you live in Israel/Palestine, you are **not** allowed to use this project, or *any* parts of this codebase, as/for your school assignment(s). Also, you're **not** allowed to identify this project as your own. That is a temporary restriction that ends on **August 1st, 2022**.
 
 ## Credits
 
