@@ -8,7 +8,7 @@
 
     "CSP": {
 
-        "default": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://store.mur-lang.org/ ajax.cloudflare.com static.cloudflareinsights.com; connect-src 'self' https://store.mur-lang.org/ cloudflareinsights.com; object-src 'none';"
+        "default": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://store.mur-lang.org/ https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; connect-src 'self' https://store.mur-lang.org/ https://static.cloudflareinsights.com/; object-src 'none';"
 
     }
 

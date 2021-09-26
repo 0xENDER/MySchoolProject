@@ -5,10 +5,16 @@
 :root {
     --homepagecoversuggestions-width: 300px;
     --homepagecoversuggestions-height: 168px;
+    --coversuggestionscard-scrollalign: start;
+    --coversuggestionscardfirst-left: var(--global-sidesmargin);
+    --coversuggestionscardlast-right: var(--coversuggestionscardfirst-left);
 }
 
 @media all and (max-width: 840px) {
-     :root {}
+     :root {
+        --coversuggestionscard-scrollalign: center;
+        --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width)) / 2 + 120px);
+    }
 }
 
 
@@ -39,12 +45,13 @@
     min-width: var(--homepagecoversuggestions-width);
     height: var(--homepagecoversuggestions-height);
     margin-right: 12px;
+    scroll-snap-align: var(--coversuggestionscard-scrollalign);
 }
 
 .homepage--coversuggestions-card:first-child {
-    margin-left: var(--global-sidesmargin);
+    margin-left: var(--coversuggestionscardfirst-left);
 }
 
 .homepage--coversuggestions-card:last-child {
-    margin-right: var(--global-sidesmargin);
+    margin-right: var(--coversuggestionscardlast-right);
 }

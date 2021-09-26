@@ -58,6 +58,9 @@ body {
     background: linear-gradient(90deg, var(--skeleton-colour1) 0%, var(--skeleton-colour2) 12%, var(--skeleton-colour1) 19%, var(--skeleton-colour1) 25%);
     background-size: 800%;
     background-position: 100% 0%;
+    -moz-animation: skeletonAnimation 1.8s;
+    -webkit-animation: skeletonAnimation 1.8s;
+    -o-animation: skeletonAnimation 1.8s;
     animation: skeletonAnimation 1.8s;
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(0.2, -0.01, 0, 1.05);
@@ -82,8 +85,17 @@ body {
     }
 }
 
-
-/**/
+@-webkit-keyframes skeletonAnimation {
+    0% {
+        background-position: 100% 0%
+    }
+    99.99% {
+        background-position: -30% 0%
+    }
+    100% {
+        background-position: 100% 0%
+    }
+}
 
 
 /* Dynamic variables */
@@ -244,10 +256,12 @@ body {
 
 .layout--pagecover .component--loadingicon {
     margin: auto;
+    opacity: 0;
+    transition: opacity 0.12s;
 }
 
 [data-contentloaded="true"] .layout--pagecover .component--loadingicon {
-    display: none;
+    display: none !important;
 }
 
 [data-contentloaded="true"] .layout--pagecover {

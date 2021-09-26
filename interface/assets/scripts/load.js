@@ -9,6 +9,7 @@ var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,
     didAlertAboutConnection = false,
     pageContentElement = document.getElementById("page"),
+    coverLoadingIcon = document.getElementById("cover--loadingicon"),
     connectionAPI = null;
 
 // Wait for the main layout to finish loading
@@ -19,6 +20,13 @@ window.addEventListener('load', function() {
 
     // Change the document dataset values
     document.documentElement.dataset.contentloaded = false;
+
+    // Show the loading icon
+    setTimeout(function() {
+
+        coverLoadingIcon.style.opacity = 1;
+
+    }, 400);
 
 });
 

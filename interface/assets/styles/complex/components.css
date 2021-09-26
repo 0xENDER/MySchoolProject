@@ -17,6 +17,10 @@
     animation-duration: 0.7s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    -moz-animation: anim-spinner 0.7s linear infinite;
+    -webkit-animation: anim-spinner 0.7s linear infinite;
+    -o-animation: anim-spinner 0.7s linear infinite;
+    animation: anim-spinner 0.7s linear infinite;
 }
 
 .component--loadingicon .circle {
@@ -123,4 +127,11 @@
 .component--scrollbar-top svg,
 .component--scrollbar-bottom svg {
     filter: drop-shadow(0px 1px 0px var(--scrollbar-colour)) drop-shadow(0px -1px 0px var(--scrollbar-colour));
+}
+
+.component--scrollbar:hover,
+.component--scrollbar:active {
+    background-color: var(--scrollbar-background);
+    backdrop-filter: blur(4px);
+    transition: background-color 0.1s;
 }
