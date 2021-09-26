@@ -4,19 +4,6 @@
 
 */
 
-var userSettings = { // The user settings
-
-    info: {
-
-        username: "[username]",
-        profilePicture: null
-
-    },
-
-    alwaysShowFocusBorderOnTouch: false
-
-};
-
 function updateUserInfo() {
 
     // Get the username element and the profile picture element
