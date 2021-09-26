@@ -19,12 +19,14 @@
 > **(!):** _This feature may not be achievable within the given period of time to work on this project._
 
 - [ ] A fully optimised workload for desktops and mobile devices:
-  - [ ] Cross-platform support for all modern browsers
+  - [x] Support for all chromium-based browsers
+  - [ ] Support for all firefox-based browsers
+  - [ ] Support for the Safari browser
   - [ ] A caching system (with service workers)
-  - [ ] Desktop layout
+  - [x] Desktop layout
   - [ ] Mobile devices layout
 - [ ] Support the store on mutiple platforms:
-  - [ ] The web
+  - [x] The web
   - [ ] PWA (Progressive Web Application)
   - [ ] Windows (Electron)
   - [ ] Linux (Electron)
