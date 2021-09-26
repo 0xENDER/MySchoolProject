@@ -117,6 +117,8 @@ body {
     --pagecover-topleftborder: 1px;
     --pagecover-bottomborder: 0px;
     --sectionsbaritem-width: var(--sectionsbaritem-size);
+    --topbarbutton-display: flex;
+    --topbaroptions-display: none;
 }
 
 @media all and (max-width: 840px) {
@@ -152,6 +154,8 @@ body {
         --pagecover-topleftborder: 0px;
         --pagecover-bottomborder: 1px;
         --sectionsbaritem-width: 28%;
+        --topbarbutton-display: none;
+        --topbaroptions-display: flex;
     }
 }
 
@@ -434,6 +438,21 @@ body {
 [data-signedin="false"] .layout--topbar-button {
     opacity: 1;
     position: relative;
+    display: var(--topbarbutton-display);
+}
+
+.layout--topbar-options {
+    display: none;
+}
+
+[data-signedin=false] .layout--topbar-options {
+    opacity: 0.6;
+    position: relative !important;
+    width: 28px;
+    height: 28px;
+    padding: 8px;
+    display: var(--topbaroptions-display);
+    fill: var(--text-colour);
 }
 
 .layout--sectionsbar-item {
