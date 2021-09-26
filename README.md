@@ -176,6 +176,8 @@ The available build flags are:
 - `-android`: Create an Android build
 - `-ios`: Create an iOS build
 
+If you face any problem whist building a native app for Windows, macOS, or Linux, make sure that you have [the proper enviromnet setup for `electron-builder`](https://www.electron.build/multi-platform-build.html)!
+
 ## Licensing
 
 This project is licensed under an [Attribution-NonCommercial-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/)!
