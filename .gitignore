@@ -9,6 +9,9 @@
 /bundler/apps_codebase
 /bundler/apps_codebase/*
 
+# Do not upload secret files
+/**/*.secret.*
+
 # Ignore the "/tests/" directory
 /tests
 /tests/*
