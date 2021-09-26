@@ -1,0 +1,50 @@
+/*
+    Page content components
+*/
+
+:root {
+    --homepagecoversuggestions-width: 300px;
+    --homepagecoversuggestions-height: 168px;
+}
+
+@media all and (max-width: 840px) {
+     :root {}
+}
+
+
+/* Main cover */
+
+.component--cover {
+    width: 100%;
+    height: var(--componentcover-height);
+    background-color: var(--colours-primary1);
+    box-shadow: inset 0px -68px 40px -15px var(--pagecontent-background);
+}
+
+
+/* Main cover suggestions */
+
+.homepage--cover-suggestions {
+    position: relative;
+    top: calc( -1 * var(--homepagecoversuggestions-height) - 3 * var(--global-topbottommargin));
+    height: calc(var(--homepagecoversuggestions-height) + 8px);
+    margin-bottom: calc(-1 * var(--homepagecoversuggestions-height));
+    right: var(--global-sidesmargin);
+    width: 100%;
+    padding-bottom: 2px;
+}
+
+.homepage--coversuggestions-card {
+    width: var(--homepagecoversuggestions-width);
+    min-width: var(--homepagecoversuggestions-width);
+    height: var(--homepagecoversuggestions-height);
+    margin-right: 12px;
+}
+
+.homepage--coversuggestions-card:first-child {
+    margin-left: var(--global-sidesmargin);
+}
+
+.homepage--coversuggestions-card:last-child {
+    margin-right: var(--global-sidesmargin);
+}

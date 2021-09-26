@@ -19,6 +19,8 @@
     --icons-colour: #000000;
     --skeleton-colour1: #cccccc;
     --skeleton-colour2: #afafaf;
+    --skeleton-colour3: #e8e8e8;
+    --skeleton-colour4: #b1b1b1;
     --topbarsearch-backgroundcolour: #ffffff;
     --topbarsearch-border: #d0d0d0;
     --scrollbar-colour: #505050;
@@ -30,6 +32,8 @@
     --button-border: #c1c1c1;
     --primarybutton-background: var(--colours-primary1);
     --primarybutton-border: var(--colours-primary2);
+    --cards-border: #b5b5b5;
+    --cards-background: #e6e6e6;
 }
 
 
@@ -49,6 +53,8 @@
         --icons-colour: #ffffff;
         --skeleton-colour1: #2f2f2f;
         --skeleton-colour2: #404040;
+        --skeleton-colour3: #404040;
+        --skeleton-colour4: #565656;
         --topbarsearch-backgroundcolour: #2d2d2d;
         --topbarsearch-border: #3c3c3c;
         --scrollbar-colour: #a0a0a0;
@@ -58,5 +64,7 @@
         --alertscard-shadow: #0000004f;
         --button-background: #3c3c3c;
         --button-border: #6b6b6b;
+        --cards-border: #585858;
+        --cards-background: #3e3e3e;
     }
 }

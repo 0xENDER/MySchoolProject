@@ -1,4 +1,4 @@
-<PAGE section="home" resources="1" title="Home" />
+<PAGE section="home" resources="3" title="Home" />
 <!--
 
     The home page
@@ -7,15 +7,56 @@
 
 <!--
     Important note:
-                    Always use a tab-index of the value "1" for the page content
-                    tabindex="1")
+                    Always use a tab-index of the value "100" or higher for the page content
+                    tabindex="100")
 -->
 
-<link itemprop="components--style" rel="stylesheet" href="./assets/styles/content/components.css" onload="contentSourceLoaded();">
+<!-- Load the resources -->
+<link itemprop="pagecontent--style" rel="stylesheet" href="./assets/styles/content/components.css" onload="contentSourceLoaded();">
+<link itemprop="pagecontent--style" rel="stylesheet" href="./assets/styles/content/home/components.css" onload="contentSourceLoaded();">
+<script defer itemprop="pagecontent--script" type="text/javascript" src="${PageURL}/load.js" onload="contentSourceLoaded();"></script>
 
-<div>
-    <div class="component--cover"></div>
-    <div class="component--section"></div>
-    <div class="component--section"></div>
-    <div class="component--section"></div>
+<!-- The main cover -->
+<div class="component--cover">
+    <img class="homepage--background">
+</div>
+<div id="homepage--cover-suggestions" class="component--section homepage--cover-suggestions" tabindex="100" no-scrollbar>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+    <div class="component--card homepage--coversuggestions-card effect--content-skeleton"></div>
+</div>
+
+<!-- Page suggestions -->
+<div class="component--section suggestions--section-top" no-scrollbar>
+    <text>Title</text>
+</div>
+<div class="component--section suggestions--section" no-scrollbar>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+</div>
+<div class="component--section suggestions--section-top" no-scrollbar>
+    <text>Title</text>
+</div>
+<div class="component--section suggestions--section" no-scrollbar>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
+    <div class="component--card suggestions--card effect--content-skeleton"></div>
 </div>

@@ -26,14 +26,18 @@ body {
 
 /* Hide unloaded stuff */
 
-[data-loaded="false"] .effect--skeleton {
+[data-loaded="false"] .effect--skeleton,
+[data-extracontentloaded="false"] .effect--content-skeleton {
     color: transparent;
     position: relative;
-    border-radius: 80px;
-    border: 0px;
+    background-color: transparent !important;
+    opacity: 1 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
 }
 
-[data-loaded="false"] .effect--skeleton:after {
+[data-loaded="false"] .effect--skeleton:after,
+[data-extracontentloaded="false"] .effect--content-skeleton:after {
     content: "";
     display: block;
     position: absolute;
@@ -49,10 +53,8 @@ body {
     color: transparent;
 }
 
-
-/**/
-
-[data-loaded="false"] .effect--skeleton:after {
+[data-loaded="false"] .effect--skeleton:after,
+[data-extracontentloaded="false"] .effect--content-skeleton:after {
     background: linear-gradient(90deg, var(--skeleton-colour1) 0%, var(--skeleton-colour2) 12%, var(--skeleton-colour1) 19%, var(--skeleton-colour1) 25%);
     background-size: 800%;
     background-position: 100% 0%;
@@ -60,6 +62,12 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: cubic-bezier(0.2, -0.01, 0, 1.05);
     color: transparent
+}
+
+[data-extracontentloaded="false"] .effect--content-skeleton:after {
+    background: linear-gradient(90deg, var(--skeleton-colour3) 0%, var(--skeleton-colour4) 12%, var(--skeleton-colour3) 19%, var(--skeleton-colour3) 25%);
+    background-size: 800%;
+    background-position: 100% 0%;
 }
 
 @keyframes skeletonAnimation {

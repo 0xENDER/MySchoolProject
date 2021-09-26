@@ -71,6 +71,13 @@ function loadingReady() {
     // Load the page content
     loadContent();
 
+    // Set the window content load function
+    window.load = function() {
+
+        document.documentElement.dataset.extracontentloaded = true;
+
+    };
+
 }
 
 function loadContent() {
@@ -169,8 +176,13 @@ function fetchContent(sourceURLPathname) {
                             if (selectedSectionsItem != null)
                                 selectedSectionsItem.classList.add("state--selected");
 
+                            // Replace variables
+                            data = data.substring(data.indexOf("\n"));
+                            data = data.replace(/\${PageURL}/g, window.location.href.replace("/page/", "/pages/"));
+
+
                             // Inject the content into the page (without the first line)
-                            pageContentElement.append(document.createRange().createContextualFragment(data.substring(data.indexOf("\n"))));
+                            pageContentElement.append(document.createRange().createContextualFragment(data));
 
                             // If the number of required resources is 0, show the page content instantly!
                             if (contentResourcesNumber == 0)
@@ -220,6 +232,12 @@ function loadingFailed() {
 
 // Make the required changes once the content is fully loaded
 function contentLoaded() {
+
+    if (typeof pageContentElement.onpagecontentload === "function") {
+
+        pageContentElement.onpagecontentload();
+
+    }
 
     document.documentElement.dataset.contentloaded = true;
     //linkItemsFunctions(); // Not needed anymore!

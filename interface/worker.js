@@ -47,6 +47,7 @@ var cacheName = null,
         '/assets/styles/complex/components.css',
         '/assets/styles/complex/layout.css',
         '/assets/styles/content/components.css',
+        '/assets/styles/content/home/components.css',
 
     ];
 

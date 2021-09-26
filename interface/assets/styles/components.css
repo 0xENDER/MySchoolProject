@@ -5,7 +5,7 @@
 */
 
 :root {
-    --componentsection-marginFactor: 2;
+    --componentsection-marginFactor: 3;
     --scrollbar-width: calc(var(--global-sidesmargin) / 1.5);
     --scrollbar-height: calc(100% - var(--topbar-height));
     --scrollbarbuttons-opacity: 1;
