@@ -177,7 +177,7 @@ To make all the production-ready versions of the codebase, use the `./build` fil
 The available build flags are:
 
 - `-debug`: Show debug messages
-- `-all`: Create all the builds for all platform (Web, Windows, Linux, macOS, Android, iOS)
+- `-all`: Create all the builds for all platforms (Web, Windows, Linux, macOS, Android, iOS)
 - `-desktop`: Create all the builds for desktop devices (Windows, Linux, macOS)
 - `-mobile`: Create all the builds for mobile devices (Android, iOS)
 - `-web`: Create a web build
