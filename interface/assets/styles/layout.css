@@ -34,6 +34,7 @@ body {
     opacity: 1 !important;
     border-color: transparent !important;
     box-shadow: none !important;
+    transition: all 0s !important;
 }
 
 [data-loaded="false"] .effect--skeleton:after,
@@ -244,6 +245,10 @@ body {
     border-radius: var(--pagecontent-corner) 0px 0px 0px;
     border-top: var(--pagecover-topleftborder) solid var(--pagecontent-border);
     border-left: var(--pagecover-topleftborder) solid var(--pagecontent-border);
+}
+
+[data-extracontentloade="false"] .layout--pagecontent * {
+    visibility: hidden !important;
 }
 
 .layout--pagecover {

@@ -1,4 +1,5 @@
-pageContentElement.onpagecontentload = function() {
+// Wait for the page content ot be injected
+pageContentElement.oncontentinjection = function() {
 
     // Make some changes to this file
     document.getElementById("homepage--cover-suggestions").scrollTo({
@@ -8,6 +9,11 @@ pageContentElement.onpagecontentload = function() {
         behavior: 'auto'
 
     });
+
+};
+
+// Wait for the whole page to finish loading
+pageContentElement.onpagecontentload = function() {
 
     // Load the whole page
     window.load();

@@ -30,10 +30,8 @@
     <link rel="preload" href="./assets/styles/layout.css" as="style">
     <link rel="preload" href="./assets/styles/colours.css" as="style">
     <link rel="preload" href="./assets/styles/components.css" as="style">
-    <link rel="preload" href="./assets/fonts/file1.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/file2.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/file3.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/file4.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/latin-ext.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/styles/font.css" as="style">
 
     <!-- Do some important stuff -->
@@ -187,7 +185,7 @@
     </div>
 
     <!-- The page content -->
-    <div id="page" class="layout--pagecontent" layer="page-content-top" style="display: none;" no-scrollbar></div>
+    <div id="page" class="layout--pagecontent" layer="page-content-top" no-scrollbar></div>
     <div id="cover" class="layout--pagecover" layer="main-layout" no-select>
         <div id="cover--loadingicon" class="component--loadingicon">
             <div class="circle circle-1">
@@ -203,13 +201,13 @@
     <!-- The scrollbar -->
     <div id="component--scrollbar" class="component--scrollbar" layer="main-layout" no-select>
         <span id="scrollbar--top" class="component--scrollbar-top">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0001 9.41421L4.70718 16.7071L3.29297 15.2929L12.0001 6.58578L20.7072 15.2929L19.293 16.7071L12.0001 9.41421Z"/></svg>
+            <svg width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0001 9.41421L4.70718 16.7071L3.29297 15.2929L12.0001 6.58578L20.7072 15.2929L19.293 16.7071L12.0001 9.41421Z"/></svg>
         </span>
         <span id="scrollbar" class="component--scrollbar-handlecontainer">
                     <span id="scrollbar--handle" class="component--scrollbar-handle"></span>
         </span>
         <span id="scrollbar--bottom" class="component--scrollbar-bottom">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.293 7.29291L20.7072 8.70712L12.0001 17.4142L3.29297 8.70712L4.70718 7.29291L12.0001 14.5858L19.293 7.29291Z"/></svg>
+            <svg width="12px" height="12px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.293 7.29291L20.7072 8.70712L12.0001 17.4142L3.29297 8.70712L4.70718 7.29291L12.0001 14.5858L19.293 7.29291Z"/></svg>
         </span>
     </div>
 

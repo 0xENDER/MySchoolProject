@@ -11,10 +11,8 @@ var cacheName = null,
         '/',
 
         // Cache fonts
-        '/assets/fonts/file1.woff2',
-        '/assets/fonts/file2.woff2',
-        '/assets/fonts/file3.woff2',
-        '/assets/fonts/file4.woff2',
+        '/assets/fonts/latin.woff2',
+        '/assets/fonts/latin-ext.woff2',
 
         // Cache images
         '/assets/media/logo/logo.svg',

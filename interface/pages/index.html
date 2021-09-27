@@ -1,4 +1,4 @@
-<PAGE resources="0" />
+<PAGE />
 <!--
 
     Redirect to the home page
@@ -6,13 +6,18 @@
 -->
 
 <!-- Use the refresh meta tag to redirect the page when JavaScript is disabled -->
-<noscript>
-    <meta http-equiv="refresh" content="0;url=https://store.mur-lang.org/page/home/"/>
-</noscript>
+<resources></resources>
+<content>
 
-<!-- Redirect the page to the home folder -->
-<script type="text/javascript">
-    window.location.pathname = "/page/home/";
-</script>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://store.mur-lang.org/page/home/"/>
+    </noscript>
 
-<a href="/page/home/">Redirecting the page...</a>
+    <!-- Redirect the page to the home folder -->
+    <script type="text/javascript">
+        window.location.pathname = "/page/home/";
+    </script>
+
+    <a href="/page/home/">Redirecting the page...</a>
+
+</content>

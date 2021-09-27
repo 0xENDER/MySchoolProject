@@ -10,7 +10,8 @@ var contentResourcesNumber = 0,
     didAlertAboutConnection = false,
     pageContentElement = document.getElementById("page"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
-    connectionAPI = null;
+    connectionAPI = null,
+    pageHTMLContent = null;
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -29,6 +30,17 @@ window.addEventListener('load', function() {
     }, 400);
 
 });
+
+// Set the window content load function
+window.load = function() {
+
+    setTimeout(function() {
+
+        document.documentElement.dataset.extracontentloaded = true;
+
+    }, 100);
+
+};
 
 // Check the user agreement
 function checkAgreement() {
@@ -78,13 +90,6 @@ function loadingReady() {
 
     // Load the page content
     loadContent();
-
-    // Set the window content load function
-    window.load = function() {
-
-        document.documentElement.dataset.extracontentloaded = true;
-
-    };
 
 }
 
@@ -154,25 +159,19 @@ function fetchContent(sourceURLPathname) {
                     if (pageElement.indexOf("<PAGE") == 0 && pageElement.indexOf(">") != -1) {
 
                         // Prepare the "PAGE" element for processing
-                        pageElement = "<div id=\"pageElement\"" + pageElement.substring(5, pageElement.indexOf("/>")) + "></div>";
+                        pageElement = "<div id=\"system--pageElement\"" + pageElement.substring(5, pageElement.indexOf("/>")) + "></div>";
 
                         try {
 
                             // Convert the "PAGE" element into a HTML element
                             pageElement = (new DOMParser()).parseFromString(pageElement, 'text/html');
-                            pageElement = pageElement.getElementById("pageElement");
+                            pageElement = pageElement.getElementById("system--pageElement");
 
                         } catch {
 
                             loadingFailed();
 
                         } finally {
-
-                            // Get the number of required resources in this page (first line)
-                            contentResourcesNumber = Number(pageElement.getAttribute("resources"));
-
-                            // Reset the `loadedContentResourcesNumber` variable
-                            loadedContentResourcesNumber = 0;
 
                             // Update the page title
                             var pageTitle = pageElement.getAttribute("title");
@@ -188,16 +187,62 @@ function fetchContent(sourceURLPathname) {
                             data = data.substring(data.indexOf("\n"));
                             data = data.replace(/\${PageURL}/g, window.location.href.replace("/page/", "/pages/"));
 
+                            // Assing important IDs
+                            if (data.indexOf("<resources") != -1 && data.indexOf("<content") != -1) {
 
-                            // Inject the content into the page (without the first line)
-                            pageContentElement.append(document.createRange().createContextualFragment(data));
+                                data = data.replace("<resources", "<div id=\"system--pageResources\"");
+                                data = data.replace("</resources>", "</div>");
+                                data = data.replace("<content", "<div id=\"system--pageContent\"");
+                                data = data.replace("</content>", "<script itemprop=\"pagecontent--loadingscript\" type=\"text/javascript\">setTimeout(function(){contentDOMLoaded();},0);</script>\n</div>");
+                                console.log(data);
+
+                            } else {
+
+                                // All pages must have a <resources> element and a <content> element
+                                loadingFailed();
+
+                            }
+
+                            // Create a document fragment
+                            data = document.createRange().createContextualFragment(data);
+
+                            // Get the number of required resources in this page (first line)
+                            if (data.getElementById("system--pageResources") != null) {
+
+                                contentResourcesNumber = data.getElementById("system--pageResources").childElementCount;
+
+                            } else {
+
+                                loadingFailed();
+
+                            }
+
+                            // Inject the resources into the page
+                            var children = data.getElementById("system--pageResources").children;
+                            for (var i = 0; i < children.length; i++) {
+
+                                children[i].setAttribute("onload", "contentSourceLoaded();");
+
+                            }
+                            pageContentElement.append(data.getElementById("system--pageResources"));
+
+                            // Prepare the page content for injection
+                            if (data.getElementById("system--pageContent") != null) {
+
+                                pageHTMLContent = data.getElementById("system--pageContent");
+
+                            } else {
+
+                                loadingFailed();
+
+                            }
 
                             // If the number of required resources is 0, show the page content instantly!
                             if (contentResourcesNumber == 0)
                                 contentLoaded();
 
                             // Delete the used variables
-                            delete pageElement, pageTitle, selectedSectionsItem;
+                            delete pageElement, pageTitle, selectedSectionsItem, children;
 
                         };
 
@@ -228,11 +273,7 @@ function loadingFailed() {
     document.title = "Error | MyStore";
 
     // Change the page content
-    pageContentElement.innerHTML = `<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;">
-                                        <svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg>
-                                        <h2>Failed to load this page!</h2>
-                                        <h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4>
-                                    </div>`;
+    pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div><script type="text/javascript">contentDOMLoaded(); window.load();</script>`);
 
     contentLoaded();
 
@@ -241,6 +282,22 @@ function loadingFailed() {
 // Make the required changes once the content is fully loaded
 function contentLoaded() {
 
+    // Inject the page content
+    if (pageHTMLContent != null) {
+
+        pageContentElement.append(pageHTMLContent);
+
+    }
+    if (typeof pageContentElement.oncontentinjection === "function") {
+
+        pageContentElement.oncontentinjection();
+
+    }
+
+}
+
+function contentDOMLoaded() {
+
     if (typeof pageContentElement.onpagecontentload === "function") {
 
         pageContentElement.onpagecontentload();
@@ -248,7 +305,6 @@ function contentLoaded() {
     }
 
     document.documentElement.dataset.contentloaded = true;
-    //linkItemsFunctions(); // Not needed anymore!
 
 }
 
