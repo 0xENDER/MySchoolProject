@@ -62,6 +62,12 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
+    hardware: {
+
+        hasTouchScreen: window.matchMedia != undefined && window.matchMedia("(pointer: coarse)").matches // Does this device have a touch screen?
+
+    },
+
     codebase: { // Info about this current codebase of the website/app
 
         root: (isApp) ? "" : "/", // The root of this version of the codebase

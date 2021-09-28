@@ -65,6 +65,12 @@ button.component--button.component--button-primary {
     justify-content: flex-start;
 }
 
+@media (pointer:coarse) {
+    .component--scrollbar {
+        pointer-events: none !important;
+    }
+}
+
 .component--scrollbar-top,
 .component--scrollbar-bottom {
     position: relative;
