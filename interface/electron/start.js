@@ -37,8 +37,6 @@ function imitateApache() {
     // Keep watching the files handler
     session.defaultSession.webRequest.onBeforeRequest({ urls: [] }, (details, callback) => {
 
-        //console.log(details.url);
-
         var redirect = false;
 
         // Set the default directory index file to "index.html"

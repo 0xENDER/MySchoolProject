@@ -10,6 +10,9 @@ pageContentElement.oncontentinjection = function() {
 
     });
 
+    // Uncover the content
+    window.uncover();
+
 };
 
 // Wait for the whole page to finish loading

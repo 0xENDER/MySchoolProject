@@ -30,11 +30,13 @@ body {
 [data-extracontentloaded="false"] .effect--content-skeleton {
     color: transparent;
     position: relative;
-    background-color: transparent !important;
     opacity: 1 !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
     transition: all 0s !important;
+}
+
+[data-loaded="false"] .effect--skeleton {
+    border-color: transparent !important;
+    background-color: transparent !important;
 }
 
 [data-loaded="false"] .effect--skeleton:after,
@@ -68,8 +70,14 @@ body {
     color: transparent
 }
 
-[data-extracontentloaded="false"] .effect--content-skeleton:after {
+[data-extracontentloaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after {
     background: linear-gradient(90deg, var(--skeleton-colour3) 0%, var(--skeleton-colour4) 12%, var(--skeleton-colour3) 19%, var(--skeleton-colour3) 25%);
+    background-size: 800%;
+    background-position: 100% 0%;
+}
+
+[data-extracontentloaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after {
+    background: linear-gradient(90deg, var(--skeleton-colour5) 0%, var(--skeleton-colour6) 12%, var(--skeleton-colour5) 19%, var(--skeleton-colour5) 25%);
     background-size: 800%;
     background-position: 100% 0%;
 }

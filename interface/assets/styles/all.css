@@ -36,6 +36,20 @@
 }
 
 
+/* Clickable and Unclickable elements */
+
+[clickable] {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+[disable] {
+    cursor: not-allowed !important;
+    opacity: 0.4 !important;
+    pointer-events: none !important;
+}
+
+
 /* Change the tab-focus outline */
 
 *:focus-visible,

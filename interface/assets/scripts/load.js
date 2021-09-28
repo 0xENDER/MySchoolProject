@@ -11,7 +11,10 @@ var contentResourcesNumber = 0,
     pageContentElement = document.getElementById("page"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
     connectionAPI = null,
-    pageHTMLContent = null;
+    pageHTMLContent = null,
+    pageRequirements = {
+        endMessage: false
+    };
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -32,13 +35,19 @@ window.addEventListener('load', function() {
 });
 
 // Set the window content load function
+window.uncover = function() {
+
+    document.documentElement.dataset.contentloaded = true;
+
+};
+
+// Set the window content load function
 window.load = function() {
 
-    setTimeout(function() {
+    document.documentElement.dataset.extracontentloaded = true;
 
-        document.documentElement.dataset.extracontentloaded = true;
-
-    }, 100);
+    // If the window's status is set to "loaded", then the content should be uncovered!
+    window.uncover();
 
 };
 
@@ -178,6 +187,9 @@ function fetchContent(sourceURLPathname) {
                             if (pageTitle != null)
                                 document.title = pageTitle + " | MyStore";
 
+                            // Check the page requirements
+                            pageRequirements.endMessage = (pageElement.getAttribute("page-end") === "true");
+
                             // Update the selected item in the "sections bar"
                             var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
                             if (selectedSectionsItem != null)
@@ -194,7 +206,6 @@ function fetchContent(sourceURLPathname) {
                                 data = data.replace("</resources>", "</div>");
                                 data = data.replace("<content", "<div id=\"system--pageContent\"");
                                 data = data.replace("</content>", "<script itemprop=\"pagecontent--loadingscript\" type=\"text/javascript\">setTimeout(function(){contentDOMLoaded();},0);</script>\n</div>");
-                                console.log(data);
 
                             } else {
 
@@ -303,8 +314,6 @@ function contentDOMLoaded() {
         pageContentElement.onpagecontentload();
 
     }
-
-    document.documentElement.dataset.contentloaded = true;
 
 }
 

@@ -49,6 +49,13 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
+    rendering: { // Rendering-related variables
+
+        isChromium: !!window.chrome, // Is this a chromium-based rendering process
+        isChrome: !!window.chrome && !!window.chrome.webstore // Is this a chrome rendering process
+
+    },
+
     more: { // If this is an app, that means you can get more info about the platform!
 
         isElectron: (isApp && window.api != null) // Is this version of the codebase running on Rlectron?
@@ -159,5 +166,12 @@ if (window.platform.isApp) {
         document.documentElement.dataset.mac = true;
 
     }
+
+}
+
+// Rendering-related actions
+if (window.platform.rendering.isChromium) {
+
+    document.documentElement.dataset.renderingBase = "chromium";
 
 }

@@ -1,12 +1,23 @@
 :root {
     --suggestionscard-width: 200px;
-    --suggestionscard-height: 280px;
+    --suggestionscard-height: 270px;
+    --suggestionscard-padding: 14px;
+    --suggestionscardname-fontsize: 20px;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --suggestionscard-width: calc( ( 100vw / 3));
-        --suggestionscard-height: calc( var(--suggestionscard-width) + 40px);
+        --suggestionscard-height: calc( var(--suggestionscard-width) + 58px);
+        --suggestionscardname-fontsize: 16px;
+    }
+}
+
+@media all and (max-width: 300px) {
+     :root {
+        --suggestionscard-width: 100px;
+        --suggestionscard-height: calc( var(--suggestionscard-width) + 58px);
+        --suggestionscardname-fontsize: 16px;
     }
 }
 
@@ -25,6 +36,9 @@
     overflow-x: auto;
     height: fit-content;
 }
+
+
+/* Cards */
 
 .component--card {
     background-color: var(--cards-background);
@@ -50,19 +64,31 @@
     opacity: 0.5;
 }
 
+
+/* Suggestions section */
+
 .suggestions--section {
     margin-left: 0px;
     width: 100%;
     height: calc(var(--suggestionscard-height) + 8px);
 }
 
+.suggestions--section-top text {
+    font-size: 20px;
+}
+
+
+/* Suggestions card */
+
 .suggestions--card {
-    width: var(--suggestionscard-width);
-    min-width: var(--suggestionscard-width);
-    height: var(--suggestionscard-height);
+    width: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
+    min-width: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
+    height: calc(var(--suggestionscard-height) - 2 * var(--suggestionscard-padding));
     display: inline-block;
     margin-right: 12px;
     display: inline-block;
+    padding: var(--suggestionscard-padding);
+    overflow: hidden;
 }
 
 .suggestions--card:first-child {
@@ -73,6 +99,89 @@
     margin-right: var(--global-sidesmargin);
 }
 
-.suggestions--section-top text {
-    font-size: 20px;
+
+/* Suggestions card content */
+
+.suggestions--card .suggestions--card-logo {
+    display: block;
+    background-color: var(--suggestionscardlogo-background);
+    width: 100%;
+    height: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
+    border-radius: 10px;
+    margin-bottom: var(--suggestionscard-padding);
+    overflow: hidden;
+}
+
+.suggestions--card .suggestions--card-name {
+    font-size: var(--suggestionscardname-fontsize);
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-bottom: calc(var(--suggestionscard-padding) - 6px);
+}
+
+.suggestions--card .suggestions--card-extra {
+    font-size: calc(var(--suggestionscardname-fontsize) - 4px);
+    opacity: 0.6;
+    position: relative;
+    display: block;
+}
+
+.suggestions--card .suggestions--card-extra .suggestions--cardextra-size {}
+
+.suggestions--card .suggestions--card-extra .suggestions--cardextra-price {
+    position: absolute;
+    right: 0px;
+}
+
+
+/* The content resources */
+
+.layout--pagecontent #system--pageResources {
+    display: none !important;
+}
+
+
+/* Rubber scrolling */
+
+[data-rendering-base="chromium"] .layout--pagecontent {
+    scroll-snap-type: y mandatory;
+    scroll-padding: -80px;
+}
+
+[data-rendering-base="chromium"] .layout--pagecontent #system--pageContent {
+    margin: 80px 0px;
+    position: relative;
+}
+
+[data-rendering-base="chromium"] .layout--pagecontent #system--pageContent:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -80px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    margin: 80px 0px;
+    z-index: 100 !important;
+}
+
+[data-rendering-base="chromium"][data-rubber-top="true"] .layout--pagecontent #system--pageContent:before {
+    scroll-snap-align: start;
+}
+
+[data-rendering-base="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    margin: 80px 0px;
+    z-index: 100 !important;
+}
+
+[data-rendering-base="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
+    scroll-snap-align: end;
 }
