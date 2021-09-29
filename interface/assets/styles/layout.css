@@ -9,6 +9,7 @@
 
 body {
     min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 html,
@@ -27,7 +28,8 @@ body {
 /* Hide unloaded stuff */
 
 [data-loaded="false"] .effect--skeleton,
-[data-extracontentloaded="false"] .effect--content-skeleton {
+[data-extra-content-loaded="false"] .effect--content-skeleton,
+[data-loaded="false"].effect--content-skeleton {
     color: transparent;
     position: relative;
     opacity: 1 !important;
@@ -40,7 +42,8 @@ body {
 }
 
 [data-loaded="false"] .effect--skeleton:after,
-[data-extracontentloaded="false"] .effect--content-skeleton:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton:after,
+[data-loaded="false"].effect--content-skeleton:after {
     content: "";
     display: block;
     position: absolute;
@@ -57,7 +60,8 @@ body {
 }
 
 [data-loaded="false"] .effect--skeleton:after,
-[data-extracontentloaded="false"] .effect--content-skeleton:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton:after,
+[data-loaded="false"].effect--content-skeleton:after {
     background: linear-gradient(90deg, var(--skeleton-colour1) 0%, var(--skeleton-colour2) 12%, var(--skeleton-colour1) 19%, var(--skeleton-colour1) 25%);
     background-size: 800%;
     background-position: 100% 0%;
@@ -70,13 +74,15 @@ body {
     color: transparent
 }
 
-[data-extracontentloaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
+[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
     background: linear-gradient(90deg, var(--skeleton-colour3) 0%, var(--skeleton-colour4) 12%, var(--skeleton-colour3) 19%, var(--skeleton-colour3) 25%);
     background-size: 800%;
     background-position: 100% 0%;
 }
 
-[data-extracontentloaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
+[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
     background: linear-gradient(90deg, var(--skeleton-colour5) 0%, var(--skeleton-colour6) 12%, var(--skeleton-colour5) 19%, var(--skeleton-colour5) 25%);
     background-size: 800%;
     background-position: 100% 0%;
@@ -273,11 +279,11 @@ body {
     transition: opacity 0.12s;
 }
 
-[data-contentloaded="true"] .layout--pagecover .component--loadingicon {
+[data-content-loaded="true"] .layout--pagecover .component--loadingicon {
     display: none !important;
 }
 
-[data-contentloaded="true"] .layout--pagecover {
+[data-content-loaded="true"] .layout--pagecover {
     transition: opacity 0.1s;
     opacity: 0;
     pointer-events: none;

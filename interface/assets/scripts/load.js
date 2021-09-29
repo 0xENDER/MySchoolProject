@@ -23,7 +23,7 @@ window.addEventListener('load', function() {
     document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; checkAgreement();">`));
 
     // Change the document dataset values
-    document.documentElement.dataset.contentloaded = false;
+    document.documentElement.dataset.contentLoaded = false;
 
     // Show the loading icon
     setTimeout(function() {
@@ -52,14 +52,14 @@ window.uncover = function() {
     }
 
     // Uncover the content
-    document.documentElement.dataset.contentloaded = true;
+    document.documentElement.dataset.contentLoaded = true;
 
 };
 
 // Set the window content load function
 window.load = function() {
 
-    document.documentElement.dataset.extracontentloaded = true;
+    document.documentElement.dataset.extraContentLoaded = true;
 
     // If the window's status is set to "loaded", then the content should be uncovered!
     window.uncover();

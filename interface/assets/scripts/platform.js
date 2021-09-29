@@ -51,8 +51,9 @@ window.platform = { // An object to keep track and organise the platform data
 
     rendering: { // Rendering-related variables
 
-        isChromium: !!window.chrome, // Is this a chromium-based rendering process
-        isChrome: !!window.chrome && !!window.chrome.webstore // Is this a chrome rendering process
+        isChromium: !!window.chrome || navigator.userAgent.toLowerCase().indexOf('chromium') != -1 || navigator.userAgent.toLowerCase().indexOf('chrome') != -1, // Is this a chromium-based rendering process
+        isGecko: navigator.userAgent.toLowerCase().indexOf('gecko') != -1 && navigator.userAgent.toLocaleLowerCase().indexOf("like gecko") == -1,
+        isWebKit: navigator.userAgent.toLocaleLowerCase().indexOf('applewebkit') != -1
 
     },
 
@@ -178,6 +179,18 @@ if (window.platform.isApp) {
 // Rendering-related actions
 if (window.platform.rendering.isChromium) {
 
-    document.documentElement.dataset.renderingBase = "chromium";
+    document.documentElement.dataset.renderingEngine = "chromium";
+
+} else if (window.platform.rendering.isGecko) {
+
+    document.documentElement.dataset.renderingEngine = "gecko";
+
+} else if (window.platform.rendering.isWebKit) {
+
+    document.documentElement.dataset.renderingEngine = "webkit";
+
+} else {
+
+    document.documentElement.dataset.renderingEngine = "unknown";
 
 }

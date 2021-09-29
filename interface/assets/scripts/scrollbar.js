@@ -69,8 +69,12 @@ function linkScrollbar() { // Link a scrollbar to the page
         //      ^ The offset top value of the content element
 
         // Update the rubber scroll effect
-        document.documentElement.dataset.rubberTop = !(scrollbar.linkedElement.scrollTop > 120);
-        document.documentElement.dataset.rubberBottom = !(scrollbar.linkedElement.scrollTop < scrollbar.linkedElement.scrollHeight - scrollbar.linkedElement.clientHeight - 120);
+        if (window.platform.rendering.isChromium && window.platform.hardware.hasTouchScreen) {
+
+            document.documentElement.dataset.rubberTop = !(scrollbar.linkedElement.scrollTop > 120);
+            document.documentElement.dataset.rubberBottom = !(scrollbar.linkedElement.scrollTop < scrollbar.linkedElement.scrollHeight - scrollbar.linkedElement.clientHeight - 120);
+
+        }
 
     };
 

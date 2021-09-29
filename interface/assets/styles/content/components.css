@@ -145,15 +145,15 @@
 /* Rubber scrolling */
 
 @media (pointer:coarse) {
-    [data-rendering-base="chromium"] .layout--pagecontent {
+    [data-rendering-engine="chromium"] .layout--pagecontent {
         scroll-snap-type: y mandatory;
         scroll-padding: -80px;
     }
-    [data-rendering-base="chromium"] .layout--pagecontent #system--pageContent {
+    [data-rendering-engine="chromium"] .layout--pagecontent #system--pageContent {
         margin: 80px 0px;
         position: relative;
     }
-    [data-rendering-base="chromium"] .layout--pagecontent #system--pageContent:before {
+    [data-rendering-engine="chromium"] .layout--pagecontent #system--pageContent:before {
         content: "";
         display: block;
         position: absolute;
@@ -164,10 +164,10 @@
         margin: 80px 0px;
         z-index: 100 !important;
     }
-    [data-rendering-base="chromium"][data-rubber-top="true"] .layout--pagecontent #system--pageContent:before {
+    [data-rendering-engine="chromium"][data-rubber-top="true"] .layout--pagecontent #system--pageContent:before {
         scroll-snap-align: start;
     }
-    [data-rendering-base="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
+    [data-rendering-engine="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
         content: "";
         display: block;
         position: absolute;
@@ -178,7 +178,7 @@
         margin: 80px 0px;
         z-index: 100 !important;
     }
-    [data-rendering-base="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
+    [data-rendering-engine="chromium"][data-rubber-bottom="true"] .layout--pagecontent #system--pageContent:after {
         scroll-snap-align: end;
     }
 }

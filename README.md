@@ -199,3 +199,7 @@ However, there is a restriction that applies to this repository. If you live in 
 
 - *The icons: [Evericons](https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)*
 - *The font: [Google Fonts](https://fonts.google.com)*
+
+## More To Read
+
+[Apps Submission Requirements](./docs/apps_submission.md)
