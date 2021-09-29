@@ -2,14 +2,6 @@
 
     "dataset": {
 
-        "loaded": {
-
-            "electron": "true",
-            "react": "true",
-            "web": "false"
-
-        },
-
         "electron": {
 
             "web": "false",

@@ -40,7 +40,7 @@ function imitateApache() {
         var redirect = false;
 
         // Set the default directory index file to "index.html"
-        if (details.url.indexOf("file:") == 0 && details.url[details.url.length - 1] === "/") {
+        if (details.url.indexOf("file:") != -1 && details.url[details.url.length - 1] === "/") {
 
             details.url += "index.html";
 
@@ -49,6 +49,7 @@ function imitateApache() {
         }
 
         // Redirect the files in "/page/*" to "/pages/*"
+        alert(`URL: ${details.url}\nRoot: ${pageRootPath}`); // Debug
         if (details.url.indexOf(pageRootPath) != -1) {
 
             details.url = layoutPath;

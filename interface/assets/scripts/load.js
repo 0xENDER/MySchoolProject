@@ -20,7 +20,7 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Load the rest of the CSS resources
-    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; checkAgreement();">`));
+    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="/*document.documentElement.dataset.loaded = true;*/ checkAgreement();">`));
 
     // Change the document dataset values
     document.documentElement.dataset.contentLoaded = false;
@@ -38,7 +38,7 @@ window.addEventListener('load', function() {
 window.uncover = function() {
 
     // Scroll through the rubber space
-    if (window.platform.rendering.isChromium && window.platform.hardware.hasTouchScreen) {
+    if (window.platform.rendering.isBlink && window.platform.hardware.hasTouchScreen) {
 
         pageContentElement.scrollTo({
 

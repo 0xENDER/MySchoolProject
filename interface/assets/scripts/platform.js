@@ -51,7 +51,7 @@ window.platform = { // An object to keep track and organise the platform data
 
     rendering: { // Rendering-related variables
 
-        isChromium: !!window.chrome || navigator.userAgent.toLowerCase().indexOf('chromium') != -1 || navigator.userAgent.toLowerCase().indexOf('chrome') != -1, // Is this a chromium-based rendering process
+        isBlink: (window.chrome != undefined || (window.Intl && Intl.v8BreakIterator != undefined)) && 'CSS' in window,
         isGecko: navigator.userAgent.toLowerCase().indexOf('gecko') != -1 && navigator.userAgent.toLocaleLowerCase().indexOf("like gecko") == -1,
         isWebKit: navigator.userAgent.toLocaleLowerCase().indexOf('applewebkit') != -1
 
@@ -177,9 +177,9 @@ if (window.platform.isApp) {
 }
 
 // Rendering-related actions
-if (window.platform.rendering.isChromium) {
+if (window.platform.rendering.isBlink) {
 
-    document.documentElement.dataset.renderingEngine = "chromium";
+    document.documentElement.dataset.renderingEngine = "blink";
 
 } else if (window.platform.rendering.isGecko) {
 

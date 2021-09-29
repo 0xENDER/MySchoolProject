@@ -2,6 +2,6 @@ User-agent: Googlebot
 Disallow: /assets/
 
 User-agent: *
-Allow: /
+Allow: /page/*
 
-Sitemap: https://store.mur-lang.org/interface/sitemap.xml
+Sitemap: %{{server:url}}%/sitemap.xml
