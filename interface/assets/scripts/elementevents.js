@@ -29,7 +29,7 @@ function updateElementsVisibility(parent) {
     for (var i = 0; i < parent.children.length; i++) {
 
         // Fire the `onvisible` event
-        if (isInViewport(parent.children[i])) {
+        if (parent.children[i].onvisible != null && isInViewport(parent.children[i])) {
 
             // Check if the event has already been fired!
             if (!parent.children[i].__previousVisibleStatus) {
@@ -38,12 +38,11 @@ function updateElementsVisibility(parent) {
                 parent.children[i].__previousVisibleStatus = true;
 
                 // Fire the `onvisible` event
-                if (parent.children[i].onvisible != null)
-                    parent.children[i].onvisible();
+                parent.children[i].onvisible();
 
             }
 
-        } else {
+        } else if (parent.children[i].onvisible != null) {
 
             // Update the "previous visible status" variable
             parent.children[i].__previousVisibleStatus = false;
@@ -63,3 +62,10 @@ pageContentElement.addEventListener("scroll", function(e) {
     updateElementsVisibility(e.target);
 
 });
+
+// The initial event listeners
+function initialEvents() {
+
+    updateElementsVisibility(pageContentElement);
+
+}

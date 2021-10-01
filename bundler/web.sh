@@ -8,6 +8,7 @@ DEBUG_MODE=$1
 echo "[Bundler] [Web] Copying some folders from the codebase..."
 cp -R "apps_codebase/assets/" "builds/web/"
 cp -R "apps_codebase/pages/" "builds/web/"
+cp -R "apps_codebase/components/" "builds/web/"
 #
 ## Copy the required files from the codebase for the "web version"
 echo "[Bundler] [Web] Copying some files from the codebase..."

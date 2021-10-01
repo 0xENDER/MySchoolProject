@@ -1,3 +1,9 @@
+/*
+
+    Load the page content
+
+*/
+
 // Wait for the page content ot be injected
 pageContentElement.oncontentinjection = function() {
 

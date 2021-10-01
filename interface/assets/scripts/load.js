@@ -51,6 +51,9 @@ window.uncover = function() {
 
     }
 
+    // Run the initial events
+    initialEvents();
+
     // Uncover the content
     document.documentElement.dataset.contentLoaded = true;
 
@@ -154,6 +157,8 @@ function loadContent() {
         // Wait for the main process to send back the value of this variable
         window.api.receive('variable-reply', function(data) {
 
+            window.location.lastRedirect = data;
+
             fetchContent(data.substring(data.indexOf("/page/")));
 
         });
@@ -211,8 +216,146 @@ function fetchContent(sourceURLPathname) {
                                 selectedSectionsItem.classList.add("state--selected");
 
                             // Replace variables
-                            data = data.substring(data.indexOf("\n"));
-                            data = data.replace(/\${PageURL}/g, window.location.href.replace("/page/", "/pages/"));
+                            data = data.substring(data.indexOf("\n")).replace(/\${(.*?)}/g, function(match, content) {
+
+                                // Change all the letters to lower case
+                                content = content.toLowerCase();
+
+                                // Check what variable this one is
+                                if (content == "pageurl") {
+
+                                    return ((isApp) ? window.location.lastRedirect : window.location.href).replace("/page/", "/pages/").replace(/(.*)\/(.*?).html/g, function(match, start, end) {
+                                        return start + "/";
+                                    });
+
+                                } else {
+
+                                    // Unknown variable!
+                                    loadingFailed();
+
+                                }
+
+                            });
+
+                            // Get all requests
+                            data = data.replace(/<request(.*?)>(.*?)<\/request>/g, function(match, attributes, innerContent) {
+
+                                // Parse the attributes
+                                attributes = document.createRange().createContextualFragment(`<div ${attributes}></div>`);
+                                attributes = attributes.children[0].attributes;
+
+                                // Check the request type
+                                if (attributes.type != undefined) {
+
+                                    // Get the request type and format
+                                    var requestType = attributes.type.value.replace(/\s/g, ""),
+                                        requestFormat = requestType.substring(requestType.indexOf("/") + 1);
+                                    requestType = requestType.substring(0, requestType.indexOf("/"));
+
+                                    try {
+
+                                        if (requestType == "component") {
+
+                                            // Check the component name
+                                            if (attributes.get != undefined) {
+
+                                                // Get the component
+                                                if (requestFormat == "all") {
+
+                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css"><script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}/${attributes.get.value}.js" defer></script>`;
+
+                                                } else if (requestFormat == "js") {
+
+                                                    return `<script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js" defer></script>`;
+
+                                                } else if (requestFormat == "css") {
+
+                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css">`;
+
+                                                } else {
+
+                                                    // Throw an error
+                                                    throw new Error(`The component request format '${requestFormat}' is invalid!`);
+
+                                                }
+
+                                            } else {
+
+                                                // Throw an error
+                                                throw new Error(`A component request must be accompanied with a 'get' attribute!`);
+
+                                            }
+
+                                        } else if (requestType == "file") {
+
+                                            // Check the file source
+                                            if (attributes.src != undefined) {
+
+                                                // Get the file
+                                                if (requestFormat == "js") {
+
+                                                    return `<script itemprop="pagecontent--script" type="text/javascript" src="${attributes.src.value}" defer></script>`;
+
+                                                } else if (requestFormat == "css") {
+
+                                                    return `<link itemprop="pagecontent--style" rel="stylesheet" href="${attributes.src.value}">`;
+
+                                                } else {
+
+                                                    // Throw an error
+                                                    throw new Error(`The file request format '${requestFormat}' is invalid!`);
+
+                                                }
+
+                                            } else {
+
+                                                // Throw an error
+                                                throw new Error(`A file request must be accompanied with a 'src' attribute!`);
+
+                                            }
+
+                                        } else {
+
+                                            // Throw an error
+                                            throw new Error(`The request type '${requestType}' is invalid!`);
+
+                                        }
+
+                                    } catch (e) {
+
+                                        // Invalid request type!
+                                        loadingFailed();
+
+                                        throw e;
+
+                                    }
+
+                                } else {
+
+                                    // Unknown request type!
+                                    loadingFailed();
+
+                                    // Throw an error
+                                    throw new Error("The request element requires the 'type' attribute to be present!");
+
+                                }
+
+                                // Check what variable this one is
+                                if (attributes.get != undefined) {
+
+                                    return `null`;
+
+                                } else {
+
+                                    // Unknown request!
+                                    loadingFailed();
+
+                                    // Throw an error
+                                    throw new Error("Invalid request!");
+
+                                }
+
+                            });
 
                             // Assing important IDs
                             if (data.indexOf("<resources") != -1 && data.indexOf("<content") != -1) {
@@ -248,6 +391,7 @@ function fetchContent(sourceURLPathname) {
                             for (var i = 0; i < children.length; i++) {
 
                                 children[i].setAttribute("onload", "contentSourceLoaded();");
+                                children[i].setAttribute("onerror", "loadingFailed('Page content resource failed to load');");
 
                             }
                             pageContentElement.append(data.getElementById("system--pageResources"));
@@ -293,15 +437,26 @@ function fetchContent(sourceURLPathname) {
 }
 
 // Show an error screen when a page fails to load
-function loadingFailed() {
+function loadingFailed(cause = null) {
 
     // Change the page title
     document.title = "Error | MyStore";
 
+    // Disable scrolling
+    pageContentElement.style.overflow = "hidden";
+
     // Change the page content
     pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div><script type="text/javascript">contentDOMLoaded(); window.load();</script>`);
 
+    // Show the error message
     contentLoaded();
+
+    // Report the failure cause
+    if (cause != null) {
+
+        throw new Error(cause);
+
+    }
 
 }
 
@@ -425,3 +580,10 @@ function updateOnlineStatus() {
     });
 
 }
+
+// Keep watching for the load and unload events
+window.onbeforeunload = function() {
+
+    pageContentElement.dataset.unloading = true;
+
+};

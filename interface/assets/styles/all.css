@@ -7,7 +7,7 @@
 
 /* Prevent text selection, and apply the font. */
 
-[no-select] {
+* {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -16,6 +16,17 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+}
+
+[enable-select] {
+    -moz-user-select: auto;
+    -khtml-user-select: auto;
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-user-drag: auto;
+    -khtml-user-drag: auto;
+    -moz-user-drag: auto;
+    -o-user-drag: auto;
 }
 
 @media (prefers-reduced-motion) {

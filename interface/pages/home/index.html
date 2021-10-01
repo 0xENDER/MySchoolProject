@@ -7,9 +7,10 @@
 
 <!-- Load the resources -->
 <resources>
-    <link itemprop="pagecontent--style" rel="stylesheet" href="./assets/styles/content/components.css">
-    <link itemprop="pagecontent--style" rel="stylesheet" href="./assets/styles/content/home/components.css">
-    <script defer itemprop="pagecontent--script" type="text/javascript" src="${PageURL}/load.js"></script>
+    <request type="file/css" src="./assets/styles/content/components.css"></request>
+    <request type="file/css" src="./assets/styles/content/home/components.css"></request>
+    <request type="file/js" src="${PageURL}/load.js"></request>
+    <request type="component/js" get="suggestions/cards"></request>
 </resources>
 
 <content>

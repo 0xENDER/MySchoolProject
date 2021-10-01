@@ -65,7 +65,17 @@ window.platform = { // An object to keep track and organise the platform data
 
     hardware: {
 
-        hasTouchScreen: window.matchMedia != undefined && window.matchMedia("(pointer: coarse)").matches // Does this device have a touch screen?
+        hasTouchScreen: window.matchMedia != undefined && window.matchMedia("(pointer: coarse)").matches, // Does this device have a touch screen?
+        memory: {
+
+            capacity: ('deviceMemory' in navigator) ? navigator.deviceMemory : null
+
+        },
+        CPU: {
+
+            logicalProcessors: ('hardwareConcurrency' in navigator) ? navigator.hardwareConcurrency : null
+
+        }
 
     },
 
@@ -194,3 +204,8 @@ if (window.platform.rendering.isBlink) {
     document.documentElement.dataset.renderingEngine = "unknown";
 
 }
+document.documentElement.dataset.lowPerformance = (window.platform.hardware.CPU.logicalProcessors != null && window.platform.hardware.memory.capacity != null) ? ((
+    window.platform.hardware.memory.capacity != null && window.platform.hardware.memory.capacity <= 4
+) || (
+    window.platform.hardware.CPU.logicalProcessors <= 4
+)) : false;

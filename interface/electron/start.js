@@ -49,7 +49,7 @@ function imitateApache() {
         }
 
         // Redirect the files in "/page/*" to "/pages/*"
-        alert(`URL: ${details.url}\nRoot: ${pageRootPath}`); // Debug
+        console.log(`URL: ${details.url}\nRoot: ${pageRootPath}`); // Debug
         if (details.url.indexOf(pageRootPath) != -1) {
 
             details.url = layoutPath;
