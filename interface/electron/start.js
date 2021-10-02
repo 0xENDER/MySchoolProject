@@ -49,7 +49,6 @@ function imitateApache() {
         }
 
         // Redirect the files in "/page/*" to "/pages/*"
-        console.log(`URL: ${details.url}\nRoot: ${pageRootPath}`); // Debug
         if (details.url.indexOf(pageRootPath) != -1) {
 
             details.url = layoutPath;
@@ -57,6 +56,10 @@ function imitateApache() {
             redirect = true;
 
         }
+
+        // Debug
+        if (redirect)
+            console.log(`\nURL: ${details.url}\n`);
 
         // Call the `callabck` function
         callback((redirect) ? {

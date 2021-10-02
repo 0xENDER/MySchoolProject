@@ -403,6 +403,10 @@ body {
     background-color: #e81123;
 }
 
+.layout--topbar-windowbutton.layout--topbar-closeButton:hover svg {
+    fill: white;
+}
+
 [data-mac="true"] .layout--topbar-windowbutton svg {
     border-radius: 100%;
     background-color: var(--text-colour);
