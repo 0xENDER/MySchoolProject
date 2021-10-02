@@ -12,8 +12,9 @@ var contentResourcesNumber = 0,
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
     connectionAPI = null,
     pageHTMLContent = null,
-    pageRequirements = {
-        endMessage: false
+    pageFlags = {
+        endMessage: false,
+        canUnload: false
     };
 
 // Wait for the main layout to finish loading
@@ -208,7 +209,8 @@ function fetchContent(sourceURLPathname) {
                                 document.title = pageTitle + " | MyStore";
 
                             // Check the page requirements
-                            pageRequirements.endMessage = (pageElement.getAttribute("page-end") === "true");
+                            pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
+                            pageFlags.canUnload = (pageElement.getAttribute("can-unload") === "true");
 
                             // Update the selected item in the "sections bar"
                             var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));

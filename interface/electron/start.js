@@ -86,17 +86,17 @@ function createWindow() {
             devTools: true, // Debug: "true", production: "false"
             preload: path.join(__dirname, 'preload.js'),
             defaultFontFamily: {
-                standard: "Istok Web",
-                serif: "Istok Web",
-                sansSerif: "Istok Web",
-                monospace: "Istok Web",
-                cursive: "Istok Web",
-                fantasy: "Istok Web"
+                standard: "Didact Gothic",
+                serif: "Didact Gothic",
+                sansSerif: "Didact Gothic",
+                monospace: "Didact Gothic",
+                cursive: "Didact Gothic",
+                fantasy: "Didact Gothic"
             },
-            defaultMonospaceFontSize: 12,
+            //defaultFontSize: 18,
+            defaultMonospaceFontSize: 13,
             autoplayPolicy: "no-user-gesture-required",
-            enableWebSQL: false,
-            v8CacheOptions: "bypassHeatCheckAndEagerCompile"
+            enableWebSQL: false
 
         },
 
