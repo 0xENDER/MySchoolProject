@@ -1,0 +1,36 @@
+PAGE $section:home $title:... $page-end:true $can-unload:false;
+!
+    section: The section this page follows
+    title: The title of the page
+    page-end: Whether the page should include a page end message
+    can-unload: Whether this page is set up to be unloaded dynamically
+!
+
+resources:
+
+    ! You can request CSS and JS file !
+    0: file/css,
+    1: component;
+    request $type: ~0 $src:... :;
+    request $type: ~0 $src: ... :;
+    request $type: file/js $src: ... :;
+
+    ! You can request components !
+    request $type: ~1/js $get: ... ;
+    request $type: ~1/css $get: ... ;
+    request $type: ~1/all $get: ... ;
+
+;
+
+content:
+
+    ! The page content !
+    img %lw: 10px %lh: 10px;
+    div#MyDiv.Div:;
+
+;
+
+
+! Compressed (300):
+PAGE$section:home$title:...$page-end:true$can-unload:false;resources:0:file/css,1:component;request$type:~0$src:...:;request$type:~0$src:...:;request$type:file/js$src:...:;request$type:~1/js$get:...;request$type:~1/css$get:...;request$type:~1/all$get:...;;content:img%lw:10px%lh:10px;div#MyDiv.Div:;;
+!
