@@ -58,43 +58,21 @@ body {
     animation: loading 1.5s infinite;
 }
 
-[data-low-performance="false"] [data-loaded="false"].effect--skeleton:after,
-[data-low-performance="false"] [data-extra-content-loaded="false"] .effect--content-skeleton:after,
-[data-low-performance="false"] [data-loaded="false"].effect--content-skeleton:after {
-    background: linear-gradient(0.25turn, transparent, var(--skeleton-colour2), transparent), linear-gradient(var(--skeleton-colour1), var(--skeleton-colour1)), radial-gradient(38px circle at 19px 19px, var(--skeleton-colour1) 50%, transparent 51%), linear-gradient(var(--skeleton-colour1), var(--skeleton-colour1));
-    background-repeat: no-repeat;
-    background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
-}
-
-[data-low-performance="false"] [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
-[data-low-performance="false"] [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
-    background: linear-gradient(0.25turn, transparent, var(--skeleton-colour4), transparent), linear-gradient(var(--skeleton-colour3), var(--skeleton-colour3)), radial-gradient(38px circle at 19px 19px, var(--skeleton-colour3) 50%, transparent 51%), linear-gradient(var(--skeleton-colour3), var(--skeleton-colour3));
-    background-repeat: no-repeat;
-    background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
-}
-
-[data-low-performance="false"] [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
-[data-low-performance="false"] [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
-    background: linear-gradient(0.25turn, transparent, var(--skeleton-colour6), transparent), linear-gradient(var(--skeleton-colour5), var(--skeleton-colour5)), radial-gradient(38px circle at 19px 19px, var(--skeleton-colour5) 50%, transparent 51%), linear-gradient(var(--skeleton-colour5), var(--skeleton-colour5));
-    background-repeat: no-repeat;
-    background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
-}
-
-[data-low-performance="true"] [data-loaded="false"].effect--skeleton:after,
-[data-low-performance="true"] [data-extra-content-loaded="false"] .effect--content-skeleton:after,
-[data-low-performance="true"] [data-loaded="false"].effect--content-skeleton:after {
+[data-loaded="false"].effect--skeleton:after,
+[data-extra-content-loaded="false"] .effect--content-skeleton:after,
+[data-loaded="false"].effect--content-skeleton:after {
     background-color: var(--skeleton-colour1);
     animation: none !important;
 }
 
-[data-low-performance="true"] [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
-[data-low-performance="true"] [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
+[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
     background-color: var(--skeleton-colour3);
     animation: none !important;
 }
 
-[data-low-performance="true"] [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
-[data-low-performance="true"] [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
+[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
+[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
     background-color: var(--skeleton-colour5);
     animation: none !important;
 }

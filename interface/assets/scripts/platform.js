@@ -204,8 +204,8 @@ if (window.platform.rendering.isBlink) {
     document.documentElement.dataset.renderingEngine = "unknown";
 
 }
-document.documentElement.dataset.lowPerformance = (window.platform.hardware.CPU.logicalProcessors != null && window.platform.hardware.memory.capacity != null) ? ((
-    window.platform.hardware.memory.capacity != null && window.platform.hardware.memory.capacity <= 4
+/*document.documentElement.dataset.lowPerformance = (window.platform.hardware.CPU.logicalProcessors != null && window.platform.hardware.memory.capacity != null) ? ((
+    window.platform.hardware.memory.capacity != null && window.platform.hardware.memory.capacity <= 8
 ) || (
-    window.platform.hardware.CPU.logicalProcessors <= 4
-)) : false;
+    window.platform.hardware.CPU.logicalProcessors <= 8
+)) : true;*/

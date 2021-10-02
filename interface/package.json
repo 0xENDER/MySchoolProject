@@ -25,6 +25,9 @@
         // The app ID
         "appId": "%{{global:appInfo.id}}%",
 
+        // Disable ASAR-packing
+        "asar": false,
+
         // Configure the app's associated files
         "fileAssociations": [
 

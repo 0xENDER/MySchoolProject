@@ -121,13 +121,20 @@ function createWindow() {
     // Load the home page
     currentWindow.loadFile(path.join(__dirname, '..', 'layout.html'));
 
+    // Maximise and show the window on the first load
+    var didLoad = false;
     currentWindow.webContents.on('did-finish-load', function() {
 
-        // Show the window
-        currentWindow.show();
+        if (!didLoad) {
 
-        // Maximise the window
-        currentWindow.maximize();
+            didLoad = true;
+            // Show the window
+            currentWindow.show();
+
+            // Maximise the window
+            currentWindow.maximize();
+
+        }
 
     });
 
