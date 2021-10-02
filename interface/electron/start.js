@@ -37,33 +37,30 @@ function imitateApache() {
     // Keep watching the files handler
     session.defaultSession.webRequest.onBeforeRequest({ urls: [] }, (details, callback) => {
 
-        var redirect = false;
+        var redirect = false,
+            newURL = "file://";
 
         // Set the default directory index file to "index.html"
         if (details.url.indexOf("file:") != -1 && details.url[details.url.length - 1] === "/") {
 
-            details.url += "index.html";
+            newURL += path.join(details.url, "index.html");
 
             redirect = true;
 
         }
 
-        // Redirect the files in "/page/*" to "/pages/*"
+        // Redirect the files in "/page/*" to the main layout page
         if (details.url.indexOf(pageRootPath) != -1) {
 
-            details.url = layoutPath;
+            newURL = "file://" + layoutPath;
 
             redirect = true;
 
         }
-
-        // Debug
-        if (redirect)
-            console.log(`\nURL: ${details.url}\n`);
 
         // Call the `callabck` function
         callback((redirect) ? {
-            redirectURL: details.url
+            redirectURL: newURL
         } : {});
 
     });
