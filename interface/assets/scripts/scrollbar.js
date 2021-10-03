@@ -68,14 +68,6 @@ function linkScrollbar() { // Link a scrollbar to the page
             `${(scrollbar.linkedElement.scrollTop/scrollbar.linkedElement.scrollHeight)*100}%`;
         //      ^ The offset top value of the content element
 
-        // Update the rubber scroll effect
-        if (window.platform.rendering.isBlink && window.platform.hardware.hasTouchScreen) {
-
-            document.documentElement.dataset.rubberTop = !(scrollbar.linkedElement.scrollTop > 120);
-            document.documentElement.dataset.rubberBottom = !(scrollbar.linkedElement.scrollTop < scrollbar.linkedElement.scrollHeight - scrollbar.linkedElement.clientHeight - 120);
-
-        }
-
     };
 
     // Define check variables
