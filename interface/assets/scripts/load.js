@@ -42,20 +42,6 @@ window.addEventListener('load', function() {
 // Set the window content load function
 window.uncover = function() {
 
-    // Scroll through the rubber space
-    if (window.platform.rendering.isBlink && window.platform.hardware.hasTouchScreen) {
-
-        pageContentElement.scrollTo({
-
-            top: 80,
-            left: 0,
-            behavior: 'auto'
-
-        });
-
-
-    }
-
     // Run the initial events
     initialEvents();
 
