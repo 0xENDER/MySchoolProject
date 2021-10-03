@@ -4,7 +4,8 @@
 
         "*.json": "jsonc",
         "*.webmanifest": "jsonc",
-        "*.data.json": "json"
+        "*.data.json": "json",
+        "*.chtml": "text"
 
 
     }

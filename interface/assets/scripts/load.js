@@ -13,9 +13,13 @@ var contentResourcesNumber = 0,
     connectionAPI = null,
     pageHTMLContent = null,
     pageFlags = {
+
         endMessage: false,
-        canUnload: false
-    };
+        canUnload: true
+
+    },
+    unload = [],
+    didFail = false;
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -149,25 +153,41 @@ function loadContent() {
     pageContentElement.style.display = null;
     linkScrollbar(pageContentElement);
 
-    // Check the request source URL
-    if (window.platform.isApp && window.platform.more.isElectron) {
+    // Call the loading function
+    loadContentFromSrc();
 
-        // Send a request for the variable with the name of it
-        window.api.send('variable-request', "lastRedirectURL");
+}
 
-        // Wait for the main process to send back the value of this variable
-        window.api.receive('variable-reply', function(data) {
+// Load the page content from the specified source 
+function loadContentFromSrc(src = null) {
 
-            window.location.lastRedirect = data;
+    if (src == null) {
 
-            fetchContent(data.substring(data.indexOf("/page/")));
+        // Check the request source URL
+        if (window.platform.isApp && window.platform.more.isElectron) {
 
-        });
+            // Send a request for the variable with the name of it
+            window.api.send('variable-request', "lastRedirectURL");
+
+            // Wait for the main process to send back the value of this variable
+            window.api.receive('variable-reply', function(data) {
+
+                window.location.lastRedirect = data;
+
+                fetchContent(data.substring(data.indexOf("/page/")));
+
+            });
+
+        } else {
+
+            // Use the current page URL as the source URL (Apache works fine on the server)
+            fetchContent(window.location.pathname);
+
+        }
 
     } else {
 
-        // Use the current page URL as the source URL (Apache works fine on the server)
-        fetchContent(window.location.pathname);
+        fetchContent(src);
 
     }
 
@@ -176,7 +196,7 @@ function loadContent() {
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
-    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(5) + window.platform.codebase.index)
+    fetch(window.platform.server + window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index)
         .then(response => {
 
             if (response.ok) { // If the request was successful, inject the content to the page.
@@ -210,7 +230,19 @@ function fetchContent(sourceURLPathname) {
 
                             // Check the page requirements
                             pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
-                            pageFlags.canUnload = (pageElement.getAttribute("can-unload") === "true");
+                            pageFlags.canUnload = !(pageElement.getAttribute("can-unload") === "false");
+
+                            // Update the current page links
+                            if (pageFlags.canUnload && !window.location.dynamic.didLoadDynamically) {
+
+                                var linkElements = document.getElementsByTagName("a");
+                                for (var i = 0; i < linkElements.length; i++) {
+
+                                    window.registerNewLink(linkElements[i]);
+
+                                }
+
+                            }
 
                             // Update the selected item in the "sections bar"
                             var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
@@ -441,17 +473,21 @@ function fetchContent(sourceURLPathname) {
 // Show an error screen when a page fails to load
 function loadingFailed(cause = null) {
 
-    // Change the page title
-    document.title = "Error | MyStore";
+    if (!didFail) {
 
-    // Disable scrolling
-    pageContentElement.style.overflow = "hidden";
+        // Update the `didFail` variable
+        didFail = true;
 
-    // Change the page content
-    pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div><script type="text/javascript">contentDOMLoaded(); window.load();</script>`);
+        // Change the page title
+        document.title = "Error | MyStore";
 
-    // Show the error message
-    contentLoaded();
+        // Change the page content
+        pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div><script type="text/javascript">contentDOMLoaded(); window.load();</script>`);
+
+        // Show the error message
+        contentLoaded();
+
+    }
 
     // Report the failure cause
     if (cause != null) {
@@ -587,5 +623,120 @@ function updateOnlineStatus() {
 window.onbeforeunload = function() {
 
     pageContentElement.dataset.unloading = true;
+
+};
+
+// Allow the page content to add "unload functions"
+window.addUnloadObject = function(unloadFunction) {
+
+    unload.push(unloadFunction);
+
+};
+
+// Unload the page content
+window.unloadContent = function() {
+
+    // Keep going through all the "unload objects"
+    while (unload.length != 0) {
+
+        // Remove the "unload object" from the `unload` array
+        var object = unload.shift();
+
+        // Check the object type
+        if (typeof object == "function") {
+
+            // Call the "unload function"
+            object();
+
+        }
+
+        // Delete the object
+        delete object;
+
+    }
+
+    // Reset the page flags
+    pageFlags.endMessage = false;
+    pageFlags.canUnload = true;
+
+    // Reset the resources number
+    contentResourcesNumber = 0;
+    loadedContentResourcesNumber = 0;
+
+    // Reset the page content
+    didFail = false;
+    pageHTMLContent = null;
+    pageContentElement.innerHTML = "";
+
+    // Reset the loading screen
+    document.documentElement.dataset.contentLoaded = false;
+    document.documentElement.dataset.extraContentLoaded = false;
+    coverLoadingIcon.style.opacity = null;
+    var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
+    if (selectedSectionsItem != null) {
+
+        selectedSectionsItem.classList.remove("state--selected");
+
+    }
+    delete selectedSectionsItem;
+
+};
+
+// Define a new dynamic location object
+window.location.dynamic = {
+
+    // Redirect the page dynamically
+    redirect(url) {
+
+        // Check if the current page can be unloaded
+        if (pageFlags.canUnload) {
+
+            // Unload the page content
+            window.unloadContent();
+
+            // Dynamically load the new page content
+            loadContentFromSrc(url);
+
+            // Push the new URL state
+            window.history.pushState("", "", url);
+
+            // Change the value of `didLoadDynamically`
+            this.didLoadDynamically = true;
+
+        } else {
+
+            // Redirect the page normally
+            window.location.href = url;
+
+        }
+
+    },
+    didLoadDynamically: false
+
+};
+
+// Register new <a> elements
+window.registerNewLink = function(linkElement) {
+
+    // Check if the current page can be unloaded
+    if (pageFlags.canUnload) {
+
+        // Add a "click" event listener to the link element
+        linkElement.addEventListener("click", function(e) {
+
+            // Prevent the page from redirecting
+            e.preventDefault();
+
+            // Dynamiclly change the page content
+            var href = this.getAttribute("href");
+            if (href != undefined && href != null) {
+
+                window.location.dynamic.redirect(href);
+
+            }
+
+        });
+
+    }
 
 };

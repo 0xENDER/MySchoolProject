@@ -1,4 +1,4 @@
-<PAGE />
+<PAGE can-unload="true" />
 <!--
 
     Redirect to the home page
@@ -15,7 +15,7 @@
 
     <!-- Redirect the page to the home folder -->
     <script type="text/javascript">
-        window.location.pathname = "/page/home/";
+        window.location.dynamic.redirect("/page/home/");
     </script>
 
     <a href="/page/home/">Redirecting the page...</a>
