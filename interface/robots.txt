@@ -1,7 +1,9 @@
-User-agent: Googlebot
-Disallow: /assets/
-
 User-agent: *
+Disallow: /assets/
+Disallow: /components/
+Disallow: /pages/
+Allow: /
+Allow: /page/
 Allow: /page/*
 
 Sitemap: %{{server:url}}%/sitemap.xml
