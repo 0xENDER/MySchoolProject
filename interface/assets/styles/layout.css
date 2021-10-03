@@ -225,18 +225,6 @@ body {
     border-left: var(--pagecover-topleftborder) solid var(--pagecontent-border);
 }
 
-[data-unloading="true"].layout--pagecontent:after {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    background-color: var(--pagecontent-background);
-    opacity: 0.7;
-}
-
 [data-extracontentloade="false"] .layout--pagecontent * {
     visibility: hidden !important;
 }

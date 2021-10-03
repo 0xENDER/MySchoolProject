@@ -79,26 +79,22 @@ function checkAgreement() {
 
     if (localStorage.getItem("DidAcceptPopup") !== "true") { // Check if the user saw the terms and policies pop-up
 
-        setTimeout(function() {
+        // Make sure you have the user's agreement before loading the content of the page!
+        showAlert("User Agreement",
+            `By using this website, or any offered services on it, you automatically agree on and oblige to follow our <a href="./">Terms and Conditions</a>, <a href="./">Privacy Policy</a>, and <a href="./">Cookie Policy</a>.`,
+            "Ok",
+            function() {
 
-            // Make sure you have the user's agreement before loading the content of the page!
-            showAlert("User Agreement",
-                `By using this website, or any offered services on it, you automatically agree on and oblige to follow our <a href="./">Terms and Conditions</a>, <a href="./">Privacy Policy</a>, and <a href="./">Cookie Policy</a>.`,
-                "Ok",
-                function() {
+                // Save the data that the user did see the pop-up
+                localStorage.setItem("DidAcceptPopup", true);
 
-                    // Save the data that the user did see the pop-up
-                    localStorage.setItem("DidAcceptPopup", true);
+                // Hide the alert screen
+                hideAlert();
 
-                    // Hide the alert screen
-                    hideAlert();
+                // Load the page content
+                loadingReady();
 
-                    // Load the page content
-                    loadingReady();
-
-                });
-
-        }, window.platform.special.startAgreementDelay);
+            });
 
     } else {
 
@@ -196,7 +192,7 @@ function loadContentFromSrc(src = null) {
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
-    fetch(window.platform.server + window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index)
+    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index)
         .then(response => {
 
             if (response.ok) { // If the request was successful, inject the content to the page.
@@ -397,7 +393,7 @@ function fetchContent(sourceURLPathname) {
                                 data = data.replace("<resources", "<div id=\"system--pageResources\"");
                                 data = data.replace("</resources>", "</div>");
                                 data = data.replace("<content", "<div id=\"system--pageContent\"");
-                                data = data.replace("</content>", "<script itemprop=\"pagecontent--loadingscript\" type=\"text/javascript\">setTimeout(function(){contentDOMLoaded();},0);</script>\n</div>");
+                                data = data.replace("</content>", "<script itemprop=\"pagecontent--loadingscript\" type=\"text/javascript\">contentDOMLoaded();</script>\n</div>");
 
                             } else {
 
@@ -507,9 +503,9 @@ function contentLoaded() {
         pageContentElement.append(pageHTMLContent);
 
     }
-    if (typeof pageContentElement.oncontentinjection === "function") {
+    if (typeof window.oncontentinjection === "function") {
 
-        pageContentElement.oncontentinjection();
+        window.oncontentinjection();
 
     }
 
@@ -517,9 +513,9 @@ function contentLoaded() {
 
 function contentDOMLoaded() {
 
-    if (typeof pageContentElement.onpagecontentload === "function") {
+    if (typeof window.onpagecontentload === "function") {
 
-        pageContentElement.onpagecontentload();
+        window.onpagecontentload();
 
     }
 
@@ -619,13 +615,6 @@ function updateOnlineStatus() {
 
 }
 
-// Keep watching for the load and unload events
-window.onbeforeunload = function() {
-
-    pageContentElement.dataset.unloading = true;
-
-};
-
 // Allow the page content to add "unload functions"
 window.addUnloadObject = function(unloadFunction) {
 
@@ -667,6 +656,11 @@ window.unloadContent = function() {
     didFail = false;
     pageHTMLContent = null;
     pageContentElement.innerHTML = "";
+
+    // Reset the page loading events
+    window.oncontentinjection = null;
+    window.onpagecontentload = null;
+
 
     // Reset the loading screen
     document.documentElement.dataset.contentLoaded = false;

@@ -44,8 +44,7 @@ window.platform = { // An object to keep track and organise the platform data
 
         intervalRefreshRate: 15, // The minimal interval refresh rate allowed on this device (ms)
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (content pixels)
-        scrollLockPeriod: 400, // The time need to lock a scrollbar button
-        startAgreementDelay: 100
+        scrollLockPeriod: 400 // The time need to lock a scrollbar button
 
     },
 

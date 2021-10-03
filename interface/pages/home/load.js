@@ -5,7 +5,7 @@
 */
 
 // Wait for the page content ot be injected
-pageContentElement.oncontentinjection = function() {
+window.oncontentinjection = function() {
 
     // Make some changes to this file
     document.getElementById("homepage--cover-suggestions").scrollTo({
@@ -22,7 +22,7 @@ pageContentElement.oncontentinjection = function() {
 };
 
 // Wait for the whole page to finish loading
-pageContentElement.onpagecontentload = function() {
+window.onpagecontentload = function() {
 
     // Load the whole page
     window.load();
