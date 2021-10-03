@@ -38,7 +38,7 @@ window.platform = { // An object to keep track and organise the platform data
     // ^^^ of the page would not be set to "http(s)"! ^^^
 
     // The server address
-    server: (isApp) ? "https://store.mur-lang.org" : window.location.origin,
+    server: "%{{server:url}}%",
 
     special: {
 
