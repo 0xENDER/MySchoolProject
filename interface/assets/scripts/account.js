@@ -20,5 +20,5 @@ function updateUserInfo() {
 }
 
 // Update the info on the screen if the user is signed in
-if (document.documentElement.dataset.signedin === true)
+if (document.documentElement.dataset.signedIn === true)
     updateUserInfo();

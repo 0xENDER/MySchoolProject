@@ -106,10 +106,12 @@ if (localStorage.getItem("LastVisitVersion") != window.platform.codebase.version
         for (var i = 0; i < keys.length; i++)
             caches.delete(keys[i]);
 
-    });
+    }).finally(function() {
 
-    // Set the new "LastVisitVersion" value
-    localStorage.setItem("LastVisitVersion", window.platform.codebase.version);
+        // Set the new "LastVisitVersion" value
+        localStorage.setItem("LastVisitVersion", window.platform.codebase.version);
+
+    });
 
 }
 
@@ -203,8 +205,3 @@ if (window.platform.rendering.isBlink) {
     document.documentElement.dataset.renderingEngine = "unknown";
 
 }
-/*document.documentElement.dataset.lowPerformance = (window.platform.hardware.CPU.logicalProcessors != null && window.platform.hardware.memory.capacity != null) ? ((
-    window.platform.hardware.memory.capacity != null && window.platform.hardware.memory.capacity <= 8
-) || (
-    window.platform.hardware.CPU.logicalProcessors <= 8
-)) : true;*/

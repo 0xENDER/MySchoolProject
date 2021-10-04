@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-version="%{{global:codebase.version}}%" data-signedin="wait" data-content-loaded="false" data-extra-content-loaded="false" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
+<html lang="en" data-version="%{{global:codebase.version}}%" data-signed-in="wait" data-content-loaded="false" data-extra-content-loaded="false" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
 
 <head>
 
@@ -27,12 +27,12 @@
     <base href="%{{interface:base}}%" id="global--base">
 
     <!-- Preload important files (First-print styles, data scripts, etc.) -->
-    <link rel="preload" href="./assets/styles/layout.css" as="style">
-    <link rel="preload" href="./assets/styles/colours.css" as="style">
-    <link rel="preload" href="./assets/styles/components.css" as="style">
-    <link rel="preload" href="./assets/fonts/latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/latin-ext.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/styles/font.css" as="style">
+    <link rel="preload" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%" as="style">
+    <link rel="preload" href="./assets/styles/colours.css?v=%{{global:codebase.version}}%" as="style">
+    <link rel="preload" href="./assets/styles/components.css?v=%{{global:codebase.version}}%" as="style">
+    <link rel="preload" href="./assets/fonts/latin.woff2?v=%{{global:codebase.version}}%" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/latin-ext.woff2?v=%{{global:codebase.version}}%" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/styles/font.css?v=%{{global:codebase.version}}%" as="style">
 
     <!-- Do some important stuff -->
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -59,25 +59,25 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252525">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles/layout.css">
-    <link rel="stylesheet" href="./assets/styles/font.css">
-    <link rel="stylesheet" href="./assets/styles/colours.css">
-    <link rel="stylesheet" href="./assets/styles/components.css">
+    <link rel="stylesheet" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%">
+    <link rel="stylesheet" href="./assets/styles/font.css?v=%{{global:codebase.version}}%">
+    <link rel="stylesheet" href="./assets/styles/colours.css?v=%{{global:codebase.version}}%">
+    <link rel="stylesheet" href="./assets/styles/components.css?v=%{{global:codebase.version}}%">
 
     <!-- The page title and icon -->
     <title>MyStore</title>
-    <link rel="icon" href="./assets/media/icon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/png" href="./assets/media/logo/apple-touch-icon.png">
+    <link rel="icon" href="./assets/media/icon.ico?v=%{{global:codebase.version}}%" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/png" href="./assets/media/logo/apple-touch-icon.png?v=%{{global:codebase.version}}%">
 
     <!-- Scripts -->
-    <script defer type="text/javascript" src="./assets/scripts/platform.js"></script>
-    <script defer type="text/javascript" src="./assets/scripts/userinfo.js"></script>
+    <script defer type="text/javascript" src="./assets/scripts/platform.js?v=%{{global:codebase.version}}%"></script>
+    <script defer type="text/javascript" src="./assets/scripts/userinfo.js?v=%{{global:codebase.version}}%"></script>
 
     <!-- Manifest -->
-    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="manifest" href="./manifest.webmanifest?v=%{{global:codebase.version}}%" />
 
     <!-- Debug -->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         // Define a debug function
         function debug() {
 
@@ -101,7 +101,7 @@
             }
 
         }
-    </script>
+    </script>-->
 
 </head>
 
@@ -184,7 +184,9 @@
     </div>
 
     <!-- The page content -->
-    <div id="page" class="layout--pagecontent" layer="page-content-top" no-scrollbar></div>
+    <div id="page" class="layout--pagecontent" layer="page-content-top" no-scrollbar>
+        <div id="page--content" class="layout--pagecontent-child"></div>
+    </div>
     <div id="cover" class="layout--pagecover" layer="main-layout" no-select>
         <div id="cover--loadingicon" class="component--loadingicon">
             <div class="circle circle-1">
@@ -220,18 +222,18 @@
     </div>
 
     <!-- Scripts for the user account -->
-    <script defer itemprop="account--script" type="text/javascript" src="./assets/scripts/account.js"></script>
+    <script defer itemprop="account--script" type="text/javascript" src="./assets/scripts/account.js?v=%{{global:codebase.version}}%"></script>
 
     <!-- Scripts -->
-    <script defer itemprop="alerts--script" type="text/javascript" src="./assets/scripts/alerts.js"></script>
-    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/load.js"></script>
-    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/worker.js"></script>
+    <script defer itemprop="alerts--script" type="text/javascript" src="./assets/scripts/alerts.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/load.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="all--load" type="text/javascript" src="./assets/scripts/worker.js?v=%{{global:codebase.version}}%"></script>
 
     <!-- Scripts that are the least important -->
-    <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js"></script>
-    <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js"></script>
-    <script defer itemprop="elements--events" type="text/javascript" src="./assets/scripts/elementevents.js"></script>
-    <script defer itemprop="elements--insert" type="text/javascript" src="./assets/scripts/insertElements.js"></script>
+    <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="elements--events" type="text/javascript" src="./assets/scripts/elementevents.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="elements--insert" type="text/javascript" src="./assets/scripts/insertElements.js?v=%{{global:codebase.version}}%"></script>
 
 </body>
 

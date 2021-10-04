@@ -59,7 +59,18 @@ Options -Indexes
 <IfModule mod_headers.c>
 
     # Add the CSP header
-    Header add Content-Security-Policy "%{{server:CSP}}%"
+    <FilesMatch ".(html)$">
+
+        Header add Content-Security-Policy "%{{server:CSP}}%"
+
+    </FilesMatch>
+
+    # Allow access to ".server.*" files
+    <FilesMatch ".(server).*?$">
+
+        Header add Access-Control-Allow-Origin "*"
+
+    </FilesMatch>
 
     # Cache fonts for 30 days
     <FilesMatch ".(woff2|woff)$">

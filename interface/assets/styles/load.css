@@ -4,7 +4,7 @@
 
 */
 
-@import url(complex/layout.css);
-@import url(complex/components.css);
-@import url(complex/alerts.css);
-@import url(all.css);
+@import url(complex/layout.css?v=%{{global:codebase.version}}%);
+@import url(complex/components.css?v=%{{global:codebase.version}}%);
+@import url(complex/alerts.css?v=%{{global:codebase.version}}%);
+@import url(all.css?v=%{{global:codebase.version}}%);

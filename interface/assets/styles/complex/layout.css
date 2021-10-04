@@ -41,7 +41,7 @@
     transition: opacity 0.1s;
 }
 
-[data-loaded="true"] .layout--sectionsbar-item.state--selected:after {
+.layout--sectionsbar-item.state--selected:after {
     content: "";
     position: absolute;
     display: block;

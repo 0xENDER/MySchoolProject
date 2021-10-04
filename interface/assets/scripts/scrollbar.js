@@ -15,7 +15,8 @@ function linkScrollbar() { // Link a scrollbar to the page
         topButton: document.getElementById('scrollbar--top'), // The "scroll top" button
         bottomButton: document.getElementById('scrollbar--bottom'), // The "scroll bottom" button
         linkedElement: document.getElementById('page'), // The page content element
-        interval: null, // The interval id
+        linkedElementChild: document.getElementById("page--content"),
+        refreshFunction: null, // The interval id
         clickStart: null, // The "clickStart" function
         clickEnd: null, // The "clickEnd" function
         moving: null // The "moving" function
@@ -68,7 +69,23 @@ function linkScrollbar() { // Link a scrollbar to the page
             `${(scrollbar.linkedElement.scrollTop/scrollbar.linkedElement.scrollHeight)*100}%`;
         //      ^ The offset top value of the content element
 
+        // Refresh the scrollbar
+        scrollbar.refreshFunction();
+
     };
+
+    window.updateScrollbar = function() {
+
+        scrollbar.refreshFunction();
+
+    };
+
+    (new ResizeObserver(function() {
+
+        // Refresh the scrollbar
+        window.updateScrollbar();
+
+    })).observe(scrollbar.linkedElementChild);
 
     // Define check variables
     var didClickStart = false, // Did the user click the handle?
@@ -143,7 +160,7 @@ function linkScrollbar() { // Link a scrollbar to the page
         lastScrollHeight = scrollbar.linkedElement.scrollHeight;
 
     // Start an interval loop to keep track of the scrollbar
-    scrollbar.interval = setInterval(function() {
+    scrollbar.refreshFunction = function() {
 
         // If the linked element's scroll-height has changed, update the scrollbar!
         if (scrollbar.linkedElement.scrollHeight != lastScrollHeight) {
@@ -158,7 +175,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, window.platform.special.intervalRefreshRate);
+    };
 
     // Set up the scrollbar handle events
     scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, { passive: true }); // Detect when the mouse is down
@@ -279,6 +296,6 @@ function linkScrollbar() { // Link a scrollbar to the page
 
     });
 
-    scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
+    //scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 
 }

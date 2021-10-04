@@ -6,17 +6,17 @@
 -->
 
 <!-- Use the refresh meta tag to redirect the page when JavaScript is disabled -->
-<resources></resources>
-<content>
+<resources>
 
     <noscript>
         <meta http-equiv="refresh" content="0;url=%{{server:url}}%/page/home/"/>
     </noscript>
 
     <!-- Redirect the page to the home folder -->
-    <script type="text/javascript">
-        window.location.dynamic.redirect("/page/home/");
-    </script>
+    <request type="file/js" src="${PageURL}/redirect.js"></request>
+
+</resources>
+<content>
 
     <a href="/page/home/">Redirecting the page...</a>
 

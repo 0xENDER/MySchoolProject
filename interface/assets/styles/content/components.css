@@ -30,6 +30,7 @@
     margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
     -webkit-overflow-scrolling: touch;
     display: flex;
+    -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
     scroll-padding: var(--global-sidesmargin);
     overflow-y: visible;
@@ -115,8 +116,8 @@
 .suggestions--card .suggestions--card-name {
     font-size: var(--suggestionscardname-fontsize);
     display: block;
-    width: -moz-fit-content;
     width: fit-content;
+    width: -moz-fit-content;
     margin-bottom: calc(var(--suggestionscard-padding) - 6px);
 }
 

@@ -16,50 +16,50 @@
     // The app's icons
     "icons": [{
 
-        "src": "./assets/media/logo/logo-48.svg",
+        "src": "./assets/media/logo/logo-48.svg?v=%{{global:codebase.version}}%",
         "sizes": "48x48",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo-72.svg",
+        "src": "./assets/media/logo/logo-72.svg?v=%{{global:codebase.version}}%",
         "sizes": "72x72",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo-96.svg",
+        "src": "./assets/media/logo/logo-96.svg?v=%{{global:codebase.version}}%",
         "sizes": "96x96",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo-144.svg",
+        "src": "./assets/media/logo/logo-144.svg?v=%{{global:codebase.version}}%",
         "sizes": "144x144",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo-168.svg",
+        "src": "./assets/media/logo/logo-168.svg?v=%{{global:codebase.version}}%",
         "sizes": "168x168",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo-192.svg",
+        "src": "./assets/media/logo/logo-192.svg?v=%{{global:codebase.version}}%",
         "sizes": "192x192",
         "type": "image/svg"
 
     }, {
 
-        "src": "./assets/media/logo/logo.svg",
+        "src": "./assets/media/logo/logo.svg?v=%{{global:codebase.version}}%",
         "sizes": "512x512",
         "type": "image/svg",
-        "purpose": "any maskable"
+        "purpose": "maskable"
 
     }, {
 
-        "src": "./assets/media/logo/logo.png",
+        "src": "./assets/media/logo/logo.png?v=%{{global:codebase.version}}%",
         "sizes": "512x512",
         "type": "image/png"
 

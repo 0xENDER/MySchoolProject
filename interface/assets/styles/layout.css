@@ -27,9 +27,6 @@ body {
 
 /* Hide unloaded stuff */
 
-
-/*[data-loaded="false"] .effect--skeleton,*/
-
 [data-loaded="false"].effect--skeleton,
 [data-extra-content-loaded="false"] .effect--content-skeleton,
 [data-loaded="false"].effect--content-skeleton {
@@ -225,6 +222,20 @@ body {
     border-left: var(--pagecover-topleftborder) solid var(--pagecontent-border);
 }
 
+.layout--pagecontent-child {
+    position: relative;
+    min-height: 100%;
+    height: fit-content;
+    height: -moz-fit-content;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+}
+
+.layout--pagecontent-child.state--error {
+    height: var(--pagecontent-height);
+}
+
 [data-extracontentloade="false"] .layout--pagecontent * {
     visibility: hidden !important;
 }
@@ -382,9 +393,9 @@ body {
 .layout--topbar-profile,
 .layout--topbar-username,
 .layout--topbar-button,
-[data-signedin="wait"] .layout--topbar-username,
-[data-signedin="wait"] .layout--topbar-profile,
-[data-signedin="wait"] .layout--topbar-button {
+[data-signed-in="wait"] .layout--topbar-username,
+[data-signed-in="wait"] .layout--topbar-profile,
+[data-signed-in="wait"] .layout--topbar-button {
     opacity: 0;
     position: fixed;
     -webkit-app-region: no-drag;
@@ -424,7 +435,7 @@ body {
     margin-right: var(--global-sidesmargin);
 }
 
-[data-signedin="true"] .layout--topbar-username {
+[data-signed-in="true"] .layout--topbar-username {
     display: var(--topbarusername-display);
     opacity: 1;
     position: relative;
@@ -434,17 +445,17 @@ body {
     display: none !important;
 }
 
-[data-signedin="true"] .layout--topbar-profile {
+[data-signed-in="true"] .layout--topbar-profile {
     display: flex;
     opacity: 1;
     position: relative;
 }
 
-[data-signedin="true"] .layout--topbar-button {
+[data-signed-in="true"] .layout--topbar-button {
     display: none;
 }
 
-[data-signedin="false"] .layout--topbar-button {
+[data-signed-in="false"] .layout--topbar-button {
     opacity: 1;
     position: relative;
     display: var(--topbarbutton-display);
@@ -454,7 +465,7 @@ body {
     display: none;
 }
 
-[data-signedin=false] .layout--topbar-options {
+[data-signed-in=false] .layout--topbar-options {
     opacity: 0.6;
     position: relative !important;
     width: 28px;

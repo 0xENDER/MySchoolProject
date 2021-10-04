@@ -9,4 +9,4 @@ const path = require("path"),
     replaceVariables = require("./module");
 
 // Call the custom variables module
-replaceVariables(path.join(__dirname, "..", "builds", "frameworks", "electron"), [".js", ".html", ".json", ".sh"], "electron");
+replaceVariables(path.join(__dirname, "..", "builds", "frameworks", "electron"), [".js", ".html", ".css", ".json", ".sh"], "electron");

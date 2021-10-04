@@ -16,4 +16,4 @@ var userSettings = { // The user settings
 
 };
 
-document.documentElement.dataset.signedin = true;
+document.documentElement.dataset.signedIn = true;

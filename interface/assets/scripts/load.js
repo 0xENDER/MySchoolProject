@@ -9,6 +9,7 @@ var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,
     didAlertAboutConnection = false,
     pageContentElement = document.getElementById("page"),
+    pageContentElementChild = document.getElementById("page--content"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
     connectionAPI = null,
     pageHTMLContent = null,
@@ -25,7 +26,10 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Load the rest of the CSS resources
-    document.head.appendChild(document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css" onload="document.documentElement.dataset.loaded = true; checkAgreement();">`));
+    var linkElement = document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css">`);
+    linkElement.children[0].onload = checkAgreement;
+    document.head.appendChild(linkElement);
+    delete linkElement;
 
     // Change the document dataset values
     document.documentElement.dataset.contentLoaded = false;
@@ -356,21 +360,6 @@ function fetchContent(sourceURLPathname) {
 
                                 }
 
-                                // Check what variable this one is
-                                if (attributes.get != undefined) {
-
-                                    return `null`;
-
-                                } else {
-
-                                    // Unknown request!
-                                    loadingFailed();
-
-                                    // Throw an error
-                                    throw new Error("Invalid request!");
-
-                                }
-
                             });
 
                             // Assing important IDs
@@ -379,7 +368,7 @@ function fetchContent(sourceURLPathname) {
                                 data = data.replace("<resources", "<div id=\"system--pageResources\"");
                                 data = data.replace("</resources>", "</div>");
                                 data = data.replace("<content", "<div id=\"system--pageContent\"");
-                                data = data.replace("</content>", "<script itemprop=\"pagecontent--loadingscript\" type=\"text/javascript\">contentDOMLoaded();</script>\n</div>");
+                                data = data.replace("</content>", "</div>");
 
                             } else {
 
@@ -388,47 +377,61 @@ function fetchContent(sourceURLPathname) {
 
                             }
 
-                            // Create a document fragment
-                            data = document.createRange().createContextualFragment(data);
+                            if (!didFail) {
 
-                            // Get the number of required resources in this page (first line)
-                            if (data.getElementById("system--pageResources") != null) {
+                                // Create a document fragment
+                                data = document.createRange().createContextualFragment(data);
 
-                                contentResourcesNumber = data.getElementById("system--pageResources").childElementCount;
+                                // Get the number of required resources in this page (first line)
+                                if (data.getElementById("system--pageResources") != null) {
 
-                            } else {
+                                    contentResourcesNumber = data.getElementById("system--pageResources").childElementCount;
 
-                                loadingFailed();
+                                } else {
+
+                                    loadingFailed();
+
+                                }
+
+                                // Inject the resources into the page
+                                var children = data.getElementById("system--pageResources").children;
+                                for (var i = 0; i < children.length; i++) {
+
+                                    children[i].onload = contentSourceLoaded;
+                                    children[i].onerror = function() {
+
+                                        loadingFailed('Page content resource failed to load');
+
+                                    };
+
+                                }
+                                pageContentElementChild.append(data.getElementById("system--pageResources"));
+
+                                // Delete the used variables
+                                delete children;
+
+                                // Prepare the page content for injection
+                                if (data.getElementById("system--pageContent") != null) {
+
+                                    pageHTMLContent = data.getElementById("system--pageContent");
+
+                                } else {
+
+                                    loadingFailed();
+
+                                }
+
+                                // The content has been loaded in!
+                                contentDOMLoaded();
+
+                                // If the number of required resources is 0, show the page content instantly!
+                                if (contentResourcesNumber == 0)
+                                    contentLoaded();
 
                             }
-
-                            // Inject the resources into the page
-                            var children = data.getElementById("system--pageResources").children;
-                            for (var i = 0; i < children.length; i++) {
-
-                                children[i].setAttribute("onload", "contentSourceLoaded();");
-                                children[i].setAttribute("onerror", "loadingFailed('Page content resource failed to load');");
-
-                            }
-                            pageContentElement.append(data.getElementById("system--pageResources"));
-
-                            // Prepare the page content for injection
-                            if (data.getElementById("system--pageContent") != null) {
-
-                                pageHTMLContent = data.getElementById("system--pageContent");
-
-                            } else {
-
-                                loadingFailed();
-
-                            }
-
-                            // If the number of required resources is 0, show the page content instantly!
-                            if (contentResourcesNumber == 0)
-                                contentLoaded();
 
                             // Delete the used variables
-                            delete pageElement, pageTitle, selectedSectionsItem, children;
+                            delete pageElement, pageTitle, selectedSectionsItem;
 
                         };
 
@@ -464,9 +467,12 @@ function loadingFailed(cause = null) {
         document.title = "Error | MyStore";
 
         // Change the page content
-        pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div><script type="text/javascript">contentDOMLoaded(); window.load();</script>`);
+        pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div>`);
 
         // Show the error message
+        pageContentElementChild.classList.add("state--error");
+        contentDOMLoaded();
+        window.load();
         contentLoaded();
 
     }
@@ -486,7 +492,10 @@ function contentLoaded() {
     // Inject the page content
     if (pageHTMLContent != null) {
 
-        pageContentElement.append(pageHTMLContent);
+        pageContentElementChild.append(pageHTMLContent);
+
+        // Update the scrollbar
+        window.updateScrollbar();
 
     }
     if (typeof window.oncontentinjection === "function") {
@@ -532,7 +541,9 @@ function isOnline() {
             } else {
 
                 // If the user is connected to a network, try to connect to the server of the store
-                fetch(window.platform.server + "/.server.test.connection", { method: 'HEAD' }, ).then(function(response) {
+                fetch(window.platform.server + "/connection.server.test", {
+                    method: 'HEAD'
+                }).then(function(response) {
 
                     // If the response was successful, then the user must be online. If not, then the user is offline.
                     resolve(response.ok);
@@ -641,7 +652,9 @@ window.unloadContent = function() {
     // Reset the page content
     didFail = false;
     pageHTMLContent = null;
-    pageContentElement.innerHTML = "";
+    pageContentElementChild.innerHTML = "";
+    pageContentElementChild.classList.remove("state--error");
+    window.updateScrollbar();
 
     // Reset the page loading events
     window.oncontentinjection = null;
@@ -659,6 +672,13 @@ window.unloadContent = function() {
 
     }
     delete selectedSectionsItem;
+
+    // Show the loading icon
+    setTimeout(function() {
+
+        coverLoadingIcon.style.opacity = 1;
+
+    }, 400);
 
 };
 
@@ -720,3 +740,13 @@ window.registerNewLink = function(linkElement) {
     }
 
 };
+
+document.addEventListener("securitypolicyviolation", (e) => {
+
+    // Show the error details in the console
+    console.log(e);
+
+    // Stop the page from show the faulty content
+    loadingFailed("CSP violation!");
+
+});

@@ -70,6 +70,8 @@
     outline-color: transparent;
     outline-style: none;
     -webkit-tap-highlight-color: transparent;
+    -moz-tap-highlight-color: transparent;
+    -ms-tap-highlight-color: transparent;
 }
 
 [data-tab="true"] *:focus-visible,
@@ -82,4 +84,16 @@
 
 a {
     color: var(--text-colour);
+}
+
+
+/* User-status-related elements */
+
+[data-signed-in="wait"] [data-signed="true"],
+[data-signed-in="false"] [data-signed="true"] {
+    display: none !important;
+}
+
+[data-signed-in="true"] [data-signed="false"] {
+    display: none !important;
 }

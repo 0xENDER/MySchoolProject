@@ -132,6 +132,7 @@
 .component--scrollbar:hover,
 .component--scrollbar:active {
     background-color: var(--scrollbar-background);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     transition: background-color 0.1s;
 }
