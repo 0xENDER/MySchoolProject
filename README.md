@@ -203,3 +203,4 @@ However, there is a restriction that applies to this repository. If you live in 
 ## More To Read
 
 [Apps Submission Requirements](./docs/apps_submission.md)
+[Page Content Documentation](./docs/page_content.md)
