@@ -26,7 +26,7 @@ var contentResourcesNumber = 0,
 window.addEventListener('load', function() {
 
     // Load the rest of the CSS resources
-    var linkElement = document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css">`);
+    var linkElement = document.createRange().createContextualFragment(`<link rel="stylesheet" href="./assets/styles/load.css?v=%{{global:codebase.version}}%">`);
     linkElement.children[0].onload = checkAgreement;
     document.head.appendChild(linkElement);
     delete linkElement;
@@ -282,15 +282,15 @@ function fetchContent(sourceURLPathname) {
                                                 // Get the component
                                                 if (requestFormat == "all") {
 
-                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css"><script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}/${attributes.get.value}.js" defer></script>`;
+                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%"><script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
 
                                                 } else if (requestFormat == "js") {
 
-                                                    return `<script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js" defer></script>`;
+                                                    return `<script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
 
                                                 } else if (requestFormat == "css") {
 
-                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css">`;
+                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%">`;
 
                                                 } else {
 
@@ -498,9 +498,9 @@ function contentLoaded() {
         window.updateScrollbar();
 
     }
-    if (typeof window.oncontentinjection === "function") {
+    if (typeof window.onpagecontentload === "function") {
 
-        window.oncontentinjection();
+        window.onpagecontentload();
 
     }
 
@@ -508,9 +508,9 @@ function contentLoaded() {
 
 function contentDOMLoaded() {
 
-    if (typeof window.onpagecontentload === "function") {
+    if (typeof window.oncontentinjection === "function") {
 
-        window.onpagecontentload();
+        window.oncontentinjection();
 
     }
 

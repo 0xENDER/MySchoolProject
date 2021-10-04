@@ -44,8 +44,12 @@ var cacheName = null,
         '/assets/styles/complex/alerts.css?v=%{{global:codebase.version}}%',
         '/assets/styles/complex/components.css?v=%{{global:codebase.version}}%',
         '/assets/styles/complex/layout.css?v=%{{global:codebase.version}}%',
-        '/assets/styles/content/components.css?v=%{{global:codebase.version}}%',
-        '/assets/styles/content/home/components.css?v=%{{global:codebase.version}}%',
+
+        // Cache components
+        '/components/basics.css?v=%{{global:codebase.version}}%',
+        '/components/home-page.css?v=%{{global:codebase.version}}%',
+        '/components/suggestions/cards.css?v=%{{global:codebase.version}}%',
+        '/components/suggestions/cards.js?v=%{{global:codebase.version}}%'
 
     ];
 

@@ -7,10 +7,13 @@
 
 <!-- Load the resources -->
 <resources>
-    <request type="file/css" src="./assets/styles/content/components.css"></request>
-    <request type="file/css" src="./assets/styles/content/home/components.css"></request>
+    <!-- Components -->
+    <request type="component/css" get="basics"></request>
+    <request type="component/css" get="home-page"></request>
+    <request type="component/all" get="suggestions/cards"></request>
+
+    <!-- Loading scripts -->
     <request type="file/js" src="${PageURL}/load.js"></request>
-    <request type="component/js" get="suggestions/cards"></request>
 </resources>
 
 <content>
@@ -39,217 +42,273 @@
     </div>
     <div class="component--section suggestions--section" no-scrollbar>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
@@ -260,329 +319,401 @@
     </div>
     <div class="component--section suggestions--section" no-scrollbar>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>
         </div>
         <div class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo effect--content-skeleton effect--contentskeleton-two" data-loaded="false" alt="App's logo">
-            <text class="suggestions--card-name effect--content-skeleton effect--contentskeleton-two" data-loaded="false">Name</text>
-            <div class="suggestions--card-extra effect--content-skeleton effect--contentskeleton-two" data-loaded="false">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
+                <text class="suggestions--cardextra-size">250MB</text>
+                <text class="suggestions--cardextra-price">5.00$</text>
+            </div>
+        </div>
+        <div class="component--card suggestions--card" clickable tabindex="0">
+            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo">
+            <text class="suggestions--card-name" data-loaded="false">Name</text>
+            <div class="suggestions--card-extra" data-loaded="false">
                 <text class="suggestions--cardextra-size">250MB</text>
                 <text class="suggestions--cardextra-price">5.00$</text>
             </div>

@@ -27,13 +27,11 @@ body {
 
 /* Hide unloaded stuff */
 
-[data-loaded="false"].effect--skeleton,
+
+/*[data-loaded="false"].effect--skeleton,
 [data-extra-content-loaded="false"] .effect--content-skeleton,
 [data-loaded="false"].effect--content-skeleton {
     color: transparent;
-    position: relative;
-    opacity: 1 !important;
-    transition: all 0s !important;
 }
 
 [data-loaded="false"].effect--skeleton {
@@ -41,9 +39,8 @@ body {
     background-color: transparent !important;
 }
 
-[data-loaded="false"].effect--skeleton:after,
-[data-extra-content-loaded="false"] .effect--content-skeleton:after,
-[data-loaded="false"].effect--content-skeleton:after {
+.effect--skeleton:after,
+.effect--content-skeleton:after {
     content: "";
     display: block;
     position: absolute;
@@ -52,25 +49,38 @@ body {
     right: 0px;
     left: 0px;
     border-radius: 6px;
+    transition: background-color 0.1s;
+    pointer-events: none !important;
+}
+
+[data-loaded="true"].effect--skeleton:after,
+[data-extra-content-loaded="true"] .effect--content-skeleton:after,
+[data-loaded="true"].effect--content-skeleton:after {
+    background-color: transparent;
 }
 
 [data-loaded="false"].effect--skeleton:after,
 [data-extra-content-loaded="false"] .effect--content-skeleton:after,
 [data-loaded="false"].effect--content-skeleton:after {
     background-color: var(--skeleton-colour1);
-    animation: none !important;
 }
 
 [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
 [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
     background-color: var(--skeleton-colour3);
-    animation: none !important;
 }
 
 [data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
 [data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
     background-color: var(--skeleton-colour5);
-    animation: none !important;
+}*/
+
+[data-loaded] {
+    transition: opacity 0.16s !important;
+}
+
+[data-loaded="false"] {
+    opacity: 0 !important;
 }
 
 
@@ -237,6 +247,11 @@ body {
 }
 
 [data-extracontentloade="false"] .layout--pagecontent * {
+    visibility: hidden !important;
+}
+
+.layout--pagecontent #system--pageResources {
+    display: none !important;
     visibility: hidden !important;
 }
 

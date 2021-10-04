@@ -1,0 +1,49 @@
+/*
+
+    All the basic components
+
+*/
+
+
+/* Sections */
+
+.component--section {
+    width: calc(100% - var(--global-sidesmargin)*2);
+    min-height: 10px;
+    margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--global-sidesmargin);
+    overflow-y: visible;
+    overflow-x: auto;
+    height: fit-content;
+}
+
+
+/* Cards */
+
+.component--card {
+    background-color: var(--cards-background);
+    scroll-snap-align: start;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    transition: all 0s;
+}
+
+.component--card:hover {
+    transition: opacity 0.1s;
+    border: 1px solid var(--cards-border);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+.component--card:active {
+    transition: opacity 0.1s;
+    border: 1px solid var(--cards-border);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.5;
+}
