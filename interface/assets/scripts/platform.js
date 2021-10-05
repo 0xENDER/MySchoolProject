@@ -62,9 +62,35 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
+    device: {
+
+        isTablet: false,
+        isMobile: false,
+        isConsole: false,
+        isDesktop: false
+
+    },
+
     hardware: {
 
-        hasTouchScreen: window.matchMedia != undefined && window.matchMedia("(pointer: coarse)").matches, // Does this device have a touch screen?
+        hasTouchScreen: ( // Does this device have a touch screen?
+            (window.matchMedia != undefined && (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in document.documentElement)) ||
+            (window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0)
+        ),
+        hasMouse: window.matchMedia != undefined && matchMedia('(pointer:fine)').matches,
+        hasKeybord: false,
+        controllers: {
+
+            hasController: false,
+            number: 0
+
+        },
+        connection: {
+
+            effectiveType: navigator.connection.effectiveType // 'slow-2g', '2g', '3g', or '4g'.
+
+        },
+        supportsBluetooth: 'bluetooth' in navigator,
         memory: {
 
             capacity: ('deviceMemory' in navigator) ? navigator.deviceMemory : null
@@ -115,9 +141,27 @@ if (localStorage.getItem("LastVisitVersion") != window.platform.codebase.version
 
 }
 
+// Get the device type (modified version of https://github.com/PoeHaH/devicedetector/blob/master/devicedetector-production.js)
+var userAgent = navigator.userAgent.toLowerCase();
+if (/(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)) {
 
-// Start analysing the user agent string
+    window.platform.device.isTablet = true;
 
+} else if (/(mobi|ipod|phone|blackberry|opera mini|fennec|minimo|symbian|psp|nintendo ds|archos|skyfire|puffin|blazer|bolt|gobrowser|iris|maemo|semc|teashark|uzard)/.test(userAgent)) {
+
+    window.platform.device.isMobile = true;
+
+} else if (/(xbox|playstation|nintendo)/.test(userAgent)) {
+
+    window.platform.device.isConsole = true;
+
+} else {
+
+    window.platform.device.isDesktop = true;
+
+}
+
+// Detect the user's OS
 if (navigator.appVersion.indexOf("Win") != -1)
 
     window.platform.type.isWindows = true;
@@ -151,25 +195,29 @@ else
     window.platform.type.isOther = true;
 
 // Check the processor architecture
-
 if (navigator.appVersion.indexOf("x86_64") != -1 ||
     navigator.appVersion.indexOf("x64") != -1 ||
-    navigator.appVersion.indexOf("armv8") != -1)
+    navigator.appVersion.indexOf("armv8") != -1) {
 
     window.platform.architecture.is64 = true;
 
-else if (navigator.appVersion.indexOf("x86_32") != -1 ||
+} else if (navigator.appVersion.indexOf("x86_32") != -1 ||
     navigator.appVersion.indexOf("x86") != -1 ||
     navigator.appVersion.indexOf("x32") != -1 ||
-    navigator.appVersion.indexOf("armv7") != -1)
+    navigator.appVersion.indexOf("armv7") != -1) {
 
     window.platform.architecture.is32 = true;
 
-else
+} else {
+
     window.platform.architecture.isOther = true;
 
-if (navigator.appVersion.indexOf("armv") != -1)
+}
+if (navigator.appVersion.indexOf("armv") != -1) {
+
     window.platform.architecture.isARM = true;
+
+}
 
 // Note: `navigator.appVersion` is gonna get replaced by `navigator.userAgentData` soon
 // Migrate to `navigator.userAgentData` once it's supported by all modern browsers!
@@ -203,5 +251,57 @@ if (window.platform.rendering.isBlink) {
 } else {
 
     document.documentElement.dataset.renderingEngine = "unknown";
+
+}
+
+// Get info about the user's hardware
+function updateGamepads() {
+
+    // Get all the available gamepads
+    var gamepads = navigator.getGamepads();
+
+    // Go through the list of gamepads (max 4, use `.length` as a precaution)
+    for (var i = 0; i < gamepads.length; i++) {
+
+        if (gamepads[i] != null) {
+
+            window.platform.hardware.controllers.number++;
+
+        }
+
+    }
+    window.platform.hardware.controllers.hasController = window.platform.hardware.controllers.number != 0;
+
+    // Delete all the used variables
+    delete gamepads;
+
+}
+window.addEventListener("gamepadconnected", updateGamepads);
+window.addEventListener("gamepaddisconnected", updateGamepads);
+updateGamepads();
+
+// Get info about the user's hardware (web & native)
+if (!window.platform.isApp) {
+
+    function detectKeybordEvent(e) {
+
+        console.log(e);
+
+        // Change the keybord hardware value
+        window.platform.hardware.hasKeybord = true;
+
+        // Remove the event listeners
+        window.removeEventListener("keydown", detectKeybordEvent);
+        window.removeEventListener("keyup", detectKeybordEvent);
+
+    }
+
+    window.addEventListener("keydown", detectKeybordEvent);
+    window.addEventListener("keyup", detectKeybordEvent);
+
+} else {
+
+    //...
+    //Use the custom window.hardware API!!!!
 
 }

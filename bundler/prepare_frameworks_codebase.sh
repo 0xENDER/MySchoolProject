@@ -13,6 +13,7 @@ if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
     cp -R "apps_codebase/assets/" "builds/frameworks/electron/"
     cp -R "apps_codebase/pages/" "builds/frameworks/electron/"
     cp -R "apps_codebase/components/" "builds/frameworks/electron/"
+    cp -R "apps_codebase/shared/" "builds/frameworks/electron/"
     cp -R "apps_codebase/electron/" "builds/frameworks/electron/"
 #
 fi
@@ -22,6 +23,7 @@ if [ $FRAMEWORK_REACT -eq 1 ]; then
     cp -R "apps_codebase/assets/" "builds/frameworks/react/"
     cp -R "apps_codebase/pages/" "builds/frameworks/react/"
     cp -R "apps_codebase/components/" "builds/frameworks/react/"
+    cp -R "apps_codebase/shared/" "builds/frameworks/react/"
     cp -R "apps_codebase/react/" "builds/frameworks/react/"
 #
 fi

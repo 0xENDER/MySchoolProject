@@ -9,6 +9,9 @@ BUILD_IOS=$3
 ## Navigate to the framework's build directory
 cd "builds/frameworks/react/"
 #
+## Install all the shared NodeJS modules
+"./shared/build.sh" $DEBUG_MODE
+#
 ## Install all the NodeJS modules
 "./react/build.sh" $DEBUG_MODE $BUILD_ANDROID $BUILD_IOS
 #

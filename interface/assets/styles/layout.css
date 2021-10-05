@@ -27,54 +27,6 @@ body {
 
 /* Hide unloaded stuff */
 
-
-/*[data-loaded="false"].effect--skeleton,
-[data-extra-content-loaded="false"] .effect--content-skeleton,
-[data-loaded="false"].effect--content-skeleton {
-    color: transparent;
-}
-
-[data-loaded="false"].effect--skeleton {
-    border-color: transparent !important;
-    background-color: transparent !important;
-}
-
-.effect--skeleton:after,
-.effect--content-skeleton:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    border-radius: 6px;
-    transition: background-color 0.1s;
-    pointer-events: none !important;
-}
-
-[data-loaded="true"].effect--skeleton:after,
-[data-extra-content-loaded="true"] .effect--content-skeleton:after,
-[data-loaded="true"].effect--content-skeleton:after {
-    background-color: transparent;
-}
-
-[data-loaded="false"].effect--skeleton:after,
-[data-extra-content-loaded="false"] .effect--content-skeleton:after,
-[data-loaded="false"].effect--content-skeleton:after {
-    background-color: var(--skeleton-colour1);
-}
-
-[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-one:after,
-[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-one:after {
-    background-color: var(--skeleton-colour3);
-}
-
-[data-extra-content-loaded="false"] .effect--content-skeleton.effect--contentskeleton-two:after,
-[data-loaded="false"].effect--content-skeleton.effect--contentskeleton-two:after {
-    background-color: var(--skeleton-colour5);
-}*/
-
 [data-loaded] {
     transition: opacity 0.16s !important;
 }
@@ -217,7 +169,7 @@ body {
 
 .layout--pagecontent,
 .layout--pagecover {
-    position: fixed;
+    position: absolute;
     top: var(--topbar-height);
     right: 0px;
     left: var(--pagecontent-left);
@@ -230,6 +182,12 @@ body {
     border-radius: var(--pagecontent-corner) 0px 0px 0px;
     border-top: var(--pagecover-topleftborder) solid var(--pagecontent-border);
     border-left: var(--pagecover-topleftborder) solid var(--pagecontent-border);
+}
+
+.layout--pagecontent {
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .layout--pagecontent-child {

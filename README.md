@@ -33,6 +33,10 @@
   - [ ] MacOS (Electron)
   - [ ] _~~Android (React)~~ **(!)**_
   - [ ] _~~iOS (React)~~ **(!)**_
+- [ ] Apps and Games compatibility checks
+  - [ ] Add mandatory compatibility metrics
+  - [ ] Add preferred compatibility metrics
+  - [ ] Add optional compatibility metrics
 - [ ] A built-in package management and installation system
   - [ ] Create an installation package for apps (`.mypack` or something like that)
   - [ ] _~~Verify the app developer~~ **(!)**_
