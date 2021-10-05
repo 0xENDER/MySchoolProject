@@ -18,7 +18,6 @@ cp "apps_codebase/index.html" "builds/web/"
 cp "apps_codebase/layout.html" "builds/web/"
 cp "apps_codebase/manifest.webmanifest" "builds/web/"
 cp "apps_codebase/robots.txt" "builds/web/"
-cp "apps_codebase/sitemap.xml" "builds/web/"
 cp "apps_codebase/worker.js" "builds/web/"
 #
 ## Generate the sitmap
