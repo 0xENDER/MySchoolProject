@@ -197,8 +197,9 @@ However, there is a restriction that applies to this repository. If you live in 
 
 ## Credits
 
-- *The icons: [Evericons](https://freebiesui.com/figma-freebies/figma-icons/460-free-minimalistic-icons/)*
-- *The font: [Google Fonts](https://fonts.google.com)*
+The icons: [Evericons](http://www.evericons.com/)
+
+The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fonts.google.com/?query=Daniel%20Johnson) (Principal design), and [Cyreal](https://fonts.google.com/?query=Cyreal).
 
 ## More To Read
 
