@@ -25,6 +25,7 @@
   - [ ] A caching system (with service workers)
   - [x] Desktop layout
   - [ ] Mobile devices layout
+  - [ ] Optimise for low-performing devices
 - [ ] Support the store on mutiple platforms:
   - [x] The web
   - [ ] PWA (Progressive Web Application)
