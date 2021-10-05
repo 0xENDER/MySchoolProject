@@ -37,6 +37,7 @@
   - [ ] Add mandatory compatibility metrics
   - [ ] Add preferred compatibility metrics
   - [ ] Add optional compatibility metrics
+  - [ ] Organise all the avaliable compatibility metrics into two categories: reliable, and experimental!
 - [ ] A built-in package management and installation system
   - [ ] Create an installation package for apps (`.mypack` or something like that)
   - [ ] _~~Verify the app developer~~ **(!)**_
