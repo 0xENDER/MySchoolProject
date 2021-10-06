@@ -96,3 +96,102 @@ All the elements that you'd typically use inside the `body` element should be us
 ```
 
 > Note: You can only have one `content` element inside your page! If you add more than one `content` element, only the first one will be used.
+
+## Loading content in JavaScript
+
+Every page needs to have a loading script. The loading script is used to ignite the loading chain of the page's content. There are several functions that you can use:
+
+### The `uncover` function
+
+The `uncover` function is used to tell the page that your content can be visible to the user now.
+
+```js
+window.uncover();
+```
+
+### The `load` function
+
+The `load` function is used to tell the page that your content has fully finished loading.
+
+```js
+window.load();
+```
+
+### Content injection event
+
+The `contentinjection` event fires when your page content has been injected into the page. This event is useful when your scripts include DOM-related tasks.
+
+```js
+window.oncontentinjection = function() {
+
+    // Do some stuff
+    ...
+
+    // Uncover the content
+    window.uncover();
+
+};
+```
+
+### Content loading event
+
+The `pagecontentload` event fires when your page content has been fully loaded. (that includes scripts and stylesheets)
+
+```js
+window.onpagecontentload = function() {
+
+    // Do some stuff
+    ...
+
+    // Load the whole page
+    window.load();
+
+};
+```
+
+### Unload list
+
+The unload list is used to point to global objects, functions, and variables that need to be unloaded once the page is unloaded.
+
+```js
+var myObject = {...};
+window.unloading.add("myObject");
+```
+
+You can cancel the removal of an object using the `remove` function:
+
+```js
+window.unloading.remove("myObject");
+```
+
+### Unload functions
+
+Unload functions are functions that are used to do some tasks before unloading the page.
+
+> Note: these functions are meant to remove DOM events that can still affect the main layout once the page is unloaded.
+
+```js
+window.unloading.append(function() {
+
+    // Do some stuff
+    ...
+
+});
+```
+
+### Registering new links
+
+You need to register new `<a>` elements that are embedded into the page after the `uncover` function is executed.
+
+```js
+var myLink = document.getElementById("myLink");
+window.registerNewLink(myLink);
+```
+
+### Forbidden global names
+
+There are some forbidden global names, as the website's main scripts use these names. These names are:
+
+`uncover`, `load`, `platform`, `api`, `updateScrollbar`, `didFail`, `unloading`, `unloadContent`, and `location.dynamic`.
+
+And you're not allowed to change the value of the website's main functions that are made to help the page content load. (e.g. `registerNewLink`)

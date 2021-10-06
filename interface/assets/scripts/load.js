@@ -19,7 +19,10 @@ var contentResourcesNumber = 0,
         canUnload: true
 
     },
-    unload = [],
+    unload = {
+        functions: [],
+        objects: []
+    },
     didFail = false;
 
 // Wait for the main layout to finish loading
@@ -45,6 +48,15 @@ window.addEventListener('load', function() {
 
 // Set the window content load function
 window.uncover = function() {
+
+    // Register all the links
+    var linkElements = pageContentElementChild.getElementsByTagName("a");
+    for (var i = 0; i < linkElements.length; i++) {
+
+        window.registerNewLink(linkElements[i]);
+
+    }
+    delete linkElements;
 
     // Run the initial events
     initialEvents();
@@ -212,7 +224,7 @@ function fetchContent(sourceURLPathname) {
                             // Update the page title
                             var pageTitle = pageElement.getAttribute("title");
                             if (pageTitle != null)
-                                document.title = pageTitle + " | MyStore";
+                                document.title = pageTitle + " | %{{global:appInfo.name}}%";
 
                             // Check the page requirements
                             pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
@@ -464,7 +476,7 @@ function loadingFailed(cause = null) {
         didFail = true;
 
         // Change the page title
-        document.title = "Error | MyStore";
+        document.title = "Error | %{{global:appInfo.name}}%";
 
         // Change the page content
         pageHTMLContent = document.createRange().createContextualFragment(`<div style="width: calc(100% - var(--global-sidesmargin) * 2); height: calc(100% - var(--global-sidesmargin) * 2); margin: var(--global-sidesmargin); display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;"><svg width="36" height="36" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8ZM9.00361 10.9983H7.00295V6.99835H9.00361V10.9983ZM9.00066 4.99835C9.00066 5.55063 8.55279 5.99835 8.00033 5.99835C7.44786 5.99835 7 5.55063 7 4.99835C7 4.44606 7.44786 3.99835 8.00033 3.99835C8.55279 3.99835 9.00066 4.44606 9.00066 4.99835Z" fill="var(--colours-primary2)"/></svg><h2>Failed to load this page!</h2><h4>An error occurred whilst trying to load this page. This may be a temporary error, try again later.</h4></div>`);
@@ -612,10 +624,37 @@ function updateOnlineStatus() {
 
 }
 
-// Allow the page content to add "unload functions"
-window.addUnloadObject = function(unloadFunction) {
+// Define the "unloading" object
+window.unloading = {
+    append: null,
+    add: null,
+    remove: null
+}
 
-    unload.push(unloadFunction);
+// Allow the page content to add "unload functions"
+window.unloading.append = function(unloadFunction) {
+
+    unload.functions.push(unloadFunction);
+
+};
+
+// Add and remove objects to the unloading list
+window.unloading.add = function(objectName) {
+
+    unload.objects.push(objectName);
+
+};
+window.unloading.remove = function(objectName) {
+
+    for (var i = 0; i < unload.objects.length; i++) {
+
+        if (unload.objects[i] == objectName) {
+
+            delete unload.objects[i];
+
+        }
+
+    }
 
 };
 
@@ -623,21 +662,32 @@ window.addUnloadObject = function(unloadFunction) {
 window.unloadContent = function() {
 
     // Keep going through all the "unload objects"
-    while (unload.length != 0) {
+    while (unload.functions.length != 0) {
 
         // Remove the "unload object" from the `unload` array
-        var object = unload.shift();
+        var func = unload.functions.shift();
 
-        // Check the object type
-        if (typeof object == "function") {
-
-            // Call the "unload function"
-            object();
-
-        }
+        // Call the "unload function"
+        func();
 
         // Delete the object
-        delete object;
+        delete func;
+
+    }
+
+    // Keep going through all the "unload objects"
+    while (unload.objects.length != 0) {
+
+        // Get the object name
+        var objectName = unload.objects.shift();
+
+        // Delete the object
+        if (objectName != undefined) {
+
+            delete window[objectName];
+
+        }
+        delete objectName;
 
     }
 
@@ -686,7 +736,7 @@ window.unloadContent = function() {
 window.location.dynamic = {
 
     // Redirect the page dynamically
-    redirect(url) {
+    redirect(url, changeURL = true) {
 
         // Check if the current page can be unloaded
         if (pageFlags.canUnload) {
@@ -698,7 +748,11 @@ window.location.dynamic = {
             loadContentFromSrc(url);
 
             // Push the new URL state
-            window.history.pushState("", "", url);
+            if (changeURL) {
+
+                window.history.pushState("", "", url);
+
+            }
 
             // Change the value of `didLoadDynamically`
             this.didLoadDynamically = true;
@@ -714,6 +768,13 @@ window.location.dynamic = {
     didLoadDynamically: false
 
 };
+
+// Detect URL changes (back/forward)
+window.addEventListener('popstate', function(e) {
+
+    window.location.dynamic.redirect(window.location.pathname, false);
+
+});
 
 // Register new <a> elements
 window.registerNewLink = function(linkElement) {

@@ -48,7 +48,14 @@
     border-radius: 12px;
     padding: var(--alertscard-paddingtopbottom) var(--alertscard-paddingleftright);
     text-align: center;
+}
+
+[data-rendering-mode="high"] .alerts--container .alerts--card {
     box-shadow: 0px 2px 38px var(--alertscard-shadow);
+}
+
+[data-rendering-mode="low"] .alerts--container .alerts--card {
+    box-shadow: 0px 2px 18px var(--alertscard-shadow);
 }
 
 .alerts--container .alerts--card .alerts--title {

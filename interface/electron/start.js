@@ -110,7 +110,7 @@ function createWindow() {
         //titleBarStyle: 'hidden',
         center: true,
         fullscreenable: false,
-        title: "MyStore",
+        title: "%{{global:appInfo.name}}%",
         icon: path.join(__dirname, '..', 'assets', 'media', 'logo', 'apple-touch-icon.png')
 
     });

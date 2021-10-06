@@ -146,18 +146,22 @@ var userAgent = navigator.userAgent.toLowerCase();
 if (/(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)) {
 
     window.platform.device.isTablet = true;
+    document.documentElement.dataset.deviceType = "tablet";
 
 } else if (/(mobi|ipod|phone|blackberry|opera mini|fennec|minimo|symbian|psp|nintendo ds|archos|skyfire|puffin|blazer|bolt|gobrowser|iris|maemo|semc|teashark|uzard)/.test(userAgent)) {
 
     window.platform.device.isMobile = true;
+    document.documentElement.dataset.deviceType = "mobile";
 
 } else if (/(xbox|playstation|nintendo)/.test(userAgent)) {
 
     window.platform.device.isConsole = true;
+    document.documentElement.dataset.deviceType = "console";
 
 } else {
 
     window.platform.device.isDesktop = true;
+    document.documentElement.dataset.deviceType = "desktop";
 
 }
 
@@ -219,6 +223,57 @@ if (navigator.appVersion.indexOf("armv") != -1) {
 
 }
 
+// Get info about the user's hardware
+function updateGamepads() {
+
+    // Get all the available gamepads
+    var gamepads = navigator.getGamepads();
+
+    // Go through the list of gamepads (max 4, use `.length` as a precaution)
+    for (var i = 0; i < gamepads.length; i++) {
+
+        if (gamepads[i] != null) {
+
+            window.platform.hardware.controllers.number++;
+
+        }
+
+    }
+    window.platform.hardware.controllers.hasController = window.platform.hardware.controllers.number != 0;
+
+    // Delete all the used variables
+    delete gamepads;
+
+}
+window.addEventListener("gamepadconnected", updateGamepads);
+window.addEventListener("gamepaddisconnected", updateGamepads);
+updateGamepads();
+
+// Get info about the user's hardware (web & native)
+if (!window.platform.isApp) {
+
+    function detectKeybordEvent() {
+
+        // Change the keybord hardware value
+        window.platform.hardware.hasKeybord = true;
+
+        // Remove the event listeners
+        window.removeEventListener("keydown", detectKeybordEvent);
+        window.removeEventListener("keyup", detectKeybordEvent);
+
+    }
+
+    // Add the event listeners
+    window.addEventListener("keydown", detectKeybordEvent);
+    window.addEventListener("keyup", detectKeybordEvent);
+
+} else {
+
+    //...
+    //Use the custom window.hardware API!!!!
+
+}
+
 // Note: `navigator.appVersion` is gonna get replaced by `navigator.userAgentData` soon
 // Migrate to `navigator.userAgentData` once it's supported by all modern browsers!
 
@@ -251,57 +306,5 @@ if (window.platform.rendering.isBlink) {
 } else {
 
     document.documentElement.dataset.renderingEngine = "unknown";
-
-}
-
-// Get info about the user's hardware
-function updateGamepads() {
-
-    // Get all the available gamepads
-    var gamepads = navigator.getGamepads();
-
-    // Go through the list of gamepads (max 4, use `.length` as a precaution)
-    for (var i = 0; i < gamepads.length; i++) {
-
-        if (gamepads[i] != null) {
-
-            window.platform.hardware.controllers.number++;
-
-        }
-
-    }
-    window.platform.hardware.controllers.hasController = window.platform.hardware.controllers.number != 0;
-
-    // Delete all the used variables
-    delete gamepads;
-
-}
-window.addEventListener("gamepadconnected", updateGamepads);
-window.addEventListener("gamepaddisconnected", updateGamepads);
-updateGamepads();
-
-// Get info about the user's hardware (web & native)
-if (!window.platform.isApp) {
-
-    function detectKeybordEvent(e) {
-
-        console.log(e);
-
-        // Change the keybord hardware value
-        window.platform.hardware.hasKeybord = true;
-
-        // Remove the event listeners
-        window.removeEventListener("keydown", detectKeybordEvent);
-        window.removeEventListener("keyup", detectKeybordEvent);
-
-    }
-
-    window.addEventListener("keydown", detectKeybordEvent);
-    window.addEventListener("keyup", detectKeybordEvent);
-
-} else {
-
-    //...
-    //Use the custom window.hardware API!!!!
 
 }

@@ -67,7 +67,6 @@
 
 .suggestions--card .suggestions--card-logo {
     display: block;
-    background-color: var(--suggestionscardlogo-background);
     width: 100%;
     height: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
     border-radius: 10px;

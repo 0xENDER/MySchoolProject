@@ -31,3 +31,10 @@ window.onpagecontentload = function() {
     window.load();
 
 };
+
+// Add an unloading function
+window.unloading.append(function() {
+
+    console.log("Oh no!");
+
+});

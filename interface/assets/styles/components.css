@@ -12,6 +12,7 @@
     --scrollbarbuttons-pointerevents: auto;
     --componentcover-height: calc(96vh - var(--topbar-height));
     --componentbutton-padding: 10px 24px;
+    --scrollbar-display: flex;
 }
 
 @media all and (max-width: 840px) {
@@ -22,6 +23,11 @@
         --componentcover-height: calc(96vh - var(--topbar-height) - var(--sectionsbar-height));
         --componentbutton-padding: 14px 32px;
     }
+}
+
+[data-device-type="mobile"]:root,
+[data-device-type="tablet"]:root {
+    --scrollbar-display: none;
 }
 
 
@@ -60,7 +66,7 @@ button.component--button.component--button-primary {
     bottom: 0px;
     width: var(--scrollbar-width);
     height: var(--scrollbar-height);
-    display: flex;
+    display: var(--scrollbar-display) !important;
     flex-direction: column;
     justify-content: flex-start;
 }

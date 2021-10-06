@@ -1,0 +1,247 @@
+{
+
+    // The program name
+    "name": "MyApp",
+
+    // The long program name
+    "longname": "MyApp: Short Text",
+
+    // The program description
+    "description": "My app is a cool app! It can help you!",
+
+    // The program's short description
+    "shortdescription": "My app is a cool app! It can help you get things done! You can do this and that, you can never have enough of it!",
+
+    // The program type
+    "type": "app", // The avaliable program types are: "app", and "game".
+
+    // The program category
+    "category": "Tools",
+    /*
+
+    For apps, the avaliable categories are:
+        "Art and Design", "Auto and Vehicles", "Beauty", "Books and Reference", "Business",
+        "Comics", "Communications", "Dating", "Education", "Entertainment", "Events", "Finance",
+        "Food and Drink", "Health and Fitness", "House and Home", "Libraries and Demo",
+        "Lifestyle", "Maps and Navigation", "Medical", "Music and Audio", "News and Magazines",
+        "Parenting", "Personalization", "Photography", "Productivity", "Shopping", "Social",
+        "Sports", "Tools", "Travel and Local", "Video Players and Editors", "Weather", and "Other".
+
+    For games, the avaliable categories are:
+        "Action", "Adventure", "Arcade", "Board", "Card", "Casino", "Casual", "Educational",
+        "Music", "Puzzle", "Racing", "Role Playing", "Simulation", "Sports", "Strategy", "Trivia",
+        "Word", and "Other".
+
+    */
+
+    // The program's media (logos, screenshots, etc.)
+    "media": {
+
+        // The program's logo
+        "logo": {
+
+            "x72": ".../media/72x72.webp",
+            "x96": ".../media/96x96.webp",
+            "x144": ".../media/144x144.webp",
+            "x168": ".../media/168x168.webp",
+            "x192": ".../media/192x192.webp",
+            "x248": ".../media/248x248.webp",
+            "x512": ".../media/512x512.webp"
+
+        },
+
+        // The program's cover
+        "cover": {
+
+            // The cover image (can be set to `null`)
+            "image": ".../media/cover/image.webp",
+
+            // The cover video (can be set to `null`)
+            "video": ".../media/cover/video.mp4",
+
+            // The cover colour
+            "color": "000000"
+
+        },
+
+        // The program's screenshots
+        "screenshots": {
+
+            // Desktop screenshots
+            "desktop": [
+
+                "../media/screenshots/desktop-1.webp",
+                "../media/screenshots/desktop-2.webp",
+                "../media/screenshots/desktop-3.webp"
+
+            ],
+
+            // Tablet screenshots
+            "tablet": [
+
+                "../media/screenshots/tablet-1.webp",
+                "../media/screenshots/tablet-2.webp",
+                "../media/screenshots/tablet-3.webp"
+
+            ],
+
+            // Mobile screenshots
+            "mobile": [
+
+                "../media/screenshots/mobile-1.webp",
+                "../media/screenshots/mobile-2.webp",
+                "../media/screenshots/mobile-3.webp"
+
+            ]
+
+        },
+
+        // The program's ad/video
+        "video": {
+
+            // For desktop
+            "desktop": "../media/videos/desktop.mp4",
+
+            // For tablets
+            "tablet": "../media/videos/tablet.mp4",
+
+            // For mobiles
+            "mobile": "../media/videos/mobile.mp4"
+
+        }
+
+    },
+
+    // The program owner
+    "owner": "Me Inc.",
+
+    // The developer's info
+    "developer": {
+
+        "name": "Me!",
+        "email": "me@mydomain.net",
+        "website": "https://mydomain.net/",
+        "bugs": "https://mydomain.net/bugs/",
+        "feedback": "https://mydomain.net/feedback/"
+
+    },
+
+    "rating": "RP", // Refer to "https://www.esrb.org/ratings-guide/"
+    /*
+    All the supported ratings are:
+    "E" - everyone
+    "E10+" - everyone 10+
+    "T" - Teen
+    "M" - Mature
+    "AO18+" - Adults Only (18+)
+    "RP" - Rating Pending/Not Rated (not recommended)
+    */
+
+    // Terms
+    "terms": [
+
+        ["My Terms", "https://mydomain.net/terms/1/"],
+        ["My Other Terms", "https://mydomain.net/terms/2/"]
+    
+    ],
+    
+
+    // The license
+    "license": "MIT", // refer to "https://en.wikipedia.org/wiki/Software_license" for more info
+
+    // The supported platforms
+    "platforms": ["windows", "mac", "linux", "android", "ios"],
+
+    // The supported architectures
+    "architectures": ["64x", "32x", "64-ARM", "32-ARM"],
+
+    // Permissions
+    "permissions": [
+
+        "CALENDAR",
+        "BODY-SENSORS"
+        /*
+            - Physical activity
+            - Body sensors
+            - Calendar
+            - Contacts
+            - Microphone
+            - Camera
+            - Files and media
+            - Location
+            - Bluetooth
+            - Other
+        */
+
+    ],
+
+    // The program requirements
+    "requirements": {
+
+        // All the values here should be in an array!
+        // - The first array member is the minimal requirement -
+        // - The second array member is the preferred requirement -
+        // If the second array member is absent, then its value will be the value of the first member
+
+        // Hardware requirements
+        "hardware": {
+
+            "keyboard": [ // Does this program require a keyboard
+                false
+            ],
+            "mouse": [ // Does this program require a mouse
+                false
+            ],
+            "touchInput": [ // Does this program require touch-input support (a touch screen)
+                false
+            ],
+            "controllers": [
+                [1, 4]  // [0,0] - a controller is not needed
+                        // [1,n] - 1 to n controllers needed (1 < n < 5)
+            ],
+            "memoryCapacity": [ // How much should the RAM capacity be?
+                4, // 4GB
+                8 // 8GB
+            ]
+
+        },
+
+        // Software requirements
+        "software": {
+
+            "os": {
+
+                "windows": [ // refer to "https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions" (NT version)
+                    "7.0",
+                    "8.1"
+                ],
+                "mac": [ // refer to "https://en.wikipedia.org/wiki/MacOS_version_history" (Darwin version)
+                    "10.11",
+                    "10.15"
+                ],
+                "android": [ // refer to "https://en.wikipedia.org/wiki/Android_version_history" (Version numbers)
+                    "7.0.0",
+                    "7.1.0"
+                ],
+                "ios": [ // refer to "https://en.wikipedia.org/wiki/IOS_version_history" (version)
+                    "9.3.6",
+                    "10.3.4"
+                ]
+
+                // Note: you can't set a version range for linux/linux-like apps
+
+            }
+
+        }
+
+    },
+
+    // Installing-related info
+    "installing": {
+
+        // Does this program require a strict download process? (allow this program the be downloaded from the website or only from the app)
+        "strict": false
+
+    }
+
+}

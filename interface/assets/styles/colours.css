@@ -37,7 +37,6 @@
     --primarybutton-border: var(--colours-primary2);
     --cards-border: #b5b5b5;
     --cards-background: #e6e6e6;
-    --suggestionscardlogo-background: #dddddd;
 }
 
 
@@ -73,6 +72,5 @@
         --button-border: #6b6b6b;
         --cards-border: #585858;
         --cards-background: #3e3e3e;
-        --suggestionscardlogo-background: #494949;
     }
 }

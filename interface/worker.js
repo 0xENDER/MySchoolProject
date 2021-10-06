@@ -31,6 +31,7 @@ var cacheName = null,
         '/assets/scripts/scrollbar.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/tab.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/platform.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/performance.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/account.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/worker.js?v=%{{global:codebase.version}}%',
 

@@ -34,7 +34,7 @@
 }
 
 .layout--sectionsbar-item .sectionsbar--item-icon {
-    transition: margin 0.14s;
+    transition: margin 0.14s linear;
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title {
