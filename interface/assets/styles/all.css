@@ -69,13 +69,13 @@
 
 *:focus-visible,
 *:focus {
-    /* remove default focus style */
     outline: none;
     outline-color: transparent;
     outline-style: none;
+}
+
+* {
     -webkit-tap-highlight-color: transparent;
-    -moz-tap-highlight-color: transparent;
-    -ms-tap-highlight-color: transparent;
 }
 
 [data-tab="true"] *:focus-visible,

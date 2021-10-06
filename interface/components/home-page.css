@@ -50,11 +50,19 @@
 }
 
 .homepage--coversuggestions-card {
+    position: relative;
     width: var(--homepagecoversuggestions-width);
     min-width: var(--homepagecoversuggestions-width);
     height: var(--homepagecoversuggestions-height);
     margin-right: 12px;
     scroll-snap-align: var(--coversuggestionscard-scrollalign);
+}
+
+.homepage--coversuggestions-card text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 18px;
 }
 
 .homepage--coversuggestions-card:first-child {

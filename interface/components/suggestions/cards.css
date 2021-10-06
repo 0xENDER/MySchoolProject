@@ -42,9 +42,6 @@
 
 .suggestions--section-top {
     position: relative;
-}
-
-.suggestions--section-top text {
     font-size: 20px;
 }
 
@@ -78,7 +75,6 @@
     display: inline-block;
     padding: var(--suggestionscard-padding);
     overflow: hidden;
-    text-decoration: none;
 }
 
 .suggestions--card:first-child {
