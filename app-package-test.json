@@ -153,7 +153,7 @@
     "platforms": ["windows", "mac", "linux", "android", "ios"],
 
     // The supported architectures
-    "architectures": ["64x", "32x", "64-ARM", "32-ARM"],
+    "architectures": ["x64", "x32", "ARM-64", "ARM-32"],
 
     // Permissions
     "permissions": [
