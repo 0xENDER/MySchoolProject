@@ -61,7 +61,11 @@ window.addEventListener('DOMContentLoaded', function() {
 
     };
 
-});
+}, (window.performanceVariables.supportsPassiveEvent) ? {
+
+    passive: true
+
+} : false);
 
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object

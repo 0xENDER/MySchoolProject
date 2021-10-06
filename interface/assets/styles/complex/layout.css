@@ -33,10 +33,6 @@
     pointer-events: none;
 }
 
-.layout--sectionsbar-item .sectionsbar--item-icon {
-    transition: margin 0.14s linear;
-}
-
 .layout--sectionsbar-item .sectionsbar--item-title {
     transition: opacity 0.1s;
 }
@@ -59,6 +55,7 @@
     margin: calc((var(--sectionsbaritem-size) - var(--icons-size)) / 2) auto;
     margin-bottom: var(--icons-marginbottom);
     filter: drop-shadow(0px -2px 0px var(--colours-primary2)) drop-shadow(0px -1px 0px var(--colours-primary2));
+    transition: margin 0.14s linear;
 }
 
 .layout--sectionsbar-item.state--selected .sectionsbar--item-title {

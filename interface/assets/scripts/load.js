@@ -44,7 +44,11 @@ window.addEventListener('load', function() {
 
     }, 400);
 
-});
+}, (window.performanceVariables.supportsPassiveEvent) ? {
+
+    passive: true
+
+} : false);
 
 // Set the window content load function
 window.uncover = function() {
@@ -142,14 +146,26 @@ function loadContent() {
 
     } else { // If the connection API is not supported, use the old way of checking the user status.
 
-        window.addEventListener("online", updateOnlineStatus);
-        window.addEventListener("offline", updateOnlineStatus);
+        window.addEventListener("online", updateOnlineStatus, (window.performanceVariables.supportsPassiveEvent) ? {
+
+            passive: true
+
+        } : false);
+        window.addEventListener("offline", updateOnlineStatus, (window.performanceVariables.supportsPassiveEvent) ? {
+
+            passive: true
+
+        } : false);
 
     }
 
     // Prepare the page content container
     pageContentElement.style.display = null;
-    linkScrollbar(pageContentElement);
+    if (window.performanceVariables.hasCustomScrollbar) {
+
+        linkScrollbar(pageContentElement);
+
+    }
 
     // Call the loading function
     loadContentFromSrc();
@@ -507,7 +523,11 @@ function contentLoaded() {
         pageContentElementChild.append(pageHTMLContent);
 
         // Update the scrollbar
-        window.updateScrollbar();
+        if (window.performanceVariables.hasCustomScrollbar) {
+
+            window.updateScrollbar();
+
+        }
 
     }
     if (typeof window.onpagecontentload === "function") {
@@ -661,6 +681,25 @@ window.unloading.remove = function(objectName) {
 // Unload the page content
 window.unloadContent = function() {
 
+    // Reset the loading screen
+    document.documentElement.dataset.contentLoaded = false;
+    document.documentElement.dataset.extraContentLoaded = false;
+    coverLoadingIcon.style.opacity = null;
+    var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
+    if (selectedSectionsItem != null) {
+
+        selectedSectionsItem.classList.remove("state--selected");
+
+    }
+    delete selectedSectionsItem;
+
+    // Show the loading icon
+    setTimeout(function() {
+
+        coverLoadingIcon.style.opacity = 1;
+
+    }, 400);
+
     // Keep going through all the "unload objects"
     while (unload.functions.length != 0) {
 
@@ -704,31 +743,15 @@ window.unloadContent = function() {
     pageHTMLContent = null;
     pageContentElementChild.innerHTML = "";
     pageContentElementChild.classList.remove("state--error");
-    window.updateScrollbar();
+    if (window.performanceVariables.hasCustomScrollbar) {
+
+        window.updateScrollbar();
+
+    }
 
     // Reset the page loading events
     window.oncontentinjection = null;
     window.onpagecontentload = null;
-
-
-    // Reset the loading screen
-    document.documentElement.dataset.contentLoaded = false;
-    document.documentElement.dataset.extraContentLoaded = false;
-    coverLoadingIcon.style.opacity = null;
-    var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
-    if (selectedSectionsItem != null) {
-
-        selectedSectionsItem.classList.remove("state--selected");
-
-    }
-    delete selectedSectionsItem;
-
-    // Show the loading icon
-    setTimeout(function() {
-
-        coverLoadingIcon.style.opacity = 1;
-
-    }, 400);
 
 };
 
@@ -774,7 +797,11 @@ window.addEventListener('popstate', function(e) {
 
     window.location.dynamic.redirect(window.location.pathname, false);
 
-});
+}, (window.performanceVariables.supportsPassiveEvent) ? {
+
+    passive: true
+
+} : false);
 
 // Register new <a> elements
 window.registerNewLink = function(linkElement) {
@@ -810,4 +837,8 @@ document.addEventListener("securitypolicyviolation", (e) => {
     // Stop the page from show the faulty content
     loadingFailed("CSP violation!");
 
-});
+}, (window.performanceVariables.supportsPassiveEvent) ? {
+
+    passive: true
+
+} : false);

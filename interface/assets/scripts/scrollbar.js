@@ -178,9 +178,21 @@ function linkScrollbar() { // Link a scrollbar to the page
     };
 
     // Set up the scrollbar handle events
-    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, { passive: true }); // Detect when the mouse is down
-    window.addEventListener('mousemove', scrollbar.moving, { passive: true }); // Detect when the mouse movies
-    window.addEventListener("mouseup", scrollbar.clickEnd, { passive: true }); // Detect when the mouse is up (globally)
+    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, (window.performanceVariables.supportsPassiveEvent) ? {
+
+        passive: true
+
+    } : false); // Detect when the mouse is down
+    window.addEventListener('mousemove', scrollbar.moving, (window.performanceVariables.supportsPassiveEvent) ? {
+
+        passive: true
+
+    } : false); // Detect when the mouse movies
+    window.addEventListener("mouseup", scrollbar.clickEnd, (window.performanceVariables.supportsPassiveEvent) ? {
+
+        passive: true
+
+    } : false); // Detect when the mouse is up (globally)
 
     // Set up the scrollbar container events
     scrollbar.container.addEventListener("mousedown", function(e) {
@@ -191,11 +203,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, {
+    }, (window.performanceVariables.supportsPassiveEvent) ? {
 
         passive: true
 
-    });
+    } : false);
 
     // Set up the top & bottom buttons events
     var didClickTop = false,
@@ -228,11 +240,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, {
+    }, (window.performanceVariables.supportsPassiveEvent) ? {
 
         passive: true
 
-    });
+    } : false);
 
     // The bottom button (click-start)
     scrollbar.bottomButton.addEventListener("mousedown", function() {
@@ -257,11 +269,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, {
+    }, (window.performanceVariables.supportsPassiveEvent) ? {
 
         passive: true
 
-    });
+    } : false);
 
     // The top and bottom buttons (click-end)
     window.addEventListener("mouseup", function() {
@@ -290,11 +302,11 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, {
+    }, (window.performanceVariables.supportsPassiveEvent) ? {
 
         passive: true
 
-    });
+    } : false);
 
     //scrollbar.linkedElement.scrollbar = scrollbar; // Link this object to the page content element
 

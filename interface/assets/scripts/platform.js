@@ -252,20 +252,24 @@ updateGamepads();
 // Get info about the user's hardware (web & native)
 if (!window.platform.isApp) {
 
-    function detectKeybordEvent() {
+    if (!window.platform.device.isMobile) {
 
-        // Change the keybord hardware value
-        window.platform.hardware.hasKeybord = true;
+        function detectKeybordEvent() {
 
-        // Remove the event listeners
-        window.removeEventListener("keydown", detectKeybordEvent);
-        window.removeEventListener("keyup", detectKeybordEvent);
+            // Change the keybord hardware value
+            window.platform.hardware.hasKeybord = true;
+
+            // Remove the event listeners
+            window.removeEventListener("keydown", detectKeybordEvent);
+            window.removeEventListener("keyup", detectKeybordEvent);
+
+        }
+
+        // Add the event listeners
+        window.addEventListener("keydown", detectKeybordEvent);
+        window.addEventListener("keyup", detectKeybordEvent);
 
     }
-
-    // Add the event listeners
-    window.addEventListener("keydown", detectKeybordEvent);
-    window.addEventListener("keyup", detectKeybordEvent);
 
 } else {
 

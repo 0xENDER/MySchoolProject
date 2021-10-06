@@ -70,6 +70,10 @@ self.addEventListener('message', (event) => {
 
     }
 
+}, {
+
+    passive: true
+
 });
 
 // Install the service worker
@@ -77,6 +81,10 @@ self.addEventListener('install', e => {
 
     // Activate worker immediately
     e.waitUntil(self.skipWaiting());
+
+}, {
+
+    passive: true
 
 });
 
@@ -114,6 +122,10 @@ self.addEventListener('fetch', (e) => {
 
     })());
 
+}, {
+
+    passive: true
+
 });
 
 // Activate the service worker
@@ -132,5 +144,9 @@ self.addEventListener('activate', (e) => {
         })
 
     ));
+
+}, {
+
+    passive: true
 
 });
