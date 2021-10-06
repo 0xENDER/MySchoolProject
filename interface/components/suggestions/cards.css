@@ -9,6 +9,8 @@
     --suggestionscard-height: 270px;
     --suggestionscard-padding: 14px;
     --suggestionscardname-fontsize: 20px;
+    --suggestionssectiontoprightsvg-display: none;
+    --suggestionssectiontoprighttext-display: block;
 }
 
 @media all and (max-width: 840px) {
@@ -16,6 +18,8 @@
         --suggestionscard-width: calc( ( 100vw / 3));
         --suggestionscard-height: calc( var(--suggestionscard-width) + 58px);
         --suggestionscardname-fontsize: 16px;
+        --suggestionssectiontoprightsvg-display: block;
+        --suggestionssectiontoprighttext-display: none;
     }
 }
 
@@ -36,8 +40,30 @@
     height: calc(var(--suggestionscard-height) + 8px);
 }
 
+.suggestions--section-top {
+    position: relative;
+}
+
 .suggestions--section-top text {
     font-size: 20px;
+}
+
+.suggestions--sectiontop-right {
+    text-decoration: none;
+    position: absolute;
+    right: 0px;
+    opacity: 0.8;
+}
+
+.suggestions--sectiontop-right text {
+    display: var(--suggestionssectiontoprighttext-display);
+}
+
+.suggestions--sectiontop-right svg {
+    display: var(--suggestionssectiontoprightsvg-display);
+    fill: var(--text-colour);
+    width: 26px;
+    height: 26px;
 }
 
 
@@ -52,6 +78,7 @@
     display: inline-block;
     padding: var(--suggestionscard-padding);
     overflow: hidden;
+    text-decoration: none;
 }
 
 .suggestions--card:first-child {
