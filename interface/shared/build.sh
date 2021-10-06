@@ -5,5 +5,5 @@
 DEBUG_MODE=$1
 #
 ## Install shared modules
-npm install systeminformation
+#npm install systeminformation
 #
