@@ -108,6 +108,7 @@ If you wish to host the website locally, you need to make sure that you have apa
 
 ```sh
 sudo apt-get install apache2
+sudo apt-get install apache2-utils
 ```
 
 Also, make sure that all the directories that you're gonna work with have these permissions in the `/etc/apache2/apache2.conf` file:
@@ -127,6 +128,16 @@ Also, make sure that all the directories that you're gonna work with have these 
   ExpiresActive on
   ExpiresDefault A300
 </Location>
+```
+
+And that you have all these modules enables:
+
+```sh
+sudo a2enmod cache
+sudo a2enmod cache_disk
+sudo a2enmod expires
+sudo a2enmod headers
+sudo a2enmod rewrite
 ```
 
 Once you have everything set up properly, you can use this command to run the server:
