@@ -10,16 +10,16 @@
     --suggestionscard-padding: 14px;
     --suggestionscardname-fontsize: 20px;
     --suggestionssectiontoprightsvg-display: none;
-    --suggestionssectiontoprighttext-display: block;
+    --suggestionssectiontoprighttext-display: block
 }
 
 @media all and (max-width: 840px) {
      :root {
         --suggestionscard-width: calc( ( 100vw / 3));
-        --suggestionscard-height: calc( var(--suggestionscard-width) + 58px);
+        --suggestionscard-height: calc( var(--suggestionscard-width) + 60px);
         --suggestionscardname-fontsize: 16px;
         --suggestionssectiontoprightsvg-display: block;
-        --suggestionssectiontoprighttext-display: none;
+        --suggestionssectiontoprighttext-display: none
     }
 }
 
@@ -27,7 +27,7 @@
      :root {
         --suggestionscard-width: 100px;
         --suggestionscard-height: calc( var(--suggestionscard-width) + 58px);
-        --suggestionscardname-fontsize: 16px;
+        --suggestionscardname-fontsize: 16px
     }
 }
 
@@ -68,16 +68,16 @@
 /* Suggestions card */
 
 .suggestions--card {
-    width: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
-    min-width: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
-    height: calc(var(--suggestionscard-height) - 2 * var(--suggestionscard-padding));
+    width: var(--suggestionscard-width);
+    min-width: var(--suggestionscard-width);
+    height: var(--suggestionscard-height);
     display: inline-block;
     margin-right: 12px;
     display: inline-block;
-    padding: var(--suggestionscard-padding);
     overflow: hidden;
     background-color: transparent;
     box-shadow: none;
+    border-radius: 0px;
 }
 
 .suggestions--card:first-child {
@@ -94,7 +94,7 @@
 .suggestions--card .suggestions--card-logo {
     display: block;
     width: 100%;
-    height: calc(var(--suggestionscard-width) - 2 * var(--suggestionscard-padding));
+    height: var(--suggestionscard-width);
     border-radius: 10px;
     margin-bottom: var(--suggestionscard-padding);
     overflow: hidden;

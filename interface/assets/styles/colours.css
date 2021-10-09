@@ -14,15 +14,9 @@
     --topbar-background: var(--page-background);
     --sectionsbar-background: var(--page-background);
     --topbar-backgroundhover: #efefef;
-    --pagecontent-background: #ffffff;
+    --pagecontent-background: #fbfbfb;
     --pagecontent-border: #c2c2c2;
     --icons-colour: #000000;
-    --skeleton-colour1: #cccccc;
-    --skeleton-colour2: #afafaf;
-    --skeleton-colour3: #e8e8e8;
-    --skeleton-colour4: #b1b1b1;
-    --skeleton-colour5: #c9c9c9;
-    --skeleton-colour6: #b5b5b5;
     --topbarsearch-backgroundcolour: #ffffff;
     --topbarsearch-shadow: #d0d0d0;
     --scrollbar-colour: #505050;
@@ -36,7 +30,7 @@
     --primarybutton-background: var(--colours-primary1);
     --primarybutton-border: var(--colours-primary2);
     --cards-border: #dddddd;
-    --cards-background: #fafafa;
+    --cards-background: #fafafa
 }
 
 
@@ -53,14 +47,8 @@
         --pagecontent-background: #252525;
         --pagecontent-border: #3d3d3d;
         --icons-colour: #ffffff;
-        --skeleton-colour1: #2f2f2f;
-        --skeleton-colour2: #404040;
-        --skeleton-colour3: #404040;
-        --skeleton-colour4: #565656;
-        --skeleton-colour5: #555555;
-        --skeleton-colour6: #686868;
-        --topbarsearch-backgroundcolour: #2d2d2d;
-        --topbarsearch-shadow: #1e1e1e;
+        --topbarsearch-backgroundcolour: #323232;
+        --topbarsearch-shadow: #1d1d1d;
         --scrollbar-colour: #a0a0a0;
         --scrollbar-background: #2b2b2b9c;
         --alerts-background: #08080894;
