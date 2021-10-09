@@ -734,28 +734,35 @@ window.unloadContent = function() {
     }
 
     // Reset the page content
-    didFail = false;
     pageHTMLContent = null;
-    pageContentElementChild.innerHTML = "";
-    pageContentElementChild.classList.remove("state--error");
-    if (window.performanceVariables.hasCustomScrollbar) {
+    try {
 
-        window.updateScrollbar();
+        pageContentElementChild.innerHTML = "";
+
+    } finally {
+
+        didFail = false;
+        pageContentElementChild.classList.remove("state--error");
+        if (window.performanceVariables.hasCustomScrollbar) {
+
+            window.updateScrollbar();
+
+        }
+
+        // Reset the page loading events
+        window.oncontentinjection = null;
+        window.onpagecontentload = null;
+
+        // Reset the page flags
+        pageFlags.endMessage = false;
+        pageFlags.canUnload = true;
+
+        // Reset the resources number
+        contentResourcesNumber = 0;
+        loadedContentResourcesNumber = 0;
+        lockResourcesCounter = true;
 
     }
-
-    // Reset the page loading events
-    window.oncontentinjection = null;
-    window.onpagecontentload = null;
-
-    // Reset the page flags
-    pageFlags.endMessage = false;
-    pageFlags.canUnload = true;
-
-    // Reset the resources number
-    contentResourcesNumber = 0;
-    loadedContentResourcesNumber = 0;
-    lockResourcesCounter = true;
 
 };
 
