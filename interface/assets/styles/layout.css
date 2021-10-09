@@ -95,15 +95,14 @@ body {
     --topbarleft-display: flex;
     --topbarcomponent-width: 20%;
     --sectionsbarcomponent-justifycontent: normal;
-    --sectionsbaritem-size: 60px;
+    --sectionsbaritem-size: 64px;
     --sectionsbaritem-margin: calc((var(--sectionsbar-width) - var(--sectionsbaritem-size)) / 2);
     --sectionsbar-padding: 0px;
     --sectionsbartop-justifycontent: normal;
     --topbarusername-display: flex;
     --topbarprofile-marginright: 0px;
     --icons-size: 32px;
-    --icons-margintop: 6px;
-    --icons-marginbottom: 2px;
+    --icons-margin: 12px;
     --sectionsbaritme-display: block;
     --pagecontent-corner: 14px;
     --pagecover-topleftborder: 1px;
@@ -112,13 +111,14 @@ body {
     --topbarbutton-display: flex;
     --topbaroptions-display: none;
     --topbar-border: 0px solid transparent;
+    --sectionsbaritemtitle-top: -12px;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --topbar-height: 64px;
         --sectionsbar-width: 100%;
-        --sectionsbar-height: 64px;
+        --sectionsbar-height: 72px;
         --sectionsbar-top: none;
         --sectionsbar-right: 0px;
         --pagecontent-left: 0px;
@@ -136,13 +136,13 @@ body {
         --topbarleft-display: none;
         --topbarcomponent-width: none;
         --sectionsbarcomponent-justifycontent: center;
-        --sectionsbaritem-size: 48px;
+        --sectionsbaritem-size: 60px;
         --sectionsbaritem-margin: calc((var(--sectionsbar-height) - var(--sectionsbaritem-size)) / 2);
         --sectionsbar-padding: var(--global-sidesmargin);
         --sectionsbartop-justifycontent: space-evenly;
         --topbarusername-display: none;
         --topbarprofile-marginright: 8px;
-        --icons-margintop: 0px;
+        --icons-margin: 8px;
         --pagecontent-corner: 0px;
         --pagecover-topleftborder: 0px;
         --pagecover-bottomborder: 1px;
@@ -150,6 +150,7 @@ body {
         --topbarbutton-display: none;
         --topbaroptions-display: flex;
         --topbar-border: 1px solid var(--pagecontent-border);
+        --sectionsbaritemtitle-top: -8px;
     }
 }
 
@@ -486,26 +487,31 @@ body {
     fill: var(--text-colour);
 }
 
+
+/* Sections side-bar/top-bar items */
+
 .layout--sectionsbar-item {
     width: var(--sectionsbaritem-width);
     height: var(--sectionsbaritem-size);
     margin: var(--sectionsbaritem-margin);
+    margin-bottom: 0px;
     text-align: center;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+    opacity: .6;
+    transition: opacity .2s;
     border-radius: 6px;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
 }
 
 .layout--sectionsbar-item:hover {
     opacity: 1;
-    background-color: var(--topbar-backgroundhover);
+    background-color: var(--topbar-backgroundhover)
 }
 
 .layout--sectionsbar-item:active {
-    opacity: 0.7;
-    background-color: var(--topbar-backgroundhover);
+    opacity: .7;
+    background-color: var(--topbar-backgroundhover)
 }
 
 .layout--sectionsbar-item .sectionsbar--item-icon {
@@ -513,13 +519,13 @@ body {
     width: var(--icons-size);
     height: var(--icons-size);
     font-size: var(--icons-size);
-    margin: 0px auto;
-    margin-top: var(--icons-margintop);
-    margin-bottom: var(--icons-marginbottom);
+    margin: var(--icons-margin) auto;
     fill: var(--icons-colour);
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title {
     font-size: 12px;
     display: var(--sectionsbaritme-display);
+    position: relative;
+    top: var(--sectionsbaritemtitle-top);
 }

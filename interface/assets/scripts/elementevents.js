@@ -68,11 +68,11 @@ pageContentElement.addEventListener("scroll", function(e) {
     passive: true
 
 } : false);
+*/
 
 // The initial event listeners
 function initialEvents() {
 
-    updateElementsVisibility(pageContentElement);
+    //updateElementsVisibility(pageContentElement);
 
 }
-*/
