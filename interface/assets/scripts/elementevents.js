@@ -4,6 +4,8 @@
 
 */
 
+// This event is not in use yet!
+/*
 // Assign the default values
 Element.prototype.onvisible = null;
 Element.prototype.__previousVisibleStatus = false;
@@ -73,3 +75,4 @@ function initialEvents() {
     updateElementsVisibility(pageContentElement);
 
 }
+*/
