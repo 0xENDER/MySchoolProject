@@ -12,6 +12,7 @@ var contentResourcesNumber = 0,
     pageContentElementChild = document.getElementById("page--content"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
     pageHTMLContent = null,
+    lockResourcesCounter = true,
     pageFlags = {
 
         endMessage: false,
@@ -406,29 +407,35 @@ function fetchContent(sourceURLPathname) {
                                 // Create a document fragment
                                 data = document.createRange().createContextualFragment(data);
 
-                                // Get the number of required resources in this page (first line)
-                                if (data.getElementById("system--pageResources") != null) {
-
-                                    contentResourcesNumber = data.getElementById("system--pageResources").childElementCount;
-
-                                } else {
-
-                                    loadingFailed();
-
-                                }
-
                                 // Inject the resources into the page
                                 var children = data.getElementById("system--pageResources").children;
                                 for (var i = 0; i < children.length; i++) {
 
-                                    children[i].onload = contentSourceLoaded;
-                                    children[i].onerror = function() {
+                                    if (children[i].tagName == "SCRIPT" || children[i].tagName == "LINK") {
 
-                                        loadingFailed('Page content resource failed to load');
+                                        // Update the resources number
+                                        contentResourcesNumber++;
 
-                                    };
+                                        // Add the loading events
+                                        children[i].onload = function() {
+
+                                            this.onload = null;
+
+                                            contentSourceLoaded();
+
+                                        };
+                                        children[i].onerror = function() {
+
+                                            this.onerror = null;
+
+                                            loadingFailed('Page content resource failed to load');
+
+                                        };
+
+                                    }
 
                                 }
+                                lockResourcesCounter = false;
                                 pageContentElementChild.append(data.getElementById("system--pageResources"));
 
                                 // Delete the used variables
@@ -548,7 +555,7 @@ function contentDOMLoaded() {
 function contentSourceLoaded() {
 
     // Check if all the resources were loaded successfully
-    if (++loadedContentResourcesNumber == contentResourcesNumber)
+    if (!lockResourcesCounter && ++loadedContentResourcesNumber == contentResourcesNumber)
         contentLoaded(); // If yes, then show the page content.
 
 }
@@ -726,14 +733,6 @@ window.unloadContent = function() {
 
     }
 
-    // Reset the page flags
-    pageFlags.endMessage = false;
-    pageFlags.canUnload = true;
-
-    // Reset the resources number
-    contentResourcesNumber = 0;
-    loadedContentResourcesNumber = 0;
-
     // Reset the page content
     didFail = false;
     pageHTMLContent = null;
@@ -748,6 +747,15 @@ window.unloadContent = function() {
     // Reset the page loading events
     window.oncontentinjection = null;
     window.onpagecontentload = null;
+
+    // Reset the page flags
+    pageFlags.endMessage = false;
+    pageFlags.canUnload = true;
+
+    // Reset the resources number
+    contentResourcesNumber = 0;
+    loadedContentResourcesNumber = 0;
+    lockResourcesCounter = true;
 
 };
 
