@@ -11,6 +11,7 @@
 
 # Do not upload secret files
 /**/*.secret.*
+/**/*.secret.**
 
 # Ignore the "/tests/" directory
 /tests

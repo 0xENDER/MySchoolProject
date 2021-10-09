@@ -87,7 +87,7 @@ window.platform = { // An object to keep track and organise the platform data
         },
         connection: {
 
-            effectiveType: navigator.connection.effectiveType // 'slow-2g', '2g', '3g', or '4g'.
+            effectiveType: (window.crossBrowser.connection.supported && 'effectiveType' in window.crossBrowser.connection.api) ? window.crossBrowser.connection.api.effectiveType : null // 'slow-2g', '2g', '3g', or '4g'.
 
         },
         supportsBluetooth: 'bluetooth' in navigator,

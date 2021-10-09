@@ -13,9 +13,9 @@
     --text-colour: #000000;
     --topbar-background: var(--page-background);
     --sectionsbar-background: var(--page-background);
-    --topbar-backgroundhover: #d4d4d4;
-    --pagecontent-background: #d8d8d8;
-    --pagecontent-border: #c1c1c1;
+    --topbar-backgroundhover: #efefef;
+    --pagecontent-background: #ffffff;
+    --pagecontent-border: #c2c2c2;
     --icons-colour: #000000;
     --skeleton-colour1: #cccccc;
     --skeleton-colour2: #afafaf;
@@ -24,7 +24,7 @@
     --skeleton-colour5: #c9c9c9;
     --skeleton-colour6: #b5b5b5;
     --topbarsearch-backgroundcolour: #ffffff;
-    --topbarsearch-border: #d0d0d0;
+    --topbarsearch-shadow: #d0d0d0;
     --scrollbar-colour: #505050;
     --scrollbar-background: #d0d0d09c;
     --alerts-background: #bdbdbd94;
@@ -35,8 +35,8 @@
     --button-border: #c1c1c1;
     --primarybutton-background: var(--colours-primary1);
     --primarybutton-border: var(--colours-primary2);
-    --cards-border: #b5b5b5;
-    --cards-background: #e6e6e6;
+    --cards-border: #dddddd;
+    --cards-background: #fafafa;
 }
 
 
@@ -44,15 +44,14 @@
 
 @media (prefers-color-scheme: dark) {
      :root {
-        color-scheme: dark;
         --colours-primary1: #452dc5;
         --colours-primary2: #6552ce;
         --text-colour: #ffffff;
         --topbar-background: var(--page-background);
         --sectionsbar-background: var(--page-background);
-        --topbar-backgroundhover: #2f2f2f;
-        --pagecontent-background: #2f2f2f;
-        --pagecontent-border: #404040;
+        --topbar-backgroundhover: #2e2e2e;
+        --pagecontent-background: #252525;
+        --pagecontent-border: #3d3d3d;
         --icons-colour: #ffffff;
         --skeleton-colour1: #2f2f2f;
         --skeleton-colour2: #404040;
@@ -61,7 +60,7 @@
         --skeleton-colour5: #555555;
         --skeleton-colour6: #686868;
         --topbarsearch-backgroundcolour: #2d2d2d;
-        --topbarsearch-border: #3c3c3c;
+        --topbarsearch-shadow: #1e1e1e;
         --scrollbar-colour: #a0a0a0;
         --scrollbar-background: #2b2b2b9c;
         --alerts-background: #08080894;
@@ -70,7 +69,7 @@
         --alertscard-shadow: #0000004f;
         --button-background: #3c3c3c;
         --button-border: #6b6b6b;
-        --cards-border: #585858;
-        --cards-background: #3e3e3e;
+        --cards-border: #383838;
+        --cards-background: #292929;
     }
 }

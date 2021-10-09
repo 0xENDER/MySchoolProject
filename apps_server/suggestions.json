@@ -1,0 +1,39 @@
+// Request: ?type=...&filter1=...&filter2=...&filter3...
+{
+
+    "type": "...",
+    "filters": [
+
+        {
+
+            "filter1": "..."
+
+        },
+        {
+
+            "filter1": "..."
+
+        },
+        {
+
+            "filter3": "..."
+
+        }
+        //,...
+
+    ],
+    "results": [
+
+        {
+
+            "name": "",
+            "logo": "",
+            "size": "",
+            "price": ""
+            //,...
+
+        }
+
+    ]
+
+}

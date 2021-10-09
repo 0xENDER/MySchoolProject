@@ -8,7 +8,7 @@
 
     "CSP": {
 
-        "default": "default-src 'self'; script-src 'self' 'unsafe-eval' 'report-sample' https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' https://store.mur-lang.org/ https://static.cloudflareinsights.com/; object-src 'none';"
+        "default": "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' https://store.mur-lang.org/ https://static.cloudflareinsights.com/; object-src 'none';"
 
     }
 

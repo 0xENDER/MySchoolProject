@@ -6,11 +6,11 @@
     // The long program name
     "longname": "MyApp: Short Text",
 
-    // The program description
-    "description": "My app is a cool app! It can help you!",
+    // The program's description
+    "description": "My app is a cool app! It can help you get things done! You can do this and that, you can never have enough of it!",
 
     // The program's short description
-    "shortdescription": "My app is a cool app! It can help you get things done! You can do this and that, you can never have enough of it!",
+    "shortdescription": "My app is a cool app! It can help you!",
 
     // The program type
     "type": "app", // The avaliable program types are: "app", and "game".
@@ -50,7 +50,7 @@
 
         },
 
-        // The program's cover
+        // The program's cover (16:9 ratio)
         "cover": {
 
             // The cover image (can be set to `null`)

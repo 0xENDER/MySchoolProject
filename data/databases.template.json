@@ -1,0 +1,97 @@
+{
+
+    "users": {
+
+        "readWrite": {
+
+            "username": {
+
+                "default": "account_1"
+
+            },
+            "password": {
+
+                "default": "password_1"
+
+            }
+    
+        },
+        "readOnly": {
+
+            "username": {
+
+                "default": "account_2"
+
+            },
+            "password": {
+
+                "default": "password_2"
+
+            }
+    
+        }
+
+    },
+    "databases": {
+
+        "accounts": {
+
+            "name": {
+
+                "default": "database_1"
+
+            },
+            "tables": {
+
+                //
+
+            }
+
+        },
+        "programs": {
+
+            "name": {
+
+                "default": "database_2"
+
+            },
+            "tables": {
+
+                "programInfo": {
+
+                    "default": "info"
+
+                },
+                "developerAccounts": {
+
+                    "default": "developer"
+
+                },
+                "installingInstructions": {
+
+                    "default": "installing"
+
+                },
+                "programMedia": {
+
+                    "default": "media"
+
+                },
+                "programPermissions": {
+
+                    "default": "permissions"
+
+                },
+                "programRequirements": {
+
+                    "default": "requirements"
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

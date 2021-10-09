@@ -11,7 +11,6 @@ var contentResourcesNumber = 0,
     pageContentElement = document.getElementById("page"),
     pageContentElementChild = document.getElementById("page--content"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
-    connectionAPI = null,
     pageHTMLContent = null,
     pageFlags = {
 
@@ -129,15 +128,12 @@ function loadingReady() {
 
 function loadContent() {
 
-    // Update the connection API 
-    connectionAPI = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
     // Add internet status checker
     updateOnlineStatus(); // Check the page once it's loaded (for local apps)
-    if ('connection' in navigator && String(connectionAPI.onchange) !== "undefined") { // Check if the connection API is available
+    if (window.crossBrowser.connection.supported && String(window.crossBrowser.connection.api.onchange) !== "undefined") { // Check if the connection API is available
 
         // Change the `onchange` function of the connection API
-        connectionAPI.onchange = function() {
+        window.crossBrowser.connection.api.onchange = function() {
 
             // Check and update the API
             updateOnlineStatus();
@@ -563,7 +559,7 @@ function isOnline() {
     // Return a promise
     return new Promise((resolve, reject) => {
 
-        if ('connection' in navigator && String(connectionAPI.onchange) !== "undefined") { // Check if the connection API is available
+        if (window.crossBrowser.connection.supported && String(window.crossBrowser.connection.api.onchange) !== "undefined") { // Check if the connection API is available
 
             if (!window.navigator.onLine) { // If it is avaliable, check if the user is even connected to a network
 

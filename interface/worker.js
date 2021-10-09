@@ -8,7 +8,7 @@ var cacheName = null,
     contentToCache = [
 
         // Cache the main page
-        '/?v=%{{global:codebase.version}}%',
+        '/',
 
         // Cache fonts
         '/assets/fonts/latin.woff2?v=%{{global:codebase.version}}%',
@@ -30,6 +30,7 @@ var cacheName = null,
         '/assets/scripts/load.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/scrollbar.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/tab.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/crossbrowser.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/platform.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/performance.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/account.js?v=%{{global:codebase.version}}%',

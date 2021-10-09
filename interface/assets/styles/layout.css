@@ -111,6 +111,7 @@ body {
     --sectionsbaritem-width: var(--sectionsbaritem-size);
     --topbarbutton-display: flex;
     --topbaroptions-display: none;
+    --topbar-border: 0px solid transparent;
 }
 
 @media all and (max-width: 840px) {
@@ -148,6 +149,7 @@ body {
         --sectionsbaritem-width: 28%;
         --topbarbutton-display: none;
         --topbaroptions-display: flex;
+        --topbar-border: 1px solid var(--pagecontent-border);
     }
 }
 
@@ -183,6 +185,7 @@ body {
     background-color: var(--topbar-background);
     display: flex;
     justify-content: space-between;
+    border-bottom: var(--topbar-border);
     -webkit-app-region: drag;
 }
 
@@ -414,7 +417,8 @@ body {
     height: 0px;
     border-radius: 6px;
     padding: calc(var(--topbarsearch-height) / 2) 10px;
-    border: 1px solid var(--topbarsearch-border);
+    box-shadow: 0px 1px 3px var(--topbarsearch-shadow);
+    border: 0px solid transparent;
     -webkit-app-region: no-drag;
 }
 
