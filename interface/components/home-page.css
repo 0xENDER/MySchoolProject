@@ -15,7 +15,7 @@
 @media all and (max-width: 840px) {
      :root {
         --coversuggestionscard-scrollalign: center;
-        --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width)) / 2 + 120px);
+        --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width) - 2px) / 2)
     }
 }
 

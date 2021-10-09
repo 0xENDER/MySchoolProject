@@ -10,7 +10,7 @@
     --scrollbar-height: calc(100% - var(--topbar-height));
     --scrollbarbuttons-opacity: 1;
     --scrollbarbuttons-pointerevents: auto;
-    --componentcover-height: calc(96vh - var(--topbar-height));
+    --componentcover-height: calc( (96 * var(--vh, 1vh)) - var(--topbar-height));
     --componentbutton-padding: 10px 24px;
     --scrollbar-display: flex;
 }
@@ -20,7 +20,7 @@
         --scrollbar-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
         --scrollbarbuttons-opacity: 0;
         --scrollbarbuttons-pointerevents: none;
-        --componentcover-height: calc(96vh - var(--topbar-height) - var(--sectionsbar-height));
+        --componentcover-height: calc( (96 * var(--vh, 1vh)) - var(--topbar-height) - var(--sectionsbar-height));
         --componentbutton-padding: 14px 32px;
     }
 }

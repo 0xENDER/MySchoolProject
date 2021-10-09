@@ -8,7 +8,7 @@
 /* Body and HTML styles */
 
 body {
-    min-height: 100vh;
+    min-height: calc(100 * var(--vh, 1vh));
     min-height: -webkit-fill-available;
 }
 

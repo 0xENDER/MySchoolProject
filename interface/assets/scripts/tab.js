@@ -19,7 +19,7 @@ if (userSettings.alwaysShowFocusBorderOnTouch && (('ontouchstart' in window) ||
 
         document.documentElement.dataset.tab = false;
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
@@ -33,7 +33,7 @@ if (userSettings.alwaysShowFocusBorderOnTouch && (('ontouchstart' in window) ||
 
         }
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 

@@ -61,7 +61,7 @@ pageContentElement.addEventListener("scroll", function(e) {
 
     updateElementsVisibility(e.target);
 
-}, (window.performanceVariables.supportsPassiveEvent) ? {
+}, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 

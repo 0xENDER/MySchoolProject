@@ -43,7 +43,7 @@ window.addEventListener('load', function() {
 
     }, 400);
 
-}, (window.performanceVariables.supportsPassiveEvent) ? {
+}, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
@@ -142,12 +142,12 @@ function loadContent() {
 
     } else { // If the connection API is not supported, use the old way of checking the user status.
 
-        window.addEventListener("online", updateOnlineStatus, (window.performanceVariables.supportsPassiveEvent) ? {
+        window.addEventListener("online", updateOnlineStatus, (window.crossBrowser.passiveEvents.supported) ? {
 
             passive: true
 
         } : false);
-        window.addEventListener("offline", updateOnlineStatus, (window.performanceVariables.supportsPassiveEvent) ? {
+        window.addEventListener("offline", updateOnlineStatus, (window.crossBrowser.passiveEvents.supported) ? {
 
             passive: true
 
@@ -793,7 +793,7 @@ window.addEventListener('popstate', function(e) {
 
     window.location.dynamic.redirect(window.location.pathname, false);
 
-}, (window.performanceVariables.supportsPassiveEvent) ? {
+}, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
@@ -833,7 +833,7 @@ document.addEventListener("securitypolicyviolation", (e) => {
     // Stop the page from show the faulty content
     loadingFailed("CSP violation!");
 
-}, (window.performanceVariables.supportsPassiveEvent) ? {
+}, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 

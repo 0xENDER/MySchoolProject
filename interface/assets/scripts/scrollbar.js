@@ -178,17 +178,17 @@ function linkScrollbar() { // Link a scrollbar to the page
     };
 
     // Set up the scrollbar handle events
-    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, (window.performanceVariables.supportsPassiveEvent) ? {
+    scrollbar.handle.addEventListener("mousedown", scrollbar.clickStart, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
     } : false); // Detect when the mouse is down
-    window.addEventListener('mousemove', scrollbar.moving, (window.performanceVariables.supportsPassiveEvent) ? {
+    window.addEventListener('mousemove', scrollbar.moving, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
     } : false); // Detect when the mouse movies
-    window.addEventListener("mouseup", scrollbar.clickEnd, (window.performanceVariables.supportsPassiveEvent) ? {
+    window.addEventListener("mouseup", scrollbar.clickEnd, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
@@ -203,7 +203,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
@@ -240,7 +240,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
@@ -269,7 +269,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 
@@ -302,7 +302,7 @@ function linkScrollbar() { // Link a scrollbar to the page
 
         }
 
-    }, (window.performanceVariables.supportsPassiveEvent) ? {
+    }, (window.crossBrowser.passiveEvents.supported) ? {
 
         passive: true
 

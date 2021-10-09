@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     };
 
-}, (window.performanceVariables.supportsPassiveEvent) ? {
+}, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 

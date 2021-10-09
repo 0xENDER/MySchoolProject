@@ -6,7 +6,7 @@
 
 :root {
     --alertscard-width: calc(60vw - var(--alertscard-paddingleftright) * 2);
-    --alertscard-maxheight: calc(60vh - var(--alertscard-paddingtopbottom) * 2);
+    --alertscard-maxheight: calc( (60 * var(--vh, 1vh)) - var(--alertscard-paddingtopbottom) * 2);
     --alertscard-paddingleftright: 40px;
     --alertscard-paddingtopbottom: 20px;
     --alertscarddescription-margin: 0px 20px;
@@ -16,7 +16,7 @@
 @media all and (max-width: 840px) {
      :root {
         --alertscard-width: calc(90vw - var(--alertscard-paddingleftright) * 2);
-        --alertscard-maxheight: calc(80vh - var(--alertscard-paddingtopbottom) * 2);
+        --alertscard-maxheight: calc( (80 * var(--vh, 1vh)) - var(--alertscard-paddingtopbottom) * 2);
         --alertscard-paddingleftright: 28px;
         --alertscard-paddingtopbottom: 20px;
         --alertscarddescription-margin: 0px 4px;
@@ -44,7 +44,7 @@
     max-height: var(--alertscard-maxheight);
     background-color: var(--alertscard-background);
     border: 1px solid var(--alertscard-border);
-    margin: calc((100vh - var(--alertscard-maxheight) - var(--alertscard-paddingtopbottom)) / 2.5) auto;
+    margin: calc(( (100 * var(--vh, 1vh)) - var(--alertscard-maxheight) - var(--alertscard-paddingtopbottom)) / 2.5) auto;
     border-radius: 12px;
     padding: var(--alertscard-paddingtopbottom) var(--alertscard-paddingleftright);
     text-align: center;
