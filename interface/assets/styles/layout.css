@@ -111,7 +111,7 @@ body {
     --topbarbutton-display: flex;
     --topbaroptions-display: none;
     --topbar-border: 0px solid transparent;
-    --sectionsbaritemtitle-top: -12px;
+    --sectionsbaritemtitle-top: -2px;
 }
 
 @media all and (max-width: 840px) {
@@ -142,7 +142,7 @@ body {
         --sectionsbartop-justifycontent: space-evenly;
         --topbarusername-display: none;
         --topbarprofile-marginright: 8px;
-        --icons-margin: 8px;
+        --icons-margin: 14px;
         --pagecontent-corner: 0px;
         --pagecover-topleftborder: 0px;
         --pagecover-bottomborder: 1px;
@@ -150,7 +150,7 @@ body {
         --topbarbutton-display: none;
         --topbaroptions-display: flex;
         --topbar-border: 1px solid var(--pagecontent-border);
-        --sectionsbaritemtitle-top: -8px;
+        --sectionsbaritemtitle-top: -4px;
     }
 }
 
@@ -521,6 +521,7 @@ body {
     font-size: var(--icons-size);
     margin: var(--icons-margin) auto;
     fill: var(--icons-colour);
+    margin-bottom: 0px;
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title {
