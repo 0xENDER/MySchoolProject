@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2021 at 03:06 PM
+-- Generation Time: Oct 09, 2021 at 03:33 PM
 -- Server version: 5.7.35-cll-lve
 -- PHP Version: 7.3.27
 
@@ -46,7 +46,8 @@ CREATE TABLE `developer` (
 --
 
 CREATE TABLE `info` (
-  `id` varchar(256) NOT NULL,
+  `constid` int(11) NOT NULL,
+  `dynamicid` varchar(256) NOT NULL,
   `type` tinytext NOT NULL,
   `price` smallint(6) NOT NULL,
   `category` varchar(64) NOT NULL,
@@ -154,7 +155,8 @@ ALTER TABLE `developer`
 -- Indexes for table `info`
 --
 ALTER TABLE `info`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`constid`),
+  ADD UNIQUE KEY `dynamicid` (`dynamicid`);
 
 --
 -- Indexes for table `installing`
@@ -178,7 +180,43 @@ ALTER TABLE `permissions`
 -- Indexes for table `requirements`
 --
 ALTER TABLE `requirements`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD UNIQUE KEY `id_2` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `info`
+--
+ALTER TABLE `info`
+  MODIFY `constid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `installing`
+--
+ALTER TABLE `installing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `media`
+--
+ALTER TABLE `media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `permissions`
+--
+ALTER TABLE `permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `requirements`
+--
+ALTER TABLE `requirements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
