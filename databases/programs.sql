@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2021 at 02:44 PM
+-- Generation Time: Oct 09, 2021 at 03:06 PM
 -- Server version: 5.7.35-cll-lve
 -- PHP Version: 7.3.27
 
@@ -117,7 +117,27 @@ CREATE TABLE `permissions` (
 --
 
 CREATE TABLE `requirements` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `hwkeyboard` tinyint(1) NOT NULL,
+  `hwkeyboardPreferred` tinyint(1) NOT NULL,
+  `hwmouse` tinyint(1) NOT NULL,
+  `hwmousePreferred` tinyint(1) NOT NULL,
+  `hwtouchinput` tinyint(1) NOT NULL,
+  `hwtouchinputPreferred` tinyint(1) NOT NULL,
+  `hwcontrollersMin` tinyint(4) NOT NULL,
+  `hwcontrollersMinPreferred` tinyint(4) NOT NULL,
+  `hwcontrollersMax` tinyint(4) NOT NULL,
+  `hwcontrollersMaxPreferred` tinyint(4) NOT NULL,
+  `hwmemory` int(11) NOT NULL,
+  `hwmemoryPreferred` int(11) NOT NULL,
+  `swoswindows` varchar(16) NOT NULL,
+  `swoswindowsPreferred` varchar(16) NOT NULL,
+  `swosmac` varchar(16) NOT NULL,
+  `swosmacPreferred` varchar(16) NOT NULL,
+  `swosandroid` varchar(16) NOT NULL,
+  `swosandroidPreferred` varchar(16) NOT NULL,
+  `swosios` varchar(16) NOT NULL,
+  `swosiosPreferred` varchar(16) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --

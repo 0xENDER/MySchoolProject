@@ -186,7 +186,7 @@
         // Hardware requirements
         "hardware": {
 
-            "keyboard": [ // Does this program require a keyboard
+            "keyboard": [ // Does this program require a physical keyboard
                 false
             ],
             "mouse": [ // Does this program require a mouse
