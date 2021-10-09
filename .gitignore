@@ -10,8 +10,9 @@
 /bundler/apps_codebase/*
 
 # Do not upload secret files
-/**/*.secret.*
-/**/*.secret.**
+**/*.secret
+**/*.secret.*
+**/*.secret.**
 
 # Ignore the "/tests/" directory
 /tests
