@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2021 at 04:21 PM
+-- Generation Time: Oct 09, 2021 at 04:38 PM
 -- Server version: 5.7.35-cll-lve
 -- PHP Version: 7.3.27
 
@@ -182,9 +182,7 @@ ALTER TABLE `permissions`
 -- Indexes for table `requirements`
 --
 ALTER TABLE `requirements`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `id_2` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
