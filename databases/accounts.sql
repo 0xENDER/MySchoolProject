@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2021 at 03:34 PM
+-- Generation Time: Oct 09, 2021 at 04:21 PM
 -- Server version: 5.7.35-cll-lve
 -- PHP Version: 7.3.27
 
@@ -51,6 +51,8 @@ CREATE TABLE `info` (
   `birthmonth` tinyint(4) NOT NULL,
   `birthyear` smallint(6) NOT NULL,
   `hasprofilepicture` tinyint(1) NOT NULL,
+  `verifiedEmail` tinyint(1) NOT NULL,
+  `verifiedMobileNumber` tinyint(1) NOT NULL,
   `access` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

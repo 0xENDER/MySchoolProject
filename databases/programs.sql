@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 09, 2021 at 03:33 PM
+-- Generation Time: Oct 09, 2021 at 04:21 PM
 -- Server version: 5.7.35-cll-lve
 -- PHP Version: 7.3.27
 
@@ -64,7 +64,9 @@ CREATE TABLE `info` (
   `installing` int(11) NOT NULL,
   `requirements` int(11) NOT NULL,
   `permissions` int(11) NOT NULL,
-  `media` int(11) NOT NULL
+  `media` int(11) NOT NULL,
+  `firstuploaddate` date NOT NULL,
+  `latestupdatedate` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
