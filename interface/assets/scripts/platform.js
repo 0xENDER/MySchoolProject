@@ -38,7 +38,12 @@ window.platform = { // An object to keep track and organise the platform data
     // ^^^ of the page would not be set to "http(s)"! ^^^
 
     // The server address
-    server: "%{{server:url}}%",
+    servers: {
+
+        store: "%{{server:url}}%",
+        accounts: "%{{server:AccountsURL}}%"
+
+    },
 
     special: {
 

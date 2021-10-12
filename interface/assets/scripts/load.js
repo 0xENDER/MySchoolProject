@@ -576,7 +576,7 @@ function isOnline() {
             } else {
 
                 // If the user is connected to a network, try to connect to the server of the store
-                fetch(window.platform.server + "/connection.server.test", {
+                fetch(window.platform.servers.store + "/connection.server.test", {
                     method: 'HEAD'
                 }).then(function(response) {
 

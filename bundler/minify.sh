@@ -7,6 +7,7 @@ DEBUG_MODE=$1
 ## Copy the `interface` directory
 echo "[Bundler] [Minify] Copying the 'interface/' directory..."
 cp -a "../interface/." "apps_codebase/"
+cp -a "../accounts_server/." "apps_codebase/accounts"
 #
 ## Minify files only if debug mode is off
 if [ $DEBUG_MODE -eq 0 ]; then

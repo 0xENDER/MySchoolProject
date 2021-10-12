@@ -9,7 +9,7 @@
 const scan = require("./scan"),
     fs = require("fs"),
     path = require("path"),
-    scanDirectory = path.join(__dirname, "builds", "web"),
+    scanDirectory = path.join(__dirname, "builds", "web", "store"),
     sitemapDirectory = path.join(scanDirectory, "sitemap.xml");
 
 /*

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <base href="%{{server:AccountsURL}}%/">
+
+    <style>
+        /* Light mode */
+        
+         :root {
+            color-scheme: light;
+            --page-background: white;
+        }
+        /* Dark mode */
+        
+        @media (prefers-color-scheme: dark) {
+             :root {
+                color-scheme: dark;
+                --page-background: #2a2a2a;
+            }
+        }
+    </style>
+
+    <!-- Preload important files (First-print styles, data scripts, etc.) -->
+    <!--<link rel="preload" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%" as="style">
+    <link rel="preload" href="./assets/fonts/latin.woff2?v=%{{global:codebase.version}}%" as="font" type="font/woff2" crossorigin>-->
+
+    <!-- Do some important stuff -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="referrer" content="strict-origin">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Security-Policy" content="%{{server:AccountsCSP}}%">
+
+    <!-- Important search-friendly meta tags -->
+    <meta name="title" content="Sign in | %{{global:appInfo.name}}%">
+    <meta name="description" content="Sign in to your account to use %{{global:appInfo.name}}%.">
+    <meta name="keywords" content="sign in,%{{global:appInfo.webKeywords}}%">
+    <meta name="language" content="English">
+    <meta name="lang" content="en">
+    <meta name="creationdate" content="October 10 2021">
+
+    <!-- Website theming -->
+    <meta name="application-name" content="Sign in | %{{global:appInfo.name}}%">
+    <meta name="apple-mobile-web-app-title" content="Sign in | %{{global:appInfo.name}}%">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="msapplication-TileColor" content="#5d42ef">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+
+    <!-- Styles -->
+    <!--<link rel="stylesheet" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%">-->
+
+    <!-- The page title and icon -->
+    <title>Sign in | %{{global:appInfo.name}}%</title>
+    <link rel="icon" href="%{{server:url}}%/assets/media/icon.ico?v=%{{global:codebase.version}}%" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/png" href="%{{server:url}}%/assets/media/logo/apple-touch-icon.png?v=%{{global:codebase.version}}%">
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="./assets/scripts/events.js?v=%{{global:codebase.version}}%"></script>
+
+</head>
+
+<body>
+
+    Not ready yet! (debug mode)
+    <br>
+    <button onclick="window.events.signedIn();">Sign In (Debug profile)</button>
+
+</body>
+
+</html>
