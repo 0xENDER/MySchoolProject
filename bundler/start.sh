@@ -9,6 +9,7 @@ BUILD_LINUX=$4
 BUILD_MAC=$5
 BUILD_ANDROID=$6
 BUILD_IOS=$7
+LOCAL=$8
 FRAMEWORK_ELECTRON=$(expr $BUILD_WINDOWS + $BUILD_LINUX + $BUILD_MAC)
 FRAMEWORK_REACT=$(expr $BUILD_ANDROID + $BUILD_IOS)
 USE_FRAMEWORKS=0
@@ -34,6 +35,7 @@ else
 fi
 if [ $DEBUG_MODE -eq 1 ]; then
 #
+    echo "[DEBUG] Local: $LOCAL"
     echo "[DEBUG] Web: $BUILD_WEB"
     echo "[DEBUG] Windows: $BUILD_WINDOWS"
     echo "[DEBUG] Linux: $BUILD_LINUX"
@@ -69,7 +71,7 @@ echo -e "\n[Bundler] Minifying the codebase..."
 if [ $BUILD_WEB -eq 1 ]; then
 #
     echo -e "\n[Bundler] Building the web codebase version..."
-    "./web.sh" $DEBUG_MODE
+    "./web.sh" $DEBUG_MODE $LOCAL
 #
 fi
 #
@@ -77,7 +79,7 @@ fi
 if [ $USE_FRAMEWORKS -eq 1 ]; then
 #
     echo -e "\n[Bundler] Preparing the codebase for Electron and React..."
-    "./prepare_frameworks_codebase.sh" $DEBUG_MODE $FRAMEWORK_ELECTRON $FRAMEWORK_REACT
+    "./prepare_frameworks_codebase.sh" $DEBUG_MODE $FRAMEWORK_ELECTRON $FRAMEWORK_REACT $LOCAL
 #
 fi
 #
@@ -96,4 +98,7 @@ if [ $FRAMEWORK_REACT -eq 1 ]; then
     "./react.sh" $DEBUG_MODE $BUILD_ANDROID $BUILD_IOS
 #
 fi
+#
+## Inform the user that the build is done
+echo -e "\n[Bundler] All the builds are finished!"
 #

@@ -10,13 +10,18 @@ BUILD_MAC=0
 BUILD_LINUX=0
 BUILD_ANDROID=0
 BUILD_IOS=0
+LOCAL=0
 #
 ## Check the command arguments
 if [ $# -ne 0 ]; then
 #
     for argument in "$@"; do
     #
-        if [ "$argument" = "-web" ]; then
+        if [ "$argument" = "-local" ]; then
+        #
+            LOCAL=1
+        #
+        elif [ "$argument" = "-web" ]; then
         #
             BUILD_WEB=1
             BUILD=1
@@ -82,6 +87,7 @@ fi
 ## Print the build settings
 if [ $DEBUG_MODE -eq 1 ]; then
 #
+    echo "[DEBUG] Local: $LOCAL"
     echo "[DEBUG] Web: $BUILD_WEB"
     echo "[DEBUG] Windows: $BUILD_WINDOWS"
     echo "[DEBUG] Linux: $BUILD_LINUX"
@@ -95,7 +101,7 @@ fi
 if [ $BUILD -eq 1 ]; then
 #
     cd "bundler/"
-    "./start.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $BUILD_IOS
+    "./start.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $BUILD_IOS $LOCAL
 #
 fi
 #

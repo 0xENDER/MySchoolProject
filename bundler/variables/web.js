@@ -9,4 +9,10 @@ const path = require("path"),
     replaceVariables = require("./module");
 
 // Call the custom variables module
-replaceVariables(path.join(__dirname, "..", "builds", "web/"), [".js", ".html", ".css", ".webmanifest", ".htaccess", ".xml", ".txt"], "web");
+replaceVariables(
+    path.join(__dirname, "..", "builds", "web/"), [
+        ".js", ".html", ".css", ".webmanifest", ".htaccess", ".xml", ".txt"
+    ],
+    "web",
+    process.argv[2] == 1
+);

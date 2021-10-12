@@ -8,6 +8,7 @@
 const path = require("path"),
     scan = require("./../scan"),
     fs = require("fs"),
+    serverVariables = require("./serverinfo"),
     dataPath = path.join(__dirname, "..", "..", "data"),
     dataRegex = /%{{.*}}%/,
     dataSplitRegex = /(%{{.*?}}%)/, // /(?<=%{{)(.*?)(?=}}%)/
@@ -26,7 +27,7 @@ scan.scanDirectory(dataPath, [".data.json"], function(fileDirectory) {
 });
 
 // Define the module object
-module.exports = function(directory, filterExtensions, variableType = "default") {
+module.exports = function(directory, filterExtensions, variableType = "default", isLocal = false) {
 
     scan.scanDirectory(directory, filterExtensions, function(fileDirectory) {
 
@@ -102,6 +103,19 @@ module.exports = function(directory, filterExtensions, variableType = "default")
             }
 
         }
+
+        // Replace server variables
+        processedTextContent = serverVariables(processedTextContent, (isLocal) ? {
+
+            hostAddress: "localhost",
+            hostProtocol: "http"
+
+        } : {
+
+            hostAddress: "mur-lang.org",
+            hostProtocol: "https"
+
+        });
 
         // Save the new content
         fs.writeFileSync(fileDirectory, processedTextContent);

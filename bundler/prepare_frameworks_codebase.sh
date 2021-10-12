@@ -5,6 +5,7 @@
 DEBUG_MODE=$1
 FRAMEWORK_ELECTRON=$2
 FRAMEWORK_REACT=$3
+LOCAL=$4
 #
 ## Copy the folders inside the "interface/" directory for Electron and React
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
@@ -48,13 +49,13 @@ fi
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
 #
     echo "[Bundler] [Frameworks ~ Prepare Electron] Processing all the custom variables..."
-    node "variables/electron.js"
+    node "variables/electron.js" $LOCAL
 #
 fi
 if [ $FRAMEWORK_REACT -eq 1 ]; then
 #
     echo "[Bundler] [Frameworks ~ Prepare React] Processing all the custom variables..."
-    node "variables/react.js"
+    node "variables/react.js" $LOCAL
 #
 fi
 #

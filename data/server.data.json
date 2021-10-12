@@ -2,25 +2,25 @@
 
     "url": {
 
-        "default": "https://store.mur-lang.org"
+        "default": "%%PROTOCOL%%://store.%%HOST%%"
 
     },
 
     "AccountsURL": {
 
-        "default": "https://accounts.mur-lang.org"
+        "default": "%%PROTOCOL%%://accounts.%%HOST%%"
 
     },
 
     "CSP": {
 
-        "default": "default-src 'self' https://*.mur-lang.org; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' https://*.mur-lang.org https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.mur-lang.org https://static.cloudflareinsights.com/; object-src 'none';"
+        "default": "default-src 'self' %%PROTOCOL%%://*.%%HOST%%; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' %%PROTOCOL%%://*.%%HOST%% https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' %%PROTOCOL%%://*.%%HOST%% https://static.cloudflareinsights.com/; object-src 'none';"
 
     },
 
     "AccountsCSP": {
 
-        "default": "default-src 'self' https://*.mur-lang.org; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' https://*.mur-lang.org https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.mur-lang.org https://static.cloudflareinsights.com/; object-src 'none';"
+        "default": "default-src 'self' %%PROTOCOL%%://*.%%HOST%%; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' %%PROTOCOL%%://*.%%HOST%% https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' %%PROTOCOL%%://*.%%HOST%% https://static.cloudflareinsights.com/; object-src 'none';"
 
     }
 

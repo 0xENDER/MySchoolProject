@@ -3,6 +3,7 @@
 #
 ## Organise the environment variables
 DEBUG_MODE=$1
+LOCAL=$2
 #
 ## Prepare all the folders
 mkdir "builds/web/store/"
@@ -31,5 +32,5 @@ node "sitemap.js"
 #
 ## Replace all the custom variables
 echo "[Bundler] [Web] Processing all the custom variables..."
-node "variables/web.js"
+node "variables/web.js" $LOCAL
 #

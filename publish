@@ -3,13 +3,18 @@
 #
 ## Define the environment variables
 DEBUG_MODE=0
+LOCAL=0
 #
 ## Check the command arguments
 if [ $# -ne 0 ]; then
 #
     for argument in "$@"; do
     #
-        if [ "$argument" = "--debug" ]; then
+        if [ "$argument" = "-local" ]; then
+        #
+            LOCAL=1
+        #
+        elif [ "$argument" = "-debug" ]; then
         #
             DEBUG_MODE=1
         #
@@ -19,7 +24,14 @@ if [ $# -ne 0 ]; then
 #
 fi
 #
+## Print the build settings
+if [ $DEBUG_MODE -eq 1 ]; then
+#
+    echo "[DEBUG] Local: $LOCAL"
+#
+fi
+#
 ## Run the `start.sh` file
 cd "bundler/"
-"./publish.sh" $DEBUG_MODE
+"./publish.sh" $DEBUG_MODE $LOCAL
 #
