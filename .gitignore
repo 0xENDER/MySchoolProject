@@ -5,6 +5,10 @@
 /bundler/builds
 /bundler/builds/*
 
+# Ignore the "/public/" directory in the "bundler" folder
+/bundler/public
+/bundler/public/*
+
 # Ignore the "/apps_codebase/" directory in the "bundler" folder
 /bundler/apps_codebase
 /bundler/apps_codebase/*
@@ -13,6 +17,7 @@
 **/*.secret
 **/*.secret.*
 **/*.secret.**
+**/secret.**
 
 # Ignore the "/tests/" directory
 /tests
