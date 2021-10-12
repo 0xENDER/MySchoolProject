@@ -11,8 +11,6 @@ module.exports = function(content, configuration) {
     // Replace the server variables
     return content.replace(/%%(.*?)%%/g, function(data, variable) {
 
-        console.log(configuration);
-
         // Go through the possible variables
         if (variable == "HOST") {
 
