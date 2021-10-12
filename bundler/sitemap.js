@@ -86,7 +86,7 @@ fs.writeFile(
 
                 // Add this file into the URL set
                 fs.appendFile(sitemapDirectory,
-                    `<url> <loc>%{{global:appInfo.url.website}}%/${fileWebsitePath}</loc> <lastmod>${lastModification}</lastmod> <changefreq>always</changefreq> <priority>${pathPriority}</priority> </url>`,
+                    `<url> <loc>%{{server:url}}%/${fileWebsitePath}</loc> <lastmod>${lastModification}</lastmod> <changefreq>always</changefreq> <priority>${pathPriority}</priority> </url>`,
                     function(error) {
 
                         if (error) {
