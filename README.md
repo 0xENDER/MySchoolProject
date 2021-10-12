@@ -155,7 +155,7 @@ sudo nano 000-default.conf
 
 And make sure to replace its content with this:
 
-```ht
+```sh
 # The store subdomain (store.*)
 <VirtualHost *:80>
 
