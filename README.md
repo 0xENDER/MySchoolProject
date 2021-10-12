@@ -153,9 +153,35 @@ cd /etc/apache2/sites-available
 sudo nano 000-default.conf
 ```
 
-And change the `DocumentRoot` value!
+And make sure to replace its content with this:
 
-Note that you need to move the website code (inside `/bundler/builds/web/`) to your `/var/www/html/` directory or your `DocumentRoot` directory.
+```sh
+# The store subdomain (store.*)
+<VirtualHost *:80>
+
+  ServerAdmin webmaster@localhost
+  DocumentRoot .../bundler/public/store_subdomain
+  ServerName store.localhost
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+# The accounts subdomain (accounts.*)
+<VirtualHost *:80>
+
+  ServerAdmin webmaster@localhost
+  DocumentRoot .../bundler/public/accounts_subdomain
+  ServerName accounts.localhost
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+```
+
+> Note that you will need to move the website code (inside `/bundler/builds/web/`) to your `/var/www/html/` directory or your `DocumentRoot` directory, if you do not change your website settings.
 
 ### Building
 
@@ -194,6 +220,7 @@ To make all the production-ready versions of the codebase, use the `./build` fil
 The available build flags are:
 
 - `-debug`: Show debug messages
+- `-local`: Tells the builder that your server is hosted locally (on `localhost`)
 - `-all`: Create all the builds for all platforms (Web, Windows, Linux, macOS, Android, iOS)
 - `-desktop`: Create all the builds for desktop devices (Windows, Linux, macOS)
 - `-mobile`: Create all the builds for mobile devices (Android, iOS)
@@ -205,6 +232,15 @@ The available build flags are:
 - `-ios`: Create an iOS build
 
 If you face any problem whist building a native app for Windows, macOS, or Linux, make sure that you have [the proper enviromnet setup for `electron-builder`](https://www.electron.build/multi-platform-build.html)!
+
+## Publishing (the website) - ***NOT READY!***
+
+You can use the `./publish` command to publish the website to the FTP server of your choice in the `server` data file.
+
+The available flags are:
+
+- `-debug`: Show debug messages
+- `-local`: Tells the publisher that your server is hosted locally (on `localhost`)
 
 ## Licensing
 
