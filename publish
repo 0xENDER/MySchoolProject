@@ -1,0 +1,25 @@
+## Run the publisher
+#
+#
+## Define the environment variables
+DEBUG_MODE=0
+#
+## Check the command arguments
+if [ $# -ne 0 ]; then
+#
+    for argument in "$@"; do
+    #
+        if [ "$argument" = "--debug" ]; then
+        #
+            DEBUG_MODE=1
+        #
+        fi
+    #
+    done
+#
+fi
+#
+## Run the `start.sh` file
+cd "bundler/"
+"./publish.sh" $DEBUG_MODE
+#
