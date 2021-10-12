@@ -14,7 +14,8 @@ const {
     BrowserWindow,
     nativeTheme,
     session,
-    ipcMain
+    ipcMain,
+    shell
 
 } = require('electron'),
     path = require('path'),
@@ -96,7 +97,8 @@ function createWindow() {
             //defaultFontSize: 18,
             defaultMonospaceFontSize: 13,
             autoplayPolicy: "no-user-gesture-required",
-            enableWebSQL: false
+            enableWebSQL: false,
+            nativeWindowOpen: false
 
         },
 
@@ -132,6 +134,40 @@ function createWindow() {
             currentWindow.maximize();
 
         }
+
+    });
+
+    // Manage windows
+    currentWindow.webContents.setWindowOpenHandler(({ url }) => {
+
+        if (url.startsWith('%{{server:AccountsURL}}%')) {
+
+            // Accept the new window request
+            return { action: 'allow' }
+
+        } else {
+
+            // Open this page in the default browser
+            shell.openExternal(url);
+
+            // Deny the new window request
+            return { action: 'deny' };
+
+        }
+
+    });
+    currentWindow.webContents.on('did-create-window', (childWindow) => {
+
+        // Hide the top menu
+        childWindow.setMenu(null);
+
+        // Debug
+        //childWindow.webContents.openDevTools();
+        /*childWindow.webContents.on('will-navigate', (e) => {
+
+            e.preventDefault();
+
+        });*/
 
     });
 
