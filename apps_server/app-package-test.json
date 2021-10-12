@@ -240,7 +240,10 @@
     "installing": {
 
         // Does this program require a strict download process? (allow this program the be downloaded from the website or only from the app)
-        "strict": false
+        "strict": false,
+
+        // Allow this program to be downloaded without an account (can't be used with paid apps, and it's not recommended for free apps)
+        "allowWithoutAccount": false
 
     }
 
