@@ -5,7 +5,9 @@
         "*.json": "jsonc",
         "*.webmanifest": "jsonc",
         "*.data.json": "json",
-        "*.chtml": "text"
+        "*.chtml": "text",
+        "build": "shellscript",
+        "publish": "shellscript"
 
 
     }
