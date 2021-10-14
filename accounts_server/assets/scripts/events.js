@@ -1,34 +1,160 @@
 /*
 
-    Manage sign in requests
+    Manage cross-page events
 
 */
 
 
+// Tell the window opener that the page has finished loading
+if (window.opener != null) {
+
+    window.opener.postMessage({
+
+        type: "loaded",
+        data: null
+
+    }, "*");
+
+}
+
 // Define the events object
 window.events = {
 
-    signedIn: function() {
+    // Events data
+    data: {
 
-        // Check if this is a child window
-        if (window.opener != null) {
+        didFail: false,
+        openerOrigin: null,
+        openerURL: null,
+        configurations: null
 
-            // Send a "signed-in" event message
+    },
+
+    // The events manager
+    manager: {
+
+        // Report an error
+        error(errorMessage, errorCode) {
+
+            window.events.data.didFail = true;
+
+            alert(`ERROR: ${errorMessage}\nCODE: ${errorCode}`);
+
             window.opener.postMessage({
 
-                event: "signed-in"
+                type: "failed",
+                data: {
 
-            }, "*");
+                    error: {
 
-            // Close the window
-            window.close();
+                        message: errorMessage,
+                        code: errorCode
+
+                    }
+
+                }
+
+            }, (window.events.data.openerURL != null) ? window.events.data.openerURL : "*");
+
+            throw new Error(`ERROR: ${errorMessage}\nCODE: ${errorCode}`);
+
+        }
+
+    },
+
+    // The user has signed in
+    signedIn() {
+
+        // Only allow failure-free processes to use this function
+        if (!this.data.didFail) {
+
+            // Check if this is a child window
+            if (window.opener != null) {
+
+                // Send a "signed-in" event message
+                window.opener.postMessage({
+
+                    type: "signed-in",
+                    data: null
+
+                }, window.events.data.openerURL);
+
+                // Check if this is an app that requires authentication
+                if (
+                    window.events.data.openerOrigin.indexOf("%%HOST%%") != -1
+                ) {
+
+                    // Close the window
+                    window.close();
+
+                } else {
+
+                    // Authenticate the request! (Debug)
+                    alert("DEBUG: Auth system is not ready yet!\nUse the debug auth button.");
+
+                }
+
+            } else {
+
+                // Tmp...
+                window.location.href = "/";
+
+            }
+
+        }
+
+    },
+
+    // The user has authenticated the request
+    authenticated(authKey) {
+
+        // Send an "authenticated" event message
+        window.opener.postMessage({
+
+            type: "authenticated",
+            data: {
+
+                authKey: authKey
+
+            }
+
+        }, window.events.data.openerURL);
+
+        // Close the window
+        window.close();
+
+
+    }
+
+};
+
+// Listen to incoming messages
+window.onmessage = function(event) {
+
+    // Check if the received data is valid
+    if (event.data.configurations != undefined && event.data.url != undefined) {
+
+        // Check if the request URL has the same origin as the message's origin
+        if (event.data.url.indexOf(event.origin) != 0) {
+
+            // Report the error
+            window.events.manager.error("The request page URL's origin does not match the request page's origin!", "0002");
 
         } else {
 
-            // Tmp...
-            window.location.href = "/";
+            window.events.data.openerOrigin = event.origin;
+            window.events.data.openerURL = event.data.url;
+            window.events.data.configurations = event.data.configurations;
 
         }
+
+        // Stop listening to messages
+        window.onmessage = null;
+
+    } else {
+
+        // Report the error
+        window.events.manager.error("Received invalid data!", "0001");
 
     }
 
