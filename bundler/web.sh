@@ -14,6 +14,7 @@ echo "[Bundler] [Web] Copying some folders from the codebase..."
 cp -R "apps_codebase/assets/" "builds/web/store/"
 cp -R "apps_codebase/pages/" "builds/web/store/"
 cp -R "apps_codebase/components/" "builds/web/store/"
+cp -R "apps_codebase/libraries/" "builds/web/store/"
 cp -R "apps_codebase/accounts/." "builds/web/accounts"
 #
 ## Copy the required files from the codebase for the "web version"
