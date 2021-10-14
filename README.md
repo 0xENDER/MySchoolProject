@@ -259,3 +259,5 @@ The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fo
 [Apps Submission Requirements](./docs/apps_submission.md)
 
 [Page Content Documentation](./docs/page_content.md)
+
+[Accounts System Documentation](./docs/accounts_system.md)
