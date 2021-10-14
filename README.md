@@ -17,18 +17,20 @@
 ## Planned Features
 
 > **(!):** _This feature may not be achievable within the given period of time to work on this project._
+>
+> **(\*):** _Not fully tested._
 
 - [ ] A fully optimised workload for desktops and mobile devices:
   - [x] Support for all chromium-based browsers
-  - [ ] Support for all firefox-based browsers
-  - [ ] Support for the Safari browser
-  - [ ] A caching system (with service workers)
+  - [x] Support for all firefox-based browsers  **(\*)**
+  - [x] Support for the Safari browser **(\*)**
+  - [x] A caching system (with service workers) **(\*)**
   - [x] Desktop layout
   - [ ] Mobile devices layout
   - [ ] Optimise for low-performing devices
 - [ ] Support the store on mutiple platforms:
   - [x] The web
-  - [ ] PWA (Progressive Web Application)
+  - [x] PWA (Progressive Web Application) **(\*)**
   - [ ] Windows (Electron)
   - [ ] Linux (Electron)
   - [ ] MacOS (Electron)
