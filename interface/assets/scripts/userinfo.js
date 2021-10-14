@@ -23,26 +23,31 @@ document.documentElement.dataset.signedIn = false;
 // Prepare the sign in button
 signInButton.onclick = function() {
 
-    // Define the dimensions of the window
-    var width = 480,
-        height = 620,
-        left = (window.screen.width - width) / 2,
-        top = (window.screen.height > height + 40) ? 40 : 0;
+    // Open a request
+    accountsSystemAPI.openRequest({
 
-    // Open the window
-    window.open(window.platform.servers.accounts + "/signin/", "Sign In", `menubar=no,toolbar=no,location=no,resizable=no,scrollbars=yes,status=no,width=${width}px,height=${height}px,left=${left}px,top=${top}px,nodeIntegration=no,alwaysOnTop=yes,fullscreenable=no,skipTaskbar=yes,minimizable=no`);
+        //
 
-    // Listen to messages coming from the sign in window
-    window.onmessage = (event) => {
+    });
 
-        // Check if this message came from the server!
-        if (event.origin == "%{{server:AccountsURL}}%") {
+    accountsSystemAPI.onConnected = function() {
 
-            console.log(event.data);
-            console.log(event.source);
-
-        }
+        console.log("Connected!");
 
     };
+
+    accountsSystemAPI.onSignIn = function(data) {
+
+        console.log("Signed in!");
+        console.log(data);
+
+    }
+
+    accountsSystemAPI.onAuth = function(data) {
+
+        console.log("Authenticated!");
+        console.log(data);
+
+    }
 
 };
