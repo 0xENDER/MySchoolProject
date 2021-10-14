@@ -8,12 +8,18 @@
 // Tell the window opener that the page has finished loading
 if (window.opener != null) {
 
-    window.opener.postMessage({
+    if (!("didLoad" in window.temporaryData.currentData) || !window.temporaryData.currentData.didLoad) {
 
-        type: "loaded",
-        data: null
+        window.opener.postMessage({
 
-    }, "*");
+            type: "loaded",
+            data: null
+
+        }, "*");
+
+    }
+
+    window.temporaryData.setItem("didLoad", true);
 
 }
 
@@ -128,34 +134,55 @@ window.events = {
 
 };
 
-// Listen to incoming messages
-window.onmessage = function(event) {
+// Get the required working variables
+if (window.temporaryData.currentData.openerOrigin == undefined) {
 
-    // Check if the received data is valid
-    if (event.data.configurations != undefined && event.data.url != undefined) {
+    // Listen to incoming messages
+    window.onmessage = function(event) {
 
-        // Check if the request URL has the same origin as the message's origin
-        if (event.data.url.indexOf(event.origin) != 0) {
+        // Check if the received data is valid
+        if (event.data.configurations != undefined && event.data.url != undefined) {
 
-            // Report the error
-            window.events.manager.error("The request page URL's origin does not match the request page's origin!", "0002");
+            // Check if the request URL has the same origin as the message's origin
+            if (event.data.url.indexOf(event.origin) != 0) {
+
+                // Report the error
+                window.events.manager.error("The request page URL's origin does not match the request page's origin!", "0002");
+
+            } else {
+
+                window.events.data.openerOrigin = event.origin;
+                window.events.data.openerURL = event.data.url;
+                window.events.data.configurations = event.data.configurations;
+            }
+
+            // Stop listening to messages
+            window.onmessage = null;
 
         } else {
 
-            window.events.data.openerOrigin = event.origin;
-            window.events.data.openerURL = event.data.url;
-            window.events.data.configurations = event.data.configurations;
+            // Report the error
+            window.events.manager.error("Received invalid data!", "0001");
 
         }
 
-        // Stop listening to messages
-        window.onmessage = null;
+    };
 
-    } else {
+} else {
 
-        // Report the error
-        window.events.manager.error("Received invalid data!", "0001");
+    // Get the data
+    window.events.data.openerOrigin = window.temporaryData.currentData.openerOrigin;
+    window.events.data.openerURL = window.temporaryData.currentData.openerURL;
+    window.events.data.configurations = window.temporaryData.currentData.configurations;
 
-    }
+}
 
-};
+// Save temporary data before unloading
+window.onbeforeunload = function() {
+
+    // Save this data for later use
+    window.temporaryData.setItem("openerOrigin", window.events.data.openerOrigin);
+    window.temporaryData.setItem("openerURL", window.events.data.openerURL);
+    window.temporaryData.setItem("configurations", window.events.data.configurations);
+
+}
