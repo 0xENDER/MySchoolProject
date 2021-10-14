@@ -261,3 +261,5 @@ The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fo
 [Page Content Documentation](./docs/page_content.md)
 
 [Accounts System Documentation](./docs/accounts_system.md)
+
+[Typed `LocalStorage` Documentation](./docs/typed_localstorage.md)

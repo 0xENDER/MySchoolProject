@@ -19,7 +19,7 @@
         itemString += `${String((new Date()).getTime())};`;
 
         // Save the expiration date
-        itemString += `${(expiration != null) ? String((new Date()).getTime() + expiration) : "false"};`
+        itemString += `${(expiration != null) ? String((new Date()).getTime() + (expiration * 1000)) : "false"};`
 
         // Check the item's type
         if (itemType == "undefined" || itemType == "function" || itemType == "symbol") {

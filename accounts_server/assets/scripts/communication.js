@@ -15,7 +15,7 @@ window.temporaryData = {
     // Add an item to the temporary data group
     setItem: function(name, data) {
 
-        _LocalStorage.setItem("data-" + name, data, 4 * 60 * 1000);
+        _LocalStorage.setItem("data-" + name, data, 4 * 60);
 
     },
 
