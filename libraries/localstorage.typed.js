@@ -102,7 +102,7 @@
         // Check the expiration date
         if (stringData.expiration != "false") {
 
-            if ((new Date()).getTime() - Number(stringData.expiration) < 0) {
+            if (Number(stringData.expiration) - (new Date()).getTime() < 0) {
 
                 // Remove this item
                 localStorage.removeItem(id);
@@ -197,9 +197,16 @@
 
                 // Get the item
                 var item = localStorage.getItem(this.prefix + name);
+                item = (item == null) ? undefined : item;
                 if (item != undefined) {
 
                     item = parseItemString(item, this.prefix + name);
+
+                    if (item == undefined) {
+
+                        return undefined;
+
+                    }
 
                 } else {
 
@@ -281,7 +288,11 @@
                 if (item.indexOf(this.prefix) == 0) {
 
                     // Add this item to the output
-                    output[item.substring(this.prefix.length)] = this.getItem(item.substring(this.prefix.length));
+                    var itemData = this.getItem(item.substring(this.prefix.length));
+                    if (itemData != undefined) {
+                        output[item.substring(this.prefix.length)] = itemData;
+                    }
+                    delete itemData;
 
                     // Update the length
                     length++;
