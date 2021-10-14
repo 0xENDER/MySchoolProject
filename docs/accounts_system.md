@@ -13,6 +13,8 @@ This communication session is done using the messages browser APIs ([postMessage
 - `signed-in` - Fires when the user has successfully signed in to their account
 - `authenticated` - Fires when the user authenticates the request
 
+> Note that the maximum duration of a communication session is 4 minutes for each page/redirect!
+
 ## The `accounts.api` Library
 
 You can use the `accounts.api` library to communicate with the accounts system! The `accounts.api` library adds a new object to the page, with the name of `accountsSystemAPI`.
