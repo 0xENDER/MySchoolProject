@@ -9,6 +9,14 @@ echo "[Bundler] [Minify] Copying the 'interface/' directory..."
 cp -a "../interface/." "apps_codebase/"
 cp -a "../accounts_server/." "apps_codebase/accounts"
 #
+## Copy the `libraries` directory
+echo "[Bundler] [Minify] Copying the 'libraries/' directory..."
+cp -a "../libraries/" "apps_codebase/"
+#
+## Copy cross-subdomain files
+echo "[Bundler] [Minify] Copying cross-subdomain files..."
+cp -a "apps_codebase/libraries/" "apps_codebase/accounts/"
+#
 ## Minify files only if debug mode is off
 if [ $DEBUG_MODE -eq 0 ]; then
 #
