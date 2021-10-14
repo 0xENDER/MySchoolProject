@@ -27,7 +27,7 @@ if [ $LOCAL -eq 0 ]; then
     ## Stop normal traffic to the website
     echo -e "\n[Publisher] Freezing the traffic..."
     "./publish/freeze.sh"
-    #########
+    #
     ##
     #########
 #
