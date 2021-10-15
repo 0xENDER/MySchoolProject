@@ -30,9 +30,38 @@ window.events = {
     data: {
 
         didFail: false,
+        isRedirect: false,
         openerOrigin: null,
         openerURL: null,
         configurations: null
+
+    },
+
+    redirect(url) {
+
+        // Mark this as an intentional redirect
+        window.events.data.isRedirect = true;
+
+        // Redirect the page
+        window.location.href = url;
+
+    },
+
+    reload() {
+
+        // Mark this as an intentional redirect
+        window.events.data.isRedirect = true;
+
+        // Redirect the page
+        window.location.reload();
+
+    },
+
+    // Close this window
+    close() {
+
+        // Close the window
+        window.close();
 
     },
 
@@ -91,7 +120,7 @@ window.events = {
                 ) {
 
                     // Close the window
-                    window.close();
+                    window.events.close();
 
                 } else {
 
@@ -127,7 +156,7 @@ window.events = {
         }, window.events.data.openerURL);
 
         // Close the window
-        window.close();
+        window.events.close();
 
 
     }
@@ -179,6 +208,19 @@ if (window.temporaryData.currentData.openerOrigin == undefined) {
 
 // Save temporary data before unloading
 window.onbeforeunload = function() {
+
+    if (!window.events.data.isRedirect) {
+
+        window.temporaryData.removeItem("didLoad", true);
+
+        window.opener.postMessage({
+
+            type: "closed",
+            data: null
+
+        }, "*");
+
+    }
 
     // Save this data for later use
     window.temporaryData.setItem("openerOrigin", window.events.data.openerOrigin);

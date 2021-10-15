@@ -9,6 +9,7 @@ The sign in and sign up pages always send event messages to the opener of the wi
 This communication session is done using the messages browser APIs ([postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) and [onmessage](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage)). The messages that are sent by the sign in/up page include one object. This object contains a `data` variable, and a `type` variable. The `type` variable specifiys the type of the event. All the available event types are:
 
 - `loaded` - Fires when the window APIs are loaded
+- `closed` - Fires when the window APIs are loaded
 - `failed` - Fires when an error occures in the sign in/up page
 - `signed-in` - Fires when the user has successfully signed in to their account
 - `authenticated` - Fires when the user authenticates the request
@@ -43,6 +44,18 @@ The function you assign to the `onConnected` variable will always be called when
 window.accountsSystemAPI.onConnected = function(){
 
     alert("Connected!");
+
+};
+```
+
+### The `onClose` event function
+
+The function you assign to the `onClose` variable will always be called when the sign in window gets closed.
+
+```js
+window.accountsSystemAPI.onClose = function(){
+
+    alert("Closed!");
 
 };
 ```

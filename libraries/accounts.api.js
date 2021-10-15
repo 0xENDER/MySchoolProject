@@ -12,6 +12,15 @@
     var childWindowEvents = {
 
         "loaded": null,
+        "closed": function(data) {
+
+            if (typeof accountsSystemAPI.onClose == "function") {
+
+                accountsSystemAPI.onClose(data);
+
+            }
+
+        },
         "failed": function(data) {
 
             if (typeof accountsSystemAPI.onFailure == "function") {
@@ -109,6 +118,7 @@
         },
         onFailure: null,
         onConnected: null,
+        onClose: null,
         onSignIn: null,
         onAuth: null
 
