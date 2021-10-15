@@ -49,6 +49,7 @@
 .layout--sectionsbar-item.state--selected .sectionsbar--item-icon {
     fill: var(--colours-primary1);
     filter: drop-shadow(0px -2px 0px var(--colours-primary2)) drop-shadow(0px -1px 0px var(--colours-primary2));
+    margin-top: 16px;
 }
 
 .layout--sectionsbar-item.state--selected .sectionsbar--item-title {

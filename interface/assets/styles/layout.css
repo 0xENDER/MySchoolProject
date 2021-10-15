@@ -142,7 +142,7 @@ body {
         --sectionsbartop-justifycontent: space-evenly;
         --topbarusername-display: none;
         --topbarprofile-marginright: 8px;
-        --icons-margin: 14px;
+        --icons-margin: 8px;
         --pagecontent-corner: 0px;
         --pagecover-topleftborder: 0px;
         --pagecover-bottomborder: 1px;
@@ -527,6 +527,7 @@ body {
     margin: var(--icons-margin) auto;
     fill: var(--icons-colour);
     margin-bottom: 0px;
+    transition: margin 0.1s;
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title {

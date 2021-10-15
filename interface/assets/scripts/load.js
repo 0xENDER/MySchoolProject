@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
 
         coverLoadingIcon.style.opacity = 1;
 
-    }, 400);
+    }, window.platform.special.contentLoadingDelay + 400);
 
 }, (window.crossBrowser.passiveEvents.supported) ? {
 
@@ -436,28 +436,33 @@ function fetchContent(sourceURLPathname) {
 
                                 }
                                 lockResourcesCounter = false;
-                                pageContentElementChild.append(data.getElementById("system--pageResources"));
 
-                                // Delete the used variables
-                                delete children;
+                                setTimeout(function() {
 
-                                // Prepare the page content for injection
-                                if (data.getElementById("system--pageContent") != null) {
+                                    pageContentElementChild.append(data.getElementById("system--pageResources"));
 
-                                    pageHTMLContent = data.getElementById("system--pageContent");
+                                    // Delete the used variables
+                                    delete children;
 
-                                } else {
+                                    // Prepare the page content for injection
+                                    if (data.getElementById("system--pageContent") != null) {
 
-                                    loadingFailed();
+                                        pageHTMLContent = data.getElementById("system--pageContent");
 
-                                }
+                                    } else {
 
-                                // The content has been loaded in!
-                                contentDOMLoaded();
+                                        loadingFailed();
 
-                                // If the number of required resources is 0, show the page content instantly!
-                                if (contentResourcesNumber == 0)
-                                    contentLoaded();
+                                    }
+
+                                    // The content has been loaded in!
+                                    contentDOMLoaded();
+
+                                    // If the number of required resources is 0, show the page content instantly!
+                                    if (contentResourcesNumber == 0)
+                                        contentLoaded();
+
+                                }, window.platform.special.contentLoadingDelay);
 
                             }
 
@@ -687,7 +692,7 @@ window.unloadContent = function() {
     // Reset the loading screen
     document.documentElement.dataset.contentLoaded = false;
     document.documentElement.dataset.extraContentLoaded = false;
-    coverLoadingIcon.style.opacity = null;
+    coverLoadingIcon.style.opacity = 0;
     var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
     if (selectedSectionsItem != null) {
 
@@ -701,7 +706,7 @@ window.unloadContent = function() {
 
         coverLoadingIcon.style.opacity = 1;
 
-    }, 400);
+    }, window.platform.special.contentLoadingDelay + 400);
 
     // Keep going through all the "unload objects"
     while (unload.functions.length != 0) {

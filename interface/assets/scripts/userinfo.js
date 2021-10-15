@@ -30,11 +30,19 @@ signInButton.onclick = function() {
 
     });
 
-    accountsSystemAPI.onConnected = function() {
+    accountsSystemAPI.onConnected = function(data) {
 
         console.log("Connected!");
+        console.log(data);
 
     };
+
+    accountsSystemAPI.onClose = function(data) {
+
+        console.log("Closed!");
+        console.log(data);
+
+    }
 
     accountsSystemAPI.onSignIn = function(data) {
 
