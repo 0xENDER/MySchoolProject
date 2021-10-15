@@ -31,6 +31,7 @@ window.events = {
 
         didFail: false,
         isRedirect: false,
+        isPlannedExit: false,
         openerOrigin: null,
         openerURL: null,
         configurations: null
@@ -59,6 +60,9 @@ window.events = {
 
     // Close this window
     close() {
+
+        // Mark this action as "intended"
+        window.events.data.isPlannedExit = true;
 
         // Close the window
         window.close();
@@ -216,7 +220,11 @@ window.onbeforeunload = function() {
         window.opener.postMessage({
 
             type: "closed",
-            data: null
+            data: {
+
+                intended: window.events.data.isPlannedExit
+
+            }
 
         }, "*");
 
