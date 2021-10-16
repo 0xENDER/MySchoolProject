@@ -528,6 +528,7 @@ body {
     fill: var(--icons-colour);
     margin-bottom: 0px;
     transition: margin 0.1s;
+    will-change: margin, filter;
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title {
