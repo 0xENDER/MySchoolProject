@@ -820,13 +820,13 @@ window.addEventListener('popstate', function(e) {
 } : false);
 
 // Register new <a> elements
-window.registerNewLink = function(linkElement) {
+window.registerNewLink = function(linkElement, useClickFunction = true) {
 
     // Check if the current page can be unloaded
     if (pageFlags.canUnload) {
 
         // Add a "click" event listener to the link element
-        linkElement.addEventListener("click", function(e) {
+        var linkClickFunction = function(e) {
 
             // Prevent the page from redirecting
             e.preventDefault();
@@ -839,7 +839,18 @@ window.registerNewLink = function(linkElement) {
 
             }
 
-        });
+        };
+
+        // Check the prefered click-detecting method
+        if (useClickFunction) {
+
+            linkElement.onclick = linkClickFunction;
+
+        } else {
+
+            linkElement.addEventListener("click", linkClickFunction);
+
+        }
 
     }
 

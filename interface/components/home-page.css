@@ -26,6 +26,7 @@
     width: 100%;
     height: var(--componentcover-height);
     background-color: var(--colours-primary1);
+    content-visibility: auto;
 }
 
 [data-rendering-mode="high"] .component--cover {
@@ -47,6 +48,7 @@
     right: var(--global-sidesmargin);
     width: 100%;
     padding-bottom: 2px;
+    content-visibility: auto;
 }
 
 .homepage--coversuggestions-card {

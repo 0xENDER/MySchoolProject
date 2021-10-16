@@ -20,8 +20,8 @@ var userSettings = { // The user settings
 // Update the document data set
 document.documentElement.dataset.signedIn = false;
 
-// Prepare the sign in button
-signInButton.onclick = function() {
+// Prepare the sign in function
+function openSignInRequest() {
 
     // Open a request
     accountsSystemAPI.openRequest({
@@ -58,4 +58,7 @@ signInButton.onclick = function() {
 
     }
 
-};
+}
+
+// Prepare the sign in button
+signInButton.onclick = openSignInRequest;

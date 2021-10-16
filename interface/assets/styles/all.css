@@ -5,7 +5,7 @@
 */
 
 
-/* Prevent text selection, and apply the font. */
+/* Prevent/allow text selection */
 
 * {
     -moz-user-select: none;
@@ -29,9 +29,13 @@
     -o-user-drag: auto;
 }
 
+
+/* Disable animations on reduced motion mode */
+
 @media (prefers-reduced-motion) {
     * {
         transition-duration: 0s !important;
+        animation: none !important;
     }
 }
 

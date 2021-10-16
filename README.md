@@ -217,6 +217,10 @@ You need to install *Wine* on your system so you can build windows apps. You can
 
 To make all the production-ready versions of the codebase, use the `./build` file.
 
+```sh
+./build <flag> <flag>...
+```
+
 > The estimated build time of the current version of the bundler is 9 minutes!
 
 The available build flags are:
@@ -238,6 +242,10 @@ If you face any problem whist building a native app for Windows, macOS, or Linux
 ## Publishing (the website) - ***NOT READY!***
 
 You can use the `./publish` command to publish the website to the FTP server of your choice in the `server` data file.
+
+```sh
+./publish <flag> <flag>...
+```
 
 The available flags are:
 
