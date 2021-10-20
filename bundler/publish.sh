@@ -28,11 +28,11 @@ if [ $LOCAL -eq 0 ]; then
     echo -e "\n[Publisher] Freezing the traffic..."
     "./publish/freeze.sh"
     #
-    ##
-    #########
+    ## Upload the new files
+    "./publish/upload.sh" ## Note to myself: make sure to update the `.htaccess` file and the main `index.html` file last
 #
 fi
 #
 ## EXIT!
-echo -e "\n[Publisher] [Error] NOT READY YET!"
+echo -e "\n[Publisher] Done!"
 #

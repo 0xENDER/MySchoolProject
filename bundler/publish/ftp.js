@@ -246,6 +246,24 @@ module.exports = {
 
         //
         throw new Error("NOT READY YET!!!");
+        ftpConnection.raw("rm", (error, data) => {
+
+            //
+
+        });
+
+    },
+
+    // Delete a directory
+    deleteDirectory: function(path, callback) {
+
+        //
+        throw new Error("NOT READY YET!!!");
+        ftpConnection.raw("rmdir", (error, data) => {
+
+            //
+
+        });
 
     },
 
