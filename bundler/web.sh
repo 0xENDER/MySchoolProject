@@ -26,6 +26,7 @@ cp "apps_codebase/layout.html" "builds/web/store/"
 cp "apps_codebase/manifest.webmanifest" "builds/web/store/"
 cp "apps_codebase/robots.txt" "builds/web/store/"
 cp "apps_codebase/worker.js" "builds/web/store/"
+cp "apps_codebase/msconfig.xml" "builds/web/store/"
 #
 ## Generate the sitmap
 echo "[Bundler] [Web] Generating the sitemap..."

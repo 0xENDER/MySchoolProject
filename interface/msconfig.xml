@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+	<msapplication>
+		<tile>
+			<square70x70logo src="assets/media/logo/acme-tile-small.svg" />
+			<square150x150logo src="assets/media/logo/acme-tile-medium.svg" />
+			<wide310x150logo src="assets/media/logo/acme-tile-wide.svg" />
+			<square310x310logo src="assets/media/logo/acme-tile-large.svg" />
+			<TileColor>#593FE1</TileColor>
+		</tile>
+	</msapplication>
+</browserconfig>

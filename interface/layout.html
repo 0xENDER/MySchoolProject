@@ -35,7 +35,7 @@
     <link rel="preload" href="./assets/styles/font.css?v=%{{global:codebase.version}}%" as="style">
 
     <!-- Do some important stuff -->
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="referrer" content="strict-origin">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="%{{server:CSP}}%">
@@ -50,13 +50,9 @@
     <meta name="image" content="./assets/media/logo/logo.png">
 
     <!-- Website theming -->
-    <meta name="application-name" content="%{{global:appInfo.name}}%">
-    <meta name="apple-mobile-web-app-title" content="%{{global:appInfo.name}}%">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="msapplication-TileColor" content="#5d42ef">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%">
@@ -66,8 +62,7 @@
 
     <!-- The page title and icon -->
     <title>%{{global:appInfo.name}}%</title>
-    <link rel="icon" href="./assets/media/icon.ico?v=%{{global:codebase.version}}%" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/png" href="./assets/media/logo/apple-touch-icon.png?v=%{{global:codebase.version}}%">
+    <link rel="shortcut icon" href="./assets/media/icon.ico?v=%{{global:codebase.version}}%" type="image/x-icon">
 
     <!-- Libraries -->
     <script defer type="text/javascript" src="./libraries/accounts.api.js?v=%{{global:codebase.version}}%"></script>
@@ -80,6 +75,22 @@
 
     <!-- Manifest -->
     <link rel="manifest" href="./manifest.webmanifest?v=%{{global:codebase.version}}%" />
+
+    <!-- App info and configuration -->
+    <meta name="application-name" content="%{{global:appInfo.name}}%">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes, date=no, address=no, email=yes">
+
+    <!-- Apple -->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="%{{global:appInfo.name}}%">
+    <link rel="apple-touch-icon" type="image/png" href="./assets/media/logo/apple-touch-icon.png?v=%{{global:codebase.version}}%">
+
+    <!-- Microsoft -->
+    <meta name="msapplication-config" content="./msconfig.xml" />
+    <meta name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
 
 </head>
 
