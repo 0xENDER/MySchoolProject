@@ -335,7 +335,6 @@ body {
 
 .layout--topbar-controls {
     position: fixed;
-    opacity: 0;
     pointer-events: none;
     width: 136px;
     min-width: 136px;
@@ -343,7 +342,7 @@ body {
     margin-right: calc(-1 * var(--global-sidesmargin));
     margin-left: var(--global-sidesmargin);
     -webkit-app-region: no-drag;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -398,6 +397,7 @@ body {
 [data-electron="true"] .layout--topbar-controls {
     position: relative;
     opacity: 0.8;
+    display: flex;
     pointer-events: auto;
 }
 
@@ -431,6 +431,10 @@ body {
     min-height: 32px;
     overflow: hidden;
     margin: 0px;
+}
+
+.layout--topbar-logo {
+    opacity: var(--topbarlogo-opacity);
 }
 
 .layout--topbar-title {
@@ -495,7 +499,8 @@ body {
 
 /* Sections side-bar/top-bar items */
 
-.layout--sectionsbar-item {
+.layout--sectionsbar-item,
+.mobilemenu--container .mobilemenu--card .mobilemenu--card-item {
     width: var(--sectionsbaritem-width);
     height: var(--sectionsbaritem-size);
     margin: var(--sectionsbaritem-margin);
@@ -509,17 +514,20 @@ body {
     position: relative;
 }
 
-.layout--sectionsbar-item:hover {
+.layout--sectionsbar-item:hover,
+.mobilemenu--container .mobilemenu--card .mobilemenu--card-item:hover {
     opacity: 1;
     background-color: var(--topbar-backgroundhover)
 }
 
-.layout--sectionsbar-item:active {
+.layout--sectionsbar-item:active,
+.mobilemenu--container .mobilemenu--card .mobilemenu--card-item:active {
     opacity: .7;
     background-color: var(--topbar-backgroundhover)
 }
 
-.layout--sectionsbar-item .sectionsbar--item-icon {
+.layout--sectionsbar-item .sectionsbar--item-icon,
+.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemicon {
     display: block;
     width: var(--icons-size);
     height: var(--icons-size);
@@ -531,7 +539,8 @@ body {
     will-change: margin, filter;
 }
 
-.layout--sectionsbar-item .sectionsbar--item-title {
+.layout--sectionsbar-item .sectionsbar--item-title,
+.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemtitle {
     font-size: 12px;
     display: var(--sectionsbaritme-display);
     position: relative;
