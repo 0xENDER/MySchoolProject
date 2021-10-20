@@ -74,6 +74,9 @@
   - [ ] Enable access to the store updates API
   - [ ] _~~Enable access to the user apps ownership info through the OAuth2 system~~ **(!)**_
   - [ ] _~~Enable access to the user devices info through the OAuth2 system~~ **(!)**_
+- [ ] _~~A rewards and points system~~: **(!)**_
+  - [ ] _~~Add a rewards program for apps and games~~ **(!)**_
+  - [ ] _~~Add a rewards currency~~ **(!)**_
 
 ## Used Languages
 
