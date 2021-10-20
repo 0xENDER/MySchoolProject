@@ -15,13 +15,18 @@ var userSettings = { // The user settings
         alwaysShowFocusBorderOnTouch: false
 
     },
-    signInButton = document.getElementById("button--signin");
+    signInButton = document.getElementById("button--signin"),
+    menuSignInButton = document.getElementById("menubutton--signin");
 
 // Update the document data set
 document.documentElement.dataset.signedIn = false;
 
 // Prepare the sign in function
 function openSignInRequest() {
+
+    // Hide the alerts and the mobile menu
+    hideMobileMenu();
+    hideAlert();
 
     // Open a request
     accountsSystemAPI.openRequest({
@@ -62,3 +67,4 @@ function openSignInRequest() {
 
 // Prepare the sign in button
 signInButton.onclick = openSignInRequest;
+menuSignInButton.onclick = openSignInRequest;

@@ -236,8 +236,11 @@ function fetchContent(sourceURLPathname) {
 
                             // Update the page title
                             var pageTitle = pageElement.getAttribute("title");
-                            if (pageTitle != null)
+                            if (pageTitle != null) {
+
                                 document.title = pageTitle + " | %{{global:appInfo.name}}%";
+
+                            }
 
                             // Check the page requirements
                             pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
@@ -480,8 +483,11 @@ function fetchContent(sourceURLPathname) {
 
                 });
 
-            } else
+            } else {
+
                 loadingFailed();
+
+            }
 
         }).catch(function() {
 
@@ -766,6 +772,10 @@ window.unloadContent = function() {
         contentResourcesNumber = 0;
         loadedContentResourcesNumber = 0;
         lockResourcesCounter = true;
+
+        // Hide the alerts and the mobile menu
+        hideMobileMenu();
+        hideAlert();
 
     }
 

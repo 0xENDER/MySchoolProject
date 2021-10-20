@@ -105,3 +105,11 @@ a {
 [data-signed-in="true"] [data-signed="false"] {
     display: none !important;
 }
+
+
+/* The hr element */
+
+hr {
+    border: 0px solid;
+    border-top: var(--text-colour) 1px solid;
+}

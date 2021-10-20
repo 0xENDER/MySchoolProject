@@ -30,7 +30,8 @@
     --primarybutton-background: var(--colours-primary1);
     --primarybutton-border: var(--colours-primary2);
     --cards-border: #dddddd;
-    --cards-background: #fafafa
+    --cards-background: #fafafa;
+    --topbarlogo-opacity: 1;
 }
 
 
@@ -59,5 +60,6 @@
         --button-border: #6b6b6b;
         --cards-border: #383838;
         --cards-background: #292929;
+        --topbarlogo-opacity: 0.9;
     }
 }
