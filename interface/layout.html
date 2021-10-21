@@ -218,8 +218,13 @@
             <svg id="icon--mobilemenu-close" class="mobilemenu--card-close" width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.00008 9.41423L3.70718 13.7071L2.29297 12.2929L6.58586 8.00001L2.29297 3.70712L3.70718 2.29291L8.00008 6.5858L12.293 2.29291L13.7072 3.70712L9.41429 8.00001L13.7072 12.2929L12.293 13.7071L8.00008 9.41423Z"/></svg>
             <div class="mobilemenu--account">
                 <!-- Account info -->
-                <h4>You are not signed in. You need an account to sync your downloads history, purchases, and preferences.</h4>
-                <button id="menubutton--signin" class="component--button" tabindex="0">Sign In</button>
+                <div data-signed="false">
+                    <h4>You are not signed in. You need an account to sync your downloads history, purchases, and preferences.</h4>
+                    <button id="menubutton--signin" class="component--button" tabindex="0">Sign In</button>
+                </div>
+                <div data-signed="true">
+                    <h4>You are signed in!!!</h4>
+                </div>
             </div>
             <hr>
             <a href="./page/library/" class="mobilemenu--card-item" tabindex="0">

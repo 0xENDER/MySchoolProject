@@ -16,10 +16,12 @@ This element should always be present in the first line of the document, without
   All the possible values are: `home`, `games`, `apps`, `library`, and `help`.
 - `title`: The title of the page.
   (If you pass the value `test`, the final title format would be `test | MyStore`)
-- ***(!)*** `page-end`: Whether the page should include a page end message
-  All the possible values are: `true`, and `false`.(The default value is `false`)
 - `can-unload`: Whether this page is set up to be unloaded dynamically
   All the possible values are: `true`, and `false`. (The default value is `true`)
+- ***(!)*** `page-end`: Whether the page should include a page end message
+  All the possible values are: `true`, and `false`.(The default value is `false`)
+- ***(!)*** `requires-account`: Whether the page needs the user to be signed in
+  All the possible values are: `true`, and `false`.(The default value is `false`)
 
 ## The `resources` element
 

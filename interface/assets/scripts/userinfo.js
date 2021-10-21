@@ -53,6 +53,7 @@ function openSignInRequest() {
 
         console.log("Signed in!");
         console.log(data);
+        window.document.documentElement.dataset.signedIn = true;
 
     }
 
@@ -60,6 +61,7 @@ function openSignInRequest() {
 
         console.log("Authenticated!");
         console.log(data);
+        window.document.documentElement.dataset.signedIn = true;
 
     }
 

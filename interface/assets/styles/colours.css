@@ -32,6 +32,8 @@
     --cards-border: #dddddd;
     --cards-background: #fafafa;
     --topbarlogo-opacity: 1;
+    --suggestionscardlogo-shadow: #b9b9b9;
+    --suggestionscardlogo-backgroundcolor: #ffffff;
 }
 
 
@@ -61,5 +63,7 @@
         --cards-border: #383838;
         --cards-background: #292929;
         --topbarlogo-opacity: 0.9;
+        --suggestionscardlogo-shadow: #181818;
+        --suggestionscardlogo-backgroundcolor: #2c2c2c;
     }
 }

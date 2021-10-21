@@ -5,8 +5,8 @@
 */
 
 :root {
-    --suggestionscard-width: 200px;
-    --suggestionscard-height: 270px;
+    --suggestionscard-width: 180px;
+    --suggestionscard-height: 260px;
     --suggestionscard-padding: 14px;
     --suggestionscardname-fontsize: 20px;
     --suggestionssectiontoprightsvg-display: none;
@@ -15,7 +15,7 @@
 
 @media all and (max-width: 840px) {
      :root {
-        --suggestionscard-width: calc( ( 100vw / 3));
+        --suggestionscard-width: calc( ( ( 100vw - var(--global-sidesmargin) * 3.4) / 3));
         --suggestionscard-height: calc( var(--suggestionscard-width) + 60px);
         --suggestionscardname-fontsize: 16px;
         --suggestionssectiontoprightsvg-display: block;
@@ -45,6 +45,7 @@
     font-size: 20px;
     font-weight: bold;
     height: 26px;
+    overflow: hidden;
 }
 
 .suggestions--sectiontop-right {
@@ -75,7 +76,6 @@
     display: inline-block;
     margin-right: 12px;
     display: inline-block;
-    overflow: hidden;
     background-color: transparent;
     box-shadow: none;
     border-radius: 0px;
@@ -96,9 +96,11 @@
     display: block;
     width: 100%;
     height: var(--suggestionscard-width);
-    border-radius: 10px;
+    border-radius: 18px;
     margin-bottom: var(--suggestionscard-padding);
     overflow: hidden;
+    box-shadow: 0px 2px 4px var(--suggestionscardlogo-shadow);
+    background-color: var(--suggestionscardlogo-backgroundcolor);
 }
 
 .suggestions--card .suggestions--card-name {
