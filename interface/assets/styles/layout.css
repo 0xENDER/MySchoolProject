@@ -500,7 +500,7 @@ body {
 /* Sections side-bar/top-bar items */
 
 .layout--sectionsbar-item,
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item {
+.menu--container .menu--card .menu--card-item {
     width: var(--sectionsbaritem-width);
     height: var(--sectionsbaritem-size);
     margin: var(--sectionsbaritem-margin);
@@ -515,19 +515,19 @@ body {
 }
 
 .layout--sectionsbar-item:hover,
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item:hover {
+.menu--container .menu--card .menu--card-item:hover {
     opacity: 1;
     background-color: var(--topbar-backgroundhover)
 }
 
 .layout--sectionsbar-item:active,
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item:active {
+.menu--container .menu--card .menu--card-item:active {
     opacity: .7;
     background-color: var(--topbar-backgroundhover)
 }
 
 .layout--sectionsbar-item .sectionsbar--item-icon,
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemicon {
+.menu--container .menu--card .menu--card-item .menu--card-itemicon {
     display: block;
     width: var(--icons-size);
     height: var(--icons-size);
@@ -540,7 +540,7 @@ body {
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title,
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemtitle {
+.menu--container .menu--card .menu--card-item .menu--card-itemtitle {
     font-size: 12px;
     display: var(--sectionsbaritme-display);
     position: relative;

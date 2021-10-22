@@ -774,7 +774,7 @@ window.unloadContent = function() {
         lockResourcesCounter = true;
 
         // Hide the alerts and the mobile menu
-        hideMobileMenu();
+        hideMenu();
         hideAlert();
 
     }

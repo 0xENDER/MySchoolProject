@@ -50,7 +50,16 @@ window.platform = { // An object to keep track and organise the platform data
         intervalRefreshRate: 100, // The minimal interval refresh rate allowed on this device (ms)
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (content pixels)
         scrollLockPeriod: 400, // The time need to lock a scrollbar button
-        contentLoadingDelay: 110
+        contentLoadingDelay: 110,
+        dynamic: {
+
+            isWindowSmall() {
+
+                return window.innerWidth <= 840;
+
+            }
+
+        }
 
     },
 
@@ -79,10 +88,16 @@ window.platform = { // An object to keep track and organise the platform data
 
     hardware: {
 
-        hasTouchScreen: ( // Does this device have a touch screen?
-            (window.matchMedia != undefined && (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in document.documentElement)) ||
-            (window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0)
-        ),
+        display: {
+
+            isTouchCapable: ( // Does this device have a touch screen?
+                (window.matchMedia != undefined && (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in document.documentElement)) ||
+                (window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0)
+            ),
+            width: screen.width,
+            height: screen.height
+
+        },
         hasMouse: window.matchMedia != undefined && matchMedia('(pointer:fine)').matches,
         hasKeybord: false,
         controllers: {

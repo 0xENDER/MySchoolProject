@@ -11,6 +11,15 @@
     --alertscard-paddingtopbottom: 20px;
     --alertscarddescription-margin: 0px 20px;
     --alertscardbuttons-margin: 18px 6px;
+    --menucard-position: fixed;
+    --menucard-margin: 0px;
+    --alerts-blur: blur(3px);
+    --menucontainer-backdropfilter: none;
+    --menucontainer-background: none;
+    --menucard-width: fit-content;
+    --menucard-minwidth: 280px;
+    --menucclose-display: none;
+    --menusectionsnavigation-display: none;
 }
 
 @media all and (max-width: 840px) {
@@ -21,25 +30,38 @@
         --alertscard-paddingtopbottom: 20px;
         --alertscarddescription-margin: 0px 4px;
         --alertscardbuttons-margin: 18px 4px;
+        --menucard-position: relative;
+        --menucard-margin: calc(( (100 * var(--vh, 1vh)) - var(--alertscard-maxheight) - var(--alertscard-paddingtopbottom)) / 2.5) auto;
+        --menucontainer-backdropfilter: var(--alerts-blur);
+        --menucontainer-background: var(--alerts-background);
+        --menucard-width: var(--alertscard-width);
+        --menucard-minwidth: none;
+        --menucclose-display: block;
+        --menusectionsnavigation-display: block;
     }
 }
 
 .alerts--container,
-.mobilemenu--container {
+.menu--container {
     position: fixed;
     top: 0px;
     bottom: 0px;
     right: 0px;
     left: 0px;
     background-color: var(--alerts-background);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: var(--alerts-blur);
+    backdrop-filter: var(--alerts-blur);
     display: flex;
     align-items: center;
 }
 
+.menu--container {
+    backdrop-filter: var(--menucontainer-backdropfilter);
+    background: var(--menucontainer-background);
+}
+
 .alerts--container .alerts--card,
-.mobilemenu--container .mobilemenu--card {
+.menu--container .menu--card {
     position: relative;
     width: var(--alertscard-width);
     height: fit-content;
@@ -53,13 +75,20 @@
     text-align: center;
 }
 
+.menu--container .menu--card {
+    position: var(--menucard-position);
+    margin: var(--menucard-margin);
+    width: var(--menucard-width);
+    min-width: var(--menucard-minwidth);
+}
+
 [data-rendering-mode="high"] .alerts--container .alerts--card,
-[data-rendering-mode="high"] .mobilemenu--container .mobilemenu--card {
+[data-rendering-mode="high"] .menu--container .menu--card {
     box-shadow: 0px 2px 38px var(--alertscard-shadow);
 }
 
 [data-rendering-mode="low"] .alerts--container .alerts--card,
-[data-rendering-mode="low"] .mobilemenu--container .mobilemenu--card {
+[data-rendering-mode="low"] .menu--container .menu--card {
     box-shadow: 0px 2px 18px var(--alertscard-shadow);
 }
 
@@ -79,23 +108,29 @@
     margin: var(--alertscardbuttons-margin);
 }
 
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-close {
+.menu--container .menu--card .menu--card-close {
     fill: var(--text-colour);
     position: absolute;
+    display: var(--menucclose-display);
     top: 12px;
     left: 12px;
     width: 20px;
     height: 20px;
     opacity: 0.8;
+    cursor: pointer;
 }
 
-.mobilemenu--container .mobilemenu--card .mobilemenu--account {
+.menu--container .menu--card .menu--account {
     position: relative;
     display: block;
     margin: 18px auto;
 }
 
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item {
+.menu--container .menu--card .menu--sectionsnavigation {
+    display: var(--menusectionsnavigation-display);
+}
+
+.menu--container .menu--card .menu--card-item {
     display: inline-block;
     width: calc(50% - 10px);
     margin: 4px auto;
@@ -103,10 +138,10 @@
     padding-bottom: 6px;
 }
 
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemicon {
+.menu--container .menu--card .menu--card-item .menu--card-itemicon {
     transition: none;
 }
 
-.mobilemenu--container .mobilemenu--card .mobilemenu--card-item .mobilemenu--card-itemtitle {
+.menu--container .menu--card .menu--card-item .menu--card-itemtitle {
     top: 2px;
 }

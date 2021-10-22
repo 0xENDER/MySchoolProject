@@ -25,7 +25,7 @@ document.documentElement.dataset.signedIn = false;
 function openSignInRequest() {
 
     // Hide the alerts and the mobile menu
-    hideMobileMenu();
+    hideMenu();
     hideAlert();
 
     // Open a request
