@@ -187,6 +187,7 @@ if (window.temporaryData.currentData.openerOrigin == undefined) {
                 window.events.data.openerOrigin = event.origin;
                 window.events.data.openerURL = event.data.url;
                 window.events.data.configurations = event.data.configurations;
+
             }
 
             // Stop listening to messages

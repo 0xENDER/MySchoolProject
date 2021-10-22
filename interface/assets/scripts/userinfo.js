@@ -49,21 +49,28 @@ function openSignInRequest() {
 
     }
 
-    accountsSystemAPI.onSignIn = function(data) {
+    if (window.platform.isApp) {
 
-        console.log("Signed in!");
-        console.log(data);
-        window.document.documentElement.dataset.signedIn = true;
+        accountsSystemAPI.onAuth = function(data) {
+
+            console.log("Authenticated!");
+            console.log(data);
+            window.document.documentElement.dataset.signedIn = true;
+
+        }
+
+    } else {
+
+        accountsSystemAPI.onSignIn = function(data) {
+
+            console.log("Signed in!");
+            console.log(data);
+            window.document.documentElement.dataset.signedIn = true;
+
+        }
 
     }
 
-    accountsSystemAPI.onAuth = function(data) {
-
-        console.log("Authenticated!");
-        console.log(data);
-        window.document.documentElement.dataset.signedIn = true;
-
-    }
 
 }
 

@@ -84,7 +84,7 @@ function createWindow() {
 
         webPreferences: {
 
-            devTools: true, // Debug: "true", production: "false"
+            devTools: false, // Debug: "true", production: "false"
             preload: path.join(__dirname, 'preload.js'),
             defaultFontFamily: {
                 standard: "Didact Gothic",
@@ -98,7 +98,7 @@ function createWindow() {
             defaultMonospaceFontSize: 13,
             autoplayPolicy: "no-user-gesture-required",
             enableWebSQL: false,
-            nativeWindowOpen: false
+            nativeWindowOpen: true
 
         },
 

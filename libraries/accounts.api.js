@@ -69,7 +69,10 @@
     window.addEventListener("message", function(event) {
 
         // Check if this message came from the server!
-        if (event.origin == "%{{server:AccountsURL}}%") {
+        if (event.origin == "%{{server:AccountsURL}}%" || (
+                window.location.protocol == "file:" &&
+                event.origin == undefined
+            )) {
 
             // Debug
             //console.log(event.data);
