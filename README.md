@@ -77,6 +77,10 @@
 - [ ] _~~A rewards and points system~~: **(!)**_
   - [ ] _~~Add a rewards program for apps and games~~ **(!)**_
   - [ ] _~~Add a rewards currency~~ **(!)**_
+- [ ] _~~A gift cards system~~: **(!)**_
+  - [ ] _~~Add a gift cards generator~~ **(!)**_
+  - [ ] _~~Add a "buy as a gift" option~~ **(!)**_
+  - [ ] _~~Add a code redemption page~~ **(!)**_
 
 ## Used Languages
 
