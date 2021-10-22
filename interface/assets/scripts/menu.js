@@ -25,11 +25,10 @@ function showMenu(top = null, left = null, element) {
         menuScreen.style.opacity = 0;
 
         // Get the new position of the menu
-        top += 5;
         left = left - menuCard.offsetWidth / 2;
-        if (left + menuCard.offsetWidth > window.innerWidth) {
+        if (left + menuCard.offsetWidth * 1.5 > window.innerWidth + 15) {
 
-            left = window.innerWidth - menuCard.offsetWidth / 2 - 5;
+            left = window.innerWidth - menuCard.offsetWidth;
 
         }
 
@@ -41,12 +40,12 @@ function showMenu(top = null, left = null, element) {
 
             // Redo the same calculations
             left = element.getBoundingClientRect().left - menuCard.offsetWidth / 2;
-            if (left + menuCard.offsetWidth > window.innerWidth) {
+            if (left + menuCard.offsetWidth * 1.5 > window.innerWidth + 15) {
 
-                left = window.innerWidth - menuCard.offsetWidth / 2 - 5;
+                left = window.innerWidth - menuCard.offsetWidth;
 
             }
-            menuCard.style.left = `${window.innerWidth - menuCard.offsetWidth - 5}px`;
+            menuCard.style.left = `calc( ${left}px - var(--global-sidesmargin) )`;
 
         }
         window.addEventListener("resize", windowResize, (window.crossBrowser.passiveEvents.supported) ? {
@@ -56,8 +55,8 @@ function showMenu(top = null, left = null, element) {
         } : false);
 
         // Change the position of the menu
-        menuCard.style.top = `${top + 5}px`;
-        menuCard.style.left = `${left - menuCard.offsetWidth / 2}px`;
+        menuCard.style.top = `calc( ${top}px + var(--global-topbottommargin) )`;
+        menuCard.style.left = `calc( ${left}px - var(--global-sidesmargin) )`;
 
     }
 
