@@ -54,6 +54,7 @@ CREATE TABLE `info` (
   `rating` tinyint(4) NOT NULL,
   `name` varchar(64) NOT NULL,
   `longname` varchar(128) NOT NULL,
+  `version` varchar(64) NOT NULL,
   `description` text NOT NULL,
   `shortdescription` tinytext NOT NULL,
   `license` varchar(128) NOT NULL,
