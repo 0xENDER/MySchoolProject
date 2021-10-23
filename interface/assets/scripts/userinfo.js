@@ -75,5 +75,13 @@ function openSignInRequest() {
 }
 
 // Prepare the sign in button
-signInButton.onclick = openSignInRequest;
-menuSignInButton.onclick = openSignInRequest;
+signInButton.addEventListener("click", openSignInRequest, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+menuSignInButton.addEventListener("click", openSignInRequest, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);

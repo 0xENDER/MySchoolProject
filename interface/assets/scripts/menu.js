@@ -102,9 +102,17 @@ function shouldHideMenu() {
 }
 
 // Update the `onclick` event functions
-optionsButton.onclick = showMenu;
-menuCloseButton.onclick = hideMenu;
-profilePictureButton.onclick = function() {
+optionsButton.addEventListener("click", showMenu, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+menuCloseButton.addEventListener("click", hideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+profilePictureButton.addEventListener("click", function() {
 
     // Check if this is a small screen
     if (!window.platform.special.dynamic.isWindowSmall()) {
@@ -127,10 +135,30 @@ profilePictureButton.onclick = function() {
 
     }
 
-};
+}, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
 
 // Update the menu's container click events
-menuCard.onmousedown = menuCardClick;
-menuCard.ontouchstart = menuCardClick;
-menuScreen.onmousedown = shouldHideMenu;
-menuScreen.ontouchstart = shouldHideMenu;
+menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+menuCard.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+menuCard.addEventListener("touchstart", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
+menuCard.addEventListener("touchstart", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+
+    passive: true
+
+} : false);
