@@ -18,4 +18,5 @@ Your app package should include a range of information for your app page:
 You also can include these things:
 
 - App screenshots
-- App video
+- App video (16:9)
+- App cover (16:9)
