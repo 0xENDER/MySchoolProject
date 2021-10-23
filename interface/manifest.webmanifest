@@ -16,6 +16,9 @@
     "background_color": "#593FE1",
     "theme_color": "#593FE1",
 
+    // The category of this app
+    "categories": [ "utility" ],
+
     // The app's icons
     "icons": [{
 
