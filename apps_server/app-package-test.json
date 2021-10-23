@@ -12,11 +12,14 @@
     // The program's short description
     "shortdescription": "My app is a cool app! It can help you!",
 
+    // The program's version
+    "version": "0.0.1",
+
     // The program type
     "type": "app", // The avaliable program types are: "app", and "game".
 
     // The program category
-    "category": "Tools",
+    "categories": [ "Tools" ],
     /*
 
     For apps, the avaliable categories are:
