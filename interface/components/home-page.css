@@ -29,12 +29,30 @@
     content-visibility: auto;
 }
 
-[data-rendering-mode="high"] .component--cover {
-    box-shadow: inset 0px -68px 40px -15px var(--pagecontent-background);
+.component--cover:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: -40px;
+    left: -40px;
+    height: 200px;
 }
 
-[data-rendering-mode="low"] .component--cover {
+[data-rendering-mode=high] .component--cover:after {
+    box-shadow: inset 0 -68px 40px -15px var(--pagecontent-background);
+}
+
+[data-rendering-mode=low] .component--cover:after {
     box-shadow: inset 0 -28px 18px -10px var(--pagecontent-background)
+}
+
+.component--cover .homepage--background {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 
