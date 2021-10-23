@@ -16,7 +16,8 @@ var contentResourcesNumber = 0,
     pageFlags = {
 
         endMessage: false,
-        canUnload: true
+        canUnload: true,
+        accountRequired: false
 
     },
     unload = {
@@ -245,227 +246,238 @@ function fetchContent(sourceURLPathname) {
                             // Check the page requirements
                             pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
                             pageFlags.canUnload = !(pageElement.getAttribute("can-unload") === "false");
+                            pageFlags.accountRequired = (pageElement.getAttribute("requires-account") === "true");
 
-                            // Update the current page links
-                            if (pageFlags.canUnload && !window.location.dynamic.didLoadDynamically) {
+                            // Check if the page needs the user to be signed in
+                            if ((pageFlags.accountRequired) ? document.documentElement.dataset.signedIn === "true" : true) {
 
-                                var linkElements = document.getElementsByTagName("a");
-                                for (var i = 0; i < linkElements.length; i++) {
+                                // Update the current page links
+                                if (pageFlags.canUnload && !window.location.dynamic.didLoadDynamically) {
 
-                                    window.registerNewLink(linkElements[i]);
+                                    var linkElements = document.getElementsByTagName("a");
+                                    for (var i = 0; i < linkElements.length; i++) {
 
-                                }
-
-                            }
-
-                            // Update the selected item in the "sections bar"
-                            var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
-                            if (selectedSectionsItem != null)
-                                selectedSectionsItem.classList.add("state--selected");
-
-                            // Replace variables
-                            data = data.substring(data.indexOf("\n")).replace(/\${(.*?)}/g, function(match, content) {
-
-                                // Change all the letters to lower case
-                                content = content.toLowerCase();
-
-                                // Check what variable this one is
-                                if (content == "pageurl") {
-
-                                    return ((isApp) ? window.location.lastRedirect : window.location.href).replace("/page/", "/pages/").replace(/(.*)\/(.*?).html/g, function(match, start, end) {
-                                        return start + "/";
-                                    });
-
-                                } else {
-
-                                    // Unknown variable!
-                                    loadingFailed();
-
-                                }
-
-                            });
-
-                            // Get all requests
-                            data = data.replace(/<request(.*?)>(.*?)<\/request>/g, function(match, attributes, innerContent) {
-
-                                // Parse the attributes
-                                attributes = document.createRange().createContextualFragment(`<div ${attributes}></div>`);
-                                attributes = attributes.children[0].attributes;
-
-                                // Check the request type
-                                if (attributes.type != undefined) {
-
-                                    // Get the request type and format
-                                    var requestType = attributes.type.value.replace(/\s/g, ""),
-                                        requestFormat = requestType.substring(requestType.indexOf("/") + 1);
-                                    requestType = requestType.substring(0, requestType.indexOf("/"));
-
-                                    try {
-
-                                        if (requestType == "component") {
-
-                                            // Check the component name
-                                            if (attributes.get != undefined) {
-
-                                                // Get the component
-                                                if (requestFormat == "all") {
-
-                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%"><script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
-
-                                                } else if (requestFormat == "js") {
-
-                                                    return `<script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
-
-                                                } else if (requestFormat == "css") {
-
-                                                    return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%">`;
-
-                                                } else {
-
-                                                    // Throw an error
-                                                    throw new Error(`The component request format '${requestFormat}' is invalid!`);
-
-                                                }
-
-                                            } else {
-
-                                                // Throw an error
-                                                throw new Error(`A component request must be accompanied with a 'get' attribute!`);
-
-                                            }
-
-                                        } else if (requestType == "file") {
-
-                                            // Check the file source
-                                            if (attributes.src != undefined) {
-
-                                                // Get the file
-                                                if (requestFormat == "js") {
-
-                                                    return `<script itemprop="pagecontent--script" type="text/javascript" src="${attributes.src.value}" defer></script>`;
-
-                                                } else if (requestFormat == "css") {
-
-                                                    return `<link itemprop="pagecontent--style" rel="stylesheet" href="${attributes.src.value}">`;
-
-                                                } else {
-
-                                                    // Throw an error
-                                                    throw new Error(`The file request format '${requestFormat}' is invalid!`);
-
-                                                }
-
-                                            } else {
-
-                                                // Throw an error
-                                                throw new Error(`A file request must be accompanied with a 'src' attribute!`);
-
-                                            }
-
-                                        } else {
-
-                                            // Throw an error
-                                            throw new Error(`The request type '${requestType}' is invalid!`);
-
-                                        }
-
-                                    } catch (e) {
-
-                                        // Invalid request type!
-                                        loadingFailed();
-
-                                        throw e;
+                                        window.registerNewLink(linkElements[i]);
 
                                     }
 
-                                } else {
-
-                                    // Unknown request type!
-                                    loadingFailed();
-
-                                    // Throw an error
-                                    throw new Error("The request element requires the 'type' attribute to be present!");
-
                                 }
 
-                            });
+                                // Update the selected item in the "sections bar"
+                                var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
+                                if (selectedSectionsItem != null)
+                                    selectedSectionsItem.classList.add("state--selected");
 
-                            // Assing important IDs
-                            if (data.indexOf("<resources") != -1 && data.indexOf("<content") != -1) {
+                                // Replace variables
+                                data = data.substring(data.indexOf("\n")).replace(/\${(.*?)}/g, function(match, content) {
 
-                                data = data.replace("<resources", "<div id=\"system--pageResources\"");
-                                data = data.replace("</resources>", "</div>");
-                                data = data.replace("<content", "<div id=\"system--pageContent\"");
-                                data = data.replace("</content>", "</div>");
+                                    // Change all the letters to lower case
+                                    content = content.toLowerCase();
 
-                            } else {
+                                    // Check what variable this one is
+                                    if (content == "pageurl") {
 
-                                // All pages must have a <resources> element and a <content> element
-                                loadingFailed();
-
-                            }
-
-                            if (!didFail) {
-
-                                // Create a document fragment
-                                data = document.createRange().createContextualFragment(data);
-
-                                // Inject the resources into the page
-                                var children = data.getElementById("system--pageResources").children;
-                                for (var i = 0; i < children.length; i++) {
-
-                                    if (children[i].tagName == "SCRIPT" || children[i].tagName == "LINK") {
-
-                                        // Update the resources number
-                                        contentResourcesNumber++;
-
-                                        // Add the loading events
-                                        children[i].onload = function() {
-
-                                            this.onload = null;
-
-                                            contentSourceLoaded();
-
-                                        };
-                                        children[i].onerror = function() {
-
-                                            this.onerror = null;
-
-                                            loadingFailed('Page content resource failed to load');
-
-                                        };
-
-                                    }
-
-                                }
-                                lockResourcesCounter = false;
-
-                                setTimeout(function() {
-
-                                    pageContentElementChild.append(data.getElementById("system--pageResources"));
-
-                                    // Delete the used variables
-                                    delete children;
-
-                                    // Prepare the page content for injection
-                                    if (data.getElementById("system--pageContent") != null) {
-
-                                        pageHTMLContent = data.getElementById("system--pageContent");
+                                        return ((isApp) ? window.location.lastRedirect : window.location.href).replace("/page/", "/pages/").replace(/(.*)\/(.*?).html/g, function(match, start, end) {
+                                            return start + "/";
+                                        });
 
                                     } else {
 
+                                        // Unknown variable!
                                         loadingFailed();
 
                                     }
 
-                                    // The content has been loaded in!
-                                    contentDOMLoaded();
+                                });
 
-                                    // If the number of required resources is 0, show the page content instantly!
-                                    if (contentResourcesNumber == 0)
-                                        contentLoaded();
+                                // Get all requests
+                                data = data.replace(/<request(.*?)>(.*?)<\/request>/g, function(match, attributes, innerContent) {
 
-                                }, window.platform.special.contentLoadingDelay);
+                                    // Parse the attributes
+                                    attributes = document.createRange().createContextualFragment(`<div ${attributes}></div>`);
+                                    attributes = attributes.children[0].attributes;
+
+                                    // Check the request type
+                                    if (attributes.type != undefined) {
+
+                                        // Get the request type and format
+                                        var requestType = attributes.type.value.replace(/\s/g, ""),
+                                            requestFormat = requestType.substring(requestType.indexOf("/") + 1);
+                                        requestType = requestType.substring(0, requestType.indexOf("/"));
+
+                                        try {
+
+                                            if (requestType == "component") {
+
+                                                // Check the component name
+                                                if (attributes.get != undefined) {
+
+                                                    // Get the component
+                                                    if (requestFormat == "all") {
+
+                                                        return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%"><script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
+
+                                                    } else if (requestFormat == "js") {
+
+                                                        return `<script itemprop="pagecontent--component" type="text/javascript" src="./components/${attributes.get.value}.js?v=%{{global:codebase.version}}%" defer></script>`;
+
+                                                    } else if (requestFormat == "css") {
+
+                                                        return `<link itemprop="pagecontent--component" rel="stylesheet" href="./components/${attributes.get.value}.css?v=%{{global:codebase.version}}%">`;
+
+                                                    } else {
+
+                                                        // Throw an error
+                                                        throw new Error(`The component request format '${requestFormat}' is invalid!`);
+
+                                                    }
+
+                                                } else {
+
+                                                    // Throw an error
+                                                    throw new Error(`A component request must be accompanied with a 'get' attribute!`);
+
+                                                }
+
+                                            } else if (requestType == "file") {
+
+                                                // Check the file source
+                                                if (attributes.src != undefined) {
+
+                                                    // Get the file
+                                                    if (requestFormat == "js") {
+
+                                                        return `<script itemprop="pagecontent--script" type="text/javascript" src="${attributes.src.value}" defer></script>`;
+
+                                                    } else if (requestFormat == "css") {
+
+                                                        return `<link itemprop="pagecontent--style" rel="stylesheet" href="${attributes.src.value}">`;
+
+                                                    } else {
+
+                                                        // Throw an error
+                                                        throw new Error(`The file request format '${requestFormat}' is invalid!`);
+
+                                                    }
+
+                                                } else {
+
+                                                    // Throw an error
+                                                    throw new Error(`A file request must be accompanied with a 'src' attribute!`);
+
+                                                }
+
+                                            } else {
+
+                                                // Throw an error
+                                                throw new Error(`The request type '${requestType}' is invalid!`);
+
+                                            }
+
+                                        } catch (e) {
+
+                                            // Invalid request type!
+                                            loadingFailed();
+
+                                            throw e;
+
+                                        }
+
+                                    } else {
+
+                                        // Unknown request type!
+                                        loadingFailed();
+
+                                        // Throw an error
+                                        throw new Error("The request element requires the 'type' attribute to be present!");
+
+                                    }
+
+                                });
+
+                                // Assing important IDs
+                                if (data.indexOf("<resources") != -1 && data.indexOf("<content") != -1) {
+
+                                    data = data.replace("<resources", "<div id=\"system--pageResources\"");
+                                    data = data.replace("</resources>", "</div>");
+                                    data = data.replace("<content", "<div id=\"system--pageContent\"");
+                                    data = data.replace("</content>", "</div>");
+
+                                } else {
+
+                                    // All pages must have a <resources> element and a <content> element
+                                    loadingFailed();
+
+                                }
+
+                                if (!didFail) {
+
+                                    // Create a document fragment
+                                    data = document.createRange().createContextualFragment(data);
+
+                                    // Inject the resources into the page
+                                    var children = data.getElementById("system--pageResources").children;
+                                    for (var i = 0; i < children.length; i++) {
+
+                                        if (children[i].tagName == "SCRIPT" || children[i].tagName == "LINK") {
+
+                                            // Update the resources number
+                                            contentResourcesNumber++;
+
+                                            // Add the loading events
+                                            children[i].onload = function() {
+
+                                                this.onload = null;
+
+                                                contentSourceLoaded();
+
+                                            };
+                                            children[i].onerror = function() {
+
+                                                this.onerror = null;
+
+                                                loadingFailed('Page content resource failed to load');
+
+                                            };
+
+                                        }
+
+                                    }
+                                    lockResourcesCounter = false;
+
+                                    setTimeout(function() {
+
+                                        pageContentElementChild.append(data.getElementById("system--pageResources"));
+
+                                        // Delete the used variables
+                                        delete children;
+
+                                        // Prepare the page content for injection
+                                        if (data.getElementById("system--pageContent") != null) {
+
+                                            pageHTMLContent = data.getElementById("system--pageContent");
+
+                                        } else {
+
+                                            loadingFailed();
+
+                                        }
+
+                                        // The content has been loaded in!
+                                        contentDOMLoaded();
+
+                                        // If the number of required resources is 0, show the page content instantly!
+                                        if (contentResourcesNumber == 0)
+                                            contentLoaded();
+
+                                    }, window.platform.special.contentLoadingDelay);
+
+                                }
+
+                            } else {
+
+                                //
+                                showAlert("Account required!");
 
                             }
 
@@ -767,6 +779,7 @@ window.unloadContent = function() {
         // Reset the page flags
         pageFlags.endMessage = false;
         pageFlags.canUnload = true;
+        pageFlags.accountRequired = false;
 
         // Reset the resources number
         contentResourcesNumber = 0;
