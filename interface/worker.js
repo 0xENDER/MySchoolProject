@@ -113,12 +113,19 @@ self.addEventListener('fetch', (e) => {
 
             const cache = await caches.open(cacheName);
 
-            if (e.request.method !== "POST" && e.request.method !== "HEAD")
+            if ((
+                    e.request.method !== "POST" && e.request.method !== "HEAD"
+                ) && (
+                    e.request.url.indexOf("//index.html") != -1
+                )) {
+
                 cache.put(e.request, response.clone());
+
+            }
 
         }
 
-        // Return it
+        // Return the server's response
         return response;
 
     })());
