@@ -40,6 +40,7 @@ button.component--button {
     border: 1px solid var(--button-border);
     border-radius: 4px;
     cursor: pointer;
+    color: var(--text-colour);
 }
 
 button.component--button:hover {
