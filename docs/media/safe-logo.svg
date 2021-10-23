@@ -1,0 +1,8 @@
+<svg width="350" height="350" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<rect x="61" y="59" width="229" height="232" fill="#FFF500" fill-opacity="0.26" />
+	<rect x="81" y="80" width="190" height="190" fill="#00FF19" fill-opacity="0.26" />
+	<rect width="60" height="350" fill="#FF0000" fill-opacity="0.26" />
+	<rect x="290" width="60" height="350" fill="#FF0000" fill-opacity="0.26" />
+	<rect x="60" width="230" height="60" fill="#FF0000" fill-opacity="0.26" />
+	<path d="M60 290H290V350H60V290Z" fill="#FF0000" fill-opacity="0.26" />
+</svg>
