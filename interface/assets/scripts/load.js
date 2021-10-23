@@ -115,14 +115,6 @@ function checkAgreement() {
 // Do all the necessary things to fully load the page
 function loadingReady() {
 
-    // Initialise the service worker
-    if (!window.platform.isApp) {
-
-        // Setup the service worker
-        setupServiceWorker();
-
-    }
-
     // Load the page content
     loadContent();
 

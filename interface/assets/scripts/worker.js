@@ -43,3 +43,11 @@ function setupServiceWorker() {
     }
 
 }
+
+// Initialise the service worker
+if (!window.platform.more.isElectron) {
+
+    // Setup the service worker
+    setupServiceWorker();
+
+}
