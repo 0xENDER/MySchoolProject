@@ -53,7 +53,7 @@ window.accountsSystemAPI.onConnected = function(){
 The function you assign to the `onClose` variable will always be called when the sign in window gets closed.
 
 ```js
-window.accountsSystemAPI.onClose = function(){
+window.accountsSystemAPI.onClose = function(event){
 
     alert("Closed!");
 
@@ -67,7 +67,7 @@ The function you assign to the `onSignIn` variable will always be called when th
 > Note that this does not mean you can access to the user's data. The user needs to authenticate your request first!
 
 ```js
-window.accountsSystemAPI.onSignIn = function(){
+window.accountsSystemAPI.onSignIn = function(event){
 
     alert("Signed In!");
 
@@ -81,7 +81,7 @@ The function you assign to the `onAuth` variable will always be called when the 
 > It's always better to wait for this function to get called, unless the origin of your server turns out to be the same as the server's. (In which case, you'd already have access to the user's data)
 
 ```js
-window.accountsSystemAPI.onAuth = function(){
+window.accountsSystemAPI.onAuth = function(event){
 
     alert("Authenticated!");
 
