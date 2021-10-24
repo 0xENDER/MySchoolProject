@@ -12,7 +12,7 @@
 
 **Project Idea:** A cross-platform apps store
 
-**Project Description:** This project idea is an online store that offers all kinds of programs. The store will mainly be able to host apps and games packages. Users can sign in to manage the downloads history and payments. In addition to this, there will be lots of features that make the user and developer experience much more appealing.
+**Project Description:** This project is an online store that offers all kinds of programs across platforms. The store will mainly be able to host apps and games packages. Users can sign in to manage the downloads history and payments. In addition to this, there will be lots of features that will make the users' and developers' experience much more appealing.
 
 ## Planned Features
 
