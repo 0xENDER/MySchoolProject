@@ -31,6 +31,7 @@
 
 # Ignore build files
 .expo/
+.expo-shared/
 dist/
 npm-debug.*
 *.jks
