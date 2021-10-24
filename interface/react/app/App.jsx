@@ -11,8 +11,6 @@ import React from 'react';
 import {
 
     StyleSheet,
-    Text,
-    View,
     StatusBar
 
 } from 'react-native';
@@ -44,7 +42,7 @@ export default function App() {
             javaScriptEnabled={true}
             domStorageEnabled={true}
 
-            style={ styles.container }
+            style={styles.container}
         />
 
     );
