@@ -3,15 +3,15 @@
     "startPath": {
 
         "electron": "electron/start.js",
-        "react": "react/start.js",
-        "web": "index.html"
+        "react": "node_modules/expo/AppEntry.js",
+        "web": "/page/home/"
 
     },
 
     "startScript": {
 
         "electron": "electron .",
-        "react": "",
+        "react": "expo start",
         "web": ""
 
     }

@@ -210,7 +210,7 @@ sudo n latest
 
 ### Native apps (Windows, Linux, and macOS apps)
 
-You will need to install `electron-builder` if you wish to build any of the native apps for Windows, Linux, or macOS:
+You will need to install `electron-builder` if you wish to run or build any of the native apps for Windows, Linux, or macOS:
 
 ```sh
 sudo npm install -g electron-builder
@@ -219,6 +219,14 @@ sudo npm install -g electron-builder
 #### Build the Windows app on Linux
 
 You need to install *Wine* on your system so you can build windows apps. You can follow [these instructions](https://computingforgeeks.com/how-to-install-wine-on-kali-linux-and-debian-64-bit/) to get it to work.
+
+### Native apps (Android, and iOS)
+
+You will need to install `expo-cli` if you wish to run or build any of the native apps for Android or iO:
+
+```sh
+sudo npm install --g expo-cli
+```
 
 ## Apps Distribution
 

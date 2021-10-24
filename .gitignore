@@ -28,3 +28,15 @@
 /node_modules/*
 */node_modules
 */node_modules/*
+
+# Ignore build files
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+.DS_Store

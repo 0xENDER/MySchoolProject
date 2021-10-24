@@ -54,6 +54,12 @@
 
         },
 
+        "themeColor": {
+
+            "default": "#593FE1"
+
+        },
+
         "url": {
 
             "github": {

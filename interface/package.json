@@ -37,7 +37,7 @@
                 "name": "%{{global:appInfo.name}}% Installation Package",
                 "description": "%{{global:appInfo.name}}% Installation Package",
                 "role": "Viewer",
-                "icon": "electron/package-icon.png"
+                "icon": "assets/media/logo/logo.png"
 
             }
 
@@ -68,7 +68,7 @@
         },
         "mac": {
 
-            "icon": "electron/mac-icon.png",
+            "icon": "assets/media/logo/logo.png",
             "target": [
 
                 "7z",
@@ -107,7 +107,7 @@
                 "tar.xz"
 
             ],
-            "icon": "electron/windows-icon.ico"
+            "icon": "assets/media/big-icon.ico"
 
         }
 
@@ -136,6 +136,7 @@
         "url": "%{{global:appInfo.url.github}}%/issues"
 
     },
-    "homepage": "%{{global:appInfo.url.website}}%/page/home/"
+    "homepage": "%{{global:appInfo.url.website}}%/page/home/",
+    "private": true
 
 }

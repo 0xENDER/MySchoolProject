@@ -1,0 +1,59 @@
+{
+
+    "expo": {
+
+        // The app name
+        "name": "%{{global:appInfo.name}}%",
+        "slug": "%{{global:appInfo.name}}%",
+
+        // The app version
+        "version": "%{{global:codebase.version}}%",
+
+        // Prefered orientation
+        "orientation": "portrait",
+
+        // App icon
+        "icon": "assets/media/logo/logo.png",
+
+        // The splash-screen
+        "splash": {
+
+            // The splash image
+            "image": "assets/media/logo/logo-maskable.png",
+            "resizeMode": "contain",
+
+            // The splash-screen's background colour
+            "backgroundColor": "%{{global:appInfo.themeColor}}%"
+
+        },
+        "updates": {
+
+            "fallbackToCacheTimeout": 0
+
+        },
+        "assetBundlePatterns": [
+
+            "**/*",
+            "*.html"
+
+        ],
+        "ios": {
+
+            "supportsTablet": true
+
+        },
+        "android": {
+
+            "adaptiveIcon": {
+
+                // The maskable icon
+                "foregroundImage": "assets/media/logo/logo-maskable.png",
+                "backgroundColor": "%{{global:appInfo.themeColor}}%"
+
+            }
+
+        }
+
+    }
+
+}

@@ -13,8 +13,8 @@
 
     // Display and theme configuration
     "display": "standalone",
-    "background_color": "#593FE1",
-    "theme_color": "#593FE1",
+    "background_color": "%{{global:appInfo.themeColor}}%",
+    "theme_color": "%{{global:appInfo.themeColor}}%",
 
     // The prefered orientation
     "orientation": "portrait-primary",
