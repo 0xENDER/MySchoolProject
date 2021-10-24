@@ -147,7 +147,7 @@ menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passi
     passive: true
 
 } : false);
-menuCard.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+menuScreen.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
@@ -157,7 +157,7 @@ menuCard.addEventListener("touchstart", menuCardClick, (window.crossBrowser.pass
     passive: true
 
 } : false);
-menuCard.addEventListener("touchstart", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+menuScreen.addEventListener("touchstart", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
