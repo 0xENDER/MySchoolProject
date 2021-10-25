@@ -6,19 +6,34 @@
 
 
 // Get the required modules
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import { WebView } from 'react-native-webview'
+
+// Collect some info about this device
+var deviceInfo = {
+
+    statusBar: {
+
+        height: StatusBar.currentHeight
+
+    }
+
+};
 
 //  Set the default export object
 export default function App() {
 
     return (
 
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <WebView
+            originWhitelist={['*']}
+            source={{ uri: 'file:///android_asset/index.html' }}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            style={styles.container}
+        />
 
     );
 

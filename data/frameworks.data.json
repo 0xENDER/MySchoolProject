@@ -3,7 +3,7 @@
     "startPath": {
 
         "electron": "electron/start.js",
-        "react": "react/start.jsx",
+        "react": "start.jsx",
         "web": "/page/home/"
 
     },
