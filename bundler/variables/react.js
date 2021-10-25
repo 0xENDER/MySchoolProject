@@ -11,7 +11,7 @@ const path = require("path"),
 // Call the custom variables module
 replaceVariables(
     path.join(__dirname, "..", "builds", "frameworks", "react"), [
-        ".js", ".html", ".css", ".json", ".sh"
+        ".js", ".html", ".css", ".json", ".sh", ".xml", ".gradle"
     ],
     "react",
     (process.argv[2]) == 1

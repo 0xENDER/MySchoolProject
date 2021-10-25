@@ -24,5 +24,6 @@ npm install react-native-webview
 npm install -D @babel/core@^7.12.9
 #
 ## Move the files from the "react/" directory
-mv "./react/*" "./"
+mv ./react/* "./"
+mv "./react/.buckconfig" "./"
 #
