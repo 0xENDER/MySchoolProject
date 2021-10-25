@@ -35,7 +35,6 @@
   - [ ] Linux (Electron)
   - [ ] MacOS (Electron)
   - [ ] _~~Android (React)~~ **(!)**_
-  - [ ] _~~iOS (React)~~ **(!)**_
 - [ ] Apps and Games compatibility checks
   - [ ] Add mandatory compatibility metrics
   - [ ] Add preferred compatibility metrics
@@ -97,7 +96,7 @@
 - *Apache2* (Website directories management)
 - *NodeJS* (Native apps management, and bundling)
 - *Electron* (Windows, Linux, and macOS native apps)
-- ~~*React* (Android, and iOS native apps)~~
+- ~~*React* (Android native app)~~
 
 ## Server Requirements
 
@@ -220,7 +219,7 @@ sudo npm install -g electron-builder
 
 You need to install *Wine* on your system so you can build windows apps. You can follow [these instructions](https://computingforgeeks.com/how-to-install-wine-on-kali-linux-and-debian-64-bit/) to get it to work.
 
-### Native apps (Android, and iOS)
+### The Native app for Android
 
 You will need to install `expo-cli` if you wish to run or build any of the native apps for Android or iO:
 
@@ -242,15 +241,16 @@ The available build flags are:
 
 - `-debug`: Show debug messages
 - `-local`: Tells the builder that your server is hosted locally (on `localhost`)
-- `-all`: Create all the builds for all platforms (Web, Windows, Linux, macOS, Android, iOS)
+- `-all`: Create all the builds for all platforms (Web, Windows, Linux, macOS, Android)
 - `-desktop`: Create all the builds for desktop devices (Windows, Linux, macOS)
-- `-mobile`: Create all the builds for mobile devices (Android, iOS)
+- `-mobile`: Create all the builds for mobile devices (Android)
 - `-web`: Create a web build
 - `-windows`: Create a Windows build
 - `-linux`: Create a Linux build
 - `-mac`: Create a macOS build
 - `-android`: Create an Android build
-- `-ios`: Create an iOS build
+
+> Note that we do not offer the option to build an iOS app for the codebase because it'd be useless. (Apps can't install other apps on iOS)
 
 If you face any problem whist building a native app for Windows, macOS, or Linux, make sure that you have [the proper enviromnet setup for `electron-builder`](https://www.electron.build/multi-platform-build.html)!
 

@@ -1,5 +1,13 @@
+/*
+
+    The react-based app info
+
+*/
+
+
 {
 
+    // Expo settings
     "expo": {
 
         // The app name
@@ -26,6 +34,8 @@
             "backgroundColor": "%{{global:appInfo.themeColor}}%"
 
         },
+
+        // Other configurations
         "updates": {
 
             "fallbackToCacheTimeout": 0
@@ -33,8 +43,7 @@
         },
         "assetBundlePatterns": [
 
-            "**/*",
-            "*.html"
+            "**/*"
 
         ],
         "ios": {
@@ -54,6 +63,9 @@
 
         }
 
-    }
+    },
+
+    // The app name
+    "name": "%{{global:appInfo.name}}%"
 
 }

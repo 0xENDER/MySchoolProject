@@ -1,4 +1,4 @@
-## Build the website for the web, Windows, Linux, MacOS, Android, and iOS
+## Build the website for the web, Windows, Linux, MacOS, and Android
 #
 #
 ## Organise the environment variables
@@ -8,10 +8,9 @@ BUILD_WINDOWS=$3
 BUILD_LINUX=$4
 BUILD_MAC=$5
 BUILD_ANDROID=$6
-BUILD_IOS=$7
-LOCAL=$8
+LOCAL=$7
 FRAMEWORK_ELECTRON=$(expr $BUILD_WINDOWS + $BUILD_LINUX + $BUILD_MAC)
-FRAMEWORK_REACT=$(expr $BUILD_ANDROID + $BUILD_IOS)
+FRAMEWORK_REACT=$(expr $BUILD_ANDROID)
 USE_FRAMEWORKS=0
 if [ $FRAMEWORK_ELECTRON -gt 0 ]; then
 #
@@ -41,7 +40,6 @@ if [ $DEBUG_MODE -eq 1 ]; then
     echo "[DEBUG] Linux: $BUILD_LINUX"
     echo "[DEBUG] macOS: $BUILD_MAC"
     echo "[DEBUG] Android: $BUILD_ANDROID"
-    echo "[DEBUG] iOS: $BUILD_IOS"
     echo "[DEBUG] Electron: $FRAMEWORK_ELECTRON"
     echo "[DEBUG] React: $FRAMEWORK_REACT"
 #
@@ -49,7 +47,7 @@ fi
 #
 ## Clear the generated files in the "/bundler/" directory
 echo -e "\n[Bundler] Cleaning up the 'bundler/' directory..."
-"./clean.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $BUILD_IOS $FRAMEWORK_ELECTRON $FRAMEWORK_REACT
+"./clean.sh" $DEBUG_MODE $BUILD_WEB $BUILD_WINDOWS $BUILD_LINUX $BUILD_MAC $BUILD_ANDROID $FRAMEWORK_ELECTRON $FRAMEWORK_REACT
 #
 ## Prepare the bundler
 if [ -d "node_modules/" ]; then
@@ -95,7 +93,7 @@ fi
 if [ $FRAMEWORK_REACT -eq 1 ]; then
 #
     echo -e "\n[Bundler] Building the codebase using React..."
-    "./react.sh" $DEBUG_MODE $BUILD_ANDROID $BUILD_IOS
+    "./react.sh" $DEBUG_MODE $BUILD_ANDROID
 #
 fi
 #

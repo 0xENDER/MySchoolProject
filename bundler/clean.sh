@@ -8,9 +8,8 @@ BUILD_WINDOWS=$3
 BUILD_LINUX=$4
 BUILD_MAC=$5
 BUILD_ANDROID=$6
-BUILD_IOS=$7
-FRAMEWORK_ELECTRON=$8
-FRAMEWORK_REACT=$9
+FRAMEWORK_ELECTRON=$7
+FRAMEWORK_REACT=$8
 USE_FRAMEWORKS=0
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
 #
@@ -57,11 +56,6 @@ fi
 if [ $BUILD_ANDROID -eq 1 ]; then
 #
     mkdir "builds/android/"
-#
-fi
-if [ $BUILD_IOS -eq 1 ]; then
-#
-    mkdir "builds/ios/"
 #
 fi
 if [ $USE_FRAMEWORKS -eq 1 ]; then

@@ -4,7 +4,6 @@
 ## Organise the environment variables
 DEBUG_MODE=$1
 BUILD_ANDROID=$2
-BUILD_IOS=$3
 #
 ## Navigate to the framework's build directory
 cd "builds/frameworks/react/"
@@ -13,7 +12,7 @@ cd "builds/frameworks/react/"
 "./shared/build.sh" $DEBUG_MODE
 #
 ## Install all the NodeJS modules
-"./react/build.sh" $DEBUG_MODE $BUILD_ANDROID $BUILD_IOS
+"./react/build.sh" $DEBUG_MODE $BUILD_ANDROID
 #
 ## Navigate back to the bundler's main directory
 cd "../../../"
