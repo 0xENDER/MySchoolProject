@@ -1,4 +1,4 @@
-package com.reactbasedapp;
+package %{{global:appInfo.id}}%;
 
 import android.os.Bundle;
 

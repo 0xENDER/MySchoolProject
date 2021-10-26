@@ -130,7 +130,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.reactbasedapp"
+        applicationId "%{{global:appInfo.id}}%"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
