@@ -154,7 +154,7 @@
 .menu--container .menu--card .menu--account .menu--account-userInfo {
     display: var(--menuaccountuserinfo-display);
     margin: 4px auto;
-    width: calc(100% - 56px);
+    width: calc(100% - 60px);
     height: 52px;
     overflow: hidden;
 }
