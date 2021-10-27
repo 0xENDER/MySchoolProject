@@ -273,7 +273,7 @@ updateGamepads();
 // Get info about the user's hardware (web & native)
 if (!window.platform.isApp) {
 
-    if (!window.platform.device.isMobile) {
+    if (!(window.platform.device.isTablet || window.platform.device.isMobile)) {
 
         function detectKeybordEvent() {
 

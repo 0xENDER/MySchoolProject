@@ -41,15 +41,19 @@ try {
 
 } catch {}
 
-// Update the viewport across devices
-function updateHeightProperty() {
+// Update the viewport across mobile devices
+if ('ontouchstart' in document.documentElement) {
 
-    document.documentElement.style.setProperty('--vh', `${ window.innerHeight / 100 }px`);
+    function updateHeightProperty() {
+
+        document.documentElement.style.setProperty('--vh', `${ window.innerHeight / 100 }px`);
+
+    }
+    window.addEventListener('resize', updateHeightProperty, (window.crossBrowser.passiveEvents.supported) ? {
+
+        passive: true
+
+    } : false);
+    updateHeightProperty();
 
 }
-window.addEventListener('resize', updateHeightProperty, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
-updateHeightProperty();
