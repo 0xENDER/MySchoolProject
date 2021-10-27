@@ -24,6 +24,26 @@ npm install react-native-webview
 npm install -D @babel/core@^7.12.9
 #
 ## Move the files from the "react/" directory
-mv ./react/* "./"
+mv "./react/android" "./"
 mv "./react/.buckconfig" "./"
+mv "./react/app.json" "./"
+mv "./react/App.jsx" "./"
+mv "./react/babel.config.js" "./"
+mv "./react/metro.config.js" "./"
+mv "./react/start.jsx" "./"
+#
+## Build the android version of this codebase
+if [ $BUILD_ANDROID -eq 1 ]; then
+#
+    mkdir "../../android/project_folder"
+    cp -R "./android/." "../../android/project_folder/"
+    rm "../../android/project_folder/app/src/main/assets/assets.replace"
+    cp -R "./node_modules" "../../android/project_folder/app/src/main/assets/"
+    cp -R "./assets" "../../android/project_folder/app/src/main/assets/"
+    cp -R "./components" "../../android/project_folder/app/src/main/assets/"
+    cp -R "./libraries" "../../android/project_folder/app/src/main/assets/"
+    cp -R "./pages" "../../android/project_folder/app/src/main/assets/"
+    cp "./layout.html" "../../android/project_folder/app/src/main/assets/"
+#
+fi
 #
