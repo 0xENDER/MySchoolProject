@@ -102,16 +102,20 @@ function shouldHideMenu() {
 }
 
 // Update the `onclick` event functions
-optionsButton.addEventListener("click", showMenu, (window.crossBrowser.passiveEvents.supported) ? {
+if (window.platform.special.dynamic.isWindowSmall()) {
 
-    passive: true
+    optionsButton.addEventListener("click", showMenu, (window.crossBrowser.passiveEvents.supported) ? {
 
-} : false);
-menuCloseButton.addEventListener("click", hideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+        passive: true
 
-    passive: true
+    } : false);
+    menuCloseButton.addEventListener("click", hideMenu, (window.crossBrowser.passiveEvents.supported) ? {
 
-} : false);
+        passive: true
+
+    } : false);
+
+}
 profilePictureButton.addEventListener("click", function() {
 
     // Check if this is a small screen
@@ -142,7 +146,7 @@ profilePictureButton.addEventListener("click", function() {
 } : false);
 
 // Update the menu's container click events
-if (platform.hardware.display.width > 840) {
+if (!window.platform.special.dynamic.isWindowSmall()) {
 
     menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
 

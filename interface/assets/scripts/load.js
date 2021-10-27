@@ -151,7 +151,7 @@ function loadContent() {
 
     // Prepare the page content container
     pageContentElement.style.display = null;
-    if (window.performanceVariables.hasCustomScrollbar) {
+    if (window.performanceVariables.hasCustomScrollbar && !window.performanceVariables.isLowPerforming) {
 
         linkScrollbar(pageContentElement);
 
