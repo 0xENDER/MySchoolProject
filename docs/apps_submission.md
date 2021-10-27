@@ -40,7 +40,25 @@ The type of your app. (`app`/`game`)
 
 ### Categories (`categories`)
 
+You need to provide a set of categories for your app!
+
+For normal apps, the avaliable categories are:
+`Art and Design`, `Auto and Vehicles`, `Beauty`, `Books and Reference`, `Business`, `Comics`, `Communications`, `Dating`, `Education`, `Entertainment`, `Events`, `Finance`, `Food and Drink`, `Health and Fitness`, `House and Home`, `Libraries and Demo`, `Lifestyle`, `Maps and Navigation`, `Medical`, `Music and Audio`, `News and Magazines`, `Parenting`, `Personalization`, `Photography`, `Productivity`, `Shopping`, `Social`, `Sports`, `Tools`, `Travel and Local`, `Video Players and Editors`, `Weather`, and `Other`.
+
+As for games, the avaliable categories are:
+`Action`, `Adventure`, `Arcade`, `Board`, `Card`, `Casino`, `Casual`, `Educational`, `Music`, `Puzzle`, `Racing`, `Role Playing`, `Simulation`, `Sports`, `Strategy`, `Trivia`, `Word`, and `Other`.
+
 ### Media (`media.(*)`)
+
+[comment]: <> (- App short name)
+[comment]: <> (- App long name)
+[comment]: <> (- App category)
+[comment]: <> (- App description)
+[comment]: <> (- App developer - and other related-info -)
+[comment]: <> (You also can include these things:)
+[comment]: <> (- App screenshots)
+[comment]: <> (- App video - 16:9)
+[comment]: <> (- App cover  -16:9)
 
 #### Logo (`media.logo.(*)`)
 
@@ -80,21 +98,8 @@ The type of your app. (`app`/`game`)
 
 ### App requirements (`requirements.(*)`)
 
-#### Hardware requirements  (`requirements.hardware`)
+#### Hardware requirements (`requirements.hardware`)
 
-#### Software requirements  (`requirements.software`)
+#### Software requirements (`requirements.software`)
 
 ### Installation instructions (`installing.(*)`)
-
-- App logo (72x72, 96x96, 144x144, 168x168, 192x192, 248x248, 512x512)
-- App short name
-- App long name
-- App category
-- App description
-- App developer (and other related-info)
-
-You also can include these things:
-
-- App screenshots
-- App video (16:9)
-- App cover (16:9)
