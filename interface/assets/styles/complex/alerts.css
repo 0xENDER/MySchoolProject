@@ -20,6 +20,10 @@
     --menucard-minwidth: 280px;
     --menucclose-display: none;
     --menusectionsnavigation-display: none;
+    --menuaccountuserinfo-display: block;
+    --menuaccount-textalign: center;
+    --menucontainer-width: 0px;
+    --menucontainer-height: 0px
 }
 
 @media all and (max-width: 840px) {
@@ -38,6 +42,10 @@
         --menucard-minwidth: none;
         --menucclose-display: block;
         --menusectionsnavigation-display: block;
+        --menuaccountuserinfo-display: inline-block;
+        --menuaccount-textalign: left;
+        --menucontainer-width: 100%;
+        --menucontainer-height: 100%;
     }
 }
 
@@ -58,6 +66,8 @@
 .menu--container {
     backdrop-filter: var(--menucontainer-backdropfilter);
     background: var(--menucontainer-background);
+    width: var(--menucontainer-width);
+    height: var(--menucontainer-height);
 }
 
 .alerts--container .alerts--card,
@@ -124,6 +134,32 @@
     position: relative;
     display: block;
     margin: 18px auto;
+    text-align: var(--menuaccount-textalign);
+}
+
+[data-signed-in="false"] .menu--container .menu--card .menu--account {
+    text-align: center;
+}
+
+.menu--container .menu--card .menu--account .menu--account-profilePicture {
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    overflow: hidden;
+    margin: 4px auto;
+}
+
+.menu--container .menu--card .menu--account .menu--account-userInfo {
+    display: var(--menuaccountuserinfo-display);
+    margin: 4px auto;
+    width: calc(100% - 56px);
+    height: 52px;
+    overflow: hidden;
+}
+
+.menu--container .menu--card .menu--account .menu--account-userInfo h4,
+.menu--container .menu--card .menu--account .menu--account-userInfo h3 {
+    margin: 4px;
 }
 
 .menu--container .menu--card .menu--sectionsnavigation {

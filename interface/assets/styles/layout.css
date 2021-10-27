@@ -459,8 +459,11 @@ body {
 }
 
 .layout--topbar-profile {
-    border-radius: 1000px;
     margin-right: var(--topbarprofile-marginright);
+}
+
+.component--profilePicture {
+    border-radius: 1000px;
     background-color: #545454;
 }
 

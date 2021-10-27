@@ -116,7 +116,7 @@
 
             <!-- If the user is signed in, show the user profile with the username. -->
             <text id="user--username" class="layout--topbar-username">[Username]</text>
-            <img id="user--profilepicture" class="layout--topbar-profile" alt="Profile Picture" width="32px" height="32px" tabindex="0" clickable>
+            <img id="user--profilepicture" class="layout--topbar-profile component--profilePicture" alt="Profile Picture" width="32px" height="32px" tabindex="0" clickable>
 
             <!-- If the user is not signed in, show the sign in button. -->
             <button id="button--signin" class="layout--topbar-button component--button" tabindex="0">Sign In</button>
@@ -223,7 +223,11 @@
                     <button id="menubutton--signin" class="component--button" tabindex="0">Sign In</button>
                 </div>
                 <div data-signed="true">
-                    <h4>You are signed in!!!</h4>
+                    <img class="menu--account-profilePicture component--profilePicture" name="userInfo--profilePicture" alt="Profile Picture" width="32px" height="32px" tabindex="0" clickable="">
+                    <div class="menu--account-userInfo">
+                        <h3>[username]</h3>
+                        <h4>[email]</h4>
+                    </div>
                 </div>
             </div>
             <div class="menu--sectionsnavigation">

@@ -142,22 +142,26 @@ profilePictureButton.addEventListener("click", function() {
 } : false);
 
 // Update the menu's container click events
-menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
+if (platform.hardware.display.width > 840) {
+
+    menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
+
+        passive: true
+
+    } : false);
+    window.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+
+        passive: true
+
+    } : false);
+
+}
+menuCard.addEventListener("click", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
 } : false);
-menuScreen.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
-menuCard.addEventListener("touchstart", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
-menuScreen.addEventListener("touchstart", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
+menuScreen.addEventListener("click", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
 
     passive: true
 
