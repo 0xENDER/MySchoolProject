@@ -23,7 +23,8 @@
     --menuaccountuserinfo-display: block;
     --menuaccount-textalign: center;
     --menucontainer-width: 0px;
-    --menucontainer-height: 0px
+    --menucontainer-height: 0px;
+    --menuaccountactions-margin: 16px;
 }
 
 @media all and (max-width: 840px) {
@@ -46,6 +47,7 @@
         --menuaccount-textalign: left;
         --menucontainer-width: 100%;
         --menucontainer-height: 100%;
+        --menuaccountactions-margin: 8px;
     }
 }
 
@@ -157,9 +159,20 @@
     overflow: hidden;
 }
 
+.menu--container .menu--card .menu--account .menu--account-actions {
+    width: 100%;
+    text-align: center;
+    margin: var(--menuaccountactions-margin) 0px;
+}
+
 .menu--container .menu--card .menu--account .menu--account-userInfo h4,
 .menu--container .menu--card .menu--account .menu--account-userInfo h3 {
     margin: 4px;
+    margin-top: 0px;
+}
+
+.menu--container .menu--card .menu--account .menu--account-userInfo h4 {
+    opacity: 0.8;
 }
 
 .menu--container .menu--card .menu--sectionsnavigation {

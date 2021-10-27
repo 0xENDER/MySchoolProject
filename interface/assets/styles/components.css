@@ -13,6 +13,7 @@
     --componentcover-height: calc( (96 * var(--vh, 1vh)) - var(--topbar-height));
     --componentbutton-padding: 10px 24px;
     --scrollbar-display: flex;
+    --bubblebutton-fontsize: 14px;
 }
 
 @media all and (max-width: 840px) {
@@ -22,6 +23,7 @@
         --scrollbarbuttons-pointerevents: none;
         --componentcover-height: calc( (96 * var(--vh, 1vh)) - var(--topbar-height) - var(--sectionsbar-height));
         --componentbutton-padding: 14px 32px;
+        --bubblebutton-fontsize: 12px;
     }
 }
 
@@ -55,6 +57,28 @@ button.component--button.component--button-primary {
     background-color: var(--primarybutton-background);
     border: 1px solid var(--primarybutton-border);
     color: white;
+}
+
+
+/* Bubble buttons */
+
+button.component--bubblebutton {
+    background-color: var(--button-background);
+    padding: 8px 16px;
+    font-size: var(--bubblebutton-fontsize);
+    border: 1px solid var(--button-border);
+    border-radius: 1000px;
+    cursor: pointer;
+    color: var(--text-colour);
+    margin: 2px;
+}
+
+button.component--bubblebutton:hover {
+    opacity: 0.9;
+}
+
+button.component--bubblebutton:active {
+    opacity: 0.7;
 }
 
 
