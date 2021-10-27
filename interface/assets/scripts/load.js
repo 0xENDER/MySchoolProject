@@ -592,7 +592,10 @@ function isOnline() {
 
                 // If the user is connected to a network, try to connect to the server of the store
                 fetch(window.platform.servers.store + "/connection.server.test", {
+
+                    // Only connect to the server, don't check the file's contents.
                     method: 'HEAD'
+
                 }).then(function(response) {
 
                     // If the response was successful, then the user must be online. If not, then the user is offline.
