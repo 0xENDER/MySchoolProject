@@ -19,7 +19,7 @@ mkdir "public/"
 #
 ## Rebuild the web build
 echo "[Publisher] [Clean] Generating a new web build..."
-"./start.sh" $DEBUG_MODE 1 0 0 0 0 0 $LOCAL
+"./start.sh" $DEBUG_MODE 1 0 0 0 0 $LOCAL
 #
 ## Copy the required files from the 'builds/' directory
 echo -e "\n[Publisher] [Clean] Copying the required files from the 'builds/' directory..."
