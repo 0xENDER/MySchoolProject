@@ -121,20 +121,24 @@ sudo apt-get install apache2-utils
 
 Also, make sure that all the directories that you're gonna work with have these permissions in the `/etc/apache2/apache2.conf` file:
 
-```config
+```xml
 <Directory /MY_DIRECTORY>
-  Options FollowSymLinks
-  AllowOverride All
-  Require all granted
+
+    Options FollowSymLinks
+    AllowOverride All
+    Require all granted
+
 </Directory>
 <Location /MY_DIRECTORY>
-  CacheEnable disk
-  CacheHeader on
-  CacheDefaultExpire 800
-  CacheMaxExpire 6400000
-  CacheIgnoreNoLastMod On
-  ExpiresActive on
-  ExpiresDefault A300
+
+    CacheEnable disk
+    CacheHeader on
+    CacheDefaultExpire 800
+    CacheMaxExpire 6400000
+    CacheIgnoreNoLastMod On
+    ExpiresActive on
+    ExpiresDefault A300
+
 </Location>
 ```
 
@@ -163,28 +167,28 @@ sudo nano 000-default.conf
 
 And make sure to replace its content with this:
 
-```sh
+```xml
 # The store subdomain (store.*)
 <VirtualHost *:80>
 
-  ServerAdmin webmaster@localhost
-  DocumentRoot .../bundler/public/store_subdomain
-  ServerName store.localhost
+    ServerAdmin webmaster@localhost
+    DocumentRoot .../bundler/public/store_subdomain
+    ServerName store.localhost
 
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 
 # The accounts subdomain (accounts.*)
 <VirtualHost *:80>
 
-  ServerAdmin webmaster@localhost
-  DocumentRoot .../bundler/public/accounts_subdomain
-  ServerName accounts.localhost
+    ServerAdmin webmaster@localhost
+    DocumentRoot .../bundler/public/accounts_subdomain
+    ServerName accounts.localhost
 
-  ErrorLog ${APACHE_LOG_DIR}/error.log
-  CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 ```
