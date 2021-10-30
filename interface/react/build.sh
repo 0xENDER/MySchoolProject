@@ -38,7 +38,7 @@ if [ $BUILD_ANDROID -eq 1 ]; then
     mkdir "../../android/project_folder"
     cp -R "./android/." "../../android/project_folder/"
     rm "../../android/project_folder/app/src/main/assets/assets.replace"
-    cp -R "./node_modules" "../../android/project_folder/app/src/main/assets/"
+    # cp -R "./node_modules" "../../android/project_folder/app/src/main/assets/"
     cp -R "./assets" "../../android/project_folder/app/src/main/assets/"
     cp -R "./components" "../../android/project_folder/app/src/main/assets/"
     cp -R "./libraries" "../../android/project_folder/app/src/main/assets/"
