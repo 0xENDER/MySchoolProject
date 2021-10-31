@@ -33,6 +33,7 @@ if (document.documentElement.dataset.signedIn === true)
 document.getElementById("button--manageaccount").onclick = function() {
 
     window.open(window.platform.servers.accounts + "/");
+    hideMenu();
 
 };
 document.getElementById("button--signout").onclick = function() {
