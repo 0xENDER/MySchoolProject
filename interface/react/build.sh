@@ -30,7 +30,7 @@ mv "./react/app.json" "./"
 mv "./react/App.js" "./"
 mv "./react/babel.config.js" "./"
 mv "./react/metro.config.js" "./"
-mv "./react/start.js" "./"
+mv "./react/index.js" "./"
 #
 ## Build the android version of this codebase
 if [ $BUILD_ANDROID -eq 1 ]; then
