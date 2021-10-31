@@ -26,8 +26,8 @@
     margin: calc(var(--global-topbottommargin)*var(--componentsection-marginFactor)) var(--global-sidesmargin);
     -webkit-overflow-scrolling: touch;
     display: flex;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
+    -ms-scroll-snap-type: x proximity;
+    scroll-snap-type: x proximity;
     scroll-padding: var(--global-sidesmargin);
     overflow-y: visible;
     overflow-x: auto;
