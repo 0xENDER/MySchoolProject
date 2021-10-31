@@ -1,0 +1,16 @@
+{
+
+    "scripts": {
+
+        "start": "./publish -local",
+        "web": "./build -web",
+        "android": "./build -android",
+        "windows": "./build -windows",
+        "linux": "./build -linux",
+        "mac": "./build -mac",
+        "desktop": "./build -desktop",
+        "mobile": "./build -mobile"
+
+    }
+
+}
