@@ -489,6 +489,7 @@ body {
 
 .layout--topbar-button {
     min-width: -moz-fit-content;
+    min-width: -webkit-fill-available;
     min-width: fit-content;
 }
 
