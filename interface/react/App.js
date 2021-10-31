@@ -1,3 +1,4 @@
+// --@react
 /*
 
     Manage the react-based app

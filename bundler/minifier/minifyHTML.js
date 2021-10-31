@@ -32,7 +32,7 @@ scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".html"], funct
     if (typeof minifiedContent !== 'string') {
 
         // Throw an error
-        throw new Error("Minifier output is not valid!");
+        throw new Error(`Minifier output is not valid! (${fileDirectory})`);
 
     }
 

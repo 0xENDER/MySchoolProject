@@ -1,3 +1,4 @@
+// --@react
 /*
 
     Initiate the react app

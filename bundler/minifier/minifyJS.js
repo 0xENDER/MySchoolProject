@@ -14,27 +14,47 @@ const minify = require('uglify-js').minify,
 scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".js"], function(fileDirectory) {
 
     // Get the content of this file
-    var textContent = fs.readFileSync(fileDirectory, "utf8");
+    var textContent = fs.readFileSync(fileDirectory, "utf8"),
+        stop = false;
 
-    // Minify the content of this file
-    var minifiedContent = minify(textContent, {
+    // Check for any comment flags
+    var firstLine = textContent.substring(0, textContent.indexOf("\n"));
+    if (firstLine.indexOf("//") == 0) {
 
-        keep_fnames: true
+        if (firstLine.indexOf("--@react") != -1) {
 
-    }).code;
+            stop = true;
 
-    // Check if the output is valid for insertion
-    if (typeof minifiedContent !== 'string') {
-
-        // Throw an error
-        throw new Error("Minifier output is not valid!");
+        }
 
     }
 
-    // Save the new minified content
-    fs.writeFileSync(fileDirectory, minifiedContent);
+    if (!stop) {
+
+        // Minify the content of this file
+        var minifiedContent = minify(textContent, {
+
+            keep_fnames: true
+
+        }).code;
+
+        // Check if the output is valid for insertion
+        if (typeof minifiedContent !== 'string') {
+
+            // Throw an error
+            throw new Error(`Minifier output is not valid! (${fileDirectory})`);
+
+        }
+
+        // Save the new minified content
+        fs.writeFileSync(fileDirectory, minifiedContent);
+
+        // Delete the used variables
+        delete minifiedContent;
+
+    }
 
     // Delete the used variables
-    delete textContent, minifiedContent;
+    delete textContent;
 
 });
