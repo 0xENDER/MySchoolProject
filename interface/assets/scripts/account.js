@@ -28,3 +28,16 @@ function updateUserInfo() {
 // Update the info on the screen if the user is signed in
 if (document.documentElement.dataset.signedIn === true)
     updateUserInfo();
+
+// User account-related buttons
+document.getElementById("button--manageaccount").onclick = function() {
+
+    window.open(window.platform.servers.accounts + "/");
+
+};
+document.getElementById("button--signout").onclick = function() {
+
+    signUserOut();
+    hideMenu();
+
+};

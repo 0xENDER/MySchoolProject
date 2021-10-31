@@ -27,6 +27,8 @@ window.onpagecontentload = function() {
         }
     }
 
+    homepageCoverEffect();
+
     // Load the whole page
     window.load();
 

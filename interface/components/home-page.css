@@ -10,12 +10,16 @@
     --coversuggestionscard-scrollalign: start;
     --coversuggestionscardfirst-left: var(--global-sidesmargin);
     --coversuggestionscardlast-right: var(--coversuggestionscardfirst-left);
+    --homepagecoverinfo-top: none;
+    --homepagecoverextrainfo-display: block;
 }
 
 @media all and (max-width: 840px) {
      :root {
         --coversuggestionscard-scrollalign: center;
-        --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width) - 2px) / 2)
+        --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width) - 2px) / 2);
+        --homepagecoverinfo-top: var(--global-sidesmargin);
+        --homepagecoverextrainfo-display: none;
     }
 }
 
@@ -25,7 +29,9 @@
 .component--cover {
     width: 100%;
     height: var(--componentcover-height);
-    background-color: var(--colours-primary1);
+    background-color: #6247F1;
+    display: flex;
+    align-items: center;
     content-visibility: auto;
 }
 
@@ -91,4 +97,35 @@
 
 .homepage--coversuggestions-card:last-child {
     margin-right: var(--coversuggestionscardlast-right);
+}
+
+
+/* Main cover info */
+
+.homepage--cover-info {
+    position: absolute;
+    top: var(--homepagecoverinfo-top);
+    margin: 0px var(--global-sidesmargin);
+    padding-bottom: 80px;
+    height: 100px;
+}
+
+.homepage--cover-title,
+.homepage--cover-description {
+    display: var(--homepagecoverextrainfo-display);
+}
+
+.homepage--cover-price {
+    display: block;
+    font-size: 18px;
+}
+
+.homepage--cover-title {
+    font-size: 32px;
+    margin: 4px 0px;
+}
+
+.homepage--cover-description {
+    font-size: 28px;
+    opacity: 0.8;
 }

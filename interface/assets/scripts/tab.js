@@ -19,11 +19,7 @@ if (userSettings.alwaysShowFocusBorderOnTouch && (('ontouchstart' in window) ||
 
         document.documentElement.dataset.tab = false;
 
-    }, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
+    }, window.performanceVariables.objects.passiveEvent);
 
     document.addEventListener('keydown', function(e) {
 
@@ -33,10 +29,6 @@ if (userSettings.alwaysShowFocusBorderOnTouch && (('ontouchstart' in window) ||
 
         }
 
-    }, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
+    }, window.performanceVariables.objects.passiveEvent);
 
 }

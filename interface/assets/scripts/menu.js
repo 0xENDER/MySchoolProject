@@ -148,25 +148,9 @@ profilePictureButton.addEventListener("click", function() {
 // Update the menu's container click events
 if (!window.platform.special.dynamic.isWindowSmall()) {
 
-    menuCard.addEventListener("mousedown", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
-    window.addEventListener("mousedown", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
+    menuCard.addEventListener("mousedown", menuCardClick, window.performanceVariables.objects.passiveEvent);
+    window.addEventListener("mousedown", shouldHideMenu, window.performanceVariables.objects.passiveEvent);
 
 }
-menuCard.addEventListener("click", menuCardClick, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
-menuScreen.addEventListener("click", shouldHideMenu, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
+menuCard.addEventListener("click", menuCardClick, window.performanceVariables.objects.passiveEvent);
+menuScreen.addEventListener("click", shouldHideMenu, window.performanceVariables.objects.passiveEvent);

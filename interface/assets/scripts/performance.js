@@ -12,10 +12,14 @@ window.performanceVariables = {
         (window.platform.hardware.memory.capacity != null && window.platform.hardware.memory.capacity <= 4) ||
         (window.platform.hardware.CPU.logicalProcessors != null && window.platform.hardware.CPU.logicalProcessors < 4)
     ),
-
     hasCustomScrollbar: false,
     maxSuggestionsCardLoad: 0,
-    maxSuggestionsRowsLoad: 0
+    maxSuggestionsRowsLoad: 0,
+    objects: {
+
+        passiveEvent: window.crossBrowser.passiveEvents.supported ? { passive: true } : false
+
+    }
 
 };
 

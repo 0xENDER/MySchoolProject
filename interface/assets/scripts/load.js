@@ -200,7 +200,7 @@ function loadContentFromSrc(src = null) {
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
-    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index)
+    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index + "?v=" + window.platform.codebase.version)
         .then(response => {
 
             if (response.ok) { // If the request was successful, inject the content to the page.
@@ -387,13 +387,18 @@ function fetchContent(sourceURLPathname) {
 
                                 });
 
-                                // Assing important IDs
+                                // Adding important IDs
                                 if (data.indexOf("<resources") != -1 && data.indexOf("<content") != -1) {
 
                                     data = data.replace("<resources", "<div id=\"system--pageResources\"");
                                     data = data.replace("</resources>", "</div>");
                                     data = data.replace("<content", "<div id=\"system--pageContent\"");
                                     data = data.replace("</content>", "</div>");
+                                    data = data.replace(/(href|src)="(.*?)"/g, function(match, callType, source) {
+
+                                        return `${callType}="${source}?v=${window.platform.codebase.version}"`;
+
+                                    });
 
                                 } else {
 
@@ -831,11 +836,7 @@ window.addEventListener('popstate', function(e) {
 
     window.location.dynamic.redirect(window.location.pathname, false);
 
-}, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
+}, window.performanceVariables.objects.passiveEvent);
 
 // Register new <a> elements
 window.registerNewLink = function(linkElement, useClickFunction = true) {
@@ -882,8 +883,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
     // Stop the page from show the faulty content
     loadingFailed("CSP violation!");
 
-}, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
+}, window.performanceVariables.objects.passiveEvent);

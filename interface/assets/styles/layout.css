@@ -438,6 +438,7 @@ body {
     box-shadow: 0px 1px 3px var(--topbarsearch-shadow);
     border: 0px solid transparent;
     -webkit-app-region: no-drag;
+    font-size: 14px;
 }
 
 .layout--topbar-logo,

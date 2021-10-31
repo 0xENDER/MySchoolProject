@@ -21,7 +21,7 @@ var userSettings = { // The user settings
 // Update the document data set
 document.documentElement.dataset.signedIn = false;
 
-// Prepare the sign in function
+// Prepare the sign in function (Debug/Incomplete)
 function openSignInRequest() {
 
     // Hide the alerts and the mobile menu
@@ -74,14 +74,13 @@ function openSignInRequest() {
 
 }
 
+// Sign the user out (Debug/Incomplete)
+function signUserOut() {
+
+    document.documentElement.dataset.signedIn = false;
+
+}
+
 // Prepare the sign in button
-signInButton.addEventListener("click", openSignInRequest, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
-menuSignInButton.addEventListener("click", openSignInRequest, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
+signInButton.addEventListener("click", openSignInRequest, window.performanceVariables.objects.passiveEvent);
+menuSignInButton.addEventListener("click", openSignInRequest, window.performanceVariables.objects.passiveEvent);
