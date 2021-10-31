@@ -66,6 +66,7 @@
 }
 
 .menu--container {
+    -webkit-backdrop-filter: var(--menucontainer-backdropfilter);
     backdrop-filter: var(--menucontainer-backdropfilter);
     background: var(--menucontainer-background);
     width: var(--menucontainer-width);
