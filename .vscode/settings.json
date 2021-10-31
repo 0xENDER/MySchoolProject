@@ -7,8 +7,8 @@
         "*.data.json": "json",
         "*.chtml": "text",
         "build": "shellscript",
-        "publish": "shellscript"
-
+        "publish": "shellscript",
+        "App.js": "javascriptreact"
 
     }
 

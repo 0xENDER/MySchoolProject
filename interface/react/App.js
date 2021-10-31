@@ -29,7 +29,7 @@ export default function App() {
 
         <WebView
             originWhitelist={['*']}
-            source={{ uri: 'file:///android_asset/index.html' }}
+            source={{ uri: 'file:///android_asset/layout.html' }}
             javaScriptEnabled={true}
             domStorageEnabled={true}
             style={styles.container}

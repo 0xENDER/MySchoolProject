@@ -20,121 +20,176 @@
     "orientation": "portrait-primary",
 
     // The category of this app
-    "categories": [ "utility", "store", "apps", "games" ],
+    "categories": [
 
+        "utility",
+        "store",
+        "apps",
+        "games"
+
+    ],
     // The app's icons
-    "icons": [{
+    "icons": [
 
-        "src": "/assets/media/logo/logo-144.svg?v=%{{global:codebase.version}}%",
-        "sizes": "144x144",
-        "type": "image/svg"
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-144.svg?v=%{{global:codebase.version}}%",
+            "sizes": "144x144",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-168.svg?v=%{{global:codebase.version}}%",
-        "sizes": "168x168",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-168.svg?v=%{{global:codebase.version}}%",
+            "sizes": "168x168",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-192.svg?v=%{{global:codebase.version}}%",
-        "sizes": "192x192",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-192.svg?v=%{{global:codebase.version}}%",
+            "sizes": "192x192",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-512.svg?v=%{{global:codebase.version}}%",
-        "sizes": "512x512",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-512.svg?v=%{{global:codebase.version}}%",
+            "sizes": "512x512",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-256.svg?v=%{{global:codebase.version}}%",
-        "sizes": "256x256",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-256.svg?v=%{{global:codebase.version}}%",
+            "sizes": "256x256",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-384.svg?v=%{{global:codebase.version}}%",
-        "sizes": "384x384",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-384.svg?v=%{{global:codebase.version}}%",
+            "sizes": "384x384",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo-1024.svg?v=%{{global:codebase.version}}%",
-        "sizes": "1024x1024",
-        "type": "image/svg"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-1024.svg?v=%{{global:codebase.version}}%",
+            "sizes": "1024x1024",
+            "type": "image/svg"
 
-        "src": "/assets/media/logo/logo.png?v=%{{global:codebase.version}}%",
-        "sizes": "512x512",
-        "type": "image/png"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo.png?v=%{{global:codebase.version}}%",
+            "sizes": "512x512",
+            "type": "image/png"
 
-        "src": "/assets/media/logo/logo-maskable-144.svg?v=%{{global:codebase.version}}%",
-        "sizes": "144x144",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-144.svg?v=%{{global:codebase.version}}%",
+            "sizes": "144x144",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-168.svg?v=%{{global:codebase.version}}%",
-        "sizes": "168x168",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-168.svg?v=%{{global:codebase.version}}%",
+            "sizes": "168x168",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-192.svg?v=%{{global:codebase.version}}%",
-        "sizes": "192x192",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-192.svg?v=%{{global:codebase.version}}%",
+            "sizes": "192x192",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-256.svg?v=%{{global:codebase.version}}%",
-        "sizes": "256x256",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-256.svg?v=%{{global:codebase.version}}%",
+            "sizes": "256x256",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-384.svg?v=%{{global:codebase.version}}%",
-        "sizes": "384x384",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-384.svg?v=%{{global:codebase.version}}%",
+            "sizes": "384x384",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-512.svg?v=%{{global:codebase.version}}%",
-        "sizes": "512x512",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-512.svg?v=%{{global:codebase.version}}%",
+            "sizes": "512x512",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable-1024.svg?v=%{{global:codebase.version}}%",
-        "sizes": "1024x1024",
-        "type": "image/svg",
-        "purpose": "maskable"
+        },
+        {
 
-    }, {
+            "src": "/assets/media/logo/logo-maskable-1024.svg?v=%{{global:codebase.version}}%",
+            "sizes": "1024x1024",
+            "type": "image/svg",
+            "purpose": "maskable"
 
-        "src": "/assets/media/logo/logo-maskable.png?v=%{{global:codebase.version}}%",
-        "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "maskable"
+        },
+        {
 
-    }],
+            "src": "/assets/media/logo/logo-maskable.png?v=%{{global:codebase.version}}%",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+
+        }
+    ],
+
+    // Shortcuts
+    "shortcuts": [
+
+        {
+
+            "name": "Home",
+            "url": "/page/home/",
+            "description": "The home page of %{{global:appInfo.shortName}}%"
+
+        },
+        {
+
+            "name": "Apps",
+            "url": "/page/apps/",
+            "description": "Search for apps using %{{global:appInfo.shortName}}%"
+
+        },
+        {
+
+            "name": "Games",
+            "url": "/page/games/",
+            "description": "Search for games using %{{global:appInfo.shortName}}%"
+
+        }
+
+    ],
 
     // Advanced links
-    "related_applications": [{
+    "related_applications": [
 
-        "platform": "play",
-        "url": "https://play.google.com/store/apps/details?id=com.endercomm.mur.store"
+        {
 
-    }]
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=com.endercomm.mur.store"
+
+        }
+
+    ]
 
 }

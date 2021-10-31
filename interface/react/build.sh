@@ -27,10 +27,10 @@ npm install -D @babel/core@^7.12.9
 mv "./react/android" "./"
 mv "./react/.buckconfig" "./"
 mv "./react/app.json" "./"
-mv "./react/App.jsx" "./"
+mv "./react/App.js" "./"
 mv "./react/babel.config.js" "./"
 mv "./react/metro.config.js" "./"
-mv "./react/start.jsx" "./"
+mv "./react/start.js" "./"
 #
 ## Build the android version of this codebase
 if [ $BUILD_ANDROID -eq 1 ]; then
