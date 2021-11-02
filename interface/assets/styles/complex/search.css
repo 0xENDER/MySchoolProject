@@ -1,8 +1,32 @@
+/*
+
+    Search-related elements
+
+*/
+
+:root {
+    --searchcontainer-background: black;
+    --searchcontainer-width: 36%;
+    --searchcontainer-height: 100px;
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --searchcontainer-background: transparent;
+        --searchcontainer-width: 100vw;
+        --searchcontainer-height: calc(var(--vh, 1vh) * 100 - var(--topbar-height));
+    }
+}
+
 .layout--searchcontainer {
     position: absolute;
     top: var(--topbar-height);
     width: 100vw;
-    height: calc(100vh - var(--topbar-height));
+    height: calc(var(--vh, 1vh) * 100 - var(--topbar-height));
+    border-radius: 8px;
+    background: var(--searchcontainer-background);
+    width: var(--searchcontainer-width);
+    height: var(--searchcontainer-height);
 }
 
 [data-using-search=true] .layout--searchcontainer {
