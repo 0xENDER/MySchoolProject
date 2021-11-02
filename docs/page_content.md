@@ -20,7 +20,7 @@ This element should always be present in the first line of the document, without
   All the possible values are: `true`, and `false`. (The default value is `true`)
 - ***(!)*** `page-end`: Whether the page should include a page end message
   All the possible values are: `true`, and `false`.(The default value is `false`)
-- ***(!)*** `requires-account`: Whether the page needs the user to be signed in
+- `requires-account`: Whether the page needs the user to be signed in
   All the possible values are: `true`, and `false`.(The default value is `false`)
 
 ## The `resources` element
