@@ -74,7 +74,7 @@ window.uncover = function() {
 // Set the window content load function
 window.load = function() {
 
-    document.documentElement.dataset.extraContentLoaded = true;
+    //document.documentElement.dataset.extraContentLoaded = true;
 
     // If the window's status is set to "loaded", then the content should be uncovered!
     window.uncover();
@@ -717,7 +717,7 @@ window.unloadContent = function() {
 
     // Reset the loading screen
     document.documentElement.dataset.contentLoaded = false;
-    document.documentElement.dataset.extraContentLoaded = false;
+    //document.documentElement.dataset.extraContentLoaded = false;
     coverLoadingIcon.style.opacity = 0;
     var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
     if (selectedSectionsItem != null) {

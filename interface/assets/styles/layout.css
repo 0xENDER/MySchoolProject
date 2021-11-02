@@ -112,6 +112,9 @@ body {
     --topbaroptions-display: none;
     --topbar-border: 0px solid transparent;
     --sectionsbaritemtitle-top: -2px;
+    --searchicon-position: relative;
+    --searchicon-left: calc(var(--global-sidesmargin) + 19px);
+    --searchiconright-display: block;
 }
 
 @media all and (max-width: 840px) {
@@ -151,6 +154,9 @@ body {
         --topbaroptions-display: flex;
         --topbar-border: 1px solid var(--pagecontent-border);
         --sectionsbaritemtitle-top: -4px;
+        --searchicon-position: absolute;
+        --searchicon-left: calc(var(--global-sidesmargin));
+        --searchiconright-display: none;
     }
 }
 
@@ -188,6 +194,10 @@ body {
     justify-content: space-between;
     border-bottom: var(--topbar-border);
     -webkit-app-region: drag;
+}
+
+.layout--searchcontainer {
+    display: none;
 }
 
 .layout--sectionsbar {
@@ -434,11 +444,41 @@ body {
     width: var(--topbarsearch-width);
     height: 0px;
     border-radius: 6px;
-    padding: calc(var(--topbarsearch-height) / 2) 10px;
+    padding: calc(var(--topbarsearch-height) / 2) 38px;
     box-shadow: 0px 1px 3px var(--topbarsearch-shadow);
     border: 0px solid transparent;
     -webkit-app-region: no-drag;
     font-size: 14px;
+}
+
+.component--search-icon {
+    position: var(--searchicon-position);
+    left: var(--searchicon-left);
+    padding: 8px;
+    fill: var(--text-colour);
+    opacity: 0.6;
+}
+
+.component--search-icon.component--search-iconright {
+    left: unset;
+    right: var(--searchicon-left);
+    display: var(--searchiconright-display);
+}
+
+[data-using-search="true"] .component--search-icon.component--search-iconright {
+    display: block;
+}
+
+.layout--topbar-searchicon {
+    pointer-events: none;
+}
+
+[data-using-search="true"] .layout--topbar-searchicon {
+    display: none;
+}
+
+[data-using-search="false"] .layout--topbar-backbutton {
+    display: none;
 }
 
 .layout--topbar-logo,

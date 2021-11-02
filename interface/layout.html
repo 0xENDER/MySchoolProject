@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-version="%{{global:codebase.version}}%" data-signed-in="wait" data-content-loaded="false" data-extra-content-loaded="false" data-electron="%{{interface:dataset.electron}}%" style="background-color: var(--page-background);">
+<html lang="en" data-version="%{{global:codebase.version}}%" data-signed-in="wait" data-content-loaded="false" data-electron="%{{interface:dataset.electron}}%" data-using-search="false" style="background-color: var(--page-background);">
 
 <head>
 
@@ -108,7 +108,15 @@
 
         <!-- The search bar -->
         <div class="layout--topbar-component layout--topbar-center">
+            <svg class="component--search-icon layout--topbar-searchicon" width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.61752 11.0317C8.73148 11.6424 7.6575 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5C12 7.6575 11.6424 8.73148 11.0317 9.61752L14.7071 13.2929L13.2929 14.7071L9.61752 11.0317ZM6.5 10C8.433 10 10 8.433 10 6.5C10 4.567 8.433 3 6.5 3C4.567 3 3 4.567 3 6.5C3 8.433 4.567 10 6.5 10Z"/></svg>
+            <svg id="button--searchback" class="component--search-icon layout--topbar-backbutton" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41412 13L12.707 19.2929L11.2928 20.7071L2.58569 12L11.2928 3.29289L12.707 4.70711L6.41412 11H20.9999V13H6.41412Z"/></svg>
             <input id="component--search" class="layout--topbar-search" type="search" placeholder="Search apps, games, and more!" tabindex="0">
+            <svg id="button--searchvoice" class="component--search-icon component--search-iconright" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1C14.2091 1 16 2.79086 16 5V12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12V5C8 2.79086 9.79086 1 12 1ZM13 19.9381V21H16V23H8V21H11V19.9381C7.05369 19.446 4 16.0796 4 12V10H6V12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12V10H20V12C20 16.0796 16.9463 19.446 13 19.9381ZM10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5V12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12V5Z"/></svg>
+
+            <!-- The search results container -->
+            <div class="layout--searchcontainer">
+                <text>Not ready!</text>
+            </div>
         </div>
 
         <!-- The account info -->
@@ -258,6 +266,7 @@
 
     <!-- Scripts that are the least important -->
     <script defer itemprop="mobile--menu" type="text/javascript" src="./assets/scripts/menu.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="mobile--menu" type="text/javascript" src="./assets/scripts/search.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="elements--events" type="text/javascript" src="./assets/scripts/elementevents.js?v=%{{global:codebase.version}}%"></script>

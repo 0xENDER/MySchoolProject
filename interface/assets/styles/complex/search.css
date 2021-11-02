@@ -1,0 +1,30 @@
+.layout--searchcontainer {
+    position: absolute;
+    top: var(--topbar-height);
+    width: 100vw;
+    height: calc(100vh - var(--topbar-height));
+}
+
+[data-using-search=true] .layout--searchcontainer {
+    display: block;
+}
+
+[data-using-search="true"] .layout--pagecontent {
+    opacity: 0;
+}
+
+[data-using-search="true"] .layout--sectionsbar,
+[data-using-search="true"] .component--scrollbar,
+[data-using-search="true"] .layout--topbar-options,
+[data-using-search="true"] .layout--topbar-profile {
+    display: none !important;
+}
+
+[data-using-search="true"] .layout--topbar-search {
+    background: none;
+    box-shadow: none;
+}
+
+[data-using-search="true"] .layout--topbar-right {
+    display: none;
+}
