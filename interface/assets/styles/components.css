@@ -64,7 +64,7 @@ button.component--button.component--button-primary {
 
 button.component--bubblebutton {
     background-color: var(--button-background);
-    padding: 8px 16px;
+    padding: 10px 16px;
     font-size: var(--bubblebutton-fontsize);
     border: 1px solid var(--button-border);
     border-radius: 1000px;

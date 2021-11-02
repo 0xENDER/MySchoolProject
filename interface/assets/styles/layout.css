@@ -434,7 +434,7 @@ body {
 [data-signed-in="wait"] .layout--topbar-username,
 [data-signed-in="wait"] .layout--topbar-profile,
 [data-signed-in="wait"] .layout--topbar-button {
-    opacity: 0;
+    display: none;
     position: fixed;
     -webkit-app-region: no-drag;
 }
