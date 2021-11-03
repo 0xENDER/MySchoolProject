@@ -32,6 +32,7 @@
     background-color: #6247F1;
     display: flex;
     align-items: center;
+    overflow: hidden;
     content-visibility: auto;
 }
 
@@ -45,11 +46,11 @@
     height: 200px;
 }
 
-[data-rendering-mode=high] .component--cover:after {
+[data-rendering-mode="high"] .component--cover:after {
     box-shadow: inset 0 -68px 40px -15px var(--pagecontent-background);
 }
 
-[data-rendering-mode=low] .component--cover:after {
+[data-rendering-mode="low"] .component--cover:after {
     box-shadow: inset 0 -28px 18px -10px var(--pagecontent-background)
 }
 
@@ -73,6 +74,10 @@
     width: 100%;
     padding-bottom: 2px;
     content-visibility: auto;
+}
+
+[data-rendering-engine="gecko"] .homepage--cover-suggestions {
+    box-shadow: inset 0 -68px 14px -12px var(--pagecontent-background);
 }
 
 .homepage--coversuggestions-card {

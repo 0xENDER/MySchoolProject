@@ -457,6 +457,7 @@ body {
     padding: 8px;
     fill: var(--text-colour);
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .component--search-icon.component--search-iconright {

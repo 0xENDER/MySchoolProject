@@ -9,19 +9,33 @@
 window.crossBrowser = {
 
     connection: {
+
         supported: false,
         api: navigator.connection || navigator.mozConnection || navigator.webkitConnection
+
     },
     passiveEvents: {
 
         supported: false
 
+    },
+    speechRecognition: {
+
+        supported: false,
+        object: undefined
+
     }
 
 };
 
-// Update the APIs status
-window.crossBrowser.connection.supported = window.crossBrowser.connection.api != undefined && window.crossBrowser.connection.api;
+// Update the APIs' status
+window.crossBrowser.connection.supported = window.crossBrowser.connection.api != undefined && window.crossBrowser.connection.api != null;
+window.crossBrowser.speechRecognition.supported = "webkitSpeechRecognition" in window || "SpeechRecognition" in window;
+if (window.crossBrowser.speechRecognition.supported) {
+
+    window.crossBrowser.speechRecognition.object = ("webkitSpeechRecognition" in window) ? webkitSpeechRecognition : SpeechRecognition;
+
+}
 
 // Update the passive event variable
 try {
