@@ -159,3 +159,11 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
     }, window.performanceVariables.objects.passiveEvent);
 
 }
+
+// Update the search voice button
+if (!window.crossBrowser.speechRecognition.supported) {
+
+    searchVoiceButton.style.opacity = "0.2";
+    searchVoiceButton.style.cursor = "not-allowed";
+
+}
