@@ -21,6 +21,7 @@ function showSearch() {
 
         // Show the mobile search interface
         document.documentElement.dataset.usingSearch = true;
+        searchContainer.style.display = null;
 
     } else {
 
@@ -160,9 +161,98 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
 
 }
 
-// Update the search voice button
-if (!window.crossBrowser.speechRecognition.supported) {
+// Check if this device/browser supports voice input
+if (window.crossBrowser.speechRecognition.supported) {
 
+    // Create a new speech recognition object
+    var recognition = new window.crossBrowser.speechRecognition.object(),
+        finalResult = "",
+        speechTimeout = null;
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    // Detect when the speech recognition object starts workings
+    recognition.onstart = function() {
+
+        showAlert("Listening...", "(This is a temporary behaviour)");
+        finalResult = "";
+        speechTimeout = setTimeout(function() {
+
+            // Stop listening
+            recognition.stop();
+
+            speechTimeout = true;
+
+        }, 5000);
+
+    };
+
+    // Detect when the user stops talking
+    recognition.onspeechend = function(event) {
+
+        if (typeof speechTimeout == "number") {
+
+            // Stop listening
+            clearTimeout(speechTimeout);
+            recognition.stop();
+
+        }
+
+    };
+
+    // Detect when the speech recognition object finishes processing the user's speech
+    recognition.onresult = function(event) {
+
+        finalResult = event.results[0][0].transcript;
+
+        if (typeof speechTimeout == "number") {
+
+            clearTimeout(speechTimeout);
+            speechTimeout = setTimeout(function() {
+
+                // Stop listening
+                recognition.stop();
+
+                speechTimeout = true;
+
+            }, 3000);
+
+        }
+
+    };
+
+    // Detect when the speech recognition process is done
+    recognition.onend = function() {
+
+        hideAlert();
+
+        finalResult = finalResult.split(/\.|\,|\?|\!/g).filter(value => value != "").join("");
+        searchBar.value = finalResult;
+        updateSearchButton();
+        showSearch();
+        searchBar.focus();
+
+    };
+
+    // Detect speech recognition errors
+    recognition.onerror = function() {
+
+        //
+        console.log("Oh no, an error!");
+
+    };
+
+    // Detect when the voice input button is clicked
+    searchVoiceButton.onclick = function() {
+
+        // Start listening
+        recognition.start();
+
+    };
+
+} else {
+
+    // Update the voice input button
     searchVoiceButton.style.opacity = "0.2";
     searchVoiceButton.style.cursor = "not-allowed";
 
