@@ -108,14 +108,37 @@
 
         <!-- The search bar -->
         <div class="layout--topbar-component layout--topbar-center">
-            <svg class="component--search-icon layout--topbar-searchicon" width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.61752 11.0317C8.73148 11.6424 7.6575 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5C12 7.6575 11.6424 8.73148 11.0317 9.61752L14.7071 13.2929L13.2929 14.7071L9.61752 11.0317ZM6.5 10C8.433 10 10 8.433 10 6.5C10 4.567 8.433 3 6.5 3C4.567 3 3 4.567 3 6.5C3 8.433 4.567 10 6.5 10Z"/></svg>
+            <svg class="component--search-icon layout--topbar-searchicon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z"/></svg>
             <svg id="button--searchback" class="component--search-icon layout--topbar-backbutton" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41412 13L12.707 19.2929L11.2928 20.7071L2.58569 12L11.2928 3.29289L12.707 4.70711L6.41412 11H20.9999V13H6.41412Z"/></svg>
             <input id="component--search" class="layout--topbar-search" type="search" placeholder="Search apps, games, and more!" tabindex="0">
             <svg id="button--searchvoice" class="component--search-icon component--search-iconright" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1C14.2091 1 16 2.79086 16 5V12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12V5C8 2.79086 9.79086 1 12 1ZM13 19.9381V21H16V23H8V21H11V19.9381C7.05369 19.446 4 16.0796 4 12V10H6V12C6 15.3137 8.68629 18 12 18C15.3137 18 18 15.3137 18 12V10H20V12C20 16.0796 16.9463 19.446 13 19.9381ZM10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5V12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12V5Z"/></svg>
 
             <!-- The search results container -->
-            <div class="layout--searchcontainer">
-                <text>Not ready!</text>
+            <div id="search--container" class="layout--searchcontainer">
+
+                <div class="layout--searchcontainer-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 6H5.11409C7.04466 3.79137 9.15921 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12H1C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C8.78663 1 6.23708 1.91056 4 4.25645V1.99121H2V8H8V6ZM17 11H13V6H11V13H17V11Z"/></svg>
+
+                    <text>[Text]</text>
+                    <svg class="layout--searchcontaineritem-inserticon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41421 5L19.7071 18.2929L18.2929 19.7071L5 6.41421V14H3V3H14V5H6.41421Z"/></svg>
+
+                </div>
+                <div class="layout--searchcontainer-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 6H5.11409C7.04466 3.79137 9.15921 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12H1C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C8.78663 1 6.23708 1.91056 4 4.25645V1.99121H2V8H8V6ZM17 11H13V6H11V13H17V11Z"/></svg>
+                    <text>[Text]</text>
+                    <svg class="layout--searchcontaineritem-inserticon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41421 5L19.7071 18.2929L18.2929 19.7071L5 6.41421V14H3V3H14V5H6.41421Z"/></svg>
+                </div>
+                <div class="layout--searchcontainer-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z"/></svg>
+                    <text>[Text]</text>
+                    <svg class="layout--searchcontaineritem-inserticon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41421 5L19.7071 18.2929L18.2929 19.7071L5 6.41421V14H3V3H14V5H6.41421Z"/></svg>
+                </div>
+                <div class="layout--searchcontainer-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 11.8487 17.3729 13.551 16.3199 14.9056L21.7071 20.2929L20.2929 21.7071L14.9056 16.3199C13.551 17.3729 11.8487 18 10 18ZM16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10Z"/></svg>
+                    <text>[Text]</text>
+                    <svg class="layout--searchcontaineritem-inserticon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.41421 5L19.7071 18.2929L18.2929 19.7071L5 6.41421V14H3V3H14V5H6.41421Z"/></svg>
+                </div>
+
             </div>
         </div>
 

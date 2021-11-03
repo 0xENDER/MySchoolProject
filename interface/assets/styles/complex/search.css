@@ -7,7 +7,11 @@
 :root {
     --searchcontainer-background: black;
     --searchcontainer-width: 36%;
-    --searchcontainer-height: 100px;
+    --searchcontainer-height: fit-content;
+    --searchcontaineritem-sidesmargin: 6px;
+    --searchcontainer-padding: 14px;
+    --searchcontainer-background: var(--alertscard-background);
+    --searchcontainer-border: 1px solid var(--alertscard-border);
 }
 
 @media all and (max-width: 840px) {
@@ -15,6 +19,10 @@
         --searchcontainer-background: transparent;
         --searchcontainer-width: 100vw;
         --searchcontainer-height: calc(var(--vh, 1vh) * 100 - var(--topbar-height));
+        --searchcontaineritem-sidesmargin: calc(var(--global-sidesmargin) - 4px);
+        --searchcontainer-padding: 0px;
+        --searchcontainer-background: transparent;
+        --searchcontainer-border: none;
     }
 }
 
@@ -22,11 +30,17 @@
     position: absolute;
     top: var(--topbar-height);
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100 - var(--topbar-height));
     border-radius: 8px;
     background: var(--searchcontainer-background);
     width: var(--searchcontainer-width);
+    height: -moz-fit-content;
+    height: -webkit-fill-available;
     height: var(--searchcontainer-height);
+    min-height: 100px;
+    padding: var(--searchcontainer-padding);
+    background-color: var(--searchcontainer-background);
+    border: var(--searchcontainer-border);
+    border-radius: 12px;
 }
 
 [data-using-search=true] .layout--searchcontainer {
@@ -51,4 +65,33 @@
 
 [data-using-search="true"] .layout--topbar-right {
     display: none;
+}
+
+.layout--searchcontainer-item {
+    position: relative;
+    display: flex;
+    padding: 8px;
+    margin: 10px var(--searchcontaineritem-sidesmargin);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.layout--searchcontainer-item text {
+    font-size: 18px;
+    color: var(--text-colour);
+    opacity: 0.6;
+    margin: 0px 8px;
+}
+
+.layout--searchcontainer-item svg {
+    fill: var(--text-colour);
+    opacity: 0.6;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+}
+
+.layout--searchcontaineritem-inserticon {
+    position: absolute;
+    right: 8px;
 }
