@@ -195,7 +195,7 @@ if (window.crossBrowser.speechRecognition.supported) {
     // Detect when the speech recognition object starts workings
     recognition.onstart = function() {
 
-        showAlert("Listening...", "(This is a temporary behaviour)");
+        showAlert("Listening...", "(This is a temporary behaviour)<br><br>``");
         finalResult = "";
         speechTimeout = setTimeout(function() {
 
@@ -226,7 +226,9 @@ if (window.crossBrowser.speechRecognition.supported) {
 
         finalResult = event.results[0][0].transcript;
 
-        if (typeof speechTimeout == "number") {
+        showAlert("Listening...", "(This is a temporary behaviour)<br><br>`" + finalResult + "`");
+
+        if (finalResult != "" && typeof speechTimeout == "number") {
 
             clearTimeout(speechTimeout);
             speechTimeout = setTimeout(function() {
