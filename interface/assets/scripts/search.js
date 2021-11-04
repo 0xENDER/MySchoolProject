@@ -11,7 +11,8 @@ var searchBackButton = document.getElementById("button--searchback"),
     searchClearButton = document.getElementById("button--searchclear"),
     searchBar = document.getElementById("component--search"),
     searchContainer = document.getElementById("search--container"),
-    isUsingSearch = false;
+    isUsingSearch = false,
+    searchVisible = false;
 
 // Show the search interface
 function showSearch() {
@@ -36,6 +37,9 @@ function showSearch() {
     // Make sure that the search bar is focused
     searchBar.focus();
 
+    // Update the search interface visibility status
+    searchVisible = true;
+
 }
 
 // Hide the search interface
@@ -54,6 +58,12 @@ function hideSearch() {
         isUsingSearch = false;
 
     }
+
+    // Update the search interface visibility status
+    searchVisible = false;
+
+    // Make sure to un-focus the search input field
+    searchBar.blur();
 
 }
 
@@ -161,6 +171,17 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
 
 }
 
+// Keep the search input box focused
+searchBar.onblur = function(e) {
+
+    if (searchVisible) {
+
+        searchBar.focus();
+
+    }
+
+};
+
 // Check if this device/browser supports voice input
 if (window.crossBrowser.speechRecognition.supported) {
 
@@ -183,7 +204,7 @@ if (window.crossBrowser.speechRecognition.supported) {
 
             speechTimeout = true;
 
-        }, 5000);
+        }, 3000);
 
     };
 
@@ -215,7 +236,7 @@ if (window.crossBrowser.speechRecognition.supported) {
 
                 speechTimeout = true;
 
-            }, 3000);
+            }, 2000);
 
         }
 
