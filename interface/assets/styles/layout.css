@@ -470,10 +470,6 @@ body {
     display: block;
 }
 
-.layout--topbar-searchicon {
-    pointer-events: none;
-}
-
 [data-using-search="true"] .layout--topbar-searchicon {
     display: none;
 }

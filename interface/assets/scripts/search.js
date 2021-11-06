@@ -6,7 +6,8 @@
 
 
 // Get the needed elements
-var searchBackButton = document.getElementById("button--searchback"),
+var searchButton = document.getElementById("button--search"),
+    searchBackButton = document.getElementById("button--searchback"),
     searchVoiceButton = document.getElementById("button--searchvoice"),
     searchClearButton = document.getElementById("button--searchclear"),
     searchBar = document.getElementById("component--search"),
@@ -119,10 +120,11 @@ searchBar.onkeydown = function() {
     }
 
 };
-searchBackButton.onclick = hideSearch;
+searchButton.onmousedown = showSearch;
+searchBackButton.onmousedown = hideSearch;
 
 // Clear the content of the search input box when the clear button is clicked
-searchClearButton.onclick = function() {
+searchClearButton.onmousedown = function() {
 
     // Update the value of the search bar input box
     searchBar.value = "";
@@ -191,11 +193,14 @@ if (window.crossBrowser.speechRecognition.supported) {
         speechTimeout = null;
     recognition.continuous = true;
     recognition.interimResults = true;
+    recognition.lang = navigator.language;
+    recognition.maxAlternatives = 0;
+    console.log(recognition);
 
     // Detect when the speech recognition object starts workings
     recognition.onstart = function() {
 
-        showAlert("Listening...", "(This is a temporary behaviour)<br><br>``");
+        showAlert("Listening...", "(This is a temporary behaviour)<br><br>`(prev: '" + finalResult + "')`");
         finalResult = "";
         speechTimeout = setTimeout(function() {
 
@@ -231,14 +236,25 @@ if (window.crossBrowser.speechRecognition.supported) {
         if (finalResult != "" && typeof speechTimeout == "number") {
 
             clearTimeout(speechTimeout);
-            speechTimeout = setTimeout(function() {
+            if (!event.results.isFinal) {
+
+                speechTimeout = setTimeout(function() {
+
+                    // Stop listening
+                    recognition.stop();
+
+                    speechTimeout = true;
+
+                }, 2000);
+
+            } else {
 
                 // Stop listening
                 recognition.stop();
 
                 speechTimeout = true;
 
-            }, 2000);
+            }
 
         }
 
@@ -257,16 +273,23 @@ if (window.crossBrowser.speechRecognition.supported) {
 
     };
 
+    recognition.onnomatch = function() {
+
+        console.log("ERROR");
+
+    };
+
     // Detect speech recognition errors
-    recognition.onerror = function() {
+    recognition.onerror = function(e) {
 
         //
+        alert("ERROR!");
         console.log("Oh no, an error!");
 
     };
 
     // Detect when the voice input button is clicked
-    searchVoiceButton.onclick = function() {
+    searchVoiceButton.onmousedown = function() {
 
         // Start listening
         recognition.start();
