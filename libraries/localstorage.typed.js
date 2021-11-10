@@ -158,10 +158,11 @@
     }
 
     // Define the global `_LocalStorage` object
+    var prefix = "__typed_";
     window._LocalStorage = {
 
         /// The prefix of the items
-        prefix: "__typed_",
+        prefix,
 
         // Set an item
         setItem(name, item, expiration = null) {
@@ -174,11 +175,11 @@
 
             } catch (e) {
 
-                // Report the error
-                console.error(e);
-
                 // Tell the user that this item was not stored
                 return false;
+
+                // Report the error
+                throw e;
 
             } finally {
 
@@ -216,11 +217,11 @@
 
             } catch (e) {
 
-                // Report the error
-                console.error(e);
-
                 // Tell the user that this item was not stored
                 return undefined;
+
+                // Report the error
+                throw e;
 
             } finally {
 
@@ -241,11 +242,11 @@
 
             } catch (e) {
 
-                // Report the error
-                console.error(e);
-
                 // Tell the user that this item was not stored
                 return false;
+
+                // Report the error
+                throw e;
 
             } finally {
 
@@ -310,5 +311,46 @@
         }
 
     };
+
+    // Secure the global object
+    [
+        "all",
+        "clear",
+        "getItem",
+        "removeItem",
+        "setItem"
+    ].forEach(function(property) {
+
+        Object.defineProperty(window._LocalStorage, property, {
+
+            configurable: false,
+            writable: false
+
+        });
+
+    });
+    Object.defineProperty(window._LocalStorage, "prefix", {
+
+        configurable: false,
+        set: function(v) {
+
+            if (typeof v == "string") {
+
+                prefix = v;
+
+            } else {
+
+                throw new Error("[TypedLocalStorage] The prefix property can only be a string!");
+
+            }
+
+        },
+        get: function() {
+
+            return prefix;
+
+        }
+
+    });
 
 })();
