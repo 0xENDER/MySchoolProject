@@ -820,7 +820,22 @@ window.location.dynamic = {
             // Push the new URL state
             if (changeURL) {
 
-                window.history.pushState("", "", url);
+                // Only keep the file path
+                var queryIndex = url.indexOf("?"),
+                    sectionIndex = url.indexOf("#");
+                if (queryIndex != -1) {
+
+                    url = url.substring(0, queryIndex);
+                    sectionIndex = url.indexOf("#");
+
+                }
+                if (sectionIndex != -1) {
+
+                    url = url.substring(0, sectionIndex);
+
+                }
+
+                window.history.pushState("", "", url.substring(0, url.indexOf("?")));
 
             }
 
