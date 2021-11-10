@@ -80,6 +80,10 @@
   - [ ] _~~Add a gift cards generator~~ **(!)**_
   - [ ] _~~Add a "buy as a gift" option~~ **(!)**_
   - [ ] _~~Add a code redemption page~~ **(!)**_
+- [ ] _~~A marketing plan~~: **(!)**_
+  - [ ] _~~Create a store policy for payments and profit cuts~~ **(!)**_
+  - [ ] _~~Create a video ad for the store~~ **(!)**_
+  - [ ] _~~Create an ad for the store~~ **(!)**_
 
 ## Used Languages
 
