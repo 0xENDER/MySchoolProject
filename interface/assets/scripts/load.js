@@ -835,7 +835,7 @@ window.location.dynamic = {
 
                 }
 
-                window.history.pushState("", "", url.substring(0, url.indexOf("?")));
+                window.history.pushState("", "", url);
 
             }
 
