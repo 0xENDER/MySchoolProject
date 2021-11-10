@@ -9,47 +9,56 @@
 (function() {
 
     // Define a child window events object
-    var childWindowEvents = {
+    var eventsFunctions = {
 
-        "loaded": null,
-        "closed": function(data) {
-
-            if (typeof accountsSystemAPI.onClose == "function") {
-
-                accountsSystemAPI.onClose(data);
-
-            }
+            onFailure: null,
+            onConnected: null,
+            onClose: null,
+            onSignIn: null,
+            onAuth: null
 
         },
-        "failed": function(data) {
+        childWindowEvents = {
 
-            if (typeof accountsSystemAPI.onFailure == "function") {
+            "loaded": null,
+            "closed": function(data) {
 
-                accountsSystemAPI.onFailure(data);
+                if (typeof eventsFunctions.onClose == "function") {
+
+                    eventsFunctions.onClose(data);
+
+                }
+
+            },
+            "failed": function(data) {
+
+                if (typeof eventsFunctions.onFailure == "function") {
+
+                    eventsFunctions.onFailure(data);
+
+                }
+
+            },
+            "signed-in": function(data) {
+
+                if (typeof eventsFunctions.onSignIn == "function") {
+
+                    eventsFunctions.onSignIn(data);
+
+                }
+
+            },
+            "authenticated": function(data) {
+
+                if (typeof eventsFunctions.onAuth == "function") {
+
+                    eventsFunctions.onAuth(data);
+
+                }
 
             }
 
-        },
-        "signed-in": function(data) {
-
-            if (typeof accountsSystemAPI.onSignIn == "function") {
-
-                accountsSystemAPI.onSignIn(data);
-
-            }
-
-        },
-        "authenticated": function(data) {
-
-            if (typeof accountsSystemAPI.onAuth == "function") {
-
-                accountsSystemAPI.onAuth(data);
-
-            }
-
-        }
-
-    };
+        };
 
     // Define a function to open a child widnow
     function openChildWindow() {
@@ -110,13 +119,22 @@
                 }, "%{{server:AccountsURL}}%");
 
                 // Tell the website that the request has been opened!
-                if (typeof this.onConnected == "function") {
+                if (typeof eventsFunctions.onConnected == "function") {
 
-                    this.onConnected();
+                    eventsFunctions.onConnected();
 
                 }
 
             };
+
+        },
+        reset() {
+
+            this.onFailure = null;
+            this.onConnected = null;
+            this.onClose = null;
+            this.onSignIn = null;
+            this.onAuth = null;
 
         },
         onFailure: null,
@@ -126,5 +144,93 @@
         onAuth: null
 
     };
+
+    // Secure the global object
+    [
+
+        "openRequest",
+        "reset"
+
+    ].forEach(function(property) {
+
+        Object.defineProperty(window.accountsSystemAPI, property, {
+
+            configurable: false,
+            writable: false
+
+        });
+
+    });
+    [
+
+        ["onFailure", 1],
+        ["onConnected", 0],
+        ["onClose", 1],
+        ["onSignIn", 1],
+        ["onAuth", 1]
+
+    ].forEach(function(property) {
+
+        Object.defineProperty(window.accountsSystemAPI, property[0], {
+
+            configurable: false,
+            set: function(v) {
+
+                if (typeof v == "function") {
+
+                    if (v.length == property[1]) {
+
+                        eventsFunctions[property[0]] = v;
+
+                    } else {
+
+                        throw new Error(`[Accounts System API] An invalid function was assigned to the "${property[0]}" property!\nExpected: function(${
+
+                            (function(){
+
+                                var argumentsString = "";
+
+                                if(property[1] == 1) {
+
+                                    argumentsString = "arg";
+
+                                }else{
+    
+                                    for(var i = 0; i < property[1]; i++){
+
+                                        argumentsString += "arg" + String(i + 1) + ((i != property[1] - 1) ? ", " : "");
+
+                                    }
+
+                                }
+
+                                return argumentsString;
+
+                            })()
+
+                        }){ ... }`);
+
+                    }
+
+                } else if (v == null) {
+
+                    eventsFunctions[property[0]] = null;
+
+                } else {
+
+                    throw new Error(`[Accounts System API] The "${property[0]}" property can only be set to a function or 'null'!`);
+
+                }
+
+            },
+            get: function() {
+
+                return eventsFunctions[property[0]];
+
+            }
+
+        });
+
+    });
 
 })();
