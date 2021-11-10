@@ -35,10 +35,9 @@ function openSignInRequest() {
 
     });
 
-    accountsSystemAPI.onConnected = function(data) {
+    accountsSystemAPI.onConnected = function() {
 
         console.log("Connected!");
-        console.log(data);
 
     };
 
