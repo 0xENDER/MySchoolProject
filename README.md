@@ -107,8 +107,9 @@
 - *Apache2 support*
 - ~~*PHP 7+ support*~~
 - ~~*MySQL support*~~
-- _**At least** 5GB of storage (without acounting for the apps database)_
+- _**At least** 1GB of storage (without acounting for the apps database)_
 - *Mailing support*
+- *HTTPS support* (lots of web features might not work properly if the user is not connected to the server using an encrypted connection)
 
 ## The Development Environment
 
