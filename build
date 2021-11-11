@@ -77,16 +77,16 @@ if [ $# -ne 0 ]; then
 fi
 #
 ## Print the build settings
-if [ $DEBUG_MODE -eq 1 ]; then
-#
-    echo "[DEBUG] Local: $LOCAL"
-    echo "[DEBUG] Web: $BUILD_WEB"
-    echo "[DEBUG] Windows: $BUILD_WINDOWS"
-    echo "[DEBUG] Linux: $BUILD_LINUX"
-    echo "[DEBUG] macOS: $BUILD_MAC"
-    echo "[DEBUG] Android: $BUILD_ANDROID"
-#
-fi
+###### if [ $DEBUG_MODE -eq 1 ]; then
+###### #
+######     echo "[DEBUG] Local: $LOCAL"
+######     echo "[DEBUG] Web: $BUILD_WEB"
+######     echo "[DEBUG] Windows: $BUILD_WINDOWS"
+######     echo "[DEBUG] Linux: $BUILD_LINUX"
+######     echo "[DEBUG] macOS: $BUILD_MAC"
+######     echo "[DEBUG] Android: $BUILD_ANDROID"
+###### #
+###### fi
 #
 ## Run the `start.sh` file
 if [ $BUILD -eq 1 ]; then

@@ -25,11 +25,11 @@ if [ $# -ne 0 ]; then
 fi
 #
 ## Print the build settings
-if [ $DEBUG_MODE -eq 1 ]; then
-#
-    echo "[DEBUG] Local: $LOCAL"
-#
-fi
+###### if [ $DEBUG_MODE -eq 1 ]; then
+###### #
+######     echo "[DEBUG] Local: $LOCAL"
+###### #
+###### fi
 #
 ## Run the `start.sh` file
 cd "bundler/"

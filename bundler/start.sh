@@ -32,18 +32,18 @@ else
     FRAMEWORK_REACT=0
 #
 fi
-if [ $DEBUG_MODE -eq 1 ]; then
-#
-    echo "[DEBUG] Local: $LOCAL"
-    echo "[DEBUG] Web: $BUILD_WEB"
-    echo "[DEBUG] Windows: $BUILD_WINDOWS"
-    echo "[DEBUG] Linux: $BUILD_LINUX"
-    echo "[DEBUG] macOS: $BUILD_MAC"
-    echo "[DEBUG] Android: $BUILD_ANDROID"
-    echo "[DEBUG] Electron: $FRAMEWORK_ELECTRON"
-    echo "[DEBUG] React: $FRAMEWORK_REACT"
-#
-fi
+###### if [ $DEBUG_MODE -eq 1 ]; then
+###### #
+######     echo "[DEBUG] Local: $LOCAL"
+######     echo "[DEBUG] Web: $BUILD_WEB"
+######     echo "[DEBUG] Windows: $BUILD_WINDOWS"
+######     echo "[DEBUG] Linux: $BUILD_LINUX"
+######     echo "[DEBUG] macOS: $BUILD_MAC"
+######     echo "[DEBUG] Android: $BUILD_ANDROID"
+######     echo "[DEBUG] Electron: $FRAMEWORK_ELECTRON"
+######     echo "[DEBUG] React: $FRAMEWORK_REACT"
+###### #
+###### fi
 #
 ## Clear the generated files in the "/bundler/" directory
 echo -e "\n[Bundler] Cleaning up the 'bundler/' directory..."
