@@ -187,41 +187,45 @@ searchBar.onblur = function(e) {
 // Check if this device/browser supports voice input
 if (window.crossBrowser.speechRecognition.supported) {
 
-    // Create a new speech recognition object
+    // Create a new speech recognition object, and its corresponding variables
     var recognition = new window.crossBrowser.speechRecognition.object(),
-        finalResult = "",
+        finalResult = null,
         speechTimeout = null;
+
+    // Configure the speech recognition object
     recognition.continuous = true;
     recognition.interimResults = true;
-    //recognition.lang = navigator.language;
-    recognition.maxAlternatives = 1;
+    recognition.maxAlternatives = 2;
 
     // Detect when the speech recognition object starts workings
     recognition.onstart = function() {
 
-        showAlert("Listening...", "(This is a temporary behaviour)<br><br>`(prev: '" + finalResult + "')`");
+        // Reset the `finalResult` variable
         finalResult = "";
+
+        // Show the voice input UI
+        showAlert("Listening...", "(This is a temporary behaviour)<br><br>`(prev: '" + finalResult + "')`");
 
     };
 
     // Detect when the user starts talking
     recognition.onspeechstart = function(event) {
 
-        console.log(event);
-
+        // Check if the speech timeout wasn't triggered
         if (typeof speechTimeout == "number") {
 
-            // Keep listening
+            // Stop the speech timeout
             clearTimeout(speechTimeout);
 
         }
 
+        // Start a new speech timeout
         speechTimeout = setTimeout(function() {
 
             // Stop listening
             recognition.stop();
-            console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
+            // Update the speech timeout variable status
             speechTimeout = true;
 
         }, 5000);
@@ -231,16 +235,19 @@ if (window.crossBrowser.speechRecognition.supported) {
     // Detect when the user stops talking
     recognition.onspeechend = function(event) {
 
+        // Check if the speech timeout wasn't triggered
         if (typeof speechTimeout == "number") {
 
             // Stop listening
             clearTimeout(speechTimeout);
+
+            // Start a new speech timeout
             speechTimeout = setTimeout(function() {
 
                 // Stop listening
                 recognition.stop();
-                console.log("ccccccccccccccccccccccccccccccccccc");
 
+                // Update the speech timeout variable status
                 speechTimeout = true;
 
             }, 1000);
@@ -252,6 +259,7 @@ if (window.crossBrowser.speechRecognition.supported) {
     // Detect when the speech recognition object finishes processing the user's speech
     recognition.onresult = function(event) {
 
+        // Create an object to keep track of the best result
         var result = {
 
             text: "",
@@ -259,23 +267,22 @@ if (window.crossBrowser.speechRecognition.supported) {
 
         };
 
+        // Go through the results
         for (var i = 0; i < event.results.length; i++) {
 
             for (var i2 = 0; i2 < event.results[i].length; i2++) {
 
+                // Check if the result is not empty
                 if (event.results[i][i2].transcript != "") {
 
+                    // Check if this result is the best so far
                     if (event.results[i][i2].confidence >= result.confidence) {
 
+                        // Update the best result object
                         result.text = event.results[i][i2].transcript;
                         result.confidence = event.results[i][i2].confidence;
 
                     }
-
-                    console.log("-----------------------------");
-                    console.log(`(${i},${i2})["${event.results[i][i2].transcript}", ${event.results[i][i2].confidence}]`);
-                    console.log(event.results[i][i2]);
-                    console.log("-----------------------------\n");
 
                 }
 
@@ -283,17 +290,25 @@ if (window.crossBrowser.speechRecognition.supported) {
 
         }
 
-        finalResult = (result.confidence == event.results[0][0].confidence && result.confidence == 0) ? event.results[0][0].transcript : result.text;
+        // Update the final results
+        finalResult =
+            (result.confidence == event.results[0][0].confidence && result.confidence == 0) ? // Check if the confidence metric is working
+            event.results[0][0].transcript : // Choose the first result if the confidence metric isn't working
+            result.text; // Keep the best result
 
+        // Update the voice input UI
         showAlert("Listening...", "(This is a temporary behaviour)<br><br>`" + finalResult + "`");
 
+        // Check if the speech timeout wasn't triggered and if the result is final
         if (finalResult != "" && typeof speechTimeout == "number" && event.results.isFinal) {
 
-            // Stop listening
+            // Stop the speech timeout
             clearTimeout(speechTimeout);
-            recognition.stop();
-            console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
+            // Stop listening
+            recognition.stop();
+
+            // Update the speech timeout variable status
             speechTimeout = true;
 
         }
@@ -303,30 +318,33 @@ if (window.crossBrowser.speechRecognition.supported) {
     // Detect when the speech recognition process is done
     recognition.onend = function() {
 
+        // Stop the speech timeout
         clearTimeout(speechTimeout);
 
+        // Hide the voice input UI
         hideAlert();
 
+        // Filter the final result
         finalResult = finalResult.split(/\.|\,|\?|\!/g).filter(value => value != "").join("");
+
+        // Update the search bar and its value
         searchBar.value = finalResult;
         updateSearchButton();
         showSearch();
-        searchBar.focus();
 
     };
 
+    // Detect when the speech recognition service returns a final result with no significant recognition
     recognition.onnomatch = function() {
 
-        console.log("ERROR");
+        alert("No match");
 
     };
 
     // Detect speech recognition errors
     recognition.onerror = function(e) {
 
-        //
-        alert("ERROR!");
-        console.log("Oh no, an error!");
+        alert("Error!");
 
     };
 
