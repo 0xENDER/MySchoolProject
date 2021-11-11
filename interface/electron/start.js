@@ -141,10 +141,42 @@ function createWindow() {
     // Manage windows
     currentWindow.webContents.setWindowOpenHandler(({ url }) => {
 
+        // Check if this is a login-related page
         if (url.startsWith('%{{server:AccountsURL}}%')) {
 
-            // Accept the new window request
-            return { action: 'allow' }
+            var shouldAllow = false;
+
+            // Check if this page is one of the allowed login pages
+            [
+
+                "%{{server:AccountsURL}}%/sign",
+                "%{{server:AccountsURL}}%/auth"
+
+            ].forEach(item => {
+
+                if (url.startsWith(item)) {
+
+                    // Accept the new window request
+                    shouldAllow = true;
+
+                }
+
+            });
+
+            if (shouldAllow) {
+
+                // Accept the new window request
+                return { action: 'allow' }
+
+            } else {
+
+                // Open this page in the default browser
+                shell.openExternal(url);
+
+                // Deny the new window request
+                return { action: 'deny' }
+
+            }
 
         } else {
 
@@ -157,18 +189,70 @@ function createWindow() {
         }
 
     });
-    currentWindow.webContents.on('did-create-window', (childWindow) => {
+    currentWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
 
-        // Hide the top menu
-        childWindow.setMenu(null);
+        // Prevent electron from opening a new window
+        event.preventDefault();
 
-        // Debug
-        //childWindow.webContents.openDevTools();
-        /*childWindow.webContents.on('will-navigate', (e) => {
+        // Change the window options
+        Object.assign(options, {
 
-            e.preventDefault();
+            parent: currentWindow,
+            show: true,
+            menubar: false,
+            toolbar: false,
+            location: false,
+            skipTaskbar: true,
+            webPreferences: {
 
-        });*/
+                nodeIntegration: false,
+                nodeIntegrationInSubFrames: false,
+                contextIsolation: true,
+                webviewTag: false,
+                nativeWindowOpen: true
+
+            }
+
+        });
+
+        // Create a new window
+        event.newGuest = new BrowserWindow(options);
+
+        // Remove the menu of the new window
+        event.newGuest.removeMenu();
+
+        // Center the new window
+        event.newGuest.center();
+
+    });
+
+    // Manage permissions
+    currentWindow.webContents.session.setPermissionRequestHandler((webContents, permission, callback) => {
+
+        // Get the page URL
+        var url = webContents.getURL();
+
+        // Check if this is a local file
+        if (url.startsWith("file://")) {
+
+            if (false) { // Debug
+
+                // Approve the permission request
+                callback(true);
+
+            } else {
+
+                // Deny the permission request
+                callback(false);
+
+            }
+
+        } else {
+
+            // Deny the permission request
+            callback(false);
+
+        }
 
     });
 
