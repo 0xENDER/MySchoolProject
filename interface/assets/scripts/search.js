@@ -129,11 +129,11 @@ searchClearButton.onmousedown = function() {
     // Update the value of the search bar input box
     searchBar.value = "";
 
-    // Update the search buttons
-    updateSearchButton();
-
     // Focus the input field
     searchBar.focus();
+
+    // Update the search buttons
+    updateSearchButton();
 
 };
 
@@ -193,23 +193,38 @@ if (window.crossBrowser.speechRecognition.supported) {
         speechTimeout = null;
     recognition.continuous = true;
     recognition.interimResults = true;
-    recognition.lang = navigator.language;
-    recognition.maxAlternatives = 0;
-    console.log(recognition);
+    //recognition.lang = navigator.language;
+    recognition.maxAlternatives = 1;
 
     // Detect when the speech recognition object starts workings
     recognition.onstart = function() {
 
         showAlert("Listening...", "(This is a temporary behaviour)<br><br>`(prev: '" + finalResult + "')`");
         finalResult = "";
+
+    };
+
+    // Detect when the user starts talking
+    recognition.onspeechstart = function(event) {
+
+        console.log(event);
+
+        if (typeof speechTimeout == "number") {
+
+            // Keep listening
+            clearTimeout(speechTimeout);
+
+        }
+
         speechTimeout = setTimeout(function() {
 
             // Stop listening
             recognition.stop();
+            console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
             speechTimeout = true;
 
-        }, 3000);
+        }, 5000);
 
     };
 
@@ -220,7 +235,15 @@ if (window.crossBrowser.speechRecognition.supported) {
 
             // Stop listening
             clearTimeout(speechTimeout);
-            recognition.stop();
+            speechTimeout = setTimeout(function() {
+
+                // Stop listening
+                recognition.stop();
+                console.log("ccccccccccccccccccccccccccccccccccc");
+
+                speechTimeout = true;
+
+            }, 1000);
 
         }
 
@@ -229,32 +252,49 @@ if (window.crossBrowser.speechRecognition.supported) {
     // Detect when the speech recognition object finishes processing the user's speech
     recognition.onresult = function(event) {
 
-        finalResult = event.results[0][0].transcript;
+        var result = {
+
+            text: "",
+            confidence: 0
+
+        };
+
+        for (var i = 0; i < event.results.length; i++) {
+
+            for (var i2 = 0; i2 < event.results[i].length; i2++) {
+
+                if (event.results[i][i2].transcript != "") {
+
+                    if (event.results[i][i2].confidence >= result.confidence) {
+
+                        result.text = event.results[i][i2].transcript;
+                        result.confidence = event.results[i][i2].confidence;
+
+                    }
+
+                    console.log("-----------------------------");
+                    console.log(`(${i},${i2})["${event.results[i][i2].transcript}", ${event.results[i][i2].confidence}]`);
+                    console.log(event.results[i][i2]);
+                    console.log("-----------------------------\n");
+
+                }
+
+            }
+
+        }
+
+        finalResult = (result.confidence == event.results[0][0].confidence && result.confidence == 0) ? event.results[0][0].transcript : result.text;
 
         showAlert("Listening...", "(This is a temporary behaviour)<br><br>`" + finalResult + "`");
 
-        if (finalResult != "" && typeof speechTimeout == "number") {
+        if (finalResult != "" && typeof speechTimeout == "number" && event.results.isFinal) {
 
+            // Stop listening
             clearTimeout(speechTimeout);
-            if (!event.results.isFinal) {
+            recognition.stop();
+            console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
-                speechTimeout = setTimeout(function() {
-
-                    // Stop listening
-                    recognition.stop();
-
-                    speechTimeout = true;
-
-                }, 2000);
-
-            } else {
-
-                // Stop listening
-                recognition.stop();
-
-                speechTimeout = true;
-
-            }
+            speechTimeout = true;
 
         }
 
@@ -262,6 +302,8 @@ if (window.crossBrowser.speechRecognition.supported) {
 
     // Detect when the speech recognition process is done
     recognition.onend = function() {
+
+        clearTimeout(speechTimeout);
 
         hideAlert();
 
