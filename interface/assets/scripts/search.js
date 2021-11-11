@@ -193,9 +193,9 @@ if (window.crossBrowser.speechRecognition.supported) {
         speechTimeout = null;
 
     // Configure the speech recognition object
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.interimResults = true;
-    recognition.maxAlternatives = 2;
+    recognition.maxAlternatives = 4;
 
     // Detect when the speech recognition object starts workings
     recognition.onstart = function() {
