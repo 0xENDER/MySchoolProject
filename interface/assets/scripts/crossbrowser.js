@@ -30,7 +30,10 @@ window.crossBrowser = {
 
 // Update the APIs' status
 window.crossBrowser.connection.supported = window.crossBrowser.connection.api != undefined && window.crossBrowser.connection.api != null;
-window.crossBrowser.speechRecognition.supported = "webkitSpeechRecognition" in window || "SpeechRecognition" in window;
+window.crossBrowser.speechRecognition.supported =
+    (window.api != null) ? // Check if this is electron!
+    false : // The speech recognition object does not work properly on Electron
+    ("webkitSpeechRecognition" in window || "SpeechRecognition" in window); // Check if this browser supports the speech recognition object
 if (window.crossBrowser.speechRecognition.supported) {
 
     window.crossBrowser.speechRecognition.object = ("webkitSpeechRecognition" in window) ? webkitSpeechRecognition : SpeechRecognition;
