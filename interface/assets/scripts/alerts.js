@@ -47,6 +47,7 @@ function showAlert(title, message, primaryButtonName, primaryButtonCallback, but
         alertButton.style.display = "none";
 
     }
+
 }
 
 // Create a function to hide alerts
