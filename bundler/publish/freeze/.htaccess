@@ -1,4 +1,59 @@
+# Configure the error pages
+ErrorDocument 400 /maintenance.html
+ErrorDocument 401 /maintenance.html
+ErrorDocument 402 /maintenance.html
+ErrorDocument 403 /maintenance.html
+ErrorDocument 404 /maintenance.html
+ErrorDocument 405 /maintenance.html
+ErrorDocument 406 /maintenance.html
+ErrorDocument 407 /maintenance.html
+ErrorDocument 408 /maintenance.html
+ErrorDocument 409 /maintenance.html
+ErrorDocument 410 /maintenance.html
+ErrorDocument 411 /maintenance.html
+ErrorDocument 412 /maintenance.html
+ErrorDocument 412 /maintenance.html
+ErrorDocument 413 /maintenance.html
+ErrorDocument 414 /maintenance.html
+ErrorDocument 415 /maintenance.html
+
+#Alternate default index page
+DirectoryIndex maintenance.html
+
+# Redirect all pages to the "maintenance.html" file
 RewriteEngine on 
 RewriteCond %{REQUEST_URI} !/maintenance.html$  
 RewriteCond %{REMOTE_HOST} !^000\.000\.000\.000 
 RewriteRule $ /maintenance.html [R=302,L]
+
+# Default encoding
+AddDefaultCharset UTF-8
+
+# Prevent users from accessing folders
+Options -Indexes
+
+# Disable Cache files
+<IfModule mod_headers.c>
+
+    <FilesMatch ".(woff2|woff|ico|jpg|jpeg|png|gif|svg|js|css|txt|html)$">
+
+        Header set Cache-Control "max-age=0, public, must-revalidate"
+
+    </FilesMatch>
+
+</IfModule>
+
+# Prevent files from being uploaded
+<IfModule mod_php5.c>
+
+    php_value upload_max_filesize 0M
+
+</IfModule>
+
+# Block access to this file
+<Files .htaccess>
+
+    order allow,deny
+    deny from all
+
+</Files>
