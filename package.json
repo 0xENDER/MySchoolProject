@@ -3,6 +3,7 @@
     "scripts": {
 
         "start": "./publish -local",
+        "publish": "./publish",
         "web": "./build -web",
         "android": "./build -android",
         "windows": "./build -windows",

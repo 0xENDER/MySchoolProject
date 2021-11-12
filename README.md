@@ -118,7 +118,7 @@
 - *Mailing support*
 - *HTTPS support* (lots of web APIs and features are only accessible to websites that use the `HTTPS:` protocol. The website won't work properly if the user is connected using a different protocol)
 
-## The Development Environment
+## Getting Started & The Development Environment
 
 Before you follow any of these instructions, make sure to configure your server settings in the [`server.config.jsonc`](./server.config.jsonc) file. Read the provided instructions within the `server.config.jsonc` file and follow them carefully, and watch out for any server credentials leaks when you upload your files online or share them with others.
 
@@ -268,6 +268,17 @@ The available build flags are:
 - `-mac`: Create a macOS build
 - `-android`: Create an Android build
 
+You can also use the Node Package Manager to run the build command for specific platforms:
+
+- Use `npm start` to run the website locally
+- Use `npm run web` to build the website for production
+- Use `npm run android` to build the Android app for production
+- Use `npm run windows` to build the Windows app for production
+- Use `npm run linux` to build the Linux app for production
+- Use `npm run mac` to build the MacOS app for production
+- Use `npm run desktop` to build all the desktop apps for production
+- Use `npm run mobile` to build all the mobile apps for production
+
 > Note that we do not offer the option to build an iOS app for the codebase because it'd be useless. (Apps can't install other apps on iOS)
 
 If you face any problem whist building a native app for Windows, macOS, or Linux, make sure that you have [the proper enviromnet setup for `electron-builder`](https://www.electron.build/multi-platform-build.html)!
@@ -284,6 +295,8 @@ The available flags are:
 
 - `-debug`: Show debug messages
 - `-local`: Tells the publisher that your server is hosted locally (on `localhost`)
+
+You can also use the `npm run publish` command to publish the website online.
 
 ## Licensing
 
