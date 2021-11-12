@@ -290,7 +290,9 @@ The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fo
 
 ## Notes
 
-- The search voice input option is gonna be disabled when using the Electron-based version of the codebase. (*Read issue [#18](/../../issues/18) for more info*)
+- This codebase still uses the [User Agent string](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgent) to identify and collect some basic information about the users' devices. It's not recommended for developers to use the User Agent string nowadays. However, I am still going to use it because the current replacement APIs for the User Agent string are not good enough to get all the information needed for the website to work properly.
+- This codebase uses the [`SpeechRecognition` API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition). As of the 12th of November 2021, this API is still marked as experimental. This API can be a bit laggy on desktop devices, and its cross-browser support is quite poor.
+- The search voice input option is going to be disabled when using the Electron-based version of the codebase. (*Read issue [#18](/../../issues/18) for more info*)
 
 ## More To Read
 
