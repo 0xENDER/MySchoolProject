@@ -78,4 +78,7 @@
         background-color: transparent;
         border: none;
     }
+    [data-floating-search="true"] .component--scrollbar {
+        top: 0px;
+    }
 }

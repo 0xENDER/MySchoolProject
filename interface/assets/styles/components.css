@@ -27,6 +27,9 @@
         --bubblebutton-fontsize: 12px;
         --bubblebutton-topbottompadding: 12px;
     }
+    [data-floating-search="true"]:root {
+        --scrollbar-height: calc(100% - var(--sectionsbar-height));
+    }
 }
 
 @media all and (max-height: 600px),
