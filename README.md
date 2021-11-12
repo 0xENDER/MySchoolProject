@@ -120,6 +120,8 @@
 
 ## The Development Environment
 
+Before you follow any of these instructions, make sure to configure your server settings in the [`server.config.jsonc`](./server.config.jsonc) file. Read the provided instructions within the `server.config.jsonc` file and follow them carefully, and watch out for any server credentials leaks when you upload your files online or share them with others.
+
 > **Note:** these instructions are written for Linux users. If you face any problem setting up the Development environment on Windows, you can always use the *Windows Subsystem for Linux*!
 
 ### Localhost
