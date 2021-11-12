@@ -1,0 +1,53 @@
+/*
+
+    Server Configuration
+
+*/
+
+
+// You need to enter all your server info in here.
+// This information is used to build your website properly, and to enable you to
+// use the provided bundler CLI to publish your website quickly and safely.
+//
+// Make sure to read the "README.md" file first to check if your server meets
+// the provided server requirements!
+//
+// Note: you need to rename this file to "server.config.secret.json" in order for
+// the bundler to find your server configurations.
+{
+
+    // The domain name of your website
+    "domain": "example.com",
+
+    // The directories of the required subdomains
+    "subdomains": {
+
+        // The directory of the main domain and the main "www" subdomain
+        "www": "/path/to/www/",
+
+        // The directory of the "store" subdomain
+        "store": "/path/to/store/",
+
+        // The directory of the "accounts" subdomain
+        "accounts": "/path/to/accounts/"
+
+    },
+
+    // Your FTP connection credentials
+    "FTP": {
+
+        // Your FTP connection host
+        "host": "ftp.example.com",
+
+        // Your FTP username
+        "username": "user",
+
+        // Your FTP password
+        "password": "password123",
+
+        // Your FTP port
+        "port": 21
+
+    }
+
+}
