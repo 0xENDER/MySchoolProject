@@ -54,7 +54,7 @@ function linkScrollbar() { // Link a scrollbar to the page
         scrollbar.handle.refreshHeight();
 
         // Update the scrollbar handle's position
-        scrollbar.linkedElement.onscroll();
+        scrollbar.linkedElement.scrollFunction();
 
         // Update the saved position of the handle position
         clickStartHandleYPosition = scrollbar.handle.offsetTop;
@@ -62,7 +62,7 @@ function linkScrollbar() { // Link a scrollbar to the page
     }
 
     // Keep track of the top-position of the scrollbar handle
-    scrollbar.linkedElement.onscroll = function() {
+    scrollbar.linkedElement.scrollFunction = function() {
 
         // Update the position of the scrollbar handle
         scrollbar.handle.style.top =
@@ -73,6 +73,7 @@ function linkScrollbar() { // Link a scrollbar to the page
         scrollbar.refreshFunction();
 
     };
+    scrollbar.linkedElement.addEventListener("scroll", scrollbar.linkedElement.scrollFunction, window.performanceVariables.objects.passiveEvent);
 
     window.updateScrollbar = function() {
 

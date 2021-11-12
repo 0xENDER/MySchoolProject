@@ -96,7 +96,7 @@ function updateSearchButton() {
 
 // Handle the events of the search bar
 searchBar.onmousedown = showSearch;
-searchBar.ontouchstart = showSearch;
+searchBar.addEventListener("touchstart", showSearch, window.performanceVariables.objects.passiveEvent);
 searchBar.oninput = function() {
 
     // Show the search interface
@@ -167,13 +167,13 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
     // Detect clicks outside the whole page
     window.addEventListener("mousedown", function() {
 
-        console.log(isUsingSearch, clickInside);
-
+        // Check if the user is using the search bar
         if (isUsingSearch) {
 
             // Check if this click was outside the search container
             if (!clickInside) {
 
+                // Hide the search container
                 hideSearch();
                 clickInside = true;
 
@@ -192,8 +192,10 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
 // Keep the search input box focused
 searchBar.onblur = function(e) {
 
+    // Check if the search UI is visible
     if (searchVisible) {
 
+        // Focus the search bar
         searchBar.focus();
 
     }
