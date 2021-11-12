@@ -290,7 +290,7 @@ The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fo
 
 ## Notes
 
-- The search voice input option is gonna be disabled when using the Electron-based version of the codebase. (*Read issue "#18" for more info*)
+- The search voice input option is gonna be disabled when using the Electron-based version of the codebase. (*Read issue [#18](/../../issues/18) for more info*)
 
 ## More To Read
 
