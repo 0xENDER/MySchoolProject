@@ -116,7 +116,7 @@
 - ~~*MySQL support*~~
 - _**At least** 1GB of storage (without acounting for the apps database)_
 - *Mailing support*
-- *HTTPS support* (lots of web features might not work properly if the user is not connected to the server using an encrypted connection)
+- *HTTPS support* (lots of web APIs and features are only accessible to websites that use the `HTTPS:` protocol. The website won't work properly if the user is connected using a different protocol)
 
 ## The Development Environment
 
