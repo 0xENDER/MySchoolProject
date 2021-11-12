@@ -15,6 +15,13 @@ var searchButton = document.getElementById("button--search"),
     isUsingSearch = false,
     searchVisible = false;
 
+// Redirect to the search page
+function startSearch(query) {
+
+    alert("Debug: " + query);
+
+}
+
 // Show the search interface
 function showSearch() {
 
@@ -90,37 +97,44 @@ function updateSearchButton() {
 // Handle the events of the search bar
 searchBar.onmousedown = showSearch;
 searchBar.ontouchstart = showSearch;
-searchBar.onkeyup = function() {
+searchBar.oninput = function() {
 
-    // Check if the search bar is focused
-    if (document.activeElement == searchBar) {
+    // Show the search interface
+    showSearch();
+
+    // Update the search buttons
+    updateSearchButton();
+
+};
+
+// Handle the search button
+function searchButtonClicked() {
+
+    // Check the screen size
+    if (window.platform.special.dynamic.isWindowSmall()) {
 
         // Show the search interface
         showSearch();
 
-        // Update the search buttons
-        updateSearchButton();
-
     } else {
 
-        // Hide the mobile search interface
-        document.documentElement.dataset.usingSearch = false;
+        // Check if the search input element has a valid value
+        if (searchBar.value.replace(/\s/g, "") != "") {
+
+            // Go to the search page
+            startSearch(searchBar.value);
+
+        } else {
+
+            // Show the search interface
+            showSearch();
+
+        }
 
     }
 
-};
-searchBar.onkeydown = function() {
-
-    // Check if the search bar is focused
-    if (document.activeElement == searchBar) {
-
-        // Update the search buttons
-        updateSearchButton();
-
-    }
-
-};
-searchButton.onmousedown = showSearch;
+}
+searchButton.onmousedown = searchButtonClicked;
 searchBackButton.onmousedown = hideSearch;
 
 // Clear the content of the search input box when the clear button is clicked
@@ -152,6 +166,8 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
 
     // Detect clicks outside the whole page
     window.addEventListener("mousedown", function() {
+
+        console.log(isUsingSearch, clickInside);
 
         if (isUsingSearch) {
 
@@ -189,7 +205,7 @@ if (window.crossBrowser.speechRecognition.supported) {
 
     // Create a new speech recognition object, and its corresponding variables
     var recognition = new window.crossBrowser.speechRecognition.object(),
-        finalResult = null,
+        finalResult = "",
         speechTimeout = null;
 
     // Configure the speech recognition object
@@ -353,6 +369,9 @@ if (window.crossBrowser.speechRecognition.supported) {
 
         // Start listening
         recognition.start();
+
+        // Update the click status
+        clickInside = false;
 
     };
 
