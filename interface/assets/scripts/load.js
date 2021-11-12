@@ -17,14 +17,17 @@ var contentResourcesNumber = 0,
 
         endMessage: false,
         canUnload: true,
-        accountRequired: false
+        accountRequired: false,
+        keepSearch: true,
+        section: null
 
     },
     unload = {
         functions: [],
         objects: []
     },
-    didFail = false;
+    didFail = false,
+    lastPageHash = "";
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -74,10 +77,25 @@ window.uncover = function() {
 // Set the window content load function
 window.load = function() {
 
-    //document.documentElement.dataset.extraContentLoaded = true;
-
     // If the window's status is set to "loaded", then the content should be uncovered!
     window.uncover();
+
+    // Update the page state
+    if (!(typeof window.history.state == "object" && window.history.state != null)) {
+
+        window.history.replaceState({
+
+            title: document.title,
+            section: pageFlags.section,
+            extra: {
+
+                searchBarValue: searchBar.value
+
+            }
+
+        }, "", window.location.href);
+
+    }
 
 };
 
@@ -197,6 +215,25 @@ function loadContentFromSrc(src = null) {
 
 }
 
+// Update the selected section
+function updateSectionSelection(section) {
+
+    // Get the section item
+    var sectionsItem = document.getElementById("sections--" + section);
+
+    // Check if it exists
+    if (sectionsItem != null) {
+
+        // Add the "state--selected" class to this element
+        sectionsItem.classList.add("state--selected");
+
+    }
+
+    // Delete the variable
+    delete sectionsItem;
+
+};
+
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
@@ -239,6 +276,19 @@ function fetchContent(sourceURLPathname) {
                             pageFlags.endMessage = (pageElement.getAttribute("page-end") === "true");
                             pageFlags.canUnload = !(pageElement.getAttribute("can-unload") === "false");
                             pageFlags.accountRequired = (pageElement.getAttribute("requires-account") === "true");
+                            pageFlags.keepSearch = !(pageElement.getAttribute("keep-search") === "false");
+                            pageFlags.section = pageElement.getAttribute("section");
+
+                            // Check if the page should not keep the search bar input value
+                            if (!pageFlags.keepSearch) {
+
+                                // Remove the value of the search bar
+                                searchBar.value = "";
+
+                                // Update the search buttonss
+                                updateSearchButtons();
+
+                            }
 
                             // Check if the page needs the user to be signed in
                             if ((pageFlags.accountRequired) ? document.documentElement.dataset.signedIn === "true" : true) {
@@ -256,9 +306,7 @@ function fetchContent(sourceURLPathname) {
                                 }
 
                                 // Update the selected item in the "sections bar"
-                                var selectedSectionsItem = document.getElementById("sections--" + pageElement.getAttribute("section"));
-                                if (selectedSectionsItem != null)
-                                    selectedSectionsItem.classList.add("state--selected");
+                                updateSectionSelection(pageFlags.section);
 
                                 // Replace variables
                                 data = data.substring(data.indexOf("\n")).replace(/\${(.*?)}/g, function(match, content) {
@@ -269,7 +317,7 @@ function fetchContent(sourceURLPathname) {
                                     // Check what variable this one is
                                     if (content == "pageurl") {
 
-                                        return ((isApp) ? window.location.lastRedirect : window.location.href).replace("/page/", "/pages/").replace(/(.*)\/(.*?).html/g, function(match, start, end) {
+                                        return ((isApp) ? window.location.lastRedirect : window.location.pathname).replace("/page/", "/pages/").replace(/(.*)\/(.*?).html/g, function(match, start, end) {
                                             return start + "/";
                                         });
 
@@ -479,7 +527,7 @@ function fetchContent(sourceURLPathname) {
                             }
 
                             // Delete the used variables
-                            delete pageElement, pageTitle, selectedSectionsItem;
+                            delete pageElement, pageTitle;
 
                         };
 
@@ -788,6 +836,9 @@ window.unloadContent = function() {
         pageFlags.endMessage = false;
         pageFlags.canUnload = true;
         pageFlags.accountRequired = false;
+        pageFlags.keepSearch = true;
+        pageFlags.section = null;
+
 
         // Reset the resources number
         contentResourcesNumber = 0;
@@ -797,6 +848,9 @@ window.unloadContent = function() {
         // Hide the alerts and the mobile menu
         hideMenu();
         hideAlert();
+
+        // Hide the search UI
+        hideSearch();
 
     }
 
@@ -817,6 +871,9 @@ window.location.dynamic = {
             // Dynamically load the new page content
             loadContentFromSrc(url);
 
+            // Keep track of the hash
+            lastPageHash = window.location.hash;
+
             // Push the new URL state
             if (changeURL) {
 
@@ -825,17 +882,22 @@ window.location.dynamic = {
                     sectionIndex = url.indexOf("#");
                 if (queryIndex != -1) {
 
-                    url = url.substring(0, queryIndex);
-                    sectionIndex = url.indexOf("#");
-
-                }
-                if (sectionIndex != -1) {
-
-                    url = url.substring(0, sectionIndex);
+                    url = url.substring(0, queryIndex) + ((sectionIndex != -1) ? url.substring(sectionIndex) : "");
 
                 }
 
                 window.history.pushState("", "", url);
+
+            }
+
+            if (typeof window.history.state == "object" && window.history.state != null) {
+
+                // Update the page title without waiting for the content to load
+                document.title = window.history.state.title;
+
+                // Update the value of the search bar
+                searchBar.value = window.history.state.extra.searchBarValue;
+                updateSearchButtons(window.history.state.section);
 
             }
 
@@ -857,7 +919,54 @@ window.location.dynamic = {
 // Detect URL changes (back/forward)
 window.addEventListener('popstate', function(e) {
 
-    window.location.dynamic.redirect(window.location.pathname, false);
+    if (window.platform.special.dynamic.isWindowSmall()) {
+
+        if (window.location.hash == "#search") {
+
+            // Show the search UI
+            showSearch();
+
+            // Update the `lastPageHash` variable
+            lastPageHash = window.location.hash;
+
+        } else if (lastPageHash == "#search") {
+
+            // Hide the search UI
+            hideSearch();
+
+            // Update the `lastPageHash` variable
+            lastPageHash = window.location.hash;
+
+        } else {
+
+            // Redirect the page without changing the URL
+            window.location.dynamic.redirect(window.location.pathname, false);
+
+        }
+
+        /*if (window.location.pathname != "/page/search") {
+
+            if (searchVisible) {
+
+                hideSearch();
+
+            } else {
+
+                window.location.dynamic.redirect(window.location.pathname, false);
+
+            }
+
+        } else {
+
+            showSearch();
+
+        }*/
+
+    } else {
+
+        window.location.dynamic.redirect(window.location.pathname, false);
+
+    }
 
 }, window.performanceVariables.objects.passiveEvent);
 

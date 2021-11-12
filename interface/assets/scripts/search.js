@@ -13,17 +13,40 @@ var searchButton = document.getElementById("button--search"),
     searchBar = document.getElementById("component--search"),
     searchContainer = document.getElementById("search--container"),
     isUsingSearch = false,
-    searchVisible = false;
+    searchVisible = false,
+    previousSearchBarValue = "";
 
 // Redirect to the search page
 function startSearch(query) {
+
+    if (window.platform.special.dynamic.isWindowSmall()) {
+
+        window.history.replaceState("", "", "/page/search/#" + encodeURIComponent(query));
+        window.location.dynamic.redirect("/page/search/", false);
+
+    } else {
+
+        window.location.dynamic.redirect("/page/search/#" + encodeURIComponent(query));
+
+    }
 
     alert("Debug: " + query);
 
 }
 
+// Activate searching
+function activateSearch() {
+
+    // Update the page has to "search"
+    window.location.hash = "search";
+
+}
+
 // Show the search interface
 function showSearch() {
+
+    // Update the `previousSearchBarValue` variable
+    previousSearchBarValue = searchBar.value;
 
     // Check if this device has a small screen
     if (window.platform.special.dynamic.isWindowSmall()) {
@@ -48,10 +71,16 @@ function showSearch() {
     // Update the search interface visibility status
     searchVisible = true;
 
+    // Make sure to update the search buttons
+    updateSearchButtons();
+
 }
 
 // Hide the search interface
 function hideSearch() {
+
+    // Update the `previousSearchBarValue` variable
+    previousSearchBarValue = "";
 
     // Hide the mobile search interface
     document.documentElement.dataset.usingSearch = false;
@@ -69,14 +98,34 @@ function hideSearch() {
 
     // Update the search interface visibility status
     searchVisible = false;
+    clickInside = true;
 
     // Make sure to un-focus the search input field
     searchBar.blur();
 
+    // Make sure to update the search buttons
+    updateSearchButtons();
+
 }
 
-// Update the search button (the voice input and clear buttons)
-function updateSearchButton() {
+// Update the search buttons
+function updateSearchButtons(section = pageFlags.section) {
+
+    if (window.platform.special.dynamic.isWindowSmall()) {
+
+        if (section != "home") {
+
+            searchBackButton.style.display = "block";
+            searchButton.style.display = "none";
+
+        } else {
+
+            searchBackButton.style.display = null;
+            searchButton.style.display = null;
+
+        }
+
+    }
 
     // Check if the search input box is empty
     if (searchBar.value != "") {
@@ -84,6 +133,16 @@ function updateSearchButton() {
         searchVoiceButton.style.display = "none";
         searchClearButton.style.display = null;
 
+        if (window.platform.special.dynamic.isWindowSmall()) {
+
+            if (!searchVisible && pageFlags.section == "home") {
+
+                searchBackButton.style.display = "block";
+                searchButton.style.display = "none";
+
+            }
+
+        }
 
     } else {
 
@@ -95,15 +154,42 @@ function updateSearchButton() {
 }
 
 // Handle the events of the search bar
-searchBar.onmousedown = showSearch;
-searchBar.addEventListener("touchstart", showSearch, window.performanceVariables.objects.passiveEvent);
+searchBar.onmousedown = function() {
+
+    // Check the screen size
+    if (window.platform.special.dynamic.isWindowSmall()) {
+
+        activateSearch();
+
+    } else {
+
+        showSearch();
+
+    }
+
+};
+searchBar.addEventListener("touchstart", activateSearch, window.performanceVariables.objects.passiveEvent);
 searchBar.oninput = function() {
 
     // Show the search interface
-    showSearch();
+    if (!searchVisible) {
 
-    // Update the search buttons
-    updateSearchButton();
+        showSearch();
+
+    }
+
+    // Update the search buttonss
+    updateSearchButtons();
+
+};
+searchBar.onkeyup = function(event) {
+
+    if (event.keyCode === 13) {
+
+        event.preventDefault();
+        startSearch(searchBar.value);
+
+    }
 
 };
 
@@ -114,7 +200,7 @@ function searchButtonClicked() {
     if (window.platform.special.dynamic.isWindowSmall()) {
 
         // Show the search interface
-        showSearch();
+        activateSearch();
 
     } else {
 
@@ -135,7 +221,15 @@ function searchButtonClicked() {
 
 }
 searchButton.onmousedown = searchButtonClicked;
-searchBackButton.onmousedown = hideSearch;
+searchBackButton.onmousedown = function() {
+
+    // Navigate back
+    window.history.back();
+
+    // Update the value of the search bar
+    searchBar.value = previousSearchBarValue;
+
+};
 
 // Clear the content of the search input box when the clear button is clicked
 searchClearButton.onmousedown = function() {
@@ -146,8 +240,8 @@ searchClearButton.onmousedown = function() {
     // Focus the input field
     searchBar.focus();
 
-    // Update the search buttons
-    updateSearchButton();
+    // Update the search buttonss
+    updateSearchButtons();
 
 };
 
@@ -175,7 +269,6 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
 
                 // Hide the search container
                 hideSearch();
-                clickInside = true;
 
             } else {
 
@@ -347,8 +440,12 @@ if (window.crossBrowser.speechRecognition.supported) {
 
         // Update the search bar and its value
         searchBar.value = finalResult;
-        updateSearchButton();
-        showSearch();
+        updateSearchButtons();
+        if (!searchVisible) {
+
+            showSearch();
+
+        }
 
     };
 

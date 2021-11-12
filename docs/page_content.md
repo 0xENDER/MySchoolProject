@@ -22,6 +22,8 @@ This element should always be present in the first line of the document, without
   All the possible values are: `true`, and `false`.(The default value is `false`)
 - `requires-account`: Whether the page needs the user to be signed in
   All the possible values are: `true`, and `false`.(The default value is `false`)
+- `keep-search`: Whether the page should keep the value of the search bar or not.
+  All the possible values are: `true`, and `false`.(The default value is `true`)
 
 ## The `resources` element
 
