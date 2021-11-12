@@ -29,7 +29,10 @@
         "store": "/path/to/store/",
 
         // The directory of the "accounts" subdomain
-        "accounts": "/path/to/accounts/"
+        "accounts": "/path/to/accounts/",
+
+        // The directory of the "resources" subdomain
+        "resources": "/path/to/resources/"
 
     },
 
