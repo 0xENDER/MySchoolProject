@@ -11,7 +11,7 @@
     --coversuggestionscardfirst-left: var(--global-sidesmargin);
     --coversuggestionscardlast-right: var(--coversuggestionscardfirst-left);
     --homepagecoverinfo-top: none;
-    --homepagecoverextrainfo-display: block;
+    --homepagecoverinfo-display: block;
 }
 
 @media all and (max-width: 840px) {
@@ -19,7 +19,7 @@
         --coversuggestionscard-scrollalign: center;
         --coversuggestionscardfirst-left: calc( ( 100vw - var(--homepagecoversuggestions-width) - 2px) / 2);
         --homepagecoverinfo-top: var(--global-sidesmargin);
-        --homepagecoverextrainfo-display: none;
+        --homepagecoverinfo-display: none;
     }
 }
 
@@ -109,15 +109,11 @@
 
 .homepage--cover-info {
     position: absolute;
+    display: var(--homepagecoverinfo-display);
     top: var(--homepagecoverinfo-top);
     margin: 0px var(--global-sidesmargin);
     padding-bottom: 80px;
     height: 100px;
-}
-
-.homepage--cover-title,
-.homepage--cover-description {
-    display: var(--homepagecoverextrainfo-display);
 }
 
 .homepage--cover-price {

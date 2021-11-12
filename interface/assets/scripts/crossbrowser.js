@@ -61,6 +61,8 @@ try {
 // Update the viewport across mobile devices
 if ('ontouchstart' in document.documentElement) {
 
+    document.documentElement.style.setProperty('--ivh', `${ window.innerHeight / 100 }px`);
+
     function updateHeightProperty() {
 
         document.documentElement.style.setProperty('--vh', `${ window.innerHeight / 100 }px`);
