@@ -62,8 +62,8 @@
 
 @media all and (max-width: 840px) {
     [data-using-search="false"][data-floating-search="true"] .layout--topbar-search {
-        background-color: #252525c9;
-        box-shadow: 0 1px 8px #0c0c0c6b;
+        background-color: var(--topbarsearchfloat-background);
+        box-shadow: 0 1px 8px var(--topbarsearchfloat-shadow);
         backdrop-filter: blur(4px);
     }
     [data-using-search="false"][data-floating-search="true"] .layout--topbar-search::placeholder {
