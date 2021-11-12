@@ -50,8 +50,8 @@
     <meta name="image" content="./assets/media/logo/logo.png">
 
     <!-- Website theming -->
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta id="meta--themecolor-light" name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta id="meta--themecolor-dark" name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Styles -->
@@ -89,8 +89,8 @@
 
     <!-- Microsoft -->
     <meta name="msapplication-config" content="./msconfig.xml" />
-    <meta name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta id="meta--msapplicationnavbuttoncolor-light" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta id="meta--msapplicationnavbuttoncolor-dark" name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
 
 </head>
 
@@ -289,6 +289,7 @@
     <!-- Scripts that are the least important -->
     <script defer itemprop="mobile--menu" type="text/javascript" src="./assets/scripts/menu.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="mobile--menu" type="text/javascript" src="./assets/scripts/search.js?v=%{{global:codebase.version}}%"></script>
+    <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/theme.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="all--tab" type="text/javascript" src="./assets/scripts/tab.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="components--scrollbar" type="text/javascript" src="./assets/scripts/scrollbar.js?v=%{{global:codebase.version}}%"></script>
     <script defer itemprop="elements--events" type="text/javascript" src="./assets/scripts/elementevents.js?v=%{{global:codebase.version}}%"></script>

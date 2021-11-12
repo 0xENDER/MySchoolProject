@@ -27,7 +27,16 @@ window.onpagecontentload = function() {
         }
     }
 
+    // Apply the home page cover scrolling effect
     homepageCoverEffect();
+
+    // Update the theme colour to match the current card
+    if (window.platform.device.isMobile || window.platform.device.isTablet) {
+
+        // Debug
+        updateThemeColor("#6247F1");
+
+    }
 
     // Load the whole page
     window.load();

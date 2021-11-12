@@ -862,6 +862,9 @@ window.unloadContent = function() {
         // Hide the search UI
         hideSearch();
 
+        // Reset the theme colour
+        updateThemeColor();
+
         // Reset the optional dataset variables
         document.documentElement.dataset.floatingSearch = false;
 
