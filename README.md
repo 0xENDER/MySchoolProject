@@ -288,6 +288,10 @@ The icons: [Evericons](http://www.evericons.com/)
 
 The font: [Google Fonts](https://fonts.google.com) - [Daniel Johnson](https://fonts.google.com/?query=Daniel%20Johnson) (Principal design), and [Cyreal](https://fonts.google.com/?query=Cyreal).
 
+## Notes
+
+- The search voice input option is gonna be disabled when using the Electron-based version of the codebase. (*Read issue "#18" for more info*)
+
 ## More To Read
 
 [Apps Submission Requirements](./docs/apps_submission.md)
