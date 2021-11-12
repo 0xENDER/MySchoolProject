@@ -458,6 +458,7 @@ body {
     fill: var(--text-colour);
     opacity: 0.6;
     cursor: pointer;
+    z-index: 2;
 }
 
 .component--search-icon.component--search-iconright {

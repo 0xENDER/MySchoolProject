@@ -19,6 +19,7 @@ var contentResourcesNumber = 0,
         canUnload: true,
         accountRequired: false,
         keepSearch: true,
+        floatingSearchBar: false,
         section: null
 
     },
@@ -68,6 +69,13 @@ window.uncover = function() {
 
     // Run the initial events
     initialEvents();
+
+    // Check if this page requires a floating search bar
+    if (pageFlags.floatingSearchBar) {
+
+        document.documentElement.dataset.floatingSearch = true;
+
+    }
 
     // Uncover the content
     document.documentElement.dataset.contentLoaded = true;
@@ -277,6 +285,7 @@ function fetchContent(sourceURLPathname) {
                             pageFlags.canUnload = !(pageElement.getAttribute("can-unload") === "false");
                             pageFlags.accountRequired = (pageElement.getAttribute("requires-account") === "true");
                             pageFlags.keepSearch = !(pageElement.getAttribute("keep-search") === "false");
+                            pageFlags.floatingSearchBar = !(pageElement.getAttribute("floating-search") === "false");
                             pageFlags.section = pageElement.getAttribute("section");
 
                             // Check if the page should not keep the search bar input value
@@ -837,6 +846,7 @@ window.unloadContent = function() {
         pageFlags.canUnload = true;
         pageFlags.accountRequired = false;
         pageFlags.keepSearch = true;
+        pageFlags.floatingSearchBar = false;
         pageFlags.section = null;
 
 
@@ -851,6 +861,9 @@ window.unloadContent = function() {
 
         // Hide the search UI
         hideSearch();
+
+        // Reset the optional dataset variables
+        document.documentElement.dataset.floatingSearch = false;
 
     }
 
