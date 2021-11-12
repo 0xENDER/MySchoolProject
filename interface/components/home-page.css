@@ -11,7 +11,7 @@
     --coversuggestionscardfirst-left: var(--global-sidesmargin);
     --coversuggestionscardlast-right: var(--coversuggestionscardfirst-left);
     --homepagecoverinfo-top: none;
-    --homepagecoverinfo-display: block;
+    --homepagecoverinfo-display: grid;
 }
 
 @media all and (max-width: 840px) {
