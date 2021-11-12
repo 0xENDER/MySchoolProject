@@ -43,6 +43,18 @@
     border-radius: 12px;
 }
 
+[data-rendering-mode="high"] .layout--searchcontainer {
+    box-shadow: 0px 2px 38px var(--alertscard-shadow);
+}
+
+[data-rendering-mode="low"] .layout--searchcontainer {
+    box-shadow: 0px 2px 18px var(--alertscard-shadow);
+}
+
+[data-using-search="true"] .layout--searchcontainer {
+    box-shadow: none;
+}
+
 [data-using-search=true] .layout--searchcontainer {
     display: block;
 }

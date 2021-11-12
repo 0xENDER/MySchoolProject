@@ -14,6 +14,7 @@
     --componentbutton-padding: 10px 24px;
     --scrollbar-display: flex;
     --bubblebutton-fontsize: 14px;
+    --bubblebutton-topbottompadding: 10px;
 }
 
 @media all and (max-width: 840px) {
@@ -24,6 +25,7 @@
         --componentcover-height: calc( (96 * var(--vh, 1vh)) - var(--topbar-height) - var(--sectionsbar-height));
         --componentbutton-padding: 14px 32px;
         --bubblebutton-fontsize: 12px;
+        --bubblebutton-topbottompadding: 12px;
     }
 }
 
@@ -64,7 +66,7 @@ button.component--button.component--button-primary {
 
 button.component--bubblebutton {
     background-color: var(--button-background);
-    padding: 10px 16px;
+    padding: var(--bubblebutton-topbottompadding) 16px;
     font-size: var(--bubblebutton-fontsize);
     border: 1px solid var(--button-border);
     border-radius: 1000px;
