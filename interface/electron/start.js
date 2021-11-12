@@ -199,17 +199,13 @@ function createWindow() {
 
             parent: currentWindow,
             show: true,
-            menubar: false,
-            toolbar: false,
-            location: false,
-            skipTaskbar: true,
+            modal: true,
             webPreferences: {
 
                 nodeIntegration: false,
                 nodeIntegrationInSubFrames: false,
                 contextIsolation: true,
-                webviewTag: false,
-                nativeWindowOpen: true
+                webviewTag: false
 
             }
 
