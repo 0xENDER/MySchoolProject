@@ -119,7 +119,7 @@ body {
 
 @media all and (max-width: 840px) {
      :root {
-        --topbar-height: 64px;
+        --topbar-height: 72px;
         --sectionsbar-width: 100%;
         --sectionsbar-height: 72px;
         --sectionsbar-top: none;
@@ -130,7 +130,7 @@ body {
         --sectionsbar-bottomdisplay: none;
         --topbarcomponent-grow: 0;
         --topbarsearch-width: 100%;
-        --topbarsearch-height: calc(var(--topbar-height) - 20px);
+        --topbarsearch-height: calc(var(--topbar-height) - 1.1*var(--global-sidesmargin));
         --topbarcenter-padding: var(--global-sidesmargin);
         --topbarright-position: absolute;
         --topbarright-right: var(--topbarcenter-padding);
@@ -444,7 +444,7 @@ body {
     width: var(--topbarsearch-width);
     height: 0px;
     border-radius: 6px;
-    padding: calc(var(--topbarsearch-height) / 2) 38px;
+    padding: calc(var(--topbarsearch-height) / 2) 42px;
     box-shadow: 0px 1px 3px var(--topbarsearch-shadow);
     border: 0px solid transparent;
     -webkit-app-region: no-drag;
