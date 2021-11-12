@@ -102,6 +102,13 @@
 - *Electron* (Windows, Linux, and macOS native apps)
 - ~~*React* (Android native app)~~
 
+## Used Helping Tools and Resources
+
+- *[Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)* (performance testing and debugging)
+- *[web.dev](https://web.dev/)* (performance testing, and web vitals improvement)
+- *[PWABuilder](https://www.pwabuilder.com/)* (PWA testing)
+- *[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web)* (APIs status, references, and cross-browser compatibility/support)
+
 ## Server Requirements
 
 - *Apache2 support*
