@@ -28,7 +28,8 @@ var contentResourcesNumber = 0,
         objects: []
     },
     didFail = false,
-    lastPageHash = "";
+    lastPageHash = "",
+    allowThemeColorUpdateTimeout = -1;
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -75,9 +76,10 @@ window.uncover = function() {
     }
 
     // Inform the theme manager that the theme colour can be updated now
+    clearTimeout(allowThemeColorUpdateTimeout);
     if (allowThemeColorUpdate != null) {
 
-        setTimeout(function() {
+        allowThemeColorUpdateTimeout = setTimeout(function() {
 
             allowThemeColorUpdate();
 
