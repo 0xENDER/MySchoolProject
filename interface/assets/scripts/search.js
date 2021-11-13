@@ -12,6 +12,7 @@ var searchButton = document.getElementById("button--search"),
     searchClearButton = document.getElementById("button--searchclear"),
     searchBar = document.getElementById("component--search"),
     searchContainer = document.getElementById("search--container"),
+    topBar = document.getElementById("layout--topbar"),
     isUsingSearch = false,
     searchVisible = false,
     previousSearchBarValue = "",
@@ -137,15 +138,19 @@ function hideSearch() {
 // Update the search buttons
 function updateSearchButtons(section = pageFlags.section) {
 
+    // Check if the screen is small
     if (window.platform.special.dynamic.isWindowSmall()) {
 
+        // Check if this is the home page or not
         if (section != "home") {
 
+            // Show the back button
             searchBackButton.style.display = "block";
             searchButton.style.display = "none";
 
         } else {
 
+            // Show the search icon
             searchBackButton.style.display = null;
             searchButton.style.display = null;
 
@@ -320,6 +325,19 @@ searchBar.onblur = function(e) {
     }
 
 };
+
+// Keep updating the search bar
+pageContentElement.addEventListener("scroll", function() {
+
+    // Check if this page uses a floating search bar
+    if (pageFlags.floatingSearchBar && window.platform.special.dynamic.isWindowSmall()) {
+
+        // Update the floating status
+        topBar.dataset.allowFloat = pageContentElement.scrollTop < 60;
+
+    }
+
+}, window.performanceVariables.objects.passiveEvent);
 
 // Check if this device/browser supports voice input
 if (window.crossBrowser.speechRecognition.supported) {
