@@ -39,9 +39,6 @@ window.addEventListener('load', function() {
     document.head.appendChild(linkElement);
     delete linkElement;
 
-    // Change the document dataset values
-    document.documentElement.dataset.contentLoaded = false;
-
     // Show the loading icon
     setTimeout(function() {
 
@@ -74,6 +71,17 @@ window.uncover = function() {
     if (pageFlags.floatingSearchBar) {
 
         document.documentElement.dataset.floatingSearch = true;
+
+    }
+
+    // Inform the theme manager that the theme colour can be updated now
+    if (allowThemeColorUpdate != null) {
+
+        setTimeout(function() {
+
+            allowThemeColorUpdate();
+
+        }, 140);
 
     }
 
@@ -588,6 +596,12 @@ function loadingFailed(cause = null) {
         // Change the page title
         document.title = "Error | %{{global:appInfo.name}}%";
 
+        // Make sure that the search bar is not set to float
+        document.documentElement.dataset.floatingSearch = false;
+
+        // Reset the theme colour
+        updateThemeColor(null, null, true);
+
         // Show the error message
         showPageMessage("Failed to load this page!", "An error occurred whilst trying to load this page. This may be a temporary error, try again later.");
 
@@ -772,9 +786,13 @@ window.unloading.remove = function(objectName) {
 // Unload the page content
 window.unloadContent = function() {
 
-    // Reset the loading screen
+    // Update the content status
     document.documentElement.dataset.contentLoaded = false;
-    //document.documentElement.dataset.extraContentLoaded = false;
+
+    // Reset the theme colour
+    updateThemeColor(null, null, true);
+
+    // Reset the loading screen
     coverLoadingIcon.style.opacity = 0;
     var selectedSectionsItem = document.querySelector(".layout--sectionsbar-item.state--selected");
     if (selectedSectionsItem != null) {
@@ -861,9 +879,6 @@ window.unloadContent = function() {
 
         // Hide the search UI
         hideSearch();
-
-        // Reset the theme colour
-        updateThemeColor();
 
         // Reset the optional dataset variables
         document.documentElement.dataset.floatingSearch = false;

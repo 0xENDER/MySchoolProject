@@ -23,39 +23,54 @@ var themeColor = {
         light: themeColor.light.getAttribute("content"),
         dark: themeColor.dark.getAttribute("content")
 
-    };
+    },
+    allowThemeColorUpdate = null;
 
 // Update the theme colour
-function updateThemeColor(lightColor = null, darkColor = lightColor) {
+function updateThemeColor(lightColor = null, darkColor = lightColor, force = false) {
 
-    // Handle the default theme colours
-    if (lightColor == null) {
+    if (force || document.documentElement.dataset.contentLoaded === "true") {
 
-        lightColor = defaultThemeColor.light;
-        darkColor = defaultThemeColor.dark;
+        // Handle the default theme colours
+        if (lightColor == null) {
+
+            lightColor = defaultThemeColor.light;
+            darkColor = defaultThemeColor.dark;
+
+        }
+
+        // Update the meta tags
+        [
+
+            themeColor.light,
+            msApplicationNavButton.light
+
+        ].forEach(function(metaTag) {
+
+            metaTag.setAttribute("content", lightColor);
+
+        });
+        [
+
+            themeColor.dark,
+            msApplicationNavButton.dark
+
+        ].forEach(function(metaTag) {
+
+            metaTag.setAttribute("content", darkColor);
+
+        });
+
+    } else {
+
+        allowThemeColorUpdate = function() {
+
+            updateThemeColor(lightColor, darkColor, true);
+
+            allowThemeColorUpdate = null;
+
+        };
 
     }
-
-    // Update the meta tags
-    [
-
-        themeColor.light,
-        msApplicationNavButton.light
-
-    ].forEach(function(metaTag) {
-
-        metaTag.setAttribute("content", lightColor);
-
-    });
-    [
-
-        themeColor.dark,
-        msApplicationNavButton.dark
-
-    ].forEach(function(metaTag) {
-
-        metaTag.setAttribute("content", darkColor);
-
-    });
 
 }
