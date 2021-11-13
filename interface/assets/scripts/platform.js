@@ -57,6 +57,11 @@ window.platform = { // An object to keep track and organise the platform data
 
                 return window.innerWidth <= 840;
 
+            },
+            isUsingDarkTheme() {
+
+                return window.matchMedia('(prefers-color-scheme)').media !== 'not all';
+
             }
 
         }
