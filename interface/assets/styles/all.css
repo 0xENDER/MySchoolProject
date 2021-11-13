@@ -19,14 +19,27 @@
 }
 
 [enable-select] {
-    -moz-user-select: auto;
-    -khtml-user-select: auto;
-    -webkit-user-select: auto;
-    user-select: auto;
-    -webkit-user-drag: auto;
-    -khtml-user-drag: auto;
-    -moz-user-drag: auto;
-    -o-user-drag: auto;
+    -moz-user-select: initial !important;
+    -khtml-user-select: initial !important;
+    -webkit-user-select: initial !important;
+    user-select: initial !important;
+    -webkit-user-drag: initial !important;
+    -khtml-user-drag: initial !important;
+    -moz-user-drag: initial !important;
+    -o-user-drag: initial !important;
+}
+
+text[enable-select],
+h1[enable-select],
+h2[enable-select],
+h3[enable-select],
+h4[enable-select],
+h5[enable-select],
+h6[enable-select] {
+    -moz-user-select: text !important;
+    -khtml-user-select: text !important;
+    -webkit-user-select: text !important;
+    user-select: text !important;
 }
 
 
