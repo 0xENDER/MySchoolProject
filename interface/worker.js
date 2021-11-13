@@ -35,6 +35,13 @@ var cacheName = null,
         '/assets/scripts/performance.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/account.js?v=%{{global:codebase.version}}%',
         '/assets/scripts/worker.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/userinfo.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/menu.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/search.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/theme.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/contextmenu.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/elementevents.js?v=%{{global:codebase.version}}%',
+        '/assets/scripts/insertElements.js?v=%{{global:codebase.version}}%',
 
         // Cache Styles
         '/assets/styles/all.css?v=%{{global:codebase.version}}%',
@@ -46,6 +53,10 @@ var cacheName = null,
         '/assets/styles/complex/alerts.css?v=%{{global:codebase.version}}%',
         '/assets/styles/complex/components.css?v=%{{global:codebase.version}}%',
         '/assets/styles/complex/layout.css?v=%{{global:codebase.version}}%',
+        '/assets/styles/complex/search.css?v=%{{global:codebase.version}}%',
+
+        // Cache JS libraries
+        '/libraries/accounts.api.js?v=%{{global:codebase.version}}%',
 
         // Cache components
         '/components/basics.css?v=%{{global:codebase.version}}%',
