@@ -12,10 +12,27 @@ var optionsButton = document.getElementById("button--menuOptions"),
     menuCard = document.getElementById("menu--card"),
     menuCloseButton = document.getElementById("icon--menu-close"),
     menuCardClicked = false,
-    lastWindowMenuResizeFunction = null;
+    lastWindowMenuResizeFunction = null,
+    menuLastThemeColor = null;
 
 // Show the menu
 function showMenu(top = null, left = null, element) {
+
+
+    if (menuLastThemeColor == null) {
+
+        // Update the `menuLastThemeColor` variable
+        menuLastThemeColor = {
+
+            light: themeColor.light.getAttribute("content"),
+            dark: themeColor.dark.getAttribute("content")
+
+        };
+
+        // Update the theme colour
+        updateThemeColor(null, null, true);
+
+    }
 
     // Check the menu's position
     if (top != null && left != null) {
@@ -68,6 +85,16 @@ function showMenu(top = null, left = null, element) {
 
 // Hide the menu
 function hideMenu() {
+
+    // Reset the theme colour
+    if (menuLastThemeColor != null) {
+
+        updateThemeColor(menuLastThemeColor.light, menuLastThemeColor.dark, true);
+
+        // Update the `menuLastThemeColor` variable
+        menuLastThemeColor = null;
+
+    }
 
     // Remove the resize event listener
     window.removeEventListener("resize", lastWindowMenuResizeFunction);

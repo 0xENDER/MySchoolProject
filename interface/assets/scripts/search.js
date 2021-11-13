@@ -15,7 +15,7 @@ var searchButton = document.getElementById("button--search"),
     isUsingSearch = false,
     searchVisible = false,
     previousSearchBarValue = "",
-    lastThemeColor = null;
+    searchLastThemeColor = null;
 
 // Redirect to the search page
 function startSearch(query) {
@@ -46,10 +46,10 @@ function activateSearch() {
 // Show the search interface
 function showSearch() {
 
-    if (lastThemeColor == null) {
+    if (searchLastThemeColor == null) {
 
-        // Update the `lastThemeColor` variable
-        lastThemeColor = {
+        // Update the `searchLastThemeColor` variable
+        searchLastThemeColor = {
 
             light: themeColor.light.getAttribute("content"),
             dark: themeColor.dark.getAttribute("content")
@@ -96,12 +96,12 @@ function showSearch() {
 function hideSearch() {
 
     // Reset the theme colour
-    if (lastThemeColor != null) {
+    if (searchLastThemeColor != null) {
 
-        updateThemeColor(lastThemeColor.light, lastThemeColor.dark, true);
+        updateThemeColor(searchLastThemeColor.light, searchLastThemeColor.dark, true);
 
-        // Update the `lastThemeColor` variable
-        lastThemeColor = null;
+        // Update the `searchLastThemeColor` variable
+        searchLastThemeColor = null;
 
     }
 

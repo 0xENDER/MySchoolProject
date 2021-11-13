@@ -8,13 +8,31 @@ var alertScreen = document.getElementById("alerts--container"),
     alertTitle = document.getElementById("alerts--title"),
     alertMessage = document.getElementById("alerts--message"),
     alertButtonPrimary = document.getElementById("alerts--button-primary"),
-    alertButton = document.getElementById("alerts--button");
+    alertButton = document.getElementById("alerts--button"),
+    alertLastThemeColor = null;
 
 // Create a function to show alerts
 function showAlert(title, message, primaryButtonName, primaryButtonCallback, buttonName, buttonCallback) {
 
+    // Show the alert container
     alertScreen.style.display = null;
     alertScreen.style.opacity = null;
+
+    // Update the theme colour
+    if (alertLastThemeColor == null) {
+
+        // Update the `alertLastThemeColor` variable
+        alertLastThemeColor = {
+
+            light: themeColor.light.getAttribute("content"),
+            dark: themeColor.dark.getAttribute("content")
+
+        };
+
+        // Update the theme colour
+        updateThemeColor(null, null, true);
+
+    }
 
     // Change the content of the alert screen
     alertTitle.textContent = title;
@@ -53,7 +71,18 @@ function showAlert(title, message, primaryButtonName, primaryButtonCallback, but
 // Create a function to hide alerts
 function hideAlert() {
 
+    // Hide the alert container
     alertScreen.style.display = "none";
     alertScreen.style.opacity = 0;
+
+    // Reset the theme colour
+    if (alertLastThemeColor != null) {
+
+        updateThemeColor(alertLastThemeColor.light, alertLastThemeColor.dark, true);
+
+        // Update the `alertLastThemeColor` variable
+        alertLastThemeColor = null;
+
+    }
 
 }
