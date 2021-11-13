@@ -62,7 +62,7 @@
 
 .layout--topbar-shadow {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: -40px;
     left: -40px;
@@ -70,7 +70,7 @@
     box-shadow: inset 0px 78px 24px 6px var(--pagecontent-background);
     overflow: visible !important;
     padding-bottom: 80px;
-    z-index: -1;
+    z-index: 499;
 }
 
 @media all and (max-width: 840px) {
