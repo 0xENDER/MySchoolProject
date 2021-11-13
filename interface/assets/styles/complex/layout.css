@@ -60,6 +60,19 @@
     background-color: var(--topbar-backgroundhover);
 }
 
+.layout--topbar-shadow {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: -40px;
+    left: -40px;
+    height: var(--topbar-height);
+    box-shadow: inset 0px 78px 24px 6px var(--pagecontent-background);
+    overflow: visible !important;
+    padding-bottom: 80px;
+    z-index: -1;
+}
+
 @media all and (max-width: 840px) {
     [data-using-search="false"][data-floating-search="true"] .layout--topbar-search {
         background-color: var(--topbarsearchfloat-background);
@@ -80,5 +93,8 @@
     }
     [data-floating-search="true"] .component--scrollbar {
         top: 0px;
+    }
+    .layout--topbar-shadow {
+        display: block;
     }
 }
