@@ -60,18 +60,6 @@
     background-color: var(--topbar-backgroundhover);
 }
 
-[data-using-search="false"][data-floating-search="true"] .layout--topbar {
-    transition: background-color 0.12s, border 0.06s;
-}
-
-[data-using-search="false"][data-floating-search="true"] .layout--topbar-search {
-    transition: background-color 0.04s;
-}
-
-[data-using-search="false"][data-floating-search="true"] .layout--topbar-search::placeholder {
-    transition: color 0.04s;
-}
-
 @media all and (max-width: 840px) {
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search {
         background-color: var(--topbarsearchfloat-background);
