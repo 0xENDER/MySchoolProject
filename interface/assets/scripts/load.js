@@ -678,7 +678,7 @@ function isOnline() {
             } else {
 
                 // If the user is connected to a network, try to connect to the server of the store
-                fetch(window.platform.servers.store + "/connection.server.test", {
+                fetch(window.platform.servers.store + "/connection.server", {
 
                     // Only connect to the server, don't check the file's contents.
                     method: 'HEAD'
@@ -930,8 +930,6 @@ window.location.dynamic = {
 
         // Save some info about this page for use later
         if (changeURL && typeof window.history.state == "object" && window.history.state != null) {
-
-            console.log(newStateObject());
 
             window.history.replaceState(newStateObject(), "", window.location.href);
 
