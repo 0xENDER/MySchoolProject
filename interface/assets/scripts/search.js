@@ -39,6 +39,14 @@ function startSearch(query) {
 // Activate searching
 function activateSearch() {
 
+    // Check if this current page has a valid history object state
+    if (typeof window.history.state == "object" && window.history.state != null) {
+
+        // Update the current history object
+        window.history.replaceState(newStateObject(), "", window.location.href);
+
+    }
+
     // Update the page has to "search"
     window.location.hash = "search";
 
@@ -327,7 +335,7 @@ searchBar.onblur = function(e) {
 };
 
 // Keep updating the search bar
-pageContentElement.addEventListener("scroll", function() {
+pageContentElement.updateFloatingSearchBar = function() {
 
     // Check if this page uses a floating search bar
     if (pageFlags.floatingSearchBar && window.platform.special.dynamic.isWindowSmall()) {
@@ -337,7 +345,8 @@ pageContentElement.addEventListener("scroll", function() {
 
     }
 
-}, window.performanceVariables.objects.passiveEvent);
+};
+pageContentElement.addEventListener("scroll", pageContentElement.updateFloatingSearchBar, window.performanceVariables.objects.passiveEvent);
 
 // Check if this device/browser supports voice input
 if (window.crossBrowser.speechRecognition.supported) {
