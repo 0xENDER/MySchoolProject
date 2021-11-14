@@ -55,15 +55,10 @@ function activateSearch() {
 // Show the search interface
 function showSearch() {
 
-    if (searchLastThemeColor == null) {
+    if (searchLastThemeColor == null && (!pageFlags.floatingSearchBar || topBar.dataset.allowFloat === "true")) {
 
         // Update the `searchLastThemeColor` variable
-        searchLastThemeColor = {
-
-            light: themeColor.light.getAttribute("content"),
-            dark: themeColor.dark.getAttribute("content")
-
-        };
+        searchLastThemeColor = getThemeColor();
 
         // Update the theme colour
         updateThemeColor(null, null, true);
@@ -105,7 +100,7 @@ function showSearch() {
 function hideSearch() {
 
     // Reset the theme colour
-    if (searchLastThemeColor != null) {
+    if (searchLastThemeColor != null && (!pageFlags.floatingSearchBar || topBar.dataset.allowFloat === "true")) {
 
         updateThemeColor(searchLastThemeColor.light, searchLastThemeColor.dark, true);
 
@@ -335,13 +330,54 @@ searchBar.onblur = function(e) {
 };
 
 // Keep updating the search bar
+topBar.lastThemeColor = null;
 pageContentElement.updateFloatingSearchBar = function() {
 
     // Check if this page uses a floating search bar
     if (pageFlags.floatingSearchBar && window.platform.special.dynamic.isWindowSmall()) {
 
-        // Update the floating status
-        topBar.dataset.allowFloat = pageContentElement.scrollTop < 60;
+        // Get the new state
+        var newState = pageContentElement.scrollTop < 60;
+
+        // Check if this state is different from the last one
+        if (newState != (topBar.dataset.allowFloat === "true")) {
+
+            // Check if the floating search bar is allowed or not
+            if (newState) {
+
+                // Update the floating status
+                topBar.dataset.allowFloat = true;
+
+                // Check if the theme colour changed when the floating bar was blocked or not
+                if (floatAllowThemeColorUpdate != null) {
+
+                    // Restore the last theme colour
+                    floatAllowThemeColorUpdate();
+
+                } else if (topBar.lastThemeColor != null) {
+
+                    // Restore the previous theme colour
+                    updateThemeColor(topBar.lastThemeColor.light, topBar.lastThemeColor.dark, true);
+
+                    // Delete the stored theme colour data
+                    topBar.lastThemeColor = null;
+
+                }
+
+            } else {
+
+                // Save the current theme colour
+                topBar.lastThemeColor = getThemeColor();
+
+                // Reset the theme color
+                updateThemeColor(null, null, true);
+
+                // Update the floating status
+                topBar.dataset.allowFloat = false;
+
+            }
+
+        }
 
     }
 

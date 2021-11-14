@@ -22,12 +22,7 @@ function showMenu(top = null, left = null, element) {
     if (menuLastThemeColor == null) {
 
         // Update the `menuLastThemeColor` variable
-        menuLastThemeColor = {
-
-            light: themeColor.light.getAttribute("content"),
-            dark: themeColor.dark.getAttribute("content")
-
-        };
+        menuLastThemeColor = getThemeColor();
 
         // Update the theme colour
         updateThemeColor(null, null, true);

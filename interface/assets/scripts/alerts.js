@@ -22,12 +22,7 @@ function showAlert(title, message, primaryButtonName, primaryButtonCallback, but
     if (alertLastThemeColor == null) {
 
         // Update the `alertLastThemeColor` variable
-        alertLastThemeColor = {
-
-            light: themeColor.light.getAttribute("content"),
-            dark: themeColor.dark.getAttribute("content")
-
-        };
+        alertLastThemeColor = getThemeColor();
 
         // Update the theme colour
         updateThemeColor(null, null, true);
