@@ -28,6 +28,9 @@
   - [x] Desktop layout
   - [ ] Mobile devices layout
   - [ ] Optimise for low-performing devices
+- [ ] Keep track of the user experience (Analytics)
+  - [ ] Detect loading problems and report them to the server
+  - [ ] Check how the user interacts with pages
 - [ ] Support the store on mutiple platforms:
   - [x] The web
   - [x] PWA (Progressive Web Application) **(\*)**
