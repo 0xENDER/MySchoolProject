@@ -61,10 +61,9 @@
 }
 
 @media all and (max-width: 840px) {
-    [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search {
-        background-color: var(--topbarsearchfloat-background);
-        box-shadow: 0 1px 8px var(--topbarsearchfloat-shadow);
-        backdrop-filter: blur(4px);
+    [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] {
+        background-color: transparent;
+        border: none;
     }
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search::placeholder {
         color: var(--text-colour);
@@ -74,11 +73,12 @@
         margin-top: calc(-1 * var(--topbar-height));
         height: calc(var(--pagecontent-height) + var(--topbar-height));
     }
-    [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] {
-        background-color: transparent;
-        border: none;
-    }
     [data-floating-search="true"] .component--scrollbar {
         top: 0px;
+    }
+    [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search {
+        background-color: var(--topbarsearchfloat-background);
+        box-shadow: 0 1px 8px var(--topbarsearchfloat-shadow);
+        backdrop-filter: blur(4px);
     }
 }

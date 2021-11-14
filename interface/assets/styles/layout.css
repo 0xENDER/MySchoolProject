@@ -194,6 +194,7 @@ body {
     justify-content: space-between;
     border-bottom: var(--topbar-border);
     -webkit-app-region: drag;
+    transition: none !important;
 }
 
 .layout--searchcontainer {
