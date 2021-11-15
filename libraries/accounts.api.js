@@ -8,6 +8,9 @@
 // Run the library (as a function)
 (function() {
 
+    // Enable strict mode
+    "use strict";
+
     // Define a child window events object
     var eventsFunctions = {
 
@@ -212,7 +215,7 @@
 
                     }
 
-                } else if (v == null) {
+                } else if (v === null) {
 
                     eventsFunctions[property[0]] = null;
 
