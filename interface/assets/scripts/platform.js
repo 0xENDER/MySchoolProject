@@ -8,10 +8,19 @@
 // Helping variables
 var isApp = window.location.protocol.indexOf("http") == -1;
 
-window.platform = { // An object to keep track and organise the platform data
+// An object to keep track and organise the platform data
+window.platform = {
 
-    type: { // The type
+    // The operating system
+    operatingSystem: {
 
+        // The OS version
+        version: null,
+
+        // The OS name
+        name: null,
+
+        // The OS type
         isMac: false, // Is this a mac?
         isWindows: false, // Is this a Windows?
         isLinux: false, // Is this a Linux?
@@ -23,7 +32,8 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
-    architecture: { // The architecture of the CPU
+    // The architecture of the device
+    architecture: {
 
         is64: false, // Is this a 64-bit processor?
         is32: false, // Is this a 32-bit processor?
@@ -33,7 +43,8 @@ window.platform = { // An object to keep track and organise the platform data
 
     },
 
-    isApp: isApp, // Is this website open as an app?
+    // Is this website open as an app?
+    isApp: isApp,
     // ^^^ If this was opened as an app, the protocol ^^^
     // ^^^ of the page would not be set to "http(s)"! ^^^
 
@@ -41,6 +52,7 @@ window.platform = { // An object to keep track and organise the platform data
     servers: {
 
         store: "%{{server:url}}%",
+        resources: "%{{server:ResourcesURL}}%",
         accounts: "%{{server:AccountsURL}}%"
 
     },
@@ -96,8 +108,10 @@ window.platform = { // An object to keep track and organise the platform data
         display: {
 
             isTouchCapable: ( // Does this device have a touch screen?
+
                 (window.matchMedia != undefined && (window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in document.documentElement)) ||
                 (window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0)
+
             ),
             width: screen.width,
             height: screen.height
@@ -167,87 +181,248 @@ if (localStorage.getItem("LastVisitVersion") != window.platform.codebase.version
 
 }
 
-// Get the device type (modified version of https://github.com/PoeHaH/devicedetector/blob/master/devicedetector-production.js)
+// Note: `navigator.appVersion` is gonna get replaced by `navigator.userAgentData` soon
+// Migrate to `navigator.userAgentData` once it's supported by all modern browsers!
+
+// Get the user agent
 var userAgent = navigator.userAgent.toLowerCase();
-if (/(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)) {
 
-    window.platform.device.isTablet = true;
-    document.documentElement.dataset.deviceType = "tablet";
+// Get the device type (modified version of https://github.com/PoeHaH/devicedetector/blob/master/devicedetector-production.js)
+function getDeviceTypeFromUserAgent() {
 
-} else if (/(mobi|ipod|phone|blackberry|opera mini|fennec|minimo|symbian|psp|nintendo ds|archos|skyfire|puffin|blazer|bolt|gobrowser|iris|maemo|semc|teashark|uzard)/.test(userAgent)) {
+    // Check the device type
+    if (/(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)) {
 
-    window.platform.device.isMobile = true;
-    document.documentElement.dataset.deviceType = "mobile";
+        window.platform.device.isTablet = true;
+        document.documentElement.dataset.deviceType = "tablet";
 
-} else if (/(xbox|playstation|nintendo)/.test(userAgent)) {
+    } else if (/(mobi|ipod|phone|blackberry|opera mini|fennec|minimo|symbian|psp|nintendo ds|archos|skyfire|puffin|blazer|bolt|gobrowser|iris|maemo|semc|teashark|uzard)/.test(userAgent)) {
 
-    window.platform.device.isConsole = true;
-    document.documentElement.dataset.deviceType = "console";
+        window.platform.device.isMobile = true;
+        document.documentElement.dataset.deviceType = "mobile";
+
+    } else if (/(xbox|playstation|nintendo)/.test(userAgent)) {
+
+        window.platform.device.isConsole = true;
+        document.documentElement.dataset.deviceType = "console";
+
+    } else {
+
+        window.platform.device.isDesktop = true;
+        document.documentElement.dataset.deviceType = "desktop";
+
+    }
+
+}
+if (window.crossBrowser.userAgentData.supported) {
+
+    if (navigator.userAgentData.mobile) {
+
+        window.platform.device.isMobile = true;
+        document.documentElement.dataset.deviceType = "mobile";
+
+    } else {
+
+        // Fallback to the user agent
+        getDeviceTypeFromUserAgent();
+
+    }
 
 } else {
 
-    window.platform.device.isDesktop = true;
-    document.documentElement.dataset.deviceType = "desktop";
+    getDeviceTypeFromUserAgent();
 
 }
+delete getDeviceTypeFromUserAgent;
 
 // Detect the user's OS
-if (navigator.appVersion.indexOf("Win") != -1)
+function getOSFromUserAgent() {
 
-    window.platform.type.isWindows = true;
+    // Check the user agent
+    if (userAgent.indexOf("win") != -1) {
 
-else if (navigator.appVersion.indexOf("Android") != -1)
+        window.platform.operatingSystem.isWindows = true;
+        window.platform.operatingSystem.name = "Windows";
 
-    window.platform.type.isAndroid = true;
+    } else if (userAgent.indexOf("android") != -1) {
 
-else if (navigator.appVersion.indexOf("iPhone OS") != -1)
+        window.platform.operatingSystem.isAndroid = true;
+        window.platform.operatingSystem.name = "Android";
 
-    window.platform.type.isIOS = true;
+    } else if (userAgent.indexOf("iphone os") != -1 || userAgent.indexOf("ipad") != -1) {
 
-else if (navigator.appVersion.indexOf("Mac") != -1) // Order is important! (The iOS user agent string also has "Mac" in it)
+        window.platform.operatingSystem.isIOS = true;
+        window.platform.operatingSystem.name = "iOS";
 
-    window.platform.type.isMac = true;
+    } else if (userAgent.indexOf("mac") != -1) { // Order is important! (The iOS user agent string also has "Mac" in it)
 
-else if (navigator.appVersion.indexOf("CrOS") != -1)
+        window.platform.operatingSystem.isMac = true;
+        window.platform.operatingSystem.name = "macOS";
 
-    window.platform.type.isChromeOS = true;
+    } else if (userAgent.indexOf("cros") != -1) {
 
-else if (navigator.appVersion.indexOf("X11") != -1)
+        window.platform.operatingSystem.isChromeOS = true;
+        window.platform.operatingSystem.name = "Chrome OS";
 
-    window.platform.type.isUnix = true;
+    } else if (userAgent.indexOf("x11") != -1) {
 
-else if (navigator.appVersion.indexOf("Linux") != -1)
+        window.platform.operatingSystem.isUnix = true;
+        window.platform.operatingSystem.name = "Unix";
 
-    window.platform.type.isLinux = true;
+    } else if (userAgent.indexOf("linux") != -1) {
 
-else
+        window.platform.operatingSystem.isLinux = true;
+        window.platform.operatingSystem.name = "Linux";
 
-    window.platform.type.isOther = true;
+    } else {
 
-// Check the processor architecture
-if (navigator.appVersion.indexOf("x86_64") != -1 ||
-    navigator.appVersion.indexOf("x64") != -1 ||
-    navigator.appVersion.indexOf("armv8") != -1) {
+        window.platform.operatingSystem.isOther = true;
+        window.platform.operatingSystem.name = "Unknown";
 
-    window.platform.architecture.is64 = true;
+    }
 
-} else if (navigator.appVersion.indexOf("x86_32") != -1 ||
-    navigator.appVersion.indexOf("x86") != -1 ||
-    navigator.appVersion.indexOf("x32") != -1 ||
-    navigator.appVersion.indexOf("armv7") != -1) {
+}
+if (window.crossBrowser.userAgentData.supported) {
 
-    window.platform.architecture.is32 = true;
+    // Request the "platform" variable
+    navigator.userAgentData.getHighEntropyValues([
+
+        "platform"
+
+    ]).then(function(userAgentData) {
+
+        // Get the "platform" variable
+        var platform = userAgentData.platform.toLocaleLowerCase();
+
+        // Check the platform name
+        if (platform == "windows") {
+
+            window.platform.operatingSystem.isWindows = true;
+            window.platform.operatingSystem.name = "Windows";
+
+        } else if (platform == "android") {
+
+            window.platform.operatingSystem.isAndroid = true;
+            window.platform.operatingSystem.name = "Android";
+
+        } else if (platform.indexOf("chrome") != -1) {
+
+            window.platform.operatingSystem.isChromeOS = true;
+            window.platform.operatingSystem.name = "Chrome OS";
+
+        } else {
+
+            // Fallback to the user agent string
+            getOSFromUserAgent();
+
+        }
+
+    });
 
 } else {
 
-    window.platform.architecture.isOther = true;
+    getOSFromUserAgent();
 
 }
-if (navigator.appVersion.indexOf("armv") != -1) {
+delete getOSFromUserAgent;
 
-    window.platform.architecture.isARM = true;
+// Check the OS version
+function getOSVersionFromUserAgent() {
+
+    if (window.platform.operatingSystem.isWindows) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isMac) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isChromeOS) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isLinux) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isUnix) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isAndroid) {
+
+        //
+
+    } else if (window.platform.operatingSystem.isIOS) {
+
+        //
+
+    } else {
+
+        window.platform.operatingSystem.version = 0;
+
+    }
 
 }
+if (window.crossBrowser.userAgentData.supported) {
+
+    // Request the "platformVersion" variable
+    navigator.userAgentData.getHighEntropyValues([
+
+        "platformVersion"
+
+    ]).then(userAgentData => {
+
+        // Get the OS version
+        if (typeof userAgentData.platformVersion == "string" && userAgentData.platformVersion != "") {
+
+            window.platform.operatingSystem.version = userAgentData.platformVersion;
+
+        } else {
+
+            // Fallback to the user agent
+            getOSVersionFromUserAgent();
+
+        }
+
+    });
+
+} else {
+
+    getOSVersionFromUserAgent();
+
+}
+delete getOSVersionFromUserAgent;
+
+// Check the processor architecture
+function getArchitectureFromUserAgent() {
+
+    if (userAgent.indexOf("x86_64") != -1 ||
+        userAgent.indexOf("x64") != -1 ||
+        userAgent.indexOf("armv8") != -1) {
+
+        window.platform.architecture.is64 = true;
+
+    } else if (userAgent.indexOf("x86_32") != -1 ||
+        userAgent.indexOf("x86") != -1 ||
+        userAgent.indexOf("x32") != -1 ||
+        userAgent.indexOf("armv7") != -1) {
+
+        window.platform.architecture.is32 = true;
+
+    } else {
+
+        window.platform.architecture.isOther = true;
+
+    }
+    if (userAgent.indexOf("armv") != -1) {
+
+        window.platform.architecture.isARM = true;
+
+    }
+
+}
+getArchitectureFromUserAgent();
 
 // Get info about the user's hardware
 function updateGamepads() {
@@ -304,14 +479,11 @@ if (!window.platform.isApp) {
 
 }
 
-// Note: `navigator.appVersion` is gonna get replaced by `navigator.userAgentData` soon
-// Migrate to `navigator.userAgentData` once it's supported by all modern browsers!
-
 // If this is an app, do some checks that are related to the `more` sub-object
 if (window.platform.isApp) {
 
     // Check if this is a mac
-    if (window.platform.type.isMac) {
+    if (window.platform.operatingSystem.isMac) {
 
         // Change the document data set to apply the appropriate style for the title bar controls
         document.documentElement.dataset.mac = true;
