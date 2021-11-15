@@ -5,4 +5,5 @@
 */
 
 
+// Define the main `analytics` object
 //
