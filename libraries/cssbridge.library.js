@@ -5,10 +5,11 @@
 */
 
 
-// Run the library (as a function)
+// Isolate the library
 (function() {
 
-    "strict mode";
+    // Enable strict mode
+    "use strict";
 
     // The global library object
     window.cssBridge = {
