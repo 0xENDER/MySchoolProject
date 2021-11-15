@@ -12,6 +12,12 @@
 
     },
 
+    "ResourcesURL": {
+
+        "default": "%%PROTOCOL%%://resources.%%HOST%%"
+
+    },
+
     "CSP": {
 
         "default": "default-src 'self' %%PROTOCOL%%://*.%%HOST%%; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'report-sample' %%PROTOCOL%%://*.%%HOST%% https://ajax.cloudflare.com/ https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; connect-src 'self' %%PROTOCOL%%://*.%%HOST%% https://static.cloudflareinsights.com/; object-src 'none';"
