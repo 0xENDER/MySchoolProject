@@ -5,7 +5,7 @@
 */
 
 
-// Isolate the library's functions
+// Isolate the library
 (function() {
 
     // Create a new typed item string
