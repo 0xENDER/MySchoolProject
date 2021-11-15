@@ -24,6 +24,11 @@ window.crossBrowser = {
         supported: false,
         object: undefined
 
+    },
+    userAgentData: {
+
+        supported: "userAgentData" in navigator && "getHighEntropyValues" in navigator.userAgentData
+
     }
 
 };
