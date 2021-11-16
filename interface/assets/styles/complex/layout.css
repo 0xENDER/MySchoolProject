@@ -82,3 +82,48 @@
         backdrop-filter: blur(4px);
     }
 }
+
+
+/* I'm bored, LOL */
+
+[data-bored="true"]:root:after {
+    content: "";
+    position: fixed;
+    top: -20px;
+    bottom: -20px;
+    right: -20px;
+    left: -20px;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 1.7;
+    animation: an .09s infinite;
+}
+
+[data-bored="true"] .dot {
+    background-color: blue;
+    position: fixed;
+    border-radius: 50%;
+    z-index: 999;
+    pointer-events: none;
+    animation: ann 0.4s infinite;
+}
+
+@keyframes an {
+    from {
+        -webkit-backdrop-filter: blur(2px) grayscale(0.6) saturate(18) sepia(0.2) brightness(1.25);
+        backdrop-filter: blur(2px) grayscale(0.6) saturate(18) sepia(0.2) brightness(1.25);
+    }
+    to {
+        -webkit-backdrop-filter: blur(8px) grayscale(0.7) saturate(20) sepia(0.2) brightness(1.3);
+        backdrop-filter: blur(8px) grayscale(0.7) saturate(20) sepia(0.2) brightness(1.3);
+    }
+}
+
+@keyframes ann {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
