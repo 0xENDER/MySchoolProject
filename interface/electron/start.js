@@ -26,6 +26,12 @@ const {
 
     };
 
+// Disable hardware acceleration
+app.disableHardwareAcceleration();
+
+// Limit the RAM usage
+app.commandLine.appendSwitch('js-flags', '--max-old-space-size=64');
+
 // Define the window variable
 var currentWindow;
 
