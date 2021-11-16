@@ -67,7 +67,7 @@
     }
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search::placeholder {
         color: var(--text-colour);
-        opacity: 0.9 !important;
+        opacity: 0.9;
     }
     [data-using-search="false"][data-floating-search="true"] .layout--pagecontent {
         margin-top: calc(-1 * var(--topbar-height));

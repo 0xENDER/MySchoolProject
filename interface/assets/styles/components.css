@@ -109,14 +109,14 @@ button.component--bubblebutton:active {
     bottom: 0px;
     width: var(--scrollbar-width);
     height: var(--scrollbar-height);
-    display: var(--scrollbar-display) !important;
+    display: var(--scrollbar-display);
     flex-direction: column;
     justify-content: flex-start;
 }
 
 @media (pointer:coarse) {
     .component--scrollbar {
-        pointer-events: none !important;
+        pointer-events: none;
     }
 }
 

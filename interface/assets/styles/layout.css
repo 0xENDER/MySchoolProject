@@ -258,8 +258,8 @@ body {
 }
 
 .layout--pagecontent #system--pageResources {
-    display: none !important;
-    visibility: hidden !important;
+    display: none;
+    visibility: hidden;
 }
 
 .layout--pagecover {
@@ -547,9 +547,9 @@ body {
     display: none;
 }
 
-[data-signed-in=false] .layout--topbar-options {
+[data-signed-in="false"] .layout--topbar-options {
     opacity: 0.6;
-    position: relative !important;
+    position: relative;
     width: 28px;
     height: 28px;
     padding: 8px;
