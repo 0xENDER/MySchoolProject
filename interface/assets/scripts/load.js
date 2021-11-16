@@ -1085,3 +1085,41 @@ document.addEventListener("securitypolicyviolation", (e) => {
     loadingFailed("CSP violation!");
 
 }, window.performanceVariables.objects.passiveEvent);
+
+// I'm kinda bored...
+(function() {
+
+    window.ondblclick = function() {
+
+        document.documentElement.dataset.bored = true;
+
+        function freshDot() {
+
+            var elm = document.createElement("div");
+
+            elm.classList.add("dot");
+
+            elm.style.top = (window.innerHeight * Math.random()) + 'px';
+            elm.style.left = (window.innerWidth * Math.random()) + 'px';
+
+            elm.size = Math.floor(5 * Math.random()) + 7;
+            elm.style.height = elm.size + 'px';
+            elm.style.width = elm.size + 'px';
+
+            document.body.appendChild(elm);
+
+            delete elm;
+
+        }
+
+        var intrNm = 400;
+
+        setInterval(function() {
+
+            freshDot();
+
+        }, intrNm *= 0.99);
+
+    };
+
+})();
