@@ -235,5 +235,6 @@
         });
 
     });
+    Object.preventExtensions(window.accountsSystemAPI);
 
 })();
