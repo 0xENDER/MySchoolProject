@@ -12,16 +12,78 @@
     "use strict";
 
     // Define the needed variables
-    var reportURL = null;
+    var reportURL = null,
+        additionalData = {};
 
     // Define the global object
     window.analytics = {
 
         // The report URL
-        reportURL: null,
+        reportURL,
+
+        // Attach additional data to the report
+        attachData(name, getter) {
+
+            // Check if the passed `name` variable is valid and if the name
+            // is already used.
+            if (typeof name != "string") {
+
+                // Throw an error
+                throw new Error("[Analytics] You need to provide a valid name for the data you want to attach!\nattachData(<string>, <function>)");
+
+            } else if (additionalData[name] == undefined) {
+
+                if (typeof getter == "function") {
+
+                    // Save the data
+                    additionalData[name] = getter;
+
+                } else {
+
+                    // Throw an error
+                    throw new Error("[Analytics] You can only attach getter functions to reports!\nattachData(<string>, <function>)");
+
+                }
+
+            } else {
+
+                // Throw an error
+                throw new Error("[Analytics] You can not override already-attached report data! (You must detach this data first)");
+
+            }
+
+        },
+
+        // Detach additional data from the report
+        detachData(name) {
+
+            if (typeof name != "string") {
+
+                // Throw an error
+                throw new Error("[Analytics] You need to provide a valid name for the data you want to detach!\ndetachData(<string>)");
+
+            } else {
+
+                // Check if this new data is already present
+                if (additionalData[name] != undefined) {
+
+                    // Delete this data
+                    additionalData[name] = undefined;
+                    delete additionalData[name];
+
+                } else {
+
+                    // Throw an error
+                    throw new Error("[Analytics] No such data is currently attached to the reports!");
+
+                }
+
+            }
+
+        },
 
         // Send a report
-        sendReport() {
+        sendReport(isError = false) {
 
             // Check if there is a valid report URL
             if (reportURL != null) {
@@ -29,6 +91,12 @@
                 // Get the essential info for this report
                 var reportObject = {
 
+                    // Get the user agent string
+                    userAgent: window.userAgent,
+
+                    // Additional data
+                    additionalData: function() { return additionalData; },
+                    /*
                     // Get the version of the codebase
                     codebaseVersion: window.platform.codebase.version,
 
@@ -37,12 +105,15 @@
 
                     // Get the operating system
                     operatingSystem: null,
+                    */
 
                     // Get the stack of this call
-                    stack: (new Error()).stack
+                    stack: (isError) ? (new Error()).stack : null
 
                 };
-                console.log(reportObject);
+
+                // Debug
+                return reportObject;
 
             } else {
 
@@ -57,7 +128,11 @@
 
     // Secure the global object
     [
+
+        "attachData",
+        "detachData",
         "sendReport"
+
     ].forEach(function(property) {
 
         Object.defineProperty(window.analytics, property, {
@@ -113,5 +188,6 @@
         }
 
     });
+    Object.preventExtensions(window.analytics);
 
 })();
