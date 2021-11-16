@@ -28,3 +28,6 @@ function homepageCoverEffect() {
     }, window.performanceVariables.objects.passiveEvent);
 
 }
+
+// Add this object to the "unloading" queue
+window.unloading.add("homepageCoverEffect");

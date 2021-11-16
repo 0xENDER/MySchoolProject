@@ -834,12 +834,8 @@ window.unloadContent = function() {
         var objectName = unload.objects.shift();
 
         // Delete the object
-        if (objectName != undefined) {
-
-            delete window[objectName];
-
-        }
-        delete objectName;
+        window[objectName] = undefined;
+        delete window[objectName], objectName;
 
     }
 
