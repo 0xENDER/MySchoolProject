@@ -352,5 +352,6 @@
         }
 
     });
+    Object.preventExtensions(window._LocalStorage);
 
 })();
