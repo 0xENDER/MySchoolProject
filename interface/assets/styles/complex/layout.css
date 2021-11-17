@@ -86,6 +86,8 @@
 
 /* I'm bored, LOL */
 
+
+/*
 [data-bored="true"]:root:after {
     content: "";
     position: fixed;
@@ -127,3 +129,4 @@
         filter: hue-rotate(360deg);
     }
 }
+*/

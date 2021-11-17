@@ -1,4 +1,4 @@
-<PAGE section="home" title="Home" page-end="true" can-unload="true" requires-account="false" keep-search="false" />
+<PAGE section="home" title="Home" page-end="true" can-unload="true" requires-account="false" keep-search="false" floating-search="true" use-background="true" />
 <!--
 
     The home page
@@ -12,16 +12,14 @@
     <request type="component/css" get="home-page"></request>
     <request type="component/all" get="suggestions/cards"></request>
 
-    <!-- Loading scripts -->
+    <!-- Loading script -->
     <request type="file/js" src="${PageURL}/load.js"></request>
-    <request type="file/js" src="${PageURL}/cover.js"></request>
 </resources>
 
 <content>
 
     <!-- The main cover -->
     <div class="component--cover">
-        <img id="homepage--background" class="homepage--background" alt="Main Page Cover" width="0px" height="0px" src="./assets/media/placeholder_cover.svg">
         <div class="homepage--cover-info">
             <text class="homepage--cover-price">[App Price]</text>
             <text class="homepage--cover-title">[App Title]</text>
@@ -29,877 +27,883 @@
         </div>
         <!-- add `data-src="..."` and `data-loaded="..."` -->
     </div>
-    <div id="homepage--cover-suggestions" class="component--section homepage--cover-suggestions" no-scrollbar no-scrollbar-exception>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-        <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
-            <text>[Title]</text>
-        </a>
-    </div>
 
-    <!-- Page suggestions -->
-    <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
-        <text>[Title]</text>
-        <a class="suggestions--sectiontop-right" href="./page/apps/list/val/" title="View more!">
-            <text>View More</text>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
-        </a>
-    </div>
-    <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-    </div>
-    <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
-        <text>[Title]</text>
-        <a class="suggestions--sectiontop-right" href="./page/apps/list/val/">
-            <text>View More</text>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
-        </a>
-    </div>
-    <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
-    </div>
-    <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
-        <text>[Title]</text>
-        <a class="suggestions--sectiontop-right" href="./page/apps/list/val/">
-            <text>View More</text>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
-        </a>
-    </div>
-    <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
-        <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
-            <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
-            <text class="suggestions--card-name" data-loaded="false">[Name]</text>
-            <div class="suggestions--card-extra" data-loaded="false">
-                <text class="suggestions--cardextra-size">250MB</text>
-                <text class="suggestions--cardextra-price">5.00$</text>
-            </div>
-        </a>
+    <div class="homepage--background">
+
+        <!-- The main cover suggestions -->
+        <div id="homepage--cover-suggestions" class="component--section homepage--cover-suggestions" no-scrollbar no-scrollbar-exception>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+            <a href="./page/app/" class="component--card homepage--coversuggestions-card" data-loaded="false" clickable tabindex="0">
+                <text>[Title]</text>
+            </a>
+        </div>
+
+        <!-- Page suggestions -->
+        <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
+            <text>[Title]</text>
+            <a class="suggestions--sectiontop-right" href="./page/apps/list/val/" title="View more!">
+                <text>View More</text>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
+            </a>
+        </div>
+        <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+        </div>
+        <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
+            <text>[Title]</text>
+            <a class="suggestions--sectiontop-right" href="./page/apps/list/val/">
+                <text>View More</text>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
+            </a>
+        </div>
+        <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
+        </div>
+        <div class="component--section suggestions--section-top" no-scrollbar no-scrollbar-exception>
+            <text>[Title]</text>
+            <a class="suggestions--sectiontop-right" href="./page/apps/list/val/">
+                <text>View More</text>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5858 13H3V11H17.5858L11.2929 4.70711L12.7071 3.29289L21.4142 12L12.7071 20.7071L11.2929 19.2929L17.5858 13Z"/></svg>
+            </a>
+        </div>
+        <div class="component--section suggestions--section" no-scrollbar no-scrollbar-exception>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+            <a href="./page/app/" class="component--card suggestions--card" clickable tabindex="0">
+                <img class="suggestions--card-logo" data-loaded="false" alt="App's logo" src="./assets/media/placeholder.svg">
+                <text class="suggestions--card-name" data-loaded="false">[Name]</text>
+                <div class="suggestions--card-extra" data-loaded="false">
+                    <text class="suggestions--cardextra-size">250MB</text>
+                    <text class="suggestions--cardextra-price">5.00$</text>
+                </div>
+            </a>
+        </div>
+
     </div>
 
 </content>

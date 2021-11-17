@@ -27,8 +27,8 @@ window.onpagecontentload = function() {
         }
     }
 
-    // Apply the home page cover scrolling effect
-    homepageCoverEffect();
+    // Update the cover
+    pageBackgroundElement.src = "./assets/media/placeholder_cover.svg";
 
     // Update the theme colour to match the current card
     if (window.platform.device.isMobile || window.platform.device.isTablet) {

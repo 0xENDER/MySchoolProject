@@ -9,6 +9,7 @@ var contentResourcesNumber = 0,
     loadedContentResourcesNumber = 0,
     didAlertAboutConnection = false,
     pageContentElement = document.getElementById("page"),
+    pageBackgroundElement = document.getElementById("page--background"),
     pageContentElementChild = document.getElementById("page--content"),
     coverLoadingIcon = document.getElementById("cover--loadingicon"),
     pageHTMLContent = null,
@@ -20,6 +21,7 @@ var contentResourcesNumber = 0,
         accountRequired: false,
         keepSearch: true,
         floatingSearchBar: false,
+        useBackground: false,
         section: null
 
     },
@@ -293,7 +295,8 @@ function fetchContent(sourceURLPathname) {
                             pageFlags.canUnload = !(pageElement.getAttribute("can-unload") === "false");
                             pageFlags.accountRequired = (pageElement.getAttribute("requires-account") === "true");
                             pageFlags.keepSearch = !(pageElement.getAttribute("keep-search") === "false");
-                            pageFlags.floatingSearchBar = !(pageElement.getAttribute("floating-search") === "false");
+                            pageFlags.floatingSearchBar = (pageElement.getAttribute("floating-search") === "true");
+                            pageFlags.useBackground = (pageElement.getAttribute("use-background") === "true");
                             pageFlags.section = pageElement.getAttribute("section");
 
                             // Check if the page should not keep the search bar input value
@@ -304,6 +307,13 @@ function fetchContent(sourceURLPathname) {
 
                                 // Update the search buttonss
                                 updateSearchButtons();
+
+                            }
+
+                            // Check if this page is gonna use the background element
+                            if (pageFlags.useBackground) {
+
+                                pageBackgroundElement.style.display = "block";
 
                             }
 
@@ -789,12 +799,16 @@ window.unloading.remove = function(objectName) {
 // Unload the page content
 window.unloadContent = function() {
 
+    // Reset the theme colour
+    updateThemeColor(null, null, true);
+
     // Update the content status
     document.documentElement.dataset.contentLoaded = false;
     topBar.dataset.allowFloat = true;
 
-    // Reset the theme colour
-    updateThemeColor(null, null, true);
+    // Unload the background element
+    pageBackgroundElement.style.display = "none";
+    pageBackgroundElement.removeAttribute("src");
 
     // Reset the loading screen
     coverLoadingIcon.style.opacity = 0;
@@ -865,6 +879,7 @@ window.unloadContent = function() {
         pageFlags.accountRequired = false;
         pageFlags.keepSearch = true;
         pageFlags.floatingSearchBar = false;
+        pageFlags.useBackground = false;
         pageFlags.section = null;
 
 
@@ -1087,7 +1102,7 @@ document.addEventListener("securitypolicyviolation", (e) => {
 }, window.performanceVariables.objects.passiveEvent);
 
 // I'm kinda bored...
-(function() {
+/*(function() {
 
     window.ondblclick = function() {
 
@@ -1122,4 +1137,4 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
     };
 
-})();
+})();*/

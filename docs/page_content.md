@@ -24,6 +24,10 @@ This element should always be present in the first line of the document, without
   All the possible values are: `true`, and `false`.(The default value is `false`)
 - `keep-search`: Whether the page should keep the value of the search bar or not.
   All the possible values are: `true`, and `false`.(The default value is `true`)
+- `use-background`: Whether the page should have a background or not.
+  All the possible values are: `true`, and `false`.(The default value is `false`)
+- `floating-search`: Whether the page should have a floating search bar or not.
+  All the possible values are: `true`, and `false`.(The default value is `false`)
 
 ## The `resources` element
 

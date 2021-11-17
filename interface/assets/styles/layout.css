@@ -234,9 +234,28 @@ body {
 }
 
 .layout--pagecontent {
+    position: relative;
     -webkit-overflow-scrolling: touch;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    perspective: 1px;
+}
+
+.page--background {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-3px) scale(4);
+}
+
+.page--background .page--background-image {
+    position: relative;
+    height: var(--componentcover-height);
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 .layout--pagecontent-child {

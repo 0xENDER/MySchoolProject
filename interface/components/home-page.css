@@ -26,14 +26,22 @@
 
 /* Main cover */
 
+.homepage--background {
+    background-color: var(--pagecontent-background);
+    width: 100%;
+    height: fit-content;
+    z-index: 0;
+    margin-top: -24px;
+}
+
 .component--cover {
     width: 100%;
     height: var(--componentcover-height);
-    background-color: #6247F1;
     display: flex;
     align-items: center;
     overflow: hidden;
     content-visibility: auto;
+    position: relative;
 }
 
 .component--cover:after {

@@ -10,7 +10,7 @@
     --scrollbar-height: calc(100% - var(--topbar-height));
     --scrollbarbuttons-opacity: 1;
     --scrollbarbuttons-pointerevents: auto;
-    --componentcover-height: calc( (100 * var(--vh, 1vh)) - var(--topbar-height) - 1.4 * var(--global-sidesmargin));
+    --componentcover-height: calc( (100 * var(--vh, 1vh)) - var(--topbar-height) - 1.4 * var(--global-sidesmargin) + 24px);
     --componentbutton-padding: 10px 24px;
     --scrollbar-display: flex;
     --bubblebutton-fontsize: 14px;
@@ -22,7 +22,7 @@
         --scrollbar-height: calc(100% - var(--topbar-height) - var(--sectionsbar-height));
         --scrollbarbuttons-opacity: 0;
         --scrollbarbuttons-pointerevents: none;
-        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height) - var(--suggestionscard-height) - 26px - 4 * 24px);
+        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height) - var(--suggestionscard-height) - 26px - 3 * 24px);
         --componentbutton-padding: 14px 32px;
         --bubblebutton-fontsize: 12px;
         --bubblebutton-topbottompadding: 12px;
@@ -35,13 +35,13 @@
 @media all and (max-height: 600px),
 all and (min-aspect-ratio:78/100) and (max-width: 840px) {
      :root {
-        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height) - 24px);
+        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height));
     }
 }
 
 @media all and (max-height: 600px) and (min-aspect-ratio:70/100) {
      :root {
-        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height) - var(--suggestionscard-height) - 26px - 4 * 24px);
+        --componentcover-height: calc( (100 * var(--ivh, var(--vh, 1vh))) - var(--sectionsbar-height) - var(--suggestionscard-height) - 26px - 3 * 24px);
     }
 }
 
