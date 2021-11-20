@@ -61,6 +61,21 @@
 }
 
 @media all and (max-width: 840px) {
+    .layout--topbar {
+        will-change: border, background;
+    }
+    .layout--topbar .layout--topbar-search::placeholder {
+        will-change: color, opacity;
+    }
+    .layout--pagecontent {
+        will-change: margin, height;
+    }
+    .component--scrollbar {
+        will-change: top;
+    }
+    .layout--topbar .layout--topbar-search {
+        will-change: background, box-shadow;
+    }
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] {
         background-color: transparent;
         border: none;
@@ -79,7 +94,6 @@
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] .layout--topbar-search {
         background-color: var(--topbarsearchfloat-background);
         box-shadow: 0 1px 8px var(--topbarsearchfloat-shadow);
-        backdrop-filter: blur(4px);
     }
 }
 
