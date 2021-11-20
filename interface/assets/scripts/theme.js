@@ -35,9 +35,9 @@ function getThemeColor() {
 }
 
 // Update the theme colour
-function updateThemeColor(lightColor = null, darkColor = lightColor, force = false) {
+function updateThemeColor(lightColor = null, darkColor = lightColor, force = false, allowFloat = allowSearchBarFloat) {
 
-    if (!pageFlags.floatingSearchBar || topBar.dataset.allowFloat === "true") {
+    if (!pageFlags.floatingSearchBar || allowFloat == true) {
 
         if (force || document.documentElement.dataset.contentLoaded === "true") {
 

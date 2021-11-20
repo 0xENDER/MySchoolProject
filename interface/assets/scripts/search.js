@@ -16,7 +16,8 @@ var searchButton = document.getElementById("button--search"),
     isUsingSearch = false,
     searchVisible = false,
     previousSearchBarValue = "",
-    searchLastThemeColor = null;
+    searchLastThemeColor = null,
+    allowSearchBarFloat = true;
 
 // Redirect to the search page
 function startSearch(query) {
@@ -55,7 +56,7 @@ function activateSearch() {
 // Show the search interface
 function showSearch() {
 
-    if (searchLastThemeColor == null && (!pageFlags.floatingSearchBar || topBar.dataset.allowFloat === "true")) {
+    if (searchLastThemeColor == null && (!pageFlags.floatingSearchBar || allowSearchBarFloat == true)) {
 
         // Update the `searchLastThemeColor` variable
         searchLastThemeColor = getThemeColor();
@@ -100,7 +101,7 @@ function showSearch() {
 function hideSearch() {
 
     // Reset the theme colour
-    if (searchLastThemeColor != null && (!pageFlags.floatingSearchBar || topBar.dataset.allowFloat === "true")) {
+    if (searchLastThemeColor != null && (!pageFlags.floatingSearchBar || allowSearchBarFloat == true)) {
 
         updateThemeColor(searchLastThemeColor.light, searchLastThemeColor.dark, true);
 
@@ -329,60 +330,63 @@ searchBar.onblur = function(e) {
 
 };
 
-// Keep updating the search bar
-topBar.lastThemeColor = null;
-pageContentElement.updateFloatingSearchBar = function() {
+// Check if this device has a small screen
+if (window.platform.special.dynamic.isWindowSmall()) {
 
-    // Check if this page uses a floating search bar
-    if (pageFlags.floatingSearchBar && window.platform.special.dynamic.isWindowSmall()) {
+    // Keep updating the search bar on scroll
+    topBar.lastThemeColor = null;
+    pageContentElement.updateFloatingSearchBar = function() {
 
-        // Get the new state
-        var newState = pageContentElement.scrollTop < 60;
+        // Check if this page uses a floating search bar
+        if (pageFlags.floatingSearchBar) {
 
-        // Check if this state is different from the last one
-        if (newState != (topBar.dataset.allowFloat === "true")) {
+            // Get the new state
+            var newState = pageContentElement.scrollTop <= 60;
 
-            // Check if the floating search bar is allowed or not
-            if (newState) {
+            // Check if this state is different from the last one
+            if (newState != allowSearchBarFloat) {
 
                 // Update the floating status
-                topBar.dataset.allowFloat = true;
+                topBar.dataset.allowFloat = allowSearchBarFloat = newState;
 
-                // Check if the theme colour changed when the floating bar was blocked or not
-                if (floatAllowThemeColorUpdate != null) {
+                // Check if the floating search bar is allowed or not
+                if (newState) {
 
-                    // Restore the last theme colour
-                    floatAllowThemeColorUpdate();
+                    // Check if the theme colour changed when the floating bar was blocked or not
+                    if (floatAllowThemeColorUpdate != null) {
 
-                } else if (topBar.lastThemeColor != null) {
+                        // Restore the last theme colour
+                        floatAllowThemeColorUpdate();
 
-                    // Restore the previous theme colour
-                    updateThemeColor(topBar.lastThemeColor.light, topBar.lastThemeColor.dark, true);
+                    } else if (topBar.lastThemeColor != null) {
 
-                    // Delete the stored theme colour data
-                    topBar.lastThemeColor = null;
+                        // Restore the previous theme colour
+                        updateThemeColor(topBar.lastThemeColor.light, topBar.lastThemeColor.dark, true);
+
+                        // Delete the stored theme colour data
+                        topBar.lastThemeColor = null;
+
+                    }
+
+                } else {
+
+                    // Save the current theme colour
+                    topBar.lastThemeColor = getThemeColor();
+
+                    // Reset the theme color
+                    updateThemeColor(null, null, true, true);
 
                 }
-
-            } else {
-
-                // Save the current theme colour
-                topBar.lastThemeColor = getThemeColor();
-
-                // Reset the theme color
-                updateThemeColor(null, null, true);
-
-                // Update the floating status
-                topBar.dataset.allowFloat = false;
 
             }
 
         }
 
-    }
+    };
+    pageContentElement.addEventListener("scroll", pageContentElement.updateFloatingSearchBar, window.performanceVariables.objects.passiveEvent);
 
-};
-pageContentElement.addEventListener("scroll", pageContentElement.updateFloatingSearchBar, window.performanceVariables.objects.passiveEvent);
+}
+
 
 // Check if this device/browser supports voice input
 if (window.crossBrowser.speechRecognition.supported) {
