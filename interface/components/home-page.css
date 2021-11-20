@@ -58,7 +58,7 @@
 .homepage--cover-suggestions {
     position: relative;
     top: calc( -1 * var(--homepagecoversuggestions-height) - 3 * var(--global-topbottommargin));
-    height: calc(var(--homepagecoversuggestions-height) + 8px + 14px);
+    height: calc(var(--homepagecoversuggestions-height) + 8px + 16px);
     margin-bottom: calc(-1 * var(--homepagecoversuggestions-height) - 14px);
     right: var(--global-sidesmargin);
     width: 100%;
