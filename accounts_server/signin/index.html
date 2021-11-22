@@ -12,14 +12,15 @@
         
          :root {
             color-scheme: light;
-            --page-background: white;
+            --page-background: #f7f7ff;
+            background-color: var(--page-background);
         }
         /* Dark mode */
         
         @media (prefers-color-scheme: dark) {
              :root {
                 color-scheme: dark;
-                --page-background: #2a2a2a;
+                --page-background: #232329;
             }
         }
     </style>
@@ -48,8 +49,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="msapplication-TileColor" content="#5d42ef">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7ff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#232329">
 
     <!-- Styles -->
     <!--<link rel="stylesheet" href="./assets/styles/layout.css?v=%{{global:codebase.version}}%">-->

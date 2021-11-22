@@ -11,14 +11,15 @@
         
          :root {
             color-scheme: light;
-            --page-background: white;
+            --page-background: #f7f7ff;
+            background-color: var(--page-background);
         }
         /* Dark mode */
         
         @media (prefers-color-scheme: dark) {
              :root {
                 color-scheme: dark;
-                --page-background: #2a2a2a;
+                --page-background: #232329;
             }
         }
     </style>
@@ -50,8 +51,8 @@
     <meta name="image" content="./assets/media/logo/logo.png">
 
     <!-- Website theming -->
-    <meta id="meta--themecolor-light" name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta id="meta--themecolor-dark" name="theme-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta id="meta--themecolor-light" name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7ff">
+    <meta id="meta--themecolor-dark" name="theme-color" media="(prefers-color-scheme: dark)" content="#232329">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Styles -->
@@ -90,8 +91,8 @@
 
     <!-- Microsoft -->
     <meta name="msapplication-config" content="./msconfig.xml" />
-    <meta id="meta--msapplicationnavbuttoncolor-light" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta id="meta--msapplicationnavbuttoncolor-dark" name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" content="#2a2a2a">
+    <meta id="meta--msapplicationnavbuttoncolor-light" name="msapplication-navbutton-color" media="(prefers-color-scheme: light)" content="#f7f7ff">
+    <meta id="meta--msapplicationnavbuttoncolor-dark" name="msapplication-navbutton-color" media="(prefers-color-scheme: dark)" content="#232329">
 
 </head>
 

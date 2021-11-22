@@ -106,14 +106,17 @@
 .homepage--cover-price {
     display: block;
     font-size: 18px;
+    color: white;
 }
 
 .homepage--cover-title {
     font-size: 32px;
     margin: 4px 0px;
+    color: white;
 }
 
 .homepage--cover-description {
     font-size: 28px;
     opacity: 0.8;
+    color: white;
 }
