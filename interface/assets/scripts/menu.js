@@ -60,11 +60,7 @@ function showMenu(top = null, left = null, element) {
             menuCard.style.left = `calc( ${left}px - var(--global-sidesmargin) )`;
 
         }
-        window.addEventListener("resize", windowResize, (window.crossBrowser.passiveEvents.supported) ? {
-
-            passive: true
-
-        } : false);
+        window.addEventListener("resize", windowResize, window.performanceVariables.objects.passiveEvent);
 
         // Change the position of the menu
         menuCard.style.top = `calc( ${top}px + var(--global-topbottommargin) )`;
@@ -126,16 +122,8 @@ function shouldHideMenu() {
 // Update the `onclick` event functions
 if (window.platform.special.dynamic.isWindowSmall()) {
 
-    optionsButton.addEventListener("click", showMenu, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
-    menuCloseButton.addEventListener("click", hideMenu, (window.crossBrowser.passiveEvents.supported) ? {
-
-        passive: true
-
-    } : false);
+    optionsButton.addEventListener("click", showMenu, window.performanceVariables.objects.passiveEvent);
+    menuCloseButton.addEventListener("click", hideMenu, window.performanceVariables.objects.passiveEvent);
 
 }
 profilePictureButton.addEventListener("click", function() {
@@ -161,11 +149,7 @@ profilePictureButton.addEventListener("click", function() {
 
     }
 
-}, (window.crossBrowser.passiveEvents.supported) ? {
-
-    passive: true
-
-} : false);
+}, window.performanceVariables.objects.passiveEvent);
 
 // Update the menu's container click events
 if (!window.platform.special.dynamic.isWindowSmall()) {
