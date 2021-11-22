@@ -104,7 +104,6 @@
 - *Apache2* (Website directories management)
 - *NodeJS* (Native apps management, and bundling)
 - *Electron* (Windows, Linux, and macOS native apps)
-- ~~*React* (Android native app)~~
 
 ## Used Helping Tools and Resources
 
