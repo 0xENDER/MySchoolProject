@@ -91,8 +91,9 @@
 ## Used Languages
 
 - ~~*PHP* (Server-side scripting)~~
+- *Java* (Android native app)
 - *JavaScript* (Resource management, and server communication)
-- *HTML* (Interface)
+- *HTML* (Interface - structure)
 - *CSS* (Interface - styling)
 - *JSON* (API/Server outputs, and manifests)
 - ~~*MySQL script* (Database management)~~
