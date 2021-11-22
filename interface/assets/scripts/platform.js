@@ -90,7 +90,9 @@ window.platform = {
 
     more: { // If this is an app, that means you can get more info about the platform!
 
-        isElectron: (isApp && window.api != null) // Is this version of the codebase running on Rlectron?
+        isElectron: (isApp && "electronAPIs" in window), // Is this version of the codebase running on Electron?
+        isNativeAndroid: ("androidAPIs" in window) // Is this version of the codebase running as a native app on Android?
+            // ^^^ Note: add (isApp && ) ^^^
 
     },
 
@@ -153,7 +155,6 @@ window.platform = {
     }
 
 };
-
 delete isApp;
 
 // Check if the "LastVisitVersion" value is set
@@ -487,6 +488,40 @@ if (window.platform.isApp) {
 
         // Change the document data set to apply the appropriate style for the title bar controls
         document.documentElement.dataset.mac = true;
+
+    }
+
+} else {
+
+    // Debug (move to "window.platform.isApp" soon)
+    if (window.platform.more.isNativeAndroid) {
+
+        // Get the status bar height
+        var statusBarHeight = window.androidAPIs.getStatusBarHeight();
+
+        alert(statusBarHeight);
+
+        // Update the viewport to fit the status bar
+        document.documentElement.dataset.nativeAndroid = true;
+        var androidStyleElement = document.createElement("style");
+        androidStyleElement.innerHTML =
+            `[data-native-android="true"] .layout--topbar {
+                padding-top: ${statusBarHeight}px;
+            }
+            [data-native-android="true"] .layout--pagecontent {
+                padding-top: ${statusBarHeight}px;
+                height: calc(var(--pagecontent-height) - ${statusBarHeight}px);
+            }
+            @media all and (max-width: 840px) {
+                [data-native-android="true"][data-using-search=false][data-floating-search=true] .layout--pagecontent {
+                    padding-top: none;
+                    height: calc(var(--pagecontent-height) + var(--topbar-height) - ${statusBarHeight}px);
+                }
+            }`;
+        document.head.appendChild(androidStyleElement);
+
+        // Delete the used variables
+        delete statusBarHeight, androidStyleElement;
 
     }
 

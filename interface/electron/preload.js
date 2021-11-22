@@ -68,8 +68,8 @@ window.addEventListener('DOMContentLoaded', function() {
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld(
 
-    // Define "window.api"
-    "api", {
+    // Define "window.electronAPIs"
+    "electronAPIs", {
 
         // Enable the page content to send data to the main process
         send: (channel, data) => {

@@ -59,18 +59,6 @@ window.addEventListener('load', function() {
 // Set the window content load function
 window.uncover = function() {
 
-    // Register all the links
-    var linkElements = pageContentElementChild.getElementsByTagName("a");
-    for (var i = 0; i < linkElements.length; i++) {
-
-        window.registerNewLink(linkElements[i]);
-
-    }
-    delete linkElements;
-
-    // Run the initial events
-    initialEvents();
-
     // Check if the history object has been initiated
     if (typeof window.history.state == "object" && window.history.state != null) {
 
@@ -103,6 +91,18 @@ window.uncover = function() {
 
     }
 
+    // Register all the links
+    var linkElements = pageContentElementChild.getElementsByTagName("a");
+    for (var i = 0; i < linkElements.length; i++) {
+
+        window.registerNewLink(linkElements[i]);
+
+    }
+    delete linkElements;
+
+    // Run the initial events
+    initialEvents();
+
     // Inform the theme manager that the theme colour can be updated now
     clearTimeout(allowThemeColorUpdateTimeout);
     if (allowThemeColorUpdate != null) {
@@ -111,7 +111,7 @@ window.uncover = function() {
 
             allowThemeColorUpdate();
 
-        }, 140);
+        }, 110);
 
     }
 
@@ -225,10 +225,10 @@ function loadContentFromSrc(src = null) {
         if (window.platform.isApp && window.platform.more.isElectron) {
 
             // Send a request for the variable with the name of it
-            window.api.send('variable-request', "lastRedirectURL");
+            window.electronAPIs.send('variable-request', "lastRedirectURL");
 
             // Wait for the main process to send back the value of this variable
-            window.api.receive('variable-reply', function(data) {
+            window.electronAPIs.receive('variable-reply', function(data) {
 
                 window.location.lastRedirect = data;
 
@@ -1133,6 +1133,7 @@ window.registerNewLink = function(linkElement, useClickFunction = true) {
 
 };
 
+// Detect security policy violations
 document.addEventListener("securitypolicyviolation", (e) => {
 
     // Show the error details in the console
