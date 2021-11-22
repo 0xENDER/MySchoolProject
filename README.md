@@ -246,7 +246,7 @@ sudo npm install -g electron-builder
 
 You need to install *Wine* on your system so you can build windows apps. You can follow [these instructions](https://computingforgeeks.com/how-to-install-wine-on-kali-linux-and-debian-64-bit/) to get it to work.
 
-### The Native app for Android
+### The Native app for Android (OUTDATED!!!)
 
 You will need to install `expo-cli` if you wish to run or build any of the native apps for Android or iO:
 
