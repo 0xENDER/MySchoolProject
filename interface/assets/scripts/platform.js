@@ -513,8 +513,8 @@ if (window.platform.isApp) {
                 height: calc(var(--pagecontent-height) - ${statusBarHeight}px);
             }
             @media all and (max-width: 840px) {
-                [data-native-android="true"][data-using-search=false][data-floating-search=true] .layout--pagecontent {
-                    padding-top: none;
+                [data-native-android="true"][data-floating-search=true] .layout--pagecontent {
+                    padding-top: 0px;
                     height: calc(var(--pagecontent-height) + var(--topbar-height) - ${statusBarHeight}px);
                 }
             }`;
