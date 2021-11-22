@@ -616,8 +616,11 @@ body {
     margin: var(--icons-margin) auto;
     fill: var(--icons-colour);
     margin-bottom: 0px;
-    transition: margin 0.1s;
-    will-change: margin, filter;
+}
+
+.layout--sectionsbar-item.state--selected .sectionsbar--item-icon {
+    transition: margin 0.1s linear;
+    will-change: margin, filter, fill;
 }
 
 .layout--sectionsbar-item .sectionsbar--item-title,

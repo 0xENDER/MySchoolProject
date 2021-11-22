@@ -189,10 +189,6 @@
     padding-bottom: 6px;
 }
 
-.menu--container .menu--card .menu--card-item .menu--card-itemicon {
-    transition: none;
-}
-
 .menu--container .menu--card .menu--card-item .menu--card-itemtitle {
     top: 2px;
 }

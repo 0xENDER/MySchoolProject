@@ -22,6 +22,10 @@
     }
 }
 
+.layout--sectionsbar-item {
+    will-change: opacity, background;
+}
+
 .layout--sectionsbar-item.state--selected,
 .layout--sectionsbar-item:hover,
 .layout--sectionsbar-item:active {

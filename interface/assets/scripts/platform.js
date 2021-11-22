@@ -59,7 +59,7 @@ window.platform = {
 
     special: {
 
-        intervalRefreshRate: 100, // The minimal interval refresh rate allowed on this device (ms)
+        intervalRefreshRate: 50, // The minimal interval refresh rate allowed on this device (ms)
         scrollSpace: 25, // The value of how much the scrollbar buttons scroll when clicked (content pixels)
         scrollLockPeriod: 400, // The time need to lock a scrollbar button
         contentLoadingDelay: 110,
