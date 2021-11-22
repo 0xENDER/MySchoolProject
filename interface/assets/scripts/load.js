@@ -77,6 +77,23 @@ window.uncover = function() {
         // Update the scrolling position of the page content
         pageContentElement.scrollTo(0, window.history.state.extra.scrollPosition);
 
+        // Restore the saved theme colour
+        if (window.history.state.extra.themeSavedColors.search != undefined) {
+
+            searchLastThemeColor = window.history.state.extra.themeSavedColors.search;
+
+        }
+        if (window.history.state.extra.themeSavedColors.floatingSearch != undefined) {
+
+            topBar.lastThemeColor = window.history.state.extra.themeSavedColors.floatingSearch;
+
+        }
+        if (window.history.state.extra.themeSavedColors.menu != undefined) {
+
+            menuLastThemeColor = window.history.state.extra.themeSavedColors.menu;
+
+        }
+
     }
 
     // Check if this page requires a floating search bar
@@ -812,6 +829,12 @@ window.unloadContent = function() {
     document.documentElement.dataset.contentLoaded = false;
     topBar.dataset.allowFloat = allowSearchBarFloat = true;
 
+    // Reset theme-related variables
+    searchLastThemeColor = null;
+    menuLastThemeColor = null;
+    topBar.lastThemeColor = null;
+    floatAllowThemeColorUpdate = null;
+
     // Unload the background element
     pageBackgroundElement.style.display = "none";
     pageBackgroundElement.removeAttribute("src");
@@ -918,7 +941,14 @@ function defaultStateObject() {
         extra: {
 
             searchBarValue: searchBar.value,
-            scrollPosition: undefined
+            scrollPosition: undefined,
+            themeSavedColors: {
+
+                search: undefined,
+                floatingSearch: undefined,
+                menu: undefined
+
+            }
 
         }
 
@@ -933,7 +963,13 @@ function newStateObject() {
         ...window.history.state
     };
 
+    // Store the current scrolling position
     currentState.extra.scrollPosition = pageContentElement.scrollTop;
+
+    // Store the saved theme colours
+    currentState.extra.themeSavedColors.search = searchLastThemeColor;
+    currentState.extra.themeSavedColors.floatingSearch = topBar.lastThemeColor;
+    currentState.extra.themeSavedColors.menu = menuLastThemeColor;
 
     return currentState;
 
