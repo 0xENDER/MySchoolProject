@@ -89,6 +89,7 @@ function hideMenu() {
 
     // Remove the resize event listener
     window.removeEventListener("resize", lastWindowMenuResizeFunction);
+    delete lastWindowMenuResizeFunction;
 
     // Hide the menu
     menuScreen.style.display = "none";
