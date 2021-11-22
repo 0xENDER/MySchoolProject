@@ -123,6 +123,10 @@
 - *Mailing support*
 - *HTTPS support* (lots of web APIs and features are only accessible to websites that use the `HTTPS:` protocol. The website won't work properly if the user is connected using a different protocol)
 
+## Personal/Local Machine Requirements
+
+It's recommended that you have at least 6 GBs of RAM, and a CPU with four cores in order to build the codebase for Android, Windows, Linux, and the web. Any machine with specis less than the ones provided above could take a significantly long time to finish builds.
+
 ## Getting Started & The Development Environment
 
 Before you follow any of these instructions, make sure to configure your server settings in the [`server.config.jsonc`](./server.config.jsonc) file. Read the provided instructions within the `server.config.jsonc` file and follow them carefully, and watch out for any server credentials leaks when you upload your files online or share them with others.
