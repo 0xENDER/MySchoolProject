@@ -618,7 +618,7 @@ body {
     margin-bottom: 0px;
 }
 
-.layout--sectionsbar-item.state--selected .sectionsbar--item-icon {
+.layout--sectionsbar-item .sectionsbar--item-icon {
     transition: margin 0.1s linear;
     will-change: margin, filter, fill;
 }
