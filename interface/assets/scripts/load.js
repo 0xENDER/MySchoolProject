@@ -31,7 +31,8 @@ var contentResourcesNumber = 0,
     },
     didFail = false,
     lastPageHash = "",
-    allowThemeColorUpdateTimeout = -1;
+    allowThemeColorUpdateTimeout = -1,
+    domParser = new DOMParser();
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -258,13 +259,15 @@ function fetchContent(sourceURLPathname) {
     fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index + "?v=" + window.platform.codebase.version)
         .then(response => {
 
-            if (response.ok) { // If the request was successful, inject the content to the page.
+            // Check if the request was successful
+            if (response.ok) {
 
                 // Read the response text
                 response.text().then(data => {
 
                     // Check the "PAGE" element!
-                    var pageElement = data.substring(0, data.indexOf("\n"));
+                    var pageElement = data.substring(0, data.indexOf("\n")),
+                        pageContentDocument = null;
                     if (pageElement.indexOf("<PAGE") == 0 && pageElement.indexOf(">") != -1) {
 
                         // Prepare the "PAGE" element for processing
@@ -273,8 +276,8 @@ function fetchContent(sourceURLPathname) {
                         try {
 
                             // Convert the "PAGE" element into a HTML element
-                            pageElement = (new DOMParser()).parseFromString(pageElement, 'text/html');
-                            pageElement = pageElement.getElementById("system--pageElement");
+                            pageContentDocument = domParser.parseFromString(pageElement, 'text/html');
+                            pageElement = pageContentDocument.getElementById("system--pageElement");
 
                         } catch {
 
@@ -557,6 +560,9 @@ function fetchContent(sourceURLPathname) {
                             delete pageElement, pageTitle;
 
                         };
+
+                        // Delete the used variables
+                        delete pageContentDocument, pageElement;
 
 
                     } else { // This is an invalid file!
