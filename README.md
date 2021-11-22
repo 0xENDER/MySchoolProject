@@ -105,8 +105,10 @@
 - *NodeJS* (Native apps management, and bundling)
 - *Electron* (Windows, Linux, and macOS native apps)
 
-## Used Helping Tools and Resources
+## Used Tools and Resources
 
+- *[Visual Studio Code](https://code.visualstudio.com/)*
+- *[Android Studio](https://developer.android.com/studio)*
 - *[Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)* (performance testing and debugging)
 - *[web.dev](https://web.dev/)* (performance testing, and web vitals improvement)
 - *[PWABuilder](https://www.pwabuilder.com/)* (PWA testing)
