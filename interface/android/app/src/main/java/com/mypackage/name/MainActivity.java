@@ -16,11 +16,13 @@ import android.webkit.WebChromeClient;
 
 // Debug
 import android.util.Log;
+import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
     int statusBarHeight,
         currentAppVersionCode = -5;
+    WebView contentWebView;
 
     // Define the main function
     @Override
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get the WebView element from the "activity_main.xml" file
-        WebView contentWebView = findViewById(R.id.ContentWebView);
+        contentWebView = findViewById(R.id.ContentWebView);
 
         // Manage the settings of the WebView
         WebSettings contentWebViewSettings = contentWebView.getSettings();
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Get microphone permissions
         // ?????
+
+        // Force links and redirects to open in the WebView instead of in a browser
+        // contentWebView.setWebViewClient(new WebViewClient());
 
         // Get the console messages (debug)
         contentWebView.setWebChromeClient(new WebChromeClient() {
@@ -91,6 +96,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if(contentWebView.canGoBack()) {
+
+            contentWebView.goBack();
+
+        } else {
+
+            super.onBackPressed();
+
+        }
+
+    }
     // A function that returns the status bar height (px)
     @JavascriptInterface
     public int getStatusBarHeight() {
