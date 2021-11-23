@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     // A function that returns the status bar height (px)
     @JavascriptInterface
     public int getStatusBarHeight() {
