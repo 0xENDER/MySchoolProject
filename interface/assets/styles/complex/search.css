@@ -43,6 +43,10 @@
     border-radius: 12px;
 }
 
+[data-native-android="true"] .layout--searchcontainer {
+    top: calc(var(--topbar-height) + var(--global-statusbarheight));
+}
+
 [data-rendering-mode="high"] .layout--searchcontainer {
     box-shadow: 0px 2px 38px var(--alertscard-shadow);
 }

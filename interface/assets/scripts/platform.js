@@ -503,25 +503,10 @@ if (window.platform.isApp) {
 
         // Update the viewport to fit the status bar
         document.documentElement.dataset.nativeAndroid = true;
-        var androidStyleElement = document.createElement("style");
-        androidStyleElement.innerHTML =
-            `[data-native-android="true"] .layout--topbar {
-                padding-top: ${statusBarHeight}px;
-            }
-            [data-native-android="true"] .layout--pagecontent {
-                padding-top: ${statusBarHeight}px;
-                height: calc(var(--pagecontent-height) - ${statusBarHeight}px);
-            }
-            @media all and (max-width: 840px) {
-                [data-native-android="true"][data-floating-search=true] .layout--pagecontent {
-                    padding-top: 0px;
-                    height: calc(var(--pagecontent-height) + var(--topbar-height) - ${statusBarHeight}px);
-                }
-            }`;
-        document.head.appendChild(androidStyleElement);
+        document.documentElement.style.setProperty('--global-statusbarheight', `${ statusBarHeight }px`);
 
         // Delete the used variables
-        delete statusBarHeight, androidStyleElement;
+        delete statusBarHeight;
 
     }
 

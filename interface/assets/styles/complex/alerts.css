@@ -88,6 +88,11 @@
     text-align: center;
 }
 
+[data-native-android="true"] .alerts--container .alerts--card,
+[data-native-android="true"] .menu--container .menu--card {
+    margin-top: calc(((100*var(--vh, 1vh)) - var(--alertscard-maxheight) - var(--alertscard-paddingtopbottom))/2.5 + var(--global-statusbarheight));
+}
+
 .menu--container .menu--card {
     position: var(--menucard-position);
     margin: var(--menucard-margin);
