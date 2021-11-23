@@ -158,6 +158,11 @@
     height: calc(var(--pagecontent-height) - var(--global-statusbarheight));
 }
 
+[data-native-android="true"] .layout--pagecover {
+    margin-top: var(--global-statusbarheight);
+    height: calc(var(--pagecontent-height) - var(--global-statusbarheight));
+}
+
 [data-native-android="true"][data-floating-search=true] .layout--pagecontent {
     padding-top: 0px;
 }

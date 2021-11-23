@@ -7,7 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:theme="@style/Theme.AppCompat.NoActionBar">
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    android:fitsSystemWindows="false"
+    android:windowSoftInputMode="adjustResize">
+    <!-- The "fitsSystemWindows" attribute needs to be set to "true" if you want the "windowSoftInputMode" attribute to take effect! -->
 
     <WebView
         android:id="@+id/ContentWebView"

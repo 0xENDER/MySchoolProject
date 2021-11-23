@@ -2,23 +2,25 @@ package com.mypackage.name;
 
 // Import necessary libraries
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.webkit.JavascriptInterface;
+import android.webkit.PermissionRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-
-// Debug
-import android.util.Log;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 
+// Debug
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
     int statusBarHeight,
-        currentAppVersionCode = -3;
+        currentAppVersionCode = -5;
 
     // Define the main function
     @Override
@@ -27,19 +29,19 @@ public class MainActivity extends AppCompatActivity {
         // Default code
         super.onCreate(savedInstanceState);
 
-        // Get the height of the status bar (Not working!!!)
-        statusBarHeight = 0;
-        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-
-            // Convert the value from "dimen" to "px"
-            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
-
-        }
-
         // Hide the title bar and action bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
+
+        // Get the height of the status bar (Not working!!!?aS?aD?aD?as/a?!!!!!)
+        statusBarHeight = 0;
+        int statusBarHeightResourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (statusBarHeightResourceId > 0) {
+
+            // Convert the value from "dimen" to "px"
+            statusBarHeight = Math.round(getResources().getDimension(statusBarHeightResourceId));
+
+        }
 
         // Display content under the status bar
         View appView = getWindow().getDecorView();
@@ -61,14 +63,27 @@ public class MainActivity extends AppCompatActivity {
         // Link the required APIs for the app to work
         contentWebView.addJavascriptInterface(MainActivity.this, "androidAPIs");
 
+        // Get microphone permissions
+        // ?????
+
         // Get the console messages (debug)
         contentWebView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public void onPermissionRequest(final PermissionRequest request) {
+
+                request.grant(request.getResources());
+
+            }
+
+            // Debug
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 Log.e("MyApplication", consoleMessage.message() + " -- From line " +
                         consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
                 return true;
             }
+
         });
 
         // Load the website (temp)
