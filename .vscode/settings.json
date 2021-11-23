@@ -10,6 +10,7 @@
         "publish": "shellscript",
         "App.js": "javascriptreact"
 
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "disabled"
 
 }
