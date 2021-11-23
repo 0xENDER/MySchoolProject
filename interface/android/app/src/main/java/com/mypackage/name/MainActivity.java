@@ -2,7 +2,6 @@ package com.mypackage.name;
 
 // Import necessary libraries
 import androidx.appcompat.app.AppCompatActivity;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +17,7 @@ import android.webkit.WebChromeClient;
 
 public class MainActivity extends AppCompatActivity {
 
-    int titleBarHeight,
+    int statusBarHeight,
         currentAppVersionCode = -3;
 
     // Define the main function
@@ -29,8 +28,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Get the height of the status bar (Not working!!!)
+        statusBarHeight = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        titleBarHeight = getResources().getDimensionPixelSize(resourceId);
+        if (resourceId > 0) {
+
+            // Convert the value from "dimen" to "px"
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
+
+        }
 
         // Hide the title bar and action bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Get the WebView element from the "activity_main.xml" file
-        WebView contentWebView = (WebView) findViewById(R.id.ContentWebView);
+        WebView contentWebView = findViewById(R.id.ContentWebView);
 
         // Manage the settings of the WebView
         WebSettings contentWebViewSettings = contentWebView.getSettings();
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     @JavascriptInterface
     public int getStatusBarHeight() {
 
-        return titleBarHeight;
+        return statusBarHeight;
 
     }
 
