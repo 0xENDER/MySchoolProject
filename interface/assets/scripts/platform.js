@@ -497,20 +497,18 @@ if (window.platform.isApp) {
     if (window.platform.more.isNativeAndroid) {
 
         // Get the status bar height
-        var statusBarHeight = window.androidAPIs.getStatusBarHeight();
+        var statusBarHeight = window.androidAPIs.getStatusBarHeight(),
+            isUsingDarkMode = window.androidAPIs.isUsingDarkMode();
 
         // Update the viewport to fit the status bar
         document.documentElement.dataset.nativeAndroid = true;
         document.documentElement.style.setProperty('--global-statusbarheight', `${ statusBarHeight }px`);
 
         // Update the current theme colour
-        document.documentElement.dataset.forceDarkMode = window.androidAPIs.isUsingDarkMode();
-
-        // Debug
-        console.log(statusBarHeight);
+        document.documentElement.dataset.forceDarkMode = isUsingDarkMode;
 
         // Delete the used variables
-        delete statusBarHeight;
+        delete statusBarHeight, isUsingDarkMode;
 
     }
 

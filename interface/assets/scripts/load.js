@@ -157,7 +157,21 @@ function checkAgreement() {
 
             });
 
+        if (window.platform.more.isNativeAndroid) {
+
+            // Show the page content
+            window.androidAPIs.layoutDoneLoading();
+
+        }
+
     } else {
+
+        if (window.platform.more.isNativeAndroid) {
+
+            // Show the page content
+            window.androidAPIs.layoutDoneLoading();
+
+        }
 
         // Load the page content
         loadingReady();

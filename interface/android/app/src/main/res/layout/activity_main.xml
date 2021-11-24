@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:fitsSystemWindows="false"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:windowSoftInputMode="adjustResize"
-    android:id="@+id/MainLayout">
+    tools:context=".MainActivity">
     <!-- The "fitsSystemWindows" attribute needs to be set to "true" if you want the "windowSoftInputMode" attribute to take effect! -->
 
     <!-- <View
@@ -33,8 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-    </WebView>
+        app:layout_constraintTop_toTopOf="parent"></WebView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

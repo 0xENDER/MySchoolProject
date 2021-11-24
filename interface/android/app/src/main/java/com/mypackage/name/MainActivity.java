@@ -1,19 +1,23 @@
 package com.mypackage.name;
 
 // Import necessary libraries
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Process;
 import android.view.View;
 import android.view.Window;
 import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.ConsoleMessage;
@@ -21,12 +25,39 @@ import android.webkit.WebChromeClient;
 
 // Debug
 import android.util.Log;
+import android.webkit.WebViewClient;
+
+// Manage the WebView client and look for any errors
+class CustomWebViewClient extends WebViewClient {
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+
+        // Check if this is the store's domain
+        if ("store.mur-lang.org".equals(request.getUrl().getHost()) || "accounts.mur-lang.org".equals(request.getUrl().getHost())) {
+
+            // This is my website, so do not override this request.
+            return false;
+
+        }else{
+
+            // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
+            // Intent intent = new Intent(Intent.ACTION_VIEW, request.getUrl());
+            // startActivity(intent);
+
+            return true;
+
+        }
+
+    }
+
+}
 
 public class MainActivity extends AppCompatActivity {
 
     // Define some class-level variables
     int statusBarHeight,
-        currentAppVersionCode = -7;
+        currentAppVersionCode = -15;
     WebView contentWebView;
 
     // Update the status bar height variable
@@ -53,19 +84,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Setup the WebView
+    // Setup the WebView (for more info, visit: https://developer.android.com/guide/webapps/webview#java)
     public void setupWebView(){
 
         // Get the WebView element from the "activity_main.xml" file
         contentWebView = findViewById(R.id.ContentWebView);
 
+        // Hide the WebView
+        contentWebView.setVisibility(View.INVISIBLE);
+
         // Manage the settings of the WebView
         WebSettings contentWebViewSettings = contentWebView.getSettings();
         contentWebViewSettings.setJavaScriptEnabled(true);
         contentWebViewSettings.setDomStorageEnabled(true);
-        contentWebViewSettings.setAppCacheEnabled(false);
-        contentWebViewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        // contentWebViewSettings.setAppCacheEnabled(false);
+        // contentWebViewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         contentWebViewSettings.setBuiltInZoomControls(false);
+        // contentWebViewSettings.setSupportMultipleWindows(true); // Use this to allow the users to sign in to their accounts!
 
         // Link the required APIs for the app to work
         contentWebView.addJavascriptInterface(MainActivity.this, "androidAPIs");
@@ -73,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
         // Get microphone permissions
         // ?????
 
-        // Force links and redirects to open in the WebView instead of in a browser
+        // Manage links and redirecting
+        contentWebView.setWebViewClient(new CustomWebViewClient());
         // contentWebView.setWebViewClient(new WebViewClient());
 
         // Get the console messages (debug)
@@ -98,6 +134,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Show the WebView
+    public void showWebView(){
+
+        // Change the visibility of the WebView
+        contentWebView.setVisibility(View.VISIBLE);
+
+    }
+
     // Define the main function
     // For more info about these events: https://developer.android.com/guide/components/activities/activity-lifecycle
     @Override
@@ -106,7 +150,17 @@ public class MainActivity extends AppCompatActivity {
         // Default code
         super.onCreate(savedInstanceState);
 
+        // Give the app a high priority
+        int tidId = android.os.Process.myTid();
+        Log.d("00000000000","priority before change = " + android.os.Process.getThreadPriority(tidId));
+        Log.d("00000000000","priority before change = "+Thread.currentThread().getPriority());
+        android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+        Log.d("00000000000","priority after change = " + android.os.Process.getThreadPriority(tidId));
+        Log.d("00000000000","priority after change = " + Thread.currentThread().getPriority());
+
+
         // Hide the title bar and action bar
+        updateLayout();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
 
@@ -115,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
 
         updateStatusBarHeight();
         setupWebView();
-        updateLayout();
 
         // Load the website (temp)
         contentWebView.loadUrl("https://store.mur-lang.org/page/home/?androidAppVersion=" + currentAppVersionCode);
@@ -155,11 +208,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // A function that tells the website if the system is using dark mode
+    @JavascriptInterface
     public boolean isUsingDarkMode(){
 
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
         return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
+
+    }
+
+    // A function that the website can use to tell the app that it's finished loading
+    @JavascriptInterface
+    public void layoutDoneLoading(){
+
+        // Show the WebView
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                showWebView();
+
+            }
+
+        });
 
     }
 
