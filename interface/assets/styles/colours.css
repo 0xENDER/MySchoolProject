@@ -41,6 +41,38 @@
 
 /* Dark mode */
 
+
+/* Note: you need to make sure to change the values for each root instance here whenever you update the theme */
+
+[data-force-dark-mode="true"]:root {
+    --colours-primary1: #452dc5;
+    --colours-primary2: #6552ce;
+    --text-colour: #dedeff;
+    --topbar-background: var(--page-background);
+    --sectionsbar-background: var(--page-background);
+    --topbar-backgroundhover: #292933;
+    --pagecontent-background: #1b1b20;
+    --pagecontent-border: #2a2a35;
+    --icons-colour: #b4b4d9;
+    --topbarsearch-backgroundcolour: #29292f;
+    --topbarsearch-shadow: #171718;
+    --scrollbar-colour: #c5c5df;
+    --scrollbar-background: #37373b73;
+    --alerts-background: #0e0e10b5;
+    --alertscard-background: var(--topbar-background);
+    --alertscard-border: var(--pagecontent-border);
+    --alertscard-shadow: #111115cc;
+    --button-background: #292933;
+    --button-border: #373747;
+    --cards-border: #131318;
+    --cards-background: #232329;
+    --topbarlogo-opacity: 0.9;
+    --suggestionscardlogo-shadow: #131318;
+    --suggestionscardlogo-backgroundcolor: #212127;
+    --topbarsearchfloat-background: #1a1a24bf;
+    --topbarsearchfloat-shadow: #131314bf;
+}
+
 @media (prefers-color-scheme: dark) {
      :root {
         --colours-primary1: #452dc5;

@@ -1,8 +1,14 @@
 package com.mypackage.name;
 
 // Import necessary libraries
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -20,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Define some class-level variables
     int statusBarHeight,
-        currentAppVersionCode = -6;
+        currentAppVersionCode = -7;
     WebView contentWebView;
 
     // Update the status bar height variable
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         contentWebViewSettings.setDomStorageEnabled(true);
         contentWebViewSettings.setAppCacheEnabled(false);
         contentWebViewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        contentWebViewSettings.setBuiltInZoomControls(false);
 
         // Link the required APIs for the app to work
         contentWebView.addJavascriptInterface(MainActivity.this, "androidAPIs");
@@ -92,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Define the main function
+    // For more info about these events: https://developer.android.com/guide/components/activities/activity-lifecycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -129,6 +137,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // @Override
+    // public void onNightModeChanged(@AppCompatDelegate.NightMode int mode) {
+    //
+    //     super.onNightModeChanged(mode);
+    //
+    // }
+
     // Define all the "androidAPI" JS functions here!
 
     // A function that returns the status bar height (px)
@@ -136,6 +151,15 @@ public class MainActivity extends AppCompatActivity {
     public int getStatusBarHeight() {
 
         return statusBarHeight;
+
+    }
+
+    // A function that tells the website if the system is using dark mode
+    public boolean isUsingDarkMode(){
+
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
 
     }
 

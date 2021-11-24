@@ -15,6 +15,12 @@
             background-color: var(--page-background);
         }
         /* Dark mode */
+        /* Note: you need to make sure to change the values for each root instance here whenever you update the theme */
+        
+        [data-force-dark-mode="true"]:root {
+            color-scheme: dark;
+            --page-background: #232329;
+        }
         
         @media (prefers-color-scheme: dark) {
              :root {

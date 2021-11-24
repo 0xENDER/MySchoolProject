@@ -503,6 +503,9 @@ if (window.platform.isApp) {
         document.documentElement.dataset.nativeAndroid = true;
         document.documentElement.style.setProperty('--global-statusbarheight', `${ statusBarHeight }px`);
 
+        // Update the current theme colour
+        document.documentElement.dataset.forceDarkMode = window.androidAPIs.isUsingDarkMode();
+
         // Debug
         console.log(statusBarHeight);
 
