@@ -3,7 +3,6 @@ package com.mypackage.name;
 // Import necessary libraries
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -16,41 +15,40 @@ import android.webkit.WebChromeClient;
 
 // Debug
 import android.util.Log;
-import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Define some class-level variables
     int statusBarHeight,
-        currentAppVersionCode = -5;
+        currentAppVersionCode = -6;
     WebView contentWebView;
 
-    // Define the main function
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    // Update the status bar height variable
+    public void updateStatusBarHeight(){
 
-        // Default code
-        super.onCreate(savedInstanceState);
-
-        // Hide the title bar and action bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
-
-        // Get the height of the status bar (Not working!!!?aS?aD?aD?as/a?!!!!!)
+        // Reset the status bar height
         statusBarHeight = 0;
-        int statusBarHeightResourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (statusBarHeightResourceId > 0) {
 
-            // Convert the value from "dimen" to "px"
-            statusBarHeight = Math.round(getResources().getDimension(statusBarHeightResourceId));
+        int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+
+            statusBarHeight = getResources().getDimensionPixelSize(resourceId);
 
         }
+
+    }
+
+    // Update the layout to fit the whole screen
+    public void updateLayout(){
 
         // Display content under the status bar
         View appView = getWindow().getDecorView();
         appView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
-        // Set the content view to the activity_main.xml file
-        setContentView(R.layout.activity_main);
+    }
+
+    // Setup the WebView
+    public void setupWebView(){
 
         // Get the WebView element from the "activity_main.xml" file
         contentWebView = findViewById(R.id.ContentWebView);
@@ -91,6 +89,26 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    // Define the main function
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        // Default code
+        super.onCreate(savedInstanceState);
+
+        // Hide the title bar and action bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+
+        // Set the content view to the activity_main.xml file
+        setContentView(R.layout.activity_main);
+
+        updateStatusBarHeight();
+        setupWebView();
+        updateLayout();
+
         // Load the website (temp)
         contentWebView.loadUrl("https://store.mur-lang.org/page/home/?androidAppVersion=" + currentAppVersionCode);
 
@@ -110,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    // Define all the "androidAPI" JS functions here!
 
     // A function that returns the status bar height (px)
     @JavascriptInterface

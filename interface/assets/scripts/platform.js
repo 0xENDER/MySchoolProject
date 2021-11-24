@@ -499,11 +499,12 @@ if (window.platform.isApp) {
         // Get the status bar height
         var statusBarHeight = window.androidAPIs.getStatusBarHeight();
 
-        alert(statusBarHeight);
-
         // Update the viewport to fit the status bar
         document.documentElement.dataset.nativeAndroid = true;
         document.documentElement.style.setProperty('--global-statusbarheight', `${ statusBarHeight }px`);
+
+        // Debug
+        console.log(statusBarHeight);
 
         // Delete the used variables
         delete statusBarHeight;
