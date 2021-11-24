@@ -97,10 +97,16 @@ public class MainActivity extends AppCompatActivity {
         WebSettings contentWebViewSettings = contentWebView.getSettings();
         contentWebViewSettings.setJavaScriptEnabled(true);
         contentWebViewSettings.setDomStorageEnabled(true);
-        // contentWebViewSettings.setAppCacheEnabled(false);
-        // contentWebViewSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         contentWebViewSettings.setBuiltInZoomControls(false);
-        // contentWebViewSettings.setSupportMultipleWindows(true); // Use this to allow the users to sign in to their accounts!
+        contentWebViewSettings.setSupportMultipleWindows(true); // Use this to allow the users to sign in to their accounts!
+
+        // Improve the performance of the WebView
+        contentWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        contentWebViewSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        contentWebViewSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        contentWebViewSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        contentWebViewSettings.setUseWideViewPort(true);
+        contentWebViewSettings.setSaveFormData(false);
 
         // Link the required APIs for the app to work
         contentWebView.addJavascriptInterface(MainActivity.this, "androidAPIs");
@@ -175,6 +181,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onDestroy() {
+
+        // Default code
+        super.onDestroy();
+
+        // Remove the WebView
+        contentWebView.clearHistory();
+        contentWebView.removeAllViews();
+        contentWebView.destroy();
+
+    }
     @Override
     public void onBackPressed() {
 

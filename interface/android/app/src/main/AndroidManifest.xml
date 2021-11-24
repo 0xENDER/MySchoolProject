@@ -15,6 +15,7 @@
         android:theme="@style/Theme.MyAndroidApp">
         <activity
             android:name=".MainActivity"
+            android:hardwareAccelerated="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
