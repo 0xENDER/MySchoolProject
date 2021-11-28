@@ -32,7 +32,9 @@ var contentResourcesNumber = 0,
     didFail = false,
     lastPageHash = "",
     allowThemeColorUpdateTimeout = -1,
-    domParser = new DOMParser();
+    domParser = new DOMParser(),
+    allowContentAnimationTimeout = null,
+    loadingIconTimeout = null;
 
 // Wait for the main layout to finish loading
 window.addEventListener('load', function() {
@@ -117,6 +119,13 @@ window.uncover = function() {
 
     // Uncover the content
     document.documentElement.dataset.contentLoaded = true;
+
+    // Allow animations
+    allowContentAnimationTimeout = setTimeout(function() {
+
+        document.documentElement.dataset.allowContentAnimation = true;
+
+    }, 200);
 
 };
 
@@ -839,8 +848,13 @@ window.unloadContent = function() {
     // Reset the theme colour
     updateThemeColor(null, null, true);
 
+    // Clear any timeouts or content intervals
+    clearTimeout(allowContentAnimationTimeout);
+    clearTimeout(loadingIconTimeout);
+
     // Update the content status
     document.documentElement.dataset.contentLoaded = false;
+    document.documentElement.dataset.allowContentAnimation = false;
     topBar.dataset.allowFloat = allowSearchBarFloat = true;
 
     // Reset theme-related variables
@@ -864,7 +878,7 @@ window.unloadContent = function() {
     delete selectedSectionsItem;
 
     // Show the loading icon
-    setTimeout(function() {
+    loadingIconTimeout = setTimeout(function() {
 
         coverLoadingIcon.style.opacity = 1;
 

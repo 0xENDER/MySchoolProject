@@ -22,10 +22,6 @@
     }
 }
 
-.layout--sectionsbar-item {
-    will-change: opacity, background;
-}
-
 .layout--sectionsbar-item.state--selected,
 .layout--sectionsbar-item:hover,
 .layout--sectionsbar-item:active {
@@ -65,21 +61,6 @@
 }
 
 @media all and (max-width: 840px) {
-    .layout--topbar {
-        will-change: border, background;
-    }
-    .layout--topbar .layout--topbar-search::placeholder {
-        will-change: color, opacity;
-    }
-    .layout--pagecontent {
-        will-change: margin, height;
-    }
-    .component--scrollbar {
-        will-change: top;
-    }
-    .layout--topbar .layout--topbar-search {
-        will-change: background, box-shadow;
-    }
     [data-using-search="false"][data-floating-search="true"] .layout--topbar[data-allow-float="true"] {
         background-color: transparent;
         border: none;
@@ -168,27 +149,18 @@
 }
 
 .layout--pagecontent {
-    padding-top: 18px;
-}
-
-.layout--pagecontent * {
-    animation-play-state: paused;
-}
-
-[data-content-loaded="true"][data-allow-content-animation="true"] .layout--pagecontent * {
-    animation-play-state: running;
+    padding-top: calc(var(--global-statusbarheight) + 18px);
 }
 
 [data-content-loaded="true"] .layout--pagecontent {
     animation: contentLoadingAnimation .2s forwards ease-out;
-    animation-delay: 0.05s;
 }
 
 @keyframes contentLoadingAnimation {
     0% {
-        padding-top: 18px;
+        padding-top: calc(var(--global-statusbarheight) + 18px);
     }
     to {
-        padding-top: 0px;
+        padding-top: var(--global-statusbarheight);
     }
 }

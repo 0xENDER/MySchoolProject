@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Improve the performance of the WebView
         contentWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        contentWebViewSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        // contentWebViewSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
         contentWebViewSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         contentWebViewSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         contentWebViewSettings.setUseWideViewPort(true);
@@ -157,12 +157,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Give the app a high priority
-        int tidId = android.os.Process.myTid();
-        Log.d("00000000000","priority before change = " + android.os.Process.getThreadPriority(tidId));
-        Log.d("00000000000","priority before change = "+Thread.currentThread().getPriority());
-        android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
-        Log.d("00000000000","priority after change = " + android.os.Process.getThreadPriority(tidId));
-        Log.d("00000000000","priority after change = " + Thread.currentThread().getPriority());
+        // int tidId = android.os.Process.myTid();
+        // Log.d("00000000000","priority before change = " + android.os.Process.getThreadPriority(tidId));
+        // Log.d("00000000000","priority before change = "+Thread.currentThread().getPriority());
+        // android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+        // Log.d("00000000000","priority after change = " + android.os.Process.getThreadPriority(tidId));
+        // Log.d("00000000000","priority after change = " + Thread.currentThread().getPriority());
 
 
         // Hide the title bar and action bar

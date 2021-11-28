@@ -27,7 +27,7 @@ body {
 
 /* Hide unloaded stuff */
 
-[data-rendering-mode="high"] [data-loaded="true"] {
+[data-loaded="true"] {
     -moz-animation: showElement 0.1s linear;
     -webkit-animation: showElement 0.1s linear;
     -o-animation: showElement 0.1s linear;
@@ -35,7 +35,7 @@ body {
     opacity: 1;
 }
 
-[data-rendering-mode="high"] [data-loaded="false"] {
+[data-loaded="false"] {
     -moz-animation: hideElement 0.1s linear;
     -webkit-animation: hideElement 0.1s linear;
     -o-animation: hideElement 0.1s linear;
@@ -43,12 +43,14 @@ body {
     opacity: 0;
 }
 
-[data-rendering-mode="low"] [data-loaded="true"] {
-    opacity: 1;
+.layout--pagecontent [data-loaded="false"],
+.layout--pagecontent [data-loaded="true"] {
+    animation-play-state: paused;
 }
 
-[data-rendering-mode="low"] [data-loaded="false"] {
-    opacity: 0;
+[data-content-loaded="true"][data-allow-content-animation="true"] .layout--pagecontent [data-loaded="false"],
+[data-content-loaded="true"][data-allow-content-animation="true"] .layout--pagecontent [data-loaded="true"] {
+    animation-play-state: running;
 }
 
 @keyframes showElement {
@@ -73,6 +75,7 @@ body {
 /* Dynamic variables */
 
 :root {
+    --global-statusbarheight: 0px;
     --global-sidesmargin: 21px;
     --global-topbottommargin: 8px;
     --topbar-height: 52px;
