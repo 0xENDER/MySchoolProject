@@ -2,7 +2,7 @@
 
     "scripts": {
 
-        "start": "./publish -local",
+        "start": "sudo apachectl start\n./publish -local",
         "publish": "./publish",
         "web": "./build -web",
         "android": "./build -android",
