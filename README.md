@@ -101,9 +101,9 @@
 
 ## Used Technologies
 
-- *Apache2* (Website directories management)
-- *NodeJS* (Native apps management, and bundling)
-- *Electron* (Windows, Linux, and macOS native apps)
+- [*Apache2*](https://httpd.apache.org/) (Website directories management)
+- [*NodeJS*](https://nodejs.org/) (Native desktop apps management, and bundling)
+- [*Electron*](https://www.electronjs.org/) (Windows, Linux, and macOS native apps)
 
 ## Used Tools and Resources
 
