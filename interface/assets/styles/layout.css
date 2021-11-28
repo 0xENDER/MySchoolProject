@@ -302,24 +302,6 @@ body {
 [data-content-loaded="true"] .layout--pagecover {
     pointer-events: none;
     display: none;
-    -moz-animation: hideCover 0.14s linear;
-    -webkit-animation: hideCover 0.14s linear;
-    -o-animation: hideCover 0.14s linear;
-    animation: hideCover 0.14s linear;
-}
-
-@keyframes hideCover {
-    0% {
-        display: flex;
-        opacity: 1;
-    }
-    99% {
-        display: flex;
-        opacity: 0;
-    }
-    100% {
-        display: none;
-    }
 }
 
 
