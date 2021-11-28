@@ -111,3 +111,62 @@
     position: absolute;
     right: 8px;
 }
+
+
+/* Animate the search menu and search bar */
+
+.layout--topbar-backbutton {
+    animation: backButtonAnimation 0.1s;
+}
+
+.layout--topbar-searchicon {
+    animation: searchButtonAnimation 0.1s;
+}
+
+.layout--topbar-options,
+.component--search-iconright,
+.layout--topbar-profile {
+    animation: searchIconsAnimation 0.1s;
+}
+
+.layout--searchcontainer {
+    opacity: 0;
+    animation: searchContainerAnimation .16s forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes backButtonAnimation {
+    from {
+        transform: rotate(25deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes searchButtonAnimation {
+    from {
+        transform: rotate(-25deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes searchIconsAnimation {
+    from {
+        opacity: 0;
+    }
+    to {}
+}
+
+@keyframes searchContainerAnimation {
+    0% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

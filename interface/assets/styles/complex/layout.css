@@ -166,3 +166,29 @@
 [data-native-android="true"][data-floating-search=true] .layout--pagecontent {
     padding-top: 0px;
 }
+
+.layout--pagecontent {
+    padding-top: 18px;
+}
+
+.layout--pagecontent * {
+    animation-play-state: paused;
+}
+
+[data-content-loaded="true"][data-allow-content-animation="true"] .layout--pagecontent * {
+    animation-play-state: running;
+}
+
+[data-content-loaded="true"] .layout--pagecontent {
+    animation: contentLoadingAnimation .2s forwards ease-out;
+    animation-delay: 0.05s;
+}
+
+@keyframes contentLoadingAnimation {
+    0% {
+        padding-top: 18px;
+    }
+    to {
+        padding-top: 0px;
+    }
+}
