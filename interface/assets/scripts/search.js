@@ -258,11 +258,33 @@ function searchButtonClicked() {
 searchButton.onmousedown = searchButtonClicked;
 searchBackButton.onmousedown = function() {
 
-    // Navigate back
-    window.history.back();
+    // Hide the keyboard
+    searchVisible = false;
+    document.activeElement.blur();
 
-    // Update the value of the search bar
-    searchBar.value = previousSearchBarValue;
+    // Delay the navigation to improve the transition performance on mobile devices
+    var navigate = function() {
+
+            // Remove this resize event listener and the resize timeout
+            clearTimeout(resizeTimeout);
+            window.onresize = null;
+
+            // Navigate back
+            window.history.back();
+
+            // Update the value of the search bar
+            searchBar.value = previousSearchBarValue;
+
+            // Delete the used variables
+            delete navigate, resizeTimeout;
+
+        },
+        resizeTimeout = setTimeout(function() {
+
+            navigate();
+
+        }, (window.platform.more.isNativeAndroid) ? 0 : 500);
+    window.onresize = navigate;
 
 };
 
