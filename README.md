@@ -30,21 +30,21 @@
   - [ ] Optimise for low-performing devices
 - [ ] Keep track of the user experience (Analytics)
   - [ ] Detect loading problems and report them to the server
-  - [ ] Check how the user interacts with pages
+  - [ ] _~~Check how the user interacts with pages~~ **(!)**_
 - [ ] Support the store on mutiple platforms:
   - [x] The web
   - [x] PWA (Progressive Web Application) **(\*)**
   - [ ] Windows (Electron)
   - [ ] Linux (Electron)
-  - [ ] MacOS (Electron)
-  - [ ] _~~Android (React)~~ **(!)**_
+  - [ ] _~~MacOS (Electron)~~ **(!)**_
+  - [ ] Android (WebView-based)
 - [ ] Apps and Games compatibility checks
   - [ ] Add mandatory compatibility metrics
   - [ ] Add preferred compatibility metrics
   - [ ] Add optional compatibility metrics
   - [ ] Organise all the avaliable compatibility metrics into two categories: reliable, and experimental!
-- [ ] A built-in package management and installation system
-  - [ ] Create an installation package for apps (`.mypack` or something like that)
+- [ ] _~~A built-in package management and installation system~~ **(!)**_
+  - [ ] _~~Create an installation package for apps (`.mypack` or something like that)~~ **(!)**_
   - [ ] _~~Verify the app developer~~ **(!)**_
 - [ ] A fully secure and fledged accounts system:
   - [ ] Email verification system
@@ -54,7 +54,7 @@
   - [ ] Ownership syncing for free and paid apps
   - [ ] Downloads history syncing
 - [ ] A working system-dependent and user-preferences-wary suggestions system:
-  - [ ] A suggestions algorithm
+  - [ ] _~~A suggestions algorithm~~ **(!)**_
   - [ ] Categorises blocking
   - [ ] Categorises preferences
 - [ ] An abuse report system:
