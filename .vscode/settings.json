@@ -7,8 +7,7 @@
         "*.data.json": "json",
         "*.chtml": "text",
         "build": "shellscript",
-        "publish": "shellscript",
-        "App.js": "javascriptreact"
+        "publish": "shellscript"
 
     },
     "java.configuration.updateBuildConfiguration": "disabled"

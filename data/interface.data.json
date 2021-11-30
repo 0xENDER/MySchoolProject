@@ -5,7 +5,6 @@
         "electron": {
 
             "web": "false",
-            "react": "false",
             "electron": "true"
 
         }
@@ -15,8 +14,7 @@
     "base": {
 
         "web": "/",
-        "electron": "./",
-        "react": "./"
+        "electron": "./"
 
     }
 

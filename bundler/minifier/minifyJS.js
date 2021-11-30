@@ -21,7 +21,7 @@ scan.scanDirectory(path.join(__dirname, "..", "apps_codebase"), [".js"], functio
     var firstLine = textContent.substring(0, textContent.indexOf("\n"));
     if (firstLine.indexOf("//") == 0) {
 
-        if (firstLine.indexOf("--@react") != -1) {
+        if (firstLine.indexOf("--@stop") != -1) {
 
             stop = true;
 

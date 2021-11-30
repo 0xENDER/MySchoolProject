@@ -3,7 +3,6 @@
     "startPath": {
 
         "electron": "electron/start.js",
-        "react": "index.js",
         "web": "/page/home/"
 
     },
@@ -11,7 +10,6 @@
     "startScript": {
 
         "electron": "electron .",
-        "react": "react-native start",
         "web": ""
 
     }

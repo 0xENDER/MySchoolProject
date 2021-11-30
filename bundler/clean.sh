@@ -9,14 +9,8 @@ BUILD_LINUX=$4
 BUILD_MAC=$5
 BUILD_ANDROID=$6
 FRAMEWORK_ELECTRON=$7
-FRAMEWORK_REACT=$8
 USE_FRAMEWORKS=0
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
-#
-    USE_FRAMEWORKS=1
-#
-fi
-if [ $FRAMEWORK_REACT -eq 1 ]; then
 #
     USE_FRAMEWORKS=1
 #
@@ -66,11 +60,6 @@ fi
 if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
 #
     mkdir "builds/frameworks/electron"
-#
-fi
-if [ $FRAMEWORK_REACT -eq 1 ]; then
-#
-    mkdir "builds/frameworks/react"
 #
 fi
 #
