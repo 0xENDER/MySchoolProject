@@ -88,6 +88,23 @@ fi
 ###### #
 ###### fi
 #
+## Disable macOS builds for now
+if [ $BUILD_MAC -eq 1 ]; then
+#
+    echo -e "\n[Bundler] macOS builds are disabled!"
+    BUILD_MAC=0
+    if [ $(expr $BUILD_WEB + $BUILD_WINDOWS + $BUILD_LINUX + $BUILD_MAC + $BUILD_ANDROID) -gt 0 ]; then
+    #
+        BUILD=1
+    #
+    else
+    #
+        BUILD=0
+    #
+    fi
+#
+fi
+#
 ## Run the `start.sh` file
 if [ $BUILD -eq 1 ]; then
 #
