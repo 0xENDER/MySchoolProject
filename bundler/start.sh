@@ -77,6 +77,14 @@ if [ $FRAMEWORK_ELECTRON -eq 1 ]; then
 #
 fi
 #
+## Build the codebase for Android
+if [ $BUILD_ANDROID -eq 1 ]; then
+#
+    echo -e "\n[Bundler] Building the codebase for Android..."
+    "./android.sh" $DEBUG_MODE
+#
+fi
+#
 ## Inform the user that the build is done
 echo -e "\n[Bundler] All the builds are finished!"
 #

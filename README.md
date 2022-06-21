@@ -234,12 +234,42 @@ sudo npm install -g n
 sudo n latest
 ```
 
-### Native apps (Windows, Linux, and macOS apps)
+### Native apps (for Windows, Linux, and macOS)
 
 You will need to install `electron-builder` if you wish to run or build any of the native apps for Windows, Linux, or macOS:
 
 ```sh
 sudo npm install -g electron-builder
+```
+
+### Native app (for Android)
+
+You will need to install *Java* if you wish to run or build the native app for Android:
+
+```sh
+sudo apt install default-jre
+sudo apt install openjdk-11-jre-headless
+```
+
+And you also need to install the *Android SKD*:
+
+```sh
+# Not working
+sudo apt install android-sdk
+sudo android update sdk -u
+
+# Not working
+sudo apt install unzip
+cd ~
+wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+unzip sdk-tools-linux-4333796.zip
+rm sdk-tools-linux-4333796.zip
+mkdir android-sdk
+mv tools android-sdk/tools
+export ANDROID_HOME=$HOME/android-sdk
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
 ```
 
 #### Build the Windows app on Linux
