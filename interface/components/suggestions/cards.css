@@ -92,7 +92,8 @@
 
 /* Suggestions card content */
 
-.suggestions--card .suggestions--card-logo {
+.suggestions--card .suggestions--card-logo,
+.suggestioncard-logo {
     display: block;
     width: 100%;
     height: var(--suggestionscard-width);

@@ -1,0 +1,53 @@
+<PAGE page-end="true" can-unload="true" requires-account="false" keep-search="false" floating-search="true" use-background="true" />
+<!--
+    
+    Apps view page
+
+-->
+
+<resources>
+    <!-- Components -->
+    <request type="component/all" get="suggestions/cards"></request>
+    <request type="component/css" get="app-details-page"></request>
+
+    <!-- Loading script -->
+    <request type="file/js" src="${PageURL}/load.js"></request>
+</resources>
+
+<content>
+
+    <!-- The top section of the page -->
+    <div class="appdetails--top">
+
+        <!-- Fix the content to the bottom-center -->
+        <div class="appdetails--topc">
+
+            <!-- The app's basic info (name, creator, icon...) -->
+            <div class="appdetails--top-basics">
+
+                <!-- Logo -->
+                <img class="appdetails--basics-logo suggestioncard-logo" alt="App's logo" src="./assets/media/placeholder.svg">
+
+                <!-- Title and Creator -->
+                <div class="appdetails--basics-text">
+                    <h1 class="appdetails--basics-title">[App's Name]</h1>
+                    <h3 class="appdetails--basics-subtext">[App's Creator]</h3>
+                </div>
+
+                <!-- Description -->
+                <!-- ??? -->
+
+            </div>
+
+            <!-- The download/installation info -->
+            <div class="appdetails--top-software">
+
+                <button class="appdetails--top-button component--button component--button-primary">Get</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</content>

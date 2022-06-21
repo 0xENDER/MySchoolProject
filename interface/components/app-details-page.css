@@ -1,0 +1,88 @@
+/*
+
+    App details page content components
+
+*/
+
+:root {
+    --appdetailstopsoftware-width: 240px;
+    --appdetailstopc-display: flex;
+    --appdetailstopbasics-width: calc(100% - var(--appdetailstopsoftware-width));
+    --appdetailstopbasics-display: flex;
+    --appdetailstopbasics-textalign: left;
+    --appdetailsbasicslogo-margin: 0px;
+    --appdetailstop-margintop: 0px;
+}
+
+@media all and (max-width: 840px) {
+     :root {
+        --appdetailstopsoftware-width: 100%;
+        --appdetailstopc-display: block;
+        --appdetailstopbasics-width: 100%;
+        --appdetailstopbasics-display: block;
+        --appdetailstopbasics-textalign: center;
+        --appdetailsbasicslogo-margin: auto;
+        --appdetailstop-margintop: calc(var(--componentcover-height) / 2);
+    }
+}
+
+@media all and (max-height: 600px),
+all and (min-aspect-ratio:78/100) and (max-width: 840px) {
+     :root {
+        --appdetailstop-margintop: 0px;
+    }
+}
+
+@media all and (max-height: 600px) and (min-aspect-ratio:70/100) {
+     :root {
+        --appdetailstop-margintop: 0px;
+    }
+}
+
+.appdetails--top {
+    width: 90%;
+    height: calc(var(--componentcover-height) - 4 * var(--global-topbottommargin));
+    display: flex;
+    align-items: end;
+    content-visibility: auto;
+    padding: 0px 5%;
+    padding-bottom: calc(4 * var(--global-topbottommargin));
+    margin-top: var(--appdetailstop-margintop);
+}
+
+.appdetails--topc {
+    width: 100%;
+    display: var(--appdetailstopc-display);
+    align-items: center;
+}
+
+.appdetails--top-basics {
+    width: var(--appdetailstopbasics-width);
+    display: var(--appdetailstopbasics-display);
+    align-items: top;
+    text-align: var(--appdetailstopbasics-textalign);
+}
+
+.appdetails--basics-logo {
+    width: 248px;
+    height: 248px;
+    margin: 0px var(--appdetailsbasicslogo-margin);
+}
+
+.appdetails--basics-text {
+    padding: 0px var(--global-sidesmargin);
+}
+
+.appdetails--basics-title,
+.appdetails--basics-subtext {
+    display: block;
+}
+
+.appdetails--top-software {
+    width: var(--appdetailstopsoftware-width);
+}
+
+.appdetails--top-button {
+    width: 100%;
+    height: 60px;
+}
