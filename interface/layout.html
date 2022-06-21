@@ -42,7 +42,8 @@
     <link rel="preload" href="./assets/styles/font.css?v=%{{global:codebase.version}}%" as="style">
 
     <!-- Do some important stuff -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- "maximum-scale=5" results in an error! -->
     <meta name="referrer" content="strict-origin">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="%{{server:CSP}}%">
