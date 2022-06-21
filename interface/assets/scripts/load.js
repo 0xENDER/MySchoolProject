@@ -296,7 +296,11 @@ function updateSectionSelection(section) {
 // Fetch the content
 function fetchContent(sourceURLPathname) {
 
-    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4) + window.platform.codebase.index + "?v=" + window.platform.codebase.version)
+    fetch(window.platform.codebase.root + "pages" + sourceURLPathname.substring(sourceURLPathname.indexOf("page") + 4, (sourceURLPathname.indexOf("?") == -1) ? sourceURLPathname.length : sourceURLPathname.indexOf("?")) + window.platform.codebase.index + "?v=" + window.platform.codebase.version + (
+
+            sourceURLPathname.indexOf("?") == -1 ? "" : `&${sourceURLPathname.substring(sourceURLPathname.indexOf("?"))}`
+
+        ))
         .then(response => {
 
             // Check if the request was successful
