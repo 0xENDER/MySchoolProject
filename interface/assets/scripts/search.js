@@ -308,8 +308,13 @@ if (!window.platform.special.dynamic.isWindowSmall()) {
     // Define a variable to keep track of the clicks
     var clickInside = true;
 
-    // Detect clicks inside the search container
+    // Detect clicks inside the search container and search bar
     searchContainer.addEventListener("mousedown", function() {
+
+        clickInside = true;
+
+    }, window.performanceVariables.objects.passiveEvent);
+    searchBar.addEventListener("mousedown", function() {
 
         clickInside = true;
 
