@@ -78,7 +78,7 @@ body {
     --global-statusbarheight: 0px;
     --global-sidesmargin: 21px;
     --global-topbottommargin: 8px;
-    --topbar-height: 52px;
+    --topbar-height: 72px;
     --sectionsbar-width: 74px;
     --sectionsbar-height: calc(100% - var(--topbar-height));
     --sectionsbar-top: var(--topbar-height);
@@ -107,7 +107,7 @@ body {
     --icons-size: 32px;
     --icons-margin: 12px;
     --sectionsbaritme-display: block;
-    --pagecontent-corner: 14px;
+    --pagecontent-corner: 0px;
     --pagecover-topleftborder: 1px;
     --pagecover-bottomborder: 0px;
     --sectionsbaritem-width: var(--sectionsbaritem-size);
@@ -122,7 +122,7 @@ body {
 
 @media all and (max-width: 840px) {
      :root {
-        --topbar-height: 72px;
+        --topbar-height: 86px;
         --sectionsbar-width: 100%;
         --sectionsbar-height: 72px;
         --sectionsbar-top: none;
@@ -242,6 +242,7 @@ body {
     transform: translateZ(0);
     perspective: 1px;
     will-change: scroll-position;
+    height: calc(var(--pagecontent-height) - var(--global-statusbarheight));
 }
 
 .page--background {
@@ -250,7 +251,7 @@ body {
     bottom: 0px;
     width: 100%;
     height: 100%;
-    transform: translateZ(-3px) scale(4);
+    transform: translateZ(-8px) scale(9);
 }
 
 .page--background .page--background-image {
@@ -449,7 +450,7 @@ body {
     width: var(--topbarsearch-width);
     height: 0px;
     border-radius: 6px;
-    padding: calc(var(--topbarsearch-height) / 2) 42px;
+    padding: calc(var(--topbarsearch-height) / 2 - 8px) 42px;
     box-shadow: 0px 1px 3px var(--topbarsearch-shadow);
     border: 0px solid transparent;
     -webkit-app-region: no-drag;
