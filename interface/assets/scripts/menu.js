@@ -63,7 +63,7 @@ function showMenu(top = null, left = null, element) {
         window.addEventListener("resize", windowResize, window.performanceVariables.objects.passiveEvent);
 
         // Change the position of the menu
-        menuCard.style.top = `calc( ${top}px + var(--global-topbottommargin) )`;
+        menuCard.style.marginTop = `calc( ${top}px + var(--global-topbottommargin) )`;
         menuCard.style.left = `calc( ${left}px - var(--global-sidesmargin) )`;
 
     }
