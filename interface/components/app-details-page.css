@@ -99,7 +99,7 @@ all and (min-aspect-ratio:78/100) and (max-width: 840px) {
     margin: 0px;
     position: relative;
     z-index: 1;
-    min-height: 180px;
+    min-height: 380px;
 }
 
 .appdetails-content:before {
@@ -119,7 +119,7 @@ all and (min-aspect-ratio:78/100) and (max-width: 840px) {
 .appdetails-content:after {
     content: "";
     width: 100%;
-    height: 120px;
+    height: 380px;
     display: block;
     background: var(--pagecontent-background);
     position: fixed;
